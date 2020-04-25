@@ -8,5 +8,6 @@ namespace Profilberechnung_GruppeA2
 {
     class Rechteck
     {
+        //TEST
     }
 }
