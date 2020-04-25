@@ -10,6 +10,17 @@ namespace Profilberechnung_GruppeA2
     {
         static void Main(string[] args)
         {
+            float Breite;
+            float Hoehe;
+            float Laenge;
+            string Werkstoff;
+            double Dichte;
+
+            float Flaeche;
+            float Volumen;
+            float Gewicht;
+            float FTM_X;
+            float FTM_Y;
         }
     }
 }
