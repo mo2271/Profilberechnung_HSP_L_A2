@@ -8,6 +8,19 @@ namespace Profilberechnung_GruppeA2
 {
     class Rechteck
     {
-        //TEST
+        private float Breite;
+        private float Hoehe;
+
+        public float setBreite(float local_Breite)
+        {
+            Breite = local_Breite;
+            return Breite;
+        }
+
+        public float setHoehe(float local_Hoehe)
+        {
+            Hoehe = local_Hoehe;
+            return Hoehe;
+        }
     }
 }
