@@ -16,6 +16,9 @@ namespace Profilberechnung_GruppeA2
             double Hoehe;
             double Laenge;
             double Flaeche, Volumen;
+            double Gewicht;
+            double FTM_X;
+            double FTM_Y;
             string Masseinheit;
 
             Console.WriteLine("Berechnung eines Rechteckprofils gestartet.");
@@ -67,26 +70,21 @@ namespace Profilberechnung_GruppeA2
         }
         static void Main(string[] args)
         {
+            Console.WriteLine("Willkommen im Profilrechner!");
             
+            Console.WriteLine("Bitte geben Sie zunächst den verwendeten Werkstoff an (St, Al):");
             string Werkstoff;
-            
-
-            
-            double Gewicht;
-            double FTM_X;
-            double FTM_Y;
+            Werkstoff = Convert.ToString(Console.ReadLine());
+            string lower_Werkstoff = Werkstoff.ToLower();
+            double Dichte_spezifisch = Werkstoff_Auswahl(ref lower_Werkstoff);
 
             string Eingabe;
 
-            Console.WriteLine("Bitte geben Sie den zu berechnenden Profiltyp an: [1] Rechteck-Profil; [2]...");
+            Console.WriteLine("Bitte geben Sie nun den zu berechnenden Profiltyp an: [1] Rechteck-Profil; [2]...");
 
             Eingabe = Convert.ToString(Console.ReadLine());
             if (Eingabe.Equals("1"))
-            {
-                Console.WriteLine("Bitte geben Sie den verwendeten Werkstoff an (St, Al):");
-                Werkstoff = Convert.ToString(Console.ReadLine());
-                string lower_Werkstoff = Werkstoff.ToLower();
-                double Dichte_spezifisch = Werkstoff_Auswahl(ref lower_Werkstoff);
+            {  
                 Rechteckprofil(ref Dichte_spezifisch);
             }
             else
