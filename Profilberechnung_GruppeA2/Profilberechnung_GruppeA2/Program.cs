@@ -84,9 +84,11 @@ namespace Profilberechnung_GruppeA2
         static void Main(string[] args)
         {
             string neustart;        // Abfrage nach weiterer Berechnung über MessageBox
+            neustart = "Yes";
 
-            do
+            while (neustart=="Yes")
             {
+                Console.Clear();
                 Console.WriteLine("Willkommen im Profilrechner!");
 
                 double Dichte = Werkstoff_Auswahl();    // Startet die Werkstoffabfrage.
@@ -104,7 +106,6 @@ namespace Profilberechnung_GruppeA2
                     Console.WriteLine("... noch nicht implementiert ...");
                 }
 
-
                 MessageBoxResult result;
                 result = MessageBox.Show("Soll eine weitere Berechnung durchgeführt werden?", "Berechnung wurde durchgeführt",
                MessageBoxButton.YesNo,
@@ -112,12 +113,7 @@ namespace Profilberechnung_GruppeA2
                );
 
                 neustart = Convert.ToString(result);
-
-
             }
-
-
-            while (neustart == "yes");
 
             Console.WriteLine("Beliebige Taste zum Beenden drücken...");
             Console.ReadKey();
