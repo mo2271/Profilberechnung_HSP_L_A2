@@ -82,27 +82,46 @@ namespace Profilberechnung_GruppeA2
             return Dichte;
         }
         static void Main(string[] args)
-        {    
-            Console.WriteLine("Willkommen im Profilrechner!");
+        {
+            string neustart;        // Abfrage nach weiterer Berechnung über MessageBox
 
-            double Dichte = Werkstoff_Auswahl();    // Startet die Werkstoffabfrage.
-
-            // Startet die Auswahl des zu berechnenden Profils.
-            Console.WriteLine("Bitte geben Sie nun den zu berechnenden Profiltyp an: [1] Rechteck-Profil; [2]...");
-            string Eingabe;
-            Eingabe = Convert.ToString(Console.ReadLine());
-            if (Eingabe.Equals("1"))
-            {  
-                Rechteckprofil(ref Dichte);
-            }
-            else
+            do
             {
-                Console.WriteLine("... noch nicht implementiert ...");
+                Console.WriteLine("Willkommen im Profilrechner!");
+
+                double Dichte = Werkstoff_Auswahl();    // Startet die Werkstoffabfrage.
+
+                // Startet die Auswahl des zu berechnenden Profils.
+                Console.WriteLine("Bitte geben Sie nun den zu berechnenden Profiltyp an: [1] Rechteck-Profil; [2]...");
+                string Eingabe;
+                Eingabe = Convert.ToString(Console.ReadLine());
+                if (Eingabe.Equals("1"))
+                {
+                    Rechteckprofil(ref Dichte);
+                }
+                else
+                {
+                    Console.WriteLine("... noch nicht implementiert ...");
+                }
+
+
+                MessageBoxResult result;
+                result = MessageBox.Show("Soll eine weitere Berechnung durchgeführt werden?", "Berechnung wurde durchgeführt",
+               MessageBoxButton.YesNo,
+               MessageBoxImage.Question
+               );
+
+                neustart = Convert.ToString(result);
+
+
             }
-            
-            
+
+
+            while (neustart == "yes");
+
             Console.WriteLine("Beliebige Taste zum Beenden drücken...");
             Console.ReadKey();
+
         }
     }
 }
