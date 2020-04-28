@@ -6,12 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
 using System.Diagnostics.Eventing.Reader;
+using System.Threading;
 
 namespace Profilberechnung_GruppeA2
 {
     class Program
     {
-        static void Rechteckprofil(ref double Dichte_spezifisch)
+        static void Rechteckprofil(ref double Dichte)
         {
             double Breite;
             double Hoehe;
@@ -46,53 +47,59 @@ namespace Profilberechnung_GruppeA2
 
             Console.WriteLine("Flächeninhalt: " + Flaeche + " " + Masseinheit + "^2");
             Console.WriteLine("Volumen: " + Volumen + " " + Masseinheit + "^3");
-            Console.WriteLine("Dichte: " + Dichte_spezifisch);
+            Console.WriteLine("Dichte: " + Dichte + " " + "kg/m^3");
         }
 
-        static double Werkstoff_Auswahl(ref string lower_Werkstoff)
+        static double Werkstoff_Auswahl()
         {
+        Werkstoffabfrage:
+            Console.WriteLine("Bitte geben Sie zunächst den verwendeten Werkstoff an (St, Al):");
+            string Werkstoff;
+            Werkstoff = Convert.ToString(Console.ReadLine());
+            string lower_Werkstoff = Werkstoff.ToLower();
+         
             double Dichte;
 
+            // Startet die Überprüfung der Werkstoffeingabe.
             if (lower_Werkstoff.Contains("st"))
             {
+                Console.WriteLine("Werkstoff STAHL gewählt.");
                 Dichte = 7850d;
             }
             else if (lower_Werkstoff.Contains("al"))
             {
+                Console.WriteLine("Werkstoff ALUMINIUM gewählt.");
+
                 Dichte = 2700d;
             }
             else
             {
-                Console.WriteLine("Kein gültiger Werkstoff ausgewählt!");
-                Dichte = 0d;
+                Console.WriteLine("Kein gültiger Werkstoff ausgewählt, bitte geben Sie einen gültigen Werkstoff ein!");
+                
+                goto Werkstoffabfrage;  // Werkstoffabfrage wird erneut durchgeführt. 
             }
             
             return Dichte;
         }
         static void Main(string[] args)
-        {
+        {    
             Console.WriteLine("Willkommen im Profilrechner!");
-            
-            Console.WriteLine("Bitte geben Sie zunächst den verwendeten Werkstoff an (St, Al):");
-            string Werkstoff;
-            Werkstoff = Convert.ToString(Console.ReadLine());
-            string lower_Werkstoff = Werkstoff.ToLower();
-            double Dichte_spezifisch = Werkstoff_Auswahl(ref lower_Werkstoff);
 
-            string Eingabe;
+            double Dichte = Werkstoff_Auswahl();    // Startet die Werkstoffabfrage.
 
+            // Startet die Auswahl des zu berechnenden Profils.
             Console.WriteLine("Bitte geben Sie nun den zu berechnenden Profiltyp an: [1] Rechteck-Profil; [2]...");
-
+            string Eingabe;
             Eingabe = Convert.ToString(Console.ReadLine());
             if (Eingabe.Equals("1"))
             {  
-                Rechteckprofil(ref Dichte_spezifisch);
+                Rechteckprofil(ref Dichte);
             }
             else
             {
                 Console.WriteLine("... noch nicht implementiert ...");
             }
-
+            
             
             Console.WriteLine("Beliebige Taste zum Beenden drücken...");
             Console.ReadKey();
