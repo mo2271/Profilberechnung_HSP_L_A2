@@ -44,10 +44,19 @@ namespace Profilberechnung_GruppeA2
 
             Flaeche = R.Breite_Rechteck * R.Hoehe_Rechteck;
             Volumen = R.Breite_Rechteck * R.Hoehe_Rechteck * R.Laenge_Rechteck;
+            
+
+            FTM_X = (Breite * (Hoehe * Hoehe * Hoehe)) / 12;   // Berechnung FTM um die X-Achse
+            FTM_Y= (Hoehe * (Breite * Breite * Breite)) / 12;   // Berechnung FTM um die Y-Achse
 
             Console.WriteLine("Flächeninhalt: " + Flaeche + " " + Masseinheit + "^2");
             Console.WriteLine("Volumen: " + Volumen + " " + Masseinheit + "^3");
             Console.WriteLine("Dichte: " + Dichte + " " + "kg/m^3");
+            Console.WriteLine("Gewicht: " + Gewicht + " " + "kg");
+            
+            Console.WriteLine("Flächenträgheitsmoment um die x-Achse:" + FTM_X + Masseinheit + "^4");
+            Console.WriteLine("Flächenträgheitsmoment um die y-Achse:" + FTM_Y + Masseinheit + "^4");
+
         }
 
         static double Werkstoff_Auswahl()
@@ -81,6 +90,7 @@ namespace Profilberechnung_GruppeA2
             
             return Dichte;
         }
+        
         static void Main(string[] args)
         {
             string neustart;        // Abfrage nach weiterer Berechnung über MessageBox
