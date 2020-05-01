@@ -45,10 +45,9 @@ namespace Profilberechnung_GruppeA2
             Flaeche = R.Breite_Rechteck * R.Hoehe_Rechteck;
             Volumen = R.Breite_Rechteck * R.Hoehe_Rechteck * R.Laenge_Rechteck;
             
-
-            FTM_X = (Breite * (Hoehe * Hoehe * Hoehe)) / 12;   // Berechnung FTM um die X-Achse
-            FTM_Y= (Hoehe * (Breite * Breite * Breite)) / 12;   // Berechnung FTM um die Y-Achse
-
+            FTM_X = (R.Breite_Rechteck * (R.Hoehe_Rechteck * R.Hoehe_Rechteck * R.Hoehe_Rechteck)) / 12;   // Berechnung FTM um die X-Achse
+            FTM_Y= (Hoehe * (R.Breite_Rechteck * R.Breite_Rechteck * R.Breite_Rechteck)) / 12;   // Berechnung FTM um die Y-Achse
+            
             Console.WriteLine("Flächeninhalt: " + Flaeche + " " + Masseinheit + "^2");
             Console.WriteLine("Volumen: " + Volumen + " " + Masseinheit + "^3");
             Console.WriteLine("Dichte: " + Dichte + " " + "kg/m^3");
@@ -90,6 +89,25 @@ namespace Profilberechnung_GruppeA2
             
             return Dichte;
         }
+        static double Gewichtsberechnung(double Gewicht, string Masseinheit, double Dichte, double Volumen)
+        {
+            double Gewicht;
+
+            if (Masseinheit=="mm")
+            {
+                Gewicht = (Dichte / 1000 / 1000/ 1000) * Volumen;
+            }
+            if (Masseinheit=="cm")
+            {
+                Gewicht = (Dichte / 1000 / 1000) * Volumen;
+            }
+            if (Masseinheit=="m")
+            {
+                Gewicht = Dichte * Volumen;
+            }
+            
+            return Gewicht;
+        }
         
         static void Main(string[] args)
         {
@@ -102,7 +120,7 @@ namespace Profilberechnung_GruppeA2
                 Console.WriteLine("Willkommen im Profilrechner!");
 
                 double Dichte = Werkstoff_Auswahl();    // Startet die Werkstoffabfrage.
-
+                
                 // Startet die Auswahl des zu berechnenden Profils.
                 Console.WriteLine("Bitte geben Sie nun den zu berechnenden Profiltyp an: [1] Rechteck-Profil; [2]...");
                 string Eingabe;
