@@ -18,7 +18,7 @@ namespace Profilberechnung_GruppeA2
             double Hoehe;
             double Laenge;
             double Flaeche, Volumen;
-            
+
             double FTM_X;
             double FTM_Y;
             string Masseinheit;
@@ -37,27 +37,27 @@ namespace Profilberechnung_GruppeA2
             Masseinheit = Convert.ToString(Console.ReadLine());
 
             Console.WriteLine("Profil-Kennwerte werden berechnet...");
-            
+
             Rechteck R = new Rechteck();
             R.setGeometrie(Breite, Hoehe, Laenge);
-            
+
 
             Flaeche = R.Breite_Rechteck * R.Hoehe_Rechteck;
             Volumen = R.Breite_Rechteck * R.Hoehe_Rechteck * R.Laenge_Rechteck;
-            
-            FTM_X = (R.Breite_Rechteck * (R.Hoehe_Rechteck * R.Hoehe_Rechteck * R.Hoehe_Rechteck)) / 12;   // Berechnung FTM um die X-Achse
-            FTM_Y= (Hoehe * (R.Breite_Rechteck * R.Breite_Rechteck * R.Breite_Rechteck)) / 12;   // Berechnung FTM um die Y-Achse
-            
-            
-            
+
+            FTM_X = (R.Breite_Rechteck * Math.Pow(R.Hoehe_Rechteck, 3)) / 12;   // Berechnung FTM um die X-Achse
+            FTM_Y = (R.Hoehe_Rechteck * Math.Pow(R.Breite_Rechteck, 3)) / 12;   // Berechnung FTM um die Y-Achse
+
+
+
             Console.WriteLine("Flächeninhalt: " + Flaeche + " " + Masseinheit + "^2");
             Console.WriteLine("Volumen: " + Volumen + " " + Masseinheit + "^3");
             Console.WriteLine("Dichte: " + Dichte + " " + "kg/m^3");
-            Gewichtsberechnung(Masseinheit, Dichte, Volumen); 
-            
-            
-            Console.WriteLine("Flächenträgheitsmoment um die x-Achse:" + FTM_X + Masseinheit + "^4");
-            Console.WriteLine("Flächenträgheitsmoment um die y-Achse:" + FTM_Y + Masseinheit + "^4");
+            Gewichtsberechnung(Masseinheit, Dichte, Volumen);   // Ausgabe Gewicht in Unterprogramm 
+
+
+            Console.WriteLine("Flächenträgheitsmoment um die x-Achse:" + FTM_X + " " + Masseinheit + "^4");
+            Console.WriteLine("Flächenträgheitsmoment um die y-Achse:" + FTM_Y + " " + Masseinheit + "^4");
 
         }
 
@@ -68,7 +68,7 @@ namespace Profilberechnung_GruppeA2
             string Werkstoff;
             Werkstoff = Convert.ToString(Console.ReadLine());
             string lower_Werkstoff = Werkstoff.ToLower();
-         
+
             double Dichte;
 
             // Startet die Überprüfung der Werkstoffeingabe.
@@ -86,57 +86,50 @@ namespace Profilberechnung_GruppeA2
             else
             {
                 Console.WriteLine("Kein gültiger Werkstoff ausgewählt, bitte geben Sie einen gültigen Werkstoff ein!");
-                
+
                 goto Werkstoffabfrage;  // Werkstoffabfrage wird erneut durchgeführt. 
             }
-            
+
             return Dichte;
         }
 
         static void Gewichtsberechnung(string Masseinheit, double Dichte, double Volumen)
         {
             double Gewicht;
-            
-            if (Masseinheit=="mm")
+
+            if (Masseinheit == "mm")
             {
                 Gewicht = (Dichte / 1000 / 1000 / 1000) * Volumen;
 
                 Console.WriteLine("Gewicht: " + Gewicht + " " + "kg");
-
-
-
             }
-            if (Masseinheit=="cm")
+            else if (Masseinheit == "cm")
             {
                 Gewicht = (Dichte / 1000 / 1000) * Volumen;
 
                 Console.WriteLine("Gewicht: " + Gewicht + " " + "kg");
-
-
-
             }
-            if (Masseinheit=="m")
+            else    // Masseinheit == "m"
             {
-               Gewicht = Dichte * Volumen;
+                Gewicht = Dichte * Volumen;
 
                 Console.WriteLine("Gewicht: " + Gewicht + " " + "kg");
-
             }
-            
+
         }
-        
+
         static void Main(string[] args)
         {
             string neustart;        // Abfrage nach weiterer Berechnung über MessageBox
             neustart = "Yes";
 
-            while (neustart=="Yes")
+            while (neustart == "Yes")
             {
                 Console.Clear();
                 Console.WriteLine("Willkommen im Profilrechner!");
 
                 double Dichte = Werkstoff_Auswahl();    // Startet die Werkstoffabfrage.
-               
+
                 // Startet die Auswahl des zu berechnenden Profils.
                 Console.WriteLine("Bitte geben Sie nun den zu berechnenden Profiltyp an: [1] Rechteck-Profil; [2]...");
                 string Eingabe;
