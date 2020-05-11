@@ -156,6 +156,7 @@ namespace Profilberechnung_GruppeA2
             Console.ReadKey();
             // .gitignore Test
             // .suo ignore Test
+            // .suo delete
         }
     }
 }
