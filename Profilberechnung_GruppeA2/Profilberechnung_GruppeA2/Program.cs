@@ -158,6 +158,7 @@ namespace Profilberechnung_GruppeA2
             // .suo ignore Test
             // .suo delete
             // .gitignore edit
+            // Erstmal die Brille entgraten
         }
     }
 }
