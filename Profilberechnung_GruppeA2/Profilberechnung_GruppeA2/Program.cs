@@ -155,6 +155,7 @@ namespace Profilberechnung_GruppeA2
             Console.WriteLine("Beliebige Taste zum Beenden drücken...");
             Console.ReadKey();
             // .gitignore Test
+            // .suo ignore Test
         }
     }
 }
