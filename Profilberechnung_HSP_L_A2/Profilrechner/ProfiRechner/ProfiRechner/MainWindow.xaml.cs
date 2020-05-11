@@ -22,6 +22,7 @@ namespace ProfiRechner
     {
         public MainWindow()
         {
+            //Besser Rein in die Algen
             InitializeComponent();
         }
     }
