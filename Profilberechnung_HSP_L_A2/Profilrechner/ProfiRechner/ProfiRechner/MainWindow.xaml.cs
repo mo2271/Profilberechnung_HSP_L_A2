@@ -44,9 +44,6 @@ namespace ProfiRechner
             tab_Rechteckprofil.Visibility = Visibility.Hidden;
         }
 
-        private void tabctrl_Profilauswahl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        
     }
 }
