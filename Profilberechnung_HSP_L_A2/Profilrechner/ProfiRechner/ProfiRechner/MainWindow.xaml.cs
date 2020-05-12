@@ -38,12 +38,27 @@ namespace ProfiRechner
             tab_Rechteckprofil.Visibility = Visibility.Hidden;
         }
 
-        private void img_CloseButton_MouseDown(object sender, MouseButtonEventArgs e)
+        private void img_CloseButton_Rechteck_MouseDown(object sender, MouseButtonEventArgs e)
         {
             tabH_Rechteckprofil.Visibility = Visibility.Hidden;
             tab_Rechteckprofil.Visibility = Visibility.Hidden;
         }
 
-        
+        private void img_CloseButton_Kreis_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            tabH_Kreisprofil.Visibility = Visibility.Hidden;
+            tab_Kreisprofil.Visibility = Visibility.Hidden;
+        }
+
+        private void img_CloseButton_Sonder_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            tabH_Sonderprofile.Visibility = Visibility.Hidden;
+            tab_Sonderprofile.Visibility = Visibility.Hidden;
+        }
+
+        private void lb_item_Kreisprofil_MouseEnter(object sender, MouseEventArgs e)
+        {
+            lb_item_Kreisprofil.FontWeight = FontWeights.Bold;
+        }
     }
 }
