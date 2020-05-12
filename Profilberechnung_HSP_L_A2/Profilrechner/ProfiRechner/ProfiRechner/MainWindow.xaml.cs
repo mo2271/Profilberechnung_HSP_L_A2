@@ -25,5 +25,12 @@ namespace ProfiRechner
             //Besser Rein in die Algen
             InitializeComponent();
         }
+
+        private void lb_item_Rechteckprofil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            tab_Rechteckprofil.Visibility = Visibility.Visible;
+        }
+
+        
     }
 }
