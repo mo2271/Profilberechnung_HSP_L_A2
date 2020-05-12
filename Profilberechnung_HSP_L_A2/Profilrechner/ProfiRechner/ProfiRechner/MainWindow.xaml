@@ -11,7 +11,7 @@
             <ListBoxItem x:Name="lb_item_Rechteckprofil" Content="Rechteckprofile" Background="Gray" MouseDoubleClick="lb_item_Rechteckprofil_MouseDoubleClick"/>
             <ListBoxItem x:Name="lb_item_Rechteck_Hohlprofil" Content="Hohlprofil" Margin="20,0,0,0"/>
             <ListBoxItem x:Name="lb_item_Rechteck_Vollprofil" Content="Vollprofil" Margin="20,0,0,0"/>
-            <ListBoxItem x:Name="lb_item_Kreisprofil" Content="Kreisprofile" Background="Gray"/>
+            <ListBoxItem x:Name="lb_item_Kreisprofil" Content="Kreisprofile" Background="Gray" MouseEnter="lb_item_Kreisprofil_MouseEnter" />
             <ListBoxItem x:Name="lb_item_Kreis_Hohlprofil" Content="Hohlprofil" Margin="20,0,0,0"/>
             <ListBoxItem x:Name="lb_item_Kreis_Vollprofil" Content="Vollprofil" Margin="20,0,0,0"/>
             <ListBoxItem x:Name="lb_item_Sonderprofil" Content="Sonderprofile" Background="Gray"/>
@@ -27,7 +27,7 @@
                         <ColumnDefinition Width="1053*"/>
 
                     </Grid.ColumnDefinitions>
-                    <Image x:Name="img_CloseButton" Grid.Column="2" Margin="0,0,-0.4,0" Source="Close-Button.jpg" MouseDown="img_CloseButton_MouseDown" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top"/>
+                    <Image x:Name="img_CloseButton_Rechteck" Grid.Column="2" Margin="0,0,-0.4,0" Source="Close-Button.jpg" MouseDown="img_CloseButton_Rechteck_MouseDown" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top"/>
 
                 </Grid>
             </TabItem>
@@ -40,7 +40,7 @@
                         <ColumnDefinition Width="1053*"/>
 
                     </Grid.ColumnDefinitions>
-                    <Image x:Name="img_CloseButton_Kreis" Grid.Column="2" Margin="0,0,-0.4,0" Source="Close-Button.jpg" MouseDown="img_CloseButton_MouseDown" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top"/>
+                    <Image x:Name="img_CloseButton_Kreis" Grid.Column="2" Margin="0,0,-0.4,0" Source="Close-Button.jpg" MouseDown="img_CloseButton_Kreis_MouseDown" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top"/>
 
                 </Grid>
             </TabItem>
@@ -53,7 +53,7 @@
                         <ColumnDefinition Width="1053*"/>
 
                     </Grid.ColumnDefinitions>
-                    <Image x:Name="img_CloseButton_Sonder" Grid.Column="2" Margin="0,0,-0.4,0" Source="Close-Button.jpg" MouseDown="img_CloseButton_MouseDown" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top"/>
+                    <Image x:Name="img_CloseButton_Sonder" Grid.Column="2" Margin="0,0,-0.4,0" Source="Close-Button.jpg" MouseDown="img_CloseButton_Sonder_MouseDown" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top"/>
 
                 </Grid>
             </TabItem>
