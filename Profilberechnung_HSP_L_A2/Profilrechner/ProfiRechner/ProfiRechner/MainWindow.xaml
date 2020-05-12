@@ -20,19 +20,23 @@
         <TabControl x:Name="tabctrl_Profilauswahl" Margin="170,10,10,10">
             <TabItem x:Name="tabH_Rechteckprofil" Header="Rechteckprofile">
 
-                <Grid x:Name="tab_Rechteckprofil" Background="#FFE5E5E5" Visibility="Hidden">
+                <Grid x:Name="tab_Rechteckprofil" Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*"/>
                         <ColumnDefinition Width="40*"/>
                         <ColumnDefinition Width="1013*"/>
 
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="btn_Rechteck_Close" Content="X" Grid.Column="2" Margin="960.2,0,-0.4,568.4" Background="Red" FontWeight="Bold" Foreground="White" FontSize="36" FontFamily="Comic Sans MS"/>
+                    <Button x:Name="btn_Rechteck_Close" Content="X" Grid.Column="2" Margin="960.2,0,0,568.4" Background="Red" FontWeight="Bold" Foreground="White" FontSize="36" FontFamily="Comic Sans MS" Click="btn_Rechteck_Close_Click"/>
+                    <Image x:Name="img_CloseButton" Grid.Column="2" HorizontalAlignment="Left" Height="64" Margin="190.2,245,0,0" VerticalAlignment="Top" Width="64" Source="Close-Button.jpg" MouseDown="img_CloseButton_MouseDown"/>
+
                 </Grid>
             </TabItem>
             <TabItem x:Name="tab_Kreisprofil" Header="Kreisprofile">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
+
+
 
 
         </TabControl>
