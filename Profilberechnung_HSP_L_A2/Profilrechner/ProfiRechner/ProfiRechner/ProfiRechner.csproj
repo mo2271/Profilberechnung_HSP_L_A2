@@ -97,5 +97,8 @@
   <ItemGroup>
     <Resource Include="Close-Button.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Rechteckprofil_hohl.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
