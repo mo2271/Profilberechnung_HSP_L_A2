@@ -18,23 +18,46 @@
             <ListBoxItem x:Name="lb_item_Sonder_I_Profil" Content="I-Profil" Margin="20,0,0,0"/>
         </ListBox>
         <TabControl x:Name="tabctrl_Profilauswahl" Margin="170,10,10,10">
-            <TabItem x:Name="tabH_Rechteckprofil" Header="Rechteckprofile">
+            <TabItem x:Name="tabH_Rechteckprofil" Header="Rechteckprofile" HorizontalAlignment="Left" Margin="0,-2,0,-0.2" Width="100">
 
                 <Grid x:Name="tab_Rechteckprofil" Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0*"/>
                         <ColumnDefinition Width="5*"/>
-                        <ColumnDefinition Width="40*"/>
-                        <ColumnDefinition Width="1013*"/>
+                        <ColumnDefinition Width="1053*"/>
 
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="btn_Rechteck_Close" Content="X" Grid.Column="2" Margin="960.2,0,0,568.4" Background="Red" FontWeight="Bold" Foreground="White" FontSize="36" FontFamily="Comic Sans MS" Click="btn_Rechteck_Close_Click"/>
-                    <Image x:Name="img_CloseButton" Grid.Column="2" HorizontalAlignment="Left" Height="64" Margin="190.2,245,0,0" VerticalAlignment="Top" Width="64" Source="Close-Button.jpg" MouseDown="img_CloseButton_MouseDown"/>
+                    <Image x:Name="img_CloseButton" Grid.Column="2" Margin="0,0,-0.4,0" Source="Close-Button.jpg" MouseDown="img_CloseButton_MouseDown" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top"/>
 
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tab_Kreisprofil" Header="Kreisprofile">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem x:Name="tabH_Kreisprofil" Header="Kreisprofile" HorizontalAlignment="Left" Margin="0,-2,0,-0.2" Width="100">
+
+                <Grid x:Name="tab_Kreisprofil" Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="1053*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="img_CloseButton_Kreis" Grid.Column="2" Margin="0,0,-0.4,0" Source="Close-Button.jpg" MouseDown="img_CloseButton_MouseDown" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top"/>
+
+                </Grid>
             </TabItem>
+            <TabItem x:Name="tabH_Sonderprofile" Header="Sonderprofile" HorizontalAlignment="Right" Margin="0,-2,0,-0.2" Width="100">
+
+                <Grid x:Name="tab_Sonderprofile" Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="1053*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="img_CloseButton_Sonder" Grid.Column="2" Margin="0,0,-0.4,0" Source="Close-Button.jpg" MouseDown="img_CloseButton_MouseDown" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top"/>
+
+                </Grid>
+            </TabItem>
+
 
 
 
