@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProfiRechner"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="700" Width="1250" MinWidth="1250" MinHeight="700">
     <Grid>
-        
+        <ListBox x:Name="lbox_Profilauswahl" Margin="10,150,1088.2,10">
+            <ListBoxItem x:Name="lb_item_Rechteckprofil" Content="Rechteckprofile" Background="Gray" MouseDoubleClick="lb_item_Rechteckprofil_MouseDoubleClick"/>
+            <ListBoxItem x:Name="lb_item_Rechteck_Hohlprofil" Content="Hohlprofil" Margin="20,0,0,0"/>
+            <ListBoxItem x:Name="lb_item_Rechteck_Vollprofil" Content="Vollprofil" Margin="20,0,0,0"/>
+            <ListBoxItem x:Name="lb_item_Kreisprofil" Content="Kreisprofile" Background="Gray"/>
+            <ListBoxItem x:Name="lb_item_Kreis_Hohlprofil" Content="Hohlprofil" Margin="20,0,0,0"/>
+            <ListBoxItem x:Name="lb_item_Kreis_Vollprofil" Content="Vollprofil" Margin="20,0,0,0"/>
+            <ListBoxItem x:Name="lb_item_Sonderprofil" Content="Sonderprofile" Background="Gray"/>
+            <ListBoxItem x:Name="lb_item_Sonder_I_Profil" Content="I-Profil" Margin="20,0,0,0"/>
+        </ListBox>
+        <TabControl x:Name="tabctrl_Profilauswahl" Margin="170,10,10,10">
+            <TabItem x:Name="tabH_Rechteckprofil" Header="Rechteckprofile">
+
+                <Grid x:Name="tab_Rechteckprofil" Background="#FFE5E5E5" Visibility="Hidden">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="1013*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btn_Rechteck_Close" Content="X" Grid.Column="2" Margin="960.2,0,-0.4,568.4" Background="Red" FontWeight="Bold" Foreground="White" FontSize="36" FontFamily="Comic Sans MS"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tab_Kreisprofil" Header="Kreisprofile">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+
+
+        </TabControl>
+
     </Grid>
 </Window>
