@@ -28,9 +28,25 @@ namespace ProfiRechner
 
         private void lb_item_Rechteckprofil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            tabH_Rechteckprofil.Visibility = Visibility.Visible;
             tab_Rechteckprofil.Visibility = Visibility.Visible;
         }
 
-        
+        private void btn_Rechteck_Close_Click(object sender, RoutedEventArgs e)
+        {
+            tabH_Rechteckprofil.Visibility = Visibility.Hidden;
+            tab_Rechteckprofil.Visibility = Visibility.Hidden;
+        }
+
+        private void img_CloseButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            tabH_Rechteckprofil.Visibility = Visibility.Hidden;
+            tab_Rechteckprofil.Visibility = Visibility.Hidden;
+        }
+
+        private void tabctrl_Profilauswahl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
