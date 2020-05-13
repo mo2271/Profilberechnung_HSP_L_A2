@@ -22,14 +22,21 @@
 
                 <Grid x:Name="tab_Rechteckprofil" Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0*"/>
-                        <ColumnDefinition Width="5*"/>
-                        <ColumnDefinition Width="1053*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
 
                     </Grid.ColumnDefinitions>
-                    <Image x:Name="img_CloseButton_Rechteck" Grid.Column="2" Margin="0,0,-0.4,0" Source="Close-Button.jpg" MouseDown="img_CloseButton_Rechteck_MouseDown" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top"/>
+                    <Image x:Name="img_CloseButton_Rechteck" Grid.Column="2" Source="Close-Button.jpg" MouseDown="img_CloseButton_Rechteck_MouseDown" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbx_InputQ1" Grid.Column="1" HorizontalAlignment="Left" Height="42" Margin="137,286,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="153"/>
+                    <TextBox x:Name="tbx_InputQ2" Grid.Column="1" HorizontalAlignment="Left" Height="39" Margin="137,358,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="153"/>
+                    <TextBox x:Name="tbx_Input_Laenge" Grid.Column="1" HorizontalAlignment="Left" Height="47" Margin="137,436,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="153"/>
+                    <TextBox x:Name="tbx_InputWallThickness" Grid.Column="1" HorizontalAlignment="Left" Height="42" Margin="137,507,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="153"/>
+                    <Image x:Name="img_Rechteckprofil" HorizontalAlignment="Right" Height="368" Margin="0,115,0,0" VerticalAlignment="Top" Width="352" Source="Rechteckprofil.png" Stretch="Fill"/>
+                    <Label x:Name="lbl_Test" Content="Label" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="110,151,0,0" VerticalAlignment="Top" Width="143"/>
 
                 </Grid>
+
             </TabItem>
             <TabItem x:Name="tabH_Kreisprofil" Header="Kreisprofile" HorizontalAlignment="Left" Margin="0,-2,0,-0.2" Width="100">
 
