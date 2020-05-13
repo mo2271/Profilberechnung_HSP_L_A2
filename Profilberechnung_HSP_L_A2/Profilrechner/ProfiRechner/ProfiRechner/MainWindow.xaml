@@ -35,14 +35,28 @@
 
 
                     <TextBox x:Name="tbx_Rechteck_Masse" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,240,0,0" TextWrapping="Wrap" Text="Masse:" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
-                    <Image x:Name="img_Rechteckprofil" Margin="10,155,115,155" Source="Rechteckprofil.png" Stretch="Fill" Visibility="Hidden"/>
+                    <Image x:Name="img_Rechteckprofil" Margin="10,155,115,155" Source="Rechteckprofil.png" Stretch="Fill"/>
 
                     <TextBox x:Name="tbx_Rechteck_Fläche" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10.0,180,0,0" TextWrapping="Wrap" Text="Querschnittsfläche:" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
                     <TextBox x:Name="tbx_Rechteck_Volumen" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,210,0,0" TextWrapping="Wrap" Text="Volumen:" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
                     <Image x:Name="img_Rechteckprofil_hohl" Margin="10,155,115,155" Stretch="Fill" Source="Rechteckprofil_hohl.png" Visibility="Hidden"/>
-
-
-
+                    <Label x:Name="lbl_Input_RechteckBreite" Content="Breite:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="10,160,0,0" VerticalAlignment="Top" Width="68"/>
+                    <TextBox x:Name="tbx_Input_RechteckBreite" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_RechteckBreite_TextChanged"/>
+                    <Label x:Name="lbl_RechteckGrafik_Breite" Content="b" HorizontalAlignment="Left" Height="26" Margin="120,400,0,0" VerticalAlignment="Top" Width="47"/>
+                    <Label x:Name="lbl_Input_RechteckHoehe" Content="Höhe:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="10,200,0,0" VerticalAlignment="Top" Width="68"/>
+                    <Label x:Name="lbl_Input_RechteckLaenge" Content="Länge:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="10,240,0,0" VerticalAlignment="Top" Width="68"/>
+                    <TextBox x:Name="tbx_Input_RechteckHoehe" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+                    <TextBox x:Name="tbx_Input_RechteckLaenge" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,240,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+                    <Label Content="h" HorizontalAlignment="Left" Height="24" Margin="5,270,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-90"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabH_Kreisprofil" Header="Kreisprofile" HorizontalAlignment="Left" Margin="0,-2,0,-0.2" Width="100">
