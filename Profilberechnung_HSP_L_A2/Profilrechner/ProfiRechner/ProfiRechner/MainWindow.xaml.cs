@@ -52,6 +52,7 @@ namespace ProfiRechner
             tabH_Rechteckprofil.Visibility = Visibility.Hidden;
             tab_Rechteckprofil.Visibility = Visibility.Hidden;
         }
+       
 
         #region Checkboxen_Profilwahl
         private void ChB_Rechteckprofil_Hohlprofil_Checked(object sender, RoutedEventArgs e)
@@ -79,6 +80,9 @@ namespace ProfiRechner
             tab_Rechteckprofil.Visibility = Visibility.Visible;
         }
 
+
+        #endregion
+        #region Textboxen_Ergebnisse
 
         #endregion
         #endregion
@@ -156,6 +160,8 @@ namespace ProfiRechner
             tabH_Sonderprofile.Visibility = Visibility.Hidden;
             tab_Sonderprofile.Visibility = Visibility.Hidden;
         }
+
+
 
 
 
