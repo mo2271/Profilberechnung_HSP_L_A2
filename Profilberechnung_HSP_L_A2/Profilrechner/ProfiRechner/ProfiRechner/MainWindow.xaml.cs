@@ -60,6 +60,14 @@ namespace ProfiRechner
             ChB_Rechteckprofil_Vollprofil.IsChecked = false;
             img_Rechteckprofil.Visibility = Visibility.Hidden;
             img_Rechteckprofil_hohl.Visibility = Visibility.Visible;
+            lbl_RechteckGrafik_Breite.Visibility = Visibility.Hidden;
+            lbl_RechteckGrafik_Hoehe.Visibility = Visibility.Hidden;
+            lbl_Rechteck_hohlGrafik_Breite.Visibility = Visibility.Visible;
+            lbl_Rechteck_hohlGrafik_Hoehe.Visibility = Visibility.Visible;
+
+            lbl_Rechteck_hohlGrafik_Wall.Visibility = Visibility.Visible;
+            tbx_Input_Rechteck_hohl_Wall.Visibility = Visibility.Visible;
+            lbl_Input_Rechteck_hohl_Wall.Visibility = Visibility.Visible;
         }
 
         private void ChB_Rechteckprofil_Vollprofil_Checked(object sender, RoutedEventArgs e)
@@ -67,6 +75,14 @@ namespace ProfiRechner
             ChB_Rechteckprofil_Hohlprofil.IsChecked = false;
             img_Rechteckprofil.Visibility = Visibility.Visible;
             img_Rechteckprofil_hohl.Visibility = Visibility.Hidden;
+            lbl_RechteckGrafik_Breite.Visibility = Visibility.Visible;
+            lbl_RechteckGrafik_Hoehe.Visibility = Visibility.Visible;
+            lbl_Rechteck_hohlGrafik_Breite.Visibility = Visibility.Hidden;
+            lbl_Rechteck_hohlGrafik_Hoehe.Visibility = Visibility.Hidden;
+
+            lbl_Rechteck_hohlGrafik_Wall.Visibility = Visibility.Hidden;
+            tbx_Input_Rechteck_hohl_Wall.Visibility = Visibility.Hidden;
+            lbl_Input_Rechteck_hohl_Wall.Visibility = Visibility.Hidden;
         }
 
         private void lb_item_Rechteck_Hohlprofil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -75,6 +91,14 @@ namespace ProfiRechner
             tabH_Rechteckprofil.Visibility = Visibility.Visible;
             tab_Rechteckprofil.Visibility = Visibility.Visible;
             img_Rechteckprofil_hohl.Visibility = Visibility.Visible;
+            lbl_RechteckGrafik_Breite.Visibility = Visibility.Hidden;
+            lbl_RechteckGrafik_Hoehe.Visibility = Visibility.Hidden;
+            lbl_Rechteck_hohlGrafik_Breite.Visibility = Visibility.Visible;
+            lbl_Rechteck_hohlGrafik_Hoehe.Visibility = Visibility.Visible;
+
+            lbl_Rechteck_hohlGrafik_Wall.Visibility = Visibility.Visible;
+            tbx_Input_Rechteck_hohl_Wall.Visibility = Visibility.Visible;
+            lbl_Input_Rechteck_hohl_Wall.Visibility = Visibility.Visible;
         }
 
         private void lb_item_Rechteck_Vollprofil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -84,6 +108,14 @@ namespace ProfiRechner
             tab_Rechteckprofil.Visibility = Visibility.Visible;
             img_Rechteckprofil.Visibility = Visibility.Visible;
             img_Rechteckprofil_hohl.Visibility = Visibility.Hidden;
+            lbl_RechteckGrafik_Breite.Visibility = Visibility.Visible;
+            lbl_RechteckGrafik_Hoehe.Visibility = Visibility.Visible;
+            lbl_Rechteck_hohlGrafik_Breite.Visibility = Visibility.Hidden;
+            lbl_Rechteck_hohlGrafik_Hoehe.Visibility = Visibility.Hidden;
+
+            lbl_Rechteck_hohlGrafik_Wall.Visibility = Visibility.Hidden;
+            tbx_Input_Rechteck_hohl_Wall.Visibility = Visibility.Hidden;
+            lbl_Input_Rechteck_hohl_Wall.Visibility = Visibility.Hidden;
         }
 
 
@@ -94,8 +126,19 @@ namespace ProfiRechner
         private void tbx_Input_RechteckBreite_TextChanged(object sender, TextChangedEventArgs e)
         {
             lbl_RechteckGrafik_Breite.Content = tbx_Input_RechteckBreite.Text;
+            lbl_Rechteck_hohlGrafik_Breite.Content = tbx_Input_RechteckBreite.Text;
         }
 
+        private void tbx_Input_RechteckHoehe_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lbl_RechteckGrafik_Hoehe.Content = tbx_Input_RechteckHoehe.Text;
+            lbl_Rechteck_hohlGrafik_Hoehe.Content = tbx_Input_RechteckHoehe.Text;
+        }
+
+        private void tbx_Input_Rechteck_hohl_Wall_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lbl_Rechteck_hohlGrafik_Wall.Content = tbx_Input_Rechteck_hohl_Wall.Text;
+        }
         #endregion
 
         #region Textboxen_Ergebnisse
@@ -185,6 +228,8 @@ namespace ProfiRechner
             tabH_Sonderprofile.Visibility = Visibility.Hidden;
             tab_Sonderprofile.Visibility = Visibility.Hidden;
         }
+
+
 
 
 
