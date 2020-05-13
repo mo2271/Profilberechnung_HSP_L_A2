@@ -58,11 +58,15 @@ namespace ProfiRechner
         private void ChB_Rechteckprofil_Hohlprofil_Checked(object sender, RoutedEventArgs e)
         {
             ChB_Rechteckprofil_Vollprofil.IsChecked = false;
+            img_Rechteckprofil.Visibility = Visibility.Hidden;
+            img_Rechteckprofil_hohl.Visibility = Visibility.Visible;
         }
 
         private void ChB_Rechteckprofil_Vollprofil_Checked(object sender, RoutedEventArgs e)
         {
             ChB_Rechteckprofil_Hohlprofil.IsChecked = false;
+            img_Rechteckprofil.Visibility = Visibility.Visible;
+            img_Rechteckprofil_hohl.Visibility = Visibility.Hidden;
         }
 
         private void lb_item_Rechteck_Hohlprofil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -70,7 +74,7 @@ namespace ProfiRechner
             ChB_Rechteckprofil_Hohlprofil.IsChecked = true;
             tabH_Rechteckprofil.Visibility = Visibility.Visible;
             tab_Rechteckprofil.Visibility = Visibility.Visible;
-
+            img_Rechteckprofil_hohl.Visibility = Visibility.Visible;
         }
 
         private void lb_item_Rechteck_Vollprofil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -78,6 +82,8 @@ namespace ProfiRechner
             ChB_Rechteckprofil_Vollprofil.IsChecked = true;
             tabH_Rechteckprofil.Visibility = Visibility.Visible;
             tab_Rechteckprofil.Visibility = Visibility.Visible;
+            img_Rechteckprofil.Visibility = Visibility.Visible;
+            img_Rechteckprofil_hohl.Visibility = Visibility.Hidden;
         }
 
 
