@@ -120,11 +120,15 @@ namespace ProfiRechner
         private void ChB_Kreisprofil_Hohlprofil_Checked(object sender, RoutedEventArgs e)
         {
             ChB_Kreisprofil_Vollprofil.IsChecked = false;
+            img_Kreisprofil_hohl.Visibility = Visibility.Visible;
+            img_Kreisprofil.Visibility = Visibility.Hidden;
         }
 
         private void ChB_Kreisprofil_Vollprofil_Checked(object sender, RoutedEventArgs e)
         {
             ChB_Kreisprofil_Hohlprofil.IsChecked = false;
+            img_Kreisprofil_hohl.Visibility = Visibility.Hidden;
+            img_Kreisprofil.Visibility = Visibility.Visible;
         }
 
         private void lb_item_Kreis_Hohlprofil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -132,6 +136,8 @@ namespace ProfiRechner
             ChB_Kreisprofil_Hohlprofil.IsChecked = true;
             tabH_Kreisprofil.Visibility = Visibility.Visible;
             tab_Kreisprofil.Visibility = Visibility.Visible;
+            img_Kreisprofil_hohl.Visibility = Visibility.Visible;
+            img_Kreisprofil.Visibility = Visibility.Hidden;
         }
 
         private void lb_item_Kreis_Vollprofil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -139,6 +145,8 @@ namespace ProfiRechner
             ChB_Kreisprofil_Vollprofil.IsChecked = true;
             tabH_Kreisprofil.Visibility = Visibility.Visible;
             tab_Kreisprofil.Visibility = Visibility.Visible;
+            img_Kreisprofil_hohl.Visibility = Visibility.Hidden;
+            img_Kreisprofil.Visibility = Visibility.Visible;
         }
         #endregion
         #endregion
