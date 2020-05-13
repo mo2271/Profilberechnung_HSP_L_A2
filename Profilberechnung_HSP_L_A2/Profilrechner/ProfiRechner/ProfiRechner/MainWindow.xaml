@@ -38,6 +38,12 @@
                     <Label x:Name="lbl_Rechteck_Schwerpunkt" Content="Schwerpunkt:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Rechteck_FTM_X" Content="FTM um die X-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Rechteck_FTM_Y" Content="FTM um die Y-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Rechteck_Fläche_Ergebnis" Content="Ergebnis 1" Grid.Column="2" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Rechteck_Volumen_Ergebnis" Content="Ergebnis 2" Grid.Column="2" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Rechteck_Masse_Ergebnis" Content="Ergebnis 3" Grid.Column="2" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Rechteck_Schwerpunkt_Ergebnis" Content="Ergebnis 4" Grid.Column="2" HorizontalAlignment="Left" Margin="200,240,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Rechteck_FTM_X_Ergebnis" Content="Ergebnis 5:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,270,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Rechteck_FTM_Y_Ergebnis" Content="Ergebnis 6:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,300,0,0" VerticalAlignment="Top"/>
 
 
 
