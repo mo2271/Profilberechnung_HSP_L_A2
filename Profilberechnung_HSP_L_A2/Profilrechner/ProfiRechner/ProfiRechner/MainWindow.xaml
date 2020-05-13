@@ -78,12 +78,16 @@
                         </Label.RenderTransform>
                     </Label>
                     <Label x:Name="lbl_Rechteck_hohlGrafik_Wall" Content="t" HorizontalAlignment="Left" Height="28" Margin="194,345,0,0" VerticalAlignment="Top" Width="43"/>
+
                     <ComboBox x:Name="CoB_Rechteck_Auswahl_Einheit" Grid.Column="1" HorizontalAlignment="Left" Margin="30.2,80,0,0" VerticalAlignment="Top" Width="120">
                         <ComboBoxItem x:Name="Rechteck_Einheit_mm" Content="mm"/>
                         <ComboBoxItem x:Name="Rechteck_Einheit_cm" Content="cm"/>
                         <ComboBoxItem x:Name="Rechteck_Einheit_m" Content="m"/>
                     </ComboBox>
                     <Label x:Name="lbl_Rechteck_Hinweis_Einheiten" Content="Bitte wählen Sie eine Einheit aus:" Margin="190,80,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="200"/>
+
+                    <Button x:Name="btn_StartRechteckprofil_Berechnung" Content="Start" Grid.Column="1" Height="30" Margin="60,0,60,50" VerticalAlignment="Bottom" Click="btn_StartRechteckprofil_Berechnung_Click"/>
+
 
                 </Grid>
             </TabItem>
