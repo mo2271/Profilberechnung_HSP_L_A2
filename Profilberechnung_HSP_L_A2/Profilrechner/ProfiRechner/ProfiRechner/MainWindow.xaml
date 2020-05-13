@@ -78,6 +78,7 @@
                         </Label.RenderTransform>
                     </Label>
                     <Label x:Name="lbl_Rechteck_hohlGrafik_Wall" Content="t" HorizontalAlignment="Left" Height="28" Margin="194,345,0,0" VerticalAlignment="Top" Width="43"/>
+                    <Button x:Name="btn_StartRechteckprofil_Berechnung" Content="Start" Grid.Column="1" Height="30" Margin="60,0,60,50" VerticalAlignment="Bottom" Click="btn_StartRechteckprofil_Berechnung_Click"/>
 
                 </Grid>
             </TabItem>
