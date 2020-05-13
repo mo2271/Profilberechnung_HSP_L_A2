@@ -31,7 +31,7 @@
                     <CheckBox x:Name="ChB_Rechteckprofil_Hohlprofil" Content="Hohlprofil" Grid.Column="1" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" FontSize="16" Checked="ChB_Rechteckprofil_Hohlprofil_Checked"/>
                     <CheckBox x:Name="ChB_Rechteckprofil_Vollprofil" Content="Vollprofil" Grid.Column="1" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" FontSize="16" Checked="ChB_Rechteckprofil_Vollprofil_Checked"/>
 
-                    
+
 
 
                     <TextBox x:Name="tbx_Rechteck_Masse" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,240,0,0" TextWrapping="Wrap" Text="Masse:" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
@@ -57,6 +57,8 @@
                     <Image x:Name="img_CloseButton_Kreis" Grid.Column="2" Margin="0,0,-0.4,0" Source="Close-Button.jpg" MouseDown="img_CloseButton_Kreis_MouseDown" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top"/>
                     <CheckBox x:Name="ChB_Kreisprofil_Hohlprofil" Content="Hohlprofil" Grid.Column="1" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" FontSize="16" Checked="ChB_Kreisprofil_Hohlprofil_Checked"/>
                     <CheckBox x:Name="ChB_Kreisprofil_Vollprofil" Content="Vollprofil" Grid.Column="1" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" FontSize="16" Checked="ChB_Kreisprofil_Vollprofil_Checked"/>
+                    <Image x:Name="img_Kreisprofil" Margin="10,155,115,155" Source="Kreisprofil.png" Visibility="Hidden"/>
+                    <Image x:Name="img_Kreisprofil_hohl" Margin="10,155,115,155" Source="Kreisprofil_hohl.png" Visibility="Hidden"/>
 
                 </Grid>
             </TabItem>
