@@ -20,6 +20,7 @@ namespace ProfiRechner
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Berechnungsmethoden
         public void Rechteckprofil_Berechnung()
         {
             Double.TryParse(tbx_Input_RechteckBreite.Text, out double b);
@@ -33,12 +34,36 @@ namespace ProfiRechner
 
             lbl_Rechteck_Fläche_Ergebnis.Content = resFlaeche;
         }
+
+        public void Rechteckprofil_hohl_Berechnung()
+        {
+
+        }
+
+        public void Kreisprofil_Berechnung()
+        {
+
+        }
+
+        public void Kreisprofil_hohl_Berechnung()
+        {
+
+        }
+
+        public void I_Profil_Berechnung()
+        {
+
+        }
+
+        #endregion
+
         public MainWindow()
         {
             //Besser Rein in die Algen
             //Branch-Test
             InitializeComponent();
         }
+
 
 
         #region Rechteckprofil-Steuerung
