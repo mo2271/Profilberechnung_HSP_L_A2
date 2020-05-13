@@ -20,6 +20,19 @@ namespace ProfiRechner
     /// </summary>
     public partial class MainWindow : Window
     {
+        public void Rechteckprofil_Berechnung()
+        {
+            Double.TryParse(tbx_Input_RechteckBreite.Text, out double b);
+            Double.TryParse(tbx_Input_RechteckHoehe.Text, out double h);
+
+            double Flaeche;
+
+            Flaeche = b * h;
+
+            string resFlaeche = Convert.ToString(Flaeche);
+
+            lbl_Rechteck_Fläche_Ergebnis.Content = resFlaeche;
+        }
         public MainWindow()
         {
             //Besser Rein in die Algen
@@ -29,7 +42,6 @@ namespace ProfiRechner
 
 
         #region Rechteckprofil-Steuerung
-
 
         private void lb_item_Rechteckprofil_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -52,7 +64,12 @@ namespace ProfiRechner
             tabH_Rechteckprofil.Visibility = Visibility.Hidden;
             tab_Rechteckprofil.Visibility = Visibility.Hidden;
         }
-       
+
+        private void btn_StartRechteckprofil_Berechnung_Click(object sender, RoutedEventArgs e)
+        {
+            Rechteckprofil_Berechnung();
+        }
+
 
         #region Checkboxen_Profilwahl
         private void ChB_Rechteckprofil_Hohlprofil_Checked(object sender, RoutedEventArgs e)
@@ -228,6 +245,7 @@ namespace ProfiRechner
             tabH_Sonderprofile.Visibility = Visibility.Hidden;
             tab_Sonderprofile.Visibility = Visibility.Hidden;
         }
+
 
 
 
