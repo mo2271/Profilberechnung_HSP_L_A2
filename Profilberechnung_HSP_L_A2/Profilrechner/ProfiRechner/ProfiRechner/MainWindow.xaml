@@ -84,12 +84,25 @@
 
                 <Grid x:Name="tab_Sonderprofile" Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0*"/>
-                        <ColumnDefinition Width="5*"/>
-                        <ColumnDefinition Width="1053*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
 
                     </Grid.ColumnDefinitions>
                     <Image x:Name="img_CloseButton_Sonder" Grid.Column="2" Margin="0,0,-0.4,0" Source="Close-Button.jpg" MouseDown="img_CloseButton_Sonder_MouseDown" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Sonder_Fläche" Content="Querschnittsfläche:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Sonder_Volumen" Content="Volumen:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Sonder_Masse" Content="Masse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Sonder_Schwerpunkt" Content="Schwerpunkt:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Sonder_FTM_X" Content="FTM um die X-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Sonder_FTM_Y" Content="FTM um die Y-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Sonder_Fläche_Ergebnis" Content="Ergebnis 1" Grid.Column="2" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Sonder_Volumen_Ergebnis" Content="Ergebnis 2" Grid.Column="2" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Sonder_Masse_Ergebnis" Content="Ergebnis 3" Grid.Column="2" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Sonder_Schwerpunkt_Ergebnis" Content="Ergebnis 4" Grid.Column="2" HorizontalAlignment="Left" Margin="200,240,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Sonder_FTM_X_Ergebnis" Content="Ergebnis 5:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,270,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Sonder_FTM_Y_Ergebnis" Content="Ergebnis 6:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,300,0,0" VerticalAlignment="Top"/>
+
 
                 </Grid>
             </TabItem>
