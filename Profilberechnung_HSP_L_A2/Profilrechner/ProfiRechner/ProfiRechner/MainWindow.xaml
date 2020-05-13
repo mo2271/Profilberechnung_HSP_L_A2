@@ -8,13 +8,13 @@
         Title="MainWindow" Height="700" Width="1250" MinWidth="1250" MinHeight="700">
     <Grid>
         <ListBox x:Name="lbox_Profilauswahl" Margin="10,150,1088.2,10">
-            <ListBoxItem x:Name="lb_item_Rechteckprofil" Content="Rechteckprofile" Background="Gray" MouseDoubleClick="lb_item_Rechteckprofil_MouseDoubleClick"/>
+            <ListBoxItem x:Name="lb_item_Rechteckprofil" Content="Rechteckprofile" Background="Gray" MouseDoubleClick="lb_item_Rechteckprofil_MouseDoubleClick" MouseEnter="lb_item_Rechteckprofil_MouseEnter" MouseLeave="lb_item_Rechteckprofil_MouseLeave"/>
             <ListBoxItem x:Name="lb_item_Rechteck_Hohlprofil" Content="Hohlprofil" Margin="20,0,0,0"/>
             <ListBoxItem x:Name="lb_item_Rechteck_Vollprofil" Content="Vollprofil" Margin="20,0,0,0"/>
-            <ListBoxItem x:Name="lb_item_Kreisprofil" Content="Kreisprofile" Background="Gray" MouseEnter="lb_item_Kreisprofil_MouseEnter" />
+            <ListBoxItem x:Name="lb_item_Kreisprofil" Content="Kreisprofile" Background="Gray" MouseEnter="lb_item_Kreisprofil_MouseEnter" MouseLeave="lb_item_Kreisprofil_MouseLeave" MouseDoubleClick="lb_item_Kreisprofil_MouseDoubleClick" />
             <ListBoxItem x:Name="lb_item_Kreis_Hohlprofil" Content="Hohlprofil" Margin="20,0,0,0"/>
             <ListBoxItem x:Name="lb_item_Kreis_Vollprofil" Content="Vollprofil" Margin="20,0,0,0"/>
-            <ListBoxItem x:Name="lb_item_Sonderprofil" Content="Sonderprofile" Background="Gray"/>
+            <ListBoxItem x:Name="lb_item_Sonderprofil" Content="Sonderprofile" Background="Gray" MouseEnter="lb_item_Sonderprofil_MouseEnter" MouseLeave="lb_item_Sonderprofil_MouseLeave" MouseDoubleClick="lb_item_Sonderprofil_MouseDoubleClick"/>
             <ListBoxItem x:Name="lb_item_Sonder_I_Profil" Content="I-Profil" Margin="20,0,0,0"/>
         </ListBox>
         <TabControl x:Name="tabctrl_Profilauswahl" Margin="170,10,10,10">
