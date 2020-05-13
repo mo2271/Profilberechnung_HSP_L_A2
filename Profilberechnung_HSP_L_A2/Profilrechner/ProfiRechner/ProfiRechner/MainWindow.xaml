@@ -31,10 +31,11 @@
                     <CheckBox x:Name="ChB_Rechteckprofil_Hohlprofil" Content="Hohlprofil" Grid.Column="1" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" FontSize="16" Checked="ChB_Rechteckprofil_Hohlprofil_Checked"/>
                     <CheckBox x:Name="ChB_Rechteckprofil_Vollprofil" Content="Vollprofil" Grid.Column="1" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" FontSize="16" Checked="ChB_Rechteckprofil_Vollprofil_Checked"/>
                     <TextBox x:Name="tbx_Rechteck_Masse" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,240,0,0" TextWrapping="Wrap" Text="Masse:" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
-                    <Image x:Name="img_Rechteckprofil" HorizontalAlignment="Left" Height="335" Margin="44,115,0,0" VerticalAlignment="Top" Width="228" Source="Rechteckprofil.png"/>
+                    <Image x:Name="img_Rechteckprofil" Margin="10,155,115,155" Source="Rechteckprofil.png" Stretch="Fill" Visibility="Hidden"/>
 
                     <TextBox x:Name="tbx_Rechteck_Fläche" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10.0,180,0,0" TextWrapping="Wrap" Text="Querschnittsfläche:" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
                     <TextBox x:Name="tbx_Rechteck_Volumen" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,210,0,0" TextWrapping="Wrap" Text="Volumen:" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
+                    <Image x:Name="img_Rechteckprofil_hohl" Margin="10,155,115,155" Stretch="Fill" Source="Rechteckprofil_hohl.png" Visibility="Hidden"/>
 
 
                 </Grid>
