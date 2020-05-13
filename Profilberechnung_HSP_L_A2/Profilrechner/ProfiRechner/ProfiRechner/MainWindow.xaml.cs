@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,7 +31,7 @@ namespace ProfiRechner
 
         #region Rechteckprofil-Steuerung
 
-
+        #region Tabsteuerung
         private void lb_item_Rechteckprofil_MouseEnter(object sender, MouseEventArgs e)
         {
             lb_item_Rechteckprofil.FontWeight = FontWeights.Bold;
@@ -52,8 +53,13 @@ namespace ProfiRechner
             tabH_Rechteckprofil.Visibility = Visibility.Hidden;
             tab_Rechteckprofil.Visibility = Visibility.Hidden;
         }
+        #endregion
+        #region GraphicalRepresentation
+        
 
         
+
+        #endregion
         #endregion
 
         #region Kreisprofil-Steuerung
@@ -106,8 +112,11 @@ namespace ProfiRechner
             tab_Sonderprofile.Visibility = Visibility.Hidden;
         }
 
+
+
+
         #endregion
 
-        
+       
     }
 }
