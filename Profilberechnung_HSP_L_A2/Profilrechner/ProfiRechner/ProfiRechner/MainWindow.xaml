@@ -32,6 +32,7 @@
                     <CheckBox x:Name="ChB_Rechteckprofil_Vollprofil" Content="Vollprofil" Grid.Column="1" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" FontSize="16" Checked="ChB_Rechteckprofil_Vollprofil_Checked"/>
                     <TextBox x:Name="tbx_Rechteck_Voll_Fläche" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10.0,180,0,0" TextWrapping="Wrap" Text="Querschnittsfläche:" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
                     <TextBox x:Name="tbx_Rechteck_Masse" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="36.4,208,0,0" TextWrapping="Wrap" Text="Masse:" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
+                    <Image x:Name="img_Rechteckprofil" HorizontalAlignment="Left" Height="335" Margin="44,115,0,0" VerticalAlignment="Top" Width="228" Source="Rechteckprofil.png"/>
 
                 </Grid>
             </TabItem>
