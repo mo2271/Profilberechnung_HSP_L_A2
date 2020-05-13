@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProfiRechner"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1250" MinWidth="1250" MinHeight="700">
+        Title="Profil-Profi" Height="700" Width="1250" MinWidth="1250" MinHeight="700">
     <Grid>
         <ListBox x:Name="lbox_Profilauswahl" Margin="10,150,1088.2,10">
             <ListBoxItem x:Name="lb_item_Rechteckprofil" Content="Rechteckprofile" Background="Gray" MouseDoubleClick="lb_item_Rechteckprofil_MouseDoubleClick" MouseEnter="lb_item_Rechteckprofil_MouseEnter" MouseLeave="lb_item_Rechteckprofil_MouseLeave"/>
