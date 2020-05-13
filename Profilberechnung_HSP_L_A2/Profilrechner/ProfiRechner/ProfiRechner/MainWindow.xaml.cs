@@ -54,25 +54,30 @@ namespace ProfiRechner
         }
 
         #region Checkboxen_Profilwahl
-        private void ChB_Vollprofil_Checked(object sender, RoutedEventArgs e)
+        private void ChB_Rechteckprofil_Hohlprofil_Checked(object sender, RoutedEventArgs e)
         {
-            ChB_Hohlprofil.IsChecked = false;
+            ChB_Rechteckprofil_Vollprofil.IsChecked = false;
         }
-        private void ChB_Hohlprofil_Checked(object sender, RoutedEventArgs e)
+
+        private void ChB_Rechteckprofil_Vollprofil_Checked(object sender, RoutedEventArgs e)
         {
-            ChB_Vollprofil.IsChecked = false;
+            ChB_Rechteckprofil_Hohlprofil.IsChecked = false;
         }
 
         private void lb_item_Rechteck_Hohlprofil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            ChB_Hohlprofil.IsChecked = true;
+            ChB_Rechteckprofil_Hohlprofil.IsChecked = true;
+            tabH_Rechteckprofil.Visibility = Visibility.Visible;
+            tab_Rechteckprofil.Visibility = Visibility.Visible;
 
         }
+
         private void lb_item_Rechteck_Vollprofil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {           
-                ChB_Vollprofil.IsChecked = true;           
+        {
+            ChB_Rechteckprofil_Vollprofil.IsChecked = true;
+            tabH_Rechteckprofil.Visibility = Visibility.Visible;
+            tab_Rechteckprofil.Visibility = Visibility.Visible;
         }
-
 
 
         #endregion
@@ -101,7 +106,31 @@ namespace ProfiRechner
             tabH_Kreisprofil.Visibility = Visibility.Hidden;
             tab_Kreisprofil.Visibility = Visibility.Hidden;
         }
+        #region Checkboxen_Profilwahl
+        private void ChB_Kreisprofil_Hohlprofil_Checked(object sender, RoutedEventArgs e)
+        {
+            ChB_Kreisprofil_Vollprofil.IsChecked = false;
+        }
 
+        private void ChB_Kreisprofil_Vollprofil_Checked(object sender, RoutedEventArgs e)
+        {
+            ChB_Kreisprofil_Hohlprofil.IsChecked = false;
+        }
+
+        private void lb_item_Kreis_Hohlprofil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ChB_Kreisprofil_Hohlprofil.IsChecked = true;
+            tabH_Kreisprofil.Visibility = Visibility.Visible;
+            tab_Kreisprofil.Visibility = Visibility.Visible;
+        }
+
+        private void lb_item_Kreis_Vollprofil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ChB_Kreisprofil_Vollprofil.IsChecked = true;
+            tabH_Kreisprofil.Visibility = Visibility.Visible;
+            tab_Kreisprofil.Visibility = Visibility.Visible;
+        }
+        #endregion
         #endregion
 
         #region Sonderprofil-Steuerung
@@ -127,6 +156,10 @@ namespace ProfiRechner
             tabH_Sonderprofile.Visibility = Visibility.Hidden;
             tab_Sonderprofile.Visibility = Visibility.Hidden;
         }
+
+
+
+
 
 
 
