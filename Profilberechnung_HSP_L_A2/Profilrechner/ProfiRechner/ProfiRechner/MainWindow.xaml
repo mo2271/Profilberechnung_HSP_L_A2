@@ -78,6 +78,12 @@
                         </Label.RenderTransform>
                     </Label>
                     <Label x:Name="lbl_Rechteck_hohlGrafik_Wall" Content="t" HorizontalAlignment="Left" Height="28" Margin="194,345,0,0" VerticalAlignment="Top" Width="43"/>
+                    <ComboBox x:Name="CoB_Rechteck_Auswahl_Einheit" Grid.Column="1" HorizontalAlignment="Left" Margin="30.2,80,0,0" VerticalAlignment="Top" Width="120">
+                        <ComboBoxItem x:Name="Rechteck_Einheit_mm" Content="mm"/>
+                        <ComboBoxItem x:Name="Rechteck_Einheit_cm" Content="cm"/>
+                        <ComboBoxItem x:Name="Rechteck_Einheit_m" Content="m"/>
+                    </ComboBox>
+                    <Label x:Name="lbl_Rechteck_Hinweis_Einheiten" Content="Bitte wählen Sie eine Einheit aus:" Margin="190,80,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="200"/>
 
                 </Grid>
             </TabItem>
@@ -107,6 +113,12 @@
                     <Label x:Name="lbl_Kreis_Schwerpunkt_Ergebnis" Content="Ergebnis 4" Grid.Column="2" HorizontalAlignment="Left" Margin="200,240,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Kreis_FTM_X_Ergebnis" Content="Ergebnis 5:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,270,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Kreis_FTM_Y_Ergebnis" Content="Ergebnis 6:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,300,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="CoB_Kreis_Auswahl_Einheit" Grid.Column="1" HorizontalAlignment="Left" Margin="30.2,80,0,0" VerticalAlignment="Top" Width="120">
+                        <ComboBoxItem x:Name="Kreis_Einheit_mm" Content="mm"/>
+                        <ComboBoxItem x:Name="Kreis_Einheit_cm" Content="cm"/>
+                        <ComboBoxItem x:Name="Kreis_Einheit_m" Content="m"/>
+                    </ComboBox>
+                    <Label x:Name="lbl_Kreis_Hinweis_Einheiten" Content="Bitte wählen Sie eine Einheit aus:" Margin="190,80,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="200"/>
 
 
                 </Grid>
@@ -133,6 +145,12 @@
                     <Label x:Name="lbl_Sonder_Schwerpunkt_Ergebnis" Content="Ergebnis 4" Grid.Column="2" HorizontalAlignment="Left" Margin="200,240,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Sonder_FTM_X_Ergebnis" Content="Ergebnis 5:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,270,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Sonder_FTM_Y_Ergebnis" Content="Ergebnis 6:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,300,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="CoB_Sonder_Auswahl_Einheit" Grid.Column="1" HorizontalAlignment="Left" Margin="30.2,80,0,0" VerticalAlignment="Top" Width="120">
+                        <ComboBoxItem x:Name="Sonder_Einheit_mm" Content="mm"/>
+                        <ComboBoxItem x:Name="Sonder_Einheit_cm" Content="cm"/>
+                        <ComboBoxItem x:Name="Sonder_Einheit_m" Content="m"/>
+                    </ComboBox>
+                    <Label x:Name="lbl_Sonder_Hinweis_Einheiten" Content="Bitte wählen Sie eine Einheit aus:" Margin="190,80,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="200"/>
 
 
                 </Grid>
