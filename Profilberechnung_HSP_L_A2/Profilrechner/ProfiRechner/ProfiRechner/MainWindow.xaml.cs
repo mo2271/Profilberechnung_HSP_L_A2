@@ -88,9 +88,20 @@ namespace ProfiRechner
 
 
         #endregion
+
+        #region Grafische Darstellung
+
+        private void tbx_Input_RechteckBreite_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lbl_RechteckGrafik_Breite.Content = tbx_Input_RechteckBreite.Text;
+        }
+
+        #endregion
+
         #region Textboxen_Ergebnisse
 
         #endregion
+
         #endregion
 
         #region Kreisprofil-Steuerung
@@ -185,8 +196,9 @@ namespace ProfiRechner
 
 
 
+
         #endregion
 
-
+        
     }
 }
