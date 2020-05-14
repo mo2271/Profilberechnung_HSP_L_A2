@@ -89,6 +89,18 @@ namespace ProfiRechner
         {
             tabH_Rechteckprofil.Visibility = Visibility.Hidden;
             tab_Rechteckprofil.Visibility = Visibility.Hidden;
+
+            // Fokusführung beim Schließen des Tabs: Fokussiere bevorzugt auf den Tab links vom aktuellen Tab, sonst einen anderen offenen Tab.
+            if (tab_Kreisprofil.Visibility != Visibility.Hidden)
+            {
+                TabItem tabSwitch1_Rechteck = (TabItem)tabctrl_Profilauswahl.Items[1];
+                tabSwitch1_Rechteck.Focus();        // Fokussiere Kreisprofiltab
+            }
+            else
+            {
+                TabItem tabSwitch2_Rechteck = (TabItem)tabctrl_Profilauswahl.Items[2];
+                tabSwitch2_Rechteck.Focus();        // Alternativ: Fokussiere Sonderprofiltab
+            }
         }
 
         private void btn_StartRechteckprofil_Berechnung_Click(object sender, RoutedEventArgs e)
@@ -237,6 +249,18 @@ namespace ProfiRechner
         {
             tabH_Kreisprofil.Visibility = Visibility.Hidden;
             tab_Kreisprofil.Visibility = Visibility.Hidden;
+
+            // Fokusführung beim Schließen des Tabs: Fokussiere bevorzugt auf den Tab links vom aktuellen Tab, sonst einen anderen offenen Tab.
+            if (tab_Rechteckprofil.Visibility != Visibility.Hidden)
+            {
+                TabItem tabSwitch1_Kreis = (TabItem)tabctrl_Profilauswahl.Items[0];
+                tabSwitch1_Kreis.Focus();       // Fokussiere Rechteckprofiltab
+            }
+            else
+            {
+                TabItem tabSwitch2_Kreis = (TabItem)tabctrl_Profilauswahl.Items[2];
+                tabSwitch2_Kreis.Focus();       // Alternativ: Fokussiere Sonderprofiltab
+            }
         }
 
         private void btn_StartKreisprofil_Berechnung_Click(object sender, RoutedEventArgs e)
@@ -350,7 +374,7 @@ namespace ProfiRechner
             tabH_Sonderprofile.Visibility = Visibility.Visible;
             tab_Sonderprofile.Visibility = Visibility.Visible;
 
-            TabItem tab_I_Profil = (TabItem)tabctrl_Profilauswahl.Items[2];     // Index Sonderprofiltab
+            TabItem tab_I_Profil = (TabItem)tabctrl_Profilauswahl.Items[2];     // Index Sonderprofiltab: 2
             tab_I_Profil.Focus();       // Fokussiere Sonderprofiltab
         }
 
@@ -367,6 +391,18 @@ namespace ProfiRechner
         {
             tabH_Sonderprofile.Visibility = Visibility.Hidden;
             tab_Sonderprofile.Visibility = Visibility.Hidden;
+
+            // Fokusführung beim Schließen des Tabs: Fokussiere bevorzugt auf den Tab links vom aktuellen Tab, sonst einen anderen offenen Tab.
+            if (tab_Kreisprofil.Visibility != Visibility.Hidden)
+            {
+                TabItem tabSwitch1_Sonderprofil = (TabItem)tabctrl_Profilauswahl.Items[1];
+                tabSwitch1_Sonderprofil.Focus();    // Fokussiere Kreisprofil-Tab
+            }
+            else
+            {
+                TabItem tabSwitch2_Sonderprofil = (TabItem)tabctrl_Profilauswahl.Items[0];
+                tabSwitch2_Sonderprofil.Focus();    // Alternativ: Fokussiere Rechteckprofil-Tab
+            }
         }
 
         private void btn_StartIPE_Berechnung_Click(object sender, RoutedEventArgs e)
