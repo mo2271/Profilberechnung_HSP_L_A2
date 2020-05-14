@@ -46,16 +46,16 @@
                     <Label x:Name="lbl_Rechteck_Schwerpunkt_Ergebnis" Content="Ergebnis 4" Grid.Column="3" HorizontalAlignment="Left" Margin="200.2,240,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Rechteck_FTM_X_Ergebnis" Content="Ergebnis 5:" Grid.Column="3" HorizontalAlignment="Left" Margin="200.2,270,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Rechteck_FTM_Y_Ergebnis" Content="Ergebnis 6:" Grid.Column="3" HorizontalAlignment="Left" Margin="200.2,300,0,0" VerticalAlignment="Top"/>
-                    <Image x:Name="img_Rechteckprofil_hohl" Margin="10,155,115,155" Stretch="Fill" Source="Rechteckprofil_hohl.png"/>
+                    <Image x:Name="img_Rechteckprofil_hohl" Margin="10,155,115,155" Stretch="Fill" Source="Rechteckprofil_hohl.png" Visibility="Hidden"/>
                     <Label x:Name="lbl_Input_RechteckBreite" Content="Breite:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,160,0,0" VerticalAlignment="Top" Width="68"/>
                     <TextBox x:Name="tbx_Input_RechteckBreite" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_RechteckBreite_TextChanged"/>
                     <Label x:Name="lbl_RechteckGrafik_Breite" Content="b" HorizontalAlignment="Left" Height="26" Margin="120,400,0,0" VerticalAlignment="Top" Width="47" Visibility="Hidden"/>
                     <Label x:Name="lbl_Input_RechteckHoehe" Content="Höhe:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,200,0,0" VerticalAlignment="Top" Width="68"/>
                     <Label x:Name="lbl_Input_RechteckLaenge" Content="Länge:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,240,0,0" VerticalAlignment="Top" Width="68"/>
-                    <Label x:Name="lbl_Input_Rechteck_hohl_Wall" Content="Wandstärke:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,280,0,0" VerticalAlignment="Top" Width="95"/>
+                    <Label x:Name="lbl_Input_Rechteck_hohl_Wall" Content="Wandstärke:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,280,0,0" VerticalAlignment="Top" Width="95" Visibility="Hidden"/>
                     <TextBox x:Name="tbx_Input_RechteckHoehe" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_RechteckHoehe_TextChanged"/>
                     <TextBox x:Name="tbx_Input_RechteckLaenge" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,240,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
-                    <TextBox x:Name="tbx_Input_Rechteck_hohl_Wall" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_Rechteck_hohl_Wall_TextChanged"/>
+                    <TextBox x:Name="tbx_Input_Rechteck_hohl_Wall" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_Rechteck_hohl_Wall_TextChanged" Visibility="Hidden"/>
                     <Label x:Name="lbl_RechteckGrafik_Hoehe" Content="h" HorizontalAlignment="Left" Height="24" Margin="5,270,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
                         <Label.RenderTransform>
                             <TransformGroup>
@@ -66,8 +66,8 @@
                             </TransformGroup>
                         </Label.RenderTransform>
                     </Label>
-                    <Label x:Name="lbl_Rechteck_hohlGrafik_Breite" Content="b" HorizontalAlignment="Left" Height="26" Margin="100,150,0,0" VerticalAlignment="Top" Width="51"/>
-                    <Label x:Name="lbl_Rechteck_hohlGrafik_Hoehe" Content="h" Height="28" Margin="5,294,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="43">
+                    <Label x:Name="lbl_Rechteck_hohlGrafik_Breite" Content="b" HorizontalAlignment="Left" Height="26" Margin="100,150,0,0" VerticalAlignment="Top" Width="51" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Rechteck_hohlGrafik_Hoehe" Content="h" Height="28" Margin="5,294,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="43" Visibility="Hidden">
                         <Label.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -77,7 +77,7 @@
                             </TransformGroup>
                         </Label.RenderTransform>
                     </Label>
-                    <Label x:Name="lbl_Rechteck_hohlGrafik_Wall" Content="t" HorizontalAlignment="Left" Height="28" Margin="194,345,0,0" VerticalAlignment="Top" Width="43"/>
+                    <Label x:Name="lbl_Rechteck_hohlGrafik_Wall" Content="t" HorizontalAlignment="Left" Height="28" Margin="194,345,0,0" VerticalAlignment="Top" Width="43" Visibility="Hidden"/>
 
                     <ComboBox x:Name="CoB_Rechteck_Auswahl_Einheit" Grid.Column="1" HorizontalAlignment="Left" Margin="30.2,80,0,0" VerticalAlignment="Top" Width="120">
                         <ComboBoxItem x:Name="Rechteck_Einheit_mm" Content="mm"/>
@@ -105,6 +105,8 @@
                     <CheckBox x:Name="ChB_Kreisprofil_Vollprofil" Content="Vollprofil" Grid.Column="1" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" FontSize="16" Checked="ChB_Kreisprofil_Vollprofil_Checked"/>
                     <Image x:Name="img_Kreisprofil" Margin="10,155,115,155" Source="Kreisprofil.png" Visibility="Hidden"/>
                     <Image x:Name="img_Kreisprofil_hohl" Margin="10,155,115,155" Source="Kreisprofil_hohl.png" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Input_KreisDurchmesser" Content="Durchmesser:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,160,0,0" VerticalAlignment="Top" Width="90"/>
+                    <Label x:Name="lbl_Input_Kreis_hohlWandstaerke" Content="Wandstärke:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,200,0,0" VerticalAlignment="Top" Width="90" Visibility="Hidden"/>
                     <Label x:Name="lbl_Kreis_Fläche" Content="Querschnittsfläche:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Kreis_Volumen" Content="Volumen:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Kreis_Masse" Content="Masse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top"/>
@@ -123,6 +125,19 @@
                         <ComboBoxItem x:Name="Kreis_Einheit_m" Content="m"/>
                     </ComboBox>
                     <Label x:Name="lbl_Kreis_Hinweis_Einheiten" Content="Bitte wählen Sie eine Einheit aus:" Margin="190,80,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="200"/>
+                    <TextBox x:Name="tbx_Input_KreisDurchmesser" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_KreisDurchmesser_TextChanged"/>
+                    <TextBox x:Name="tbx_Input_Kreis_hohlWandstaerke" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Visibility="Hidden" TextChanged="tbx_Input_Kreis_hohlWandstaerke_TextChanged"/>
+                    <Label x:Name="lbl_KreisGrafik_Durchmesser" Content="d" HorizontalAlignment="Left" Height="36" Margin="124,180,0,0" VerticalAlignment="Top" Width="66" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Kreis_hohlGrafik_Wandstaerke" Content="t" HorizontalAlignment="Left" Height="30" Margin="190,376,0,0" VerticalAlignment="Top" Width="61" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="42"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
 
 
                 </Grid>
@@ -155,6 +170,7 @@
                         <ComboBoxItem x:Name="Sonder_Einheit_m" Content="m"/>
                     </ComboBox>
                     <Label x:Name="lbl_Sonder_Hinweis_Einheiten" Content="Bitte wählen Sie eine Einheit aus:" Margin="190,80,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="200"/>
+                    <Image x:Name="img_IPE_Profil" Margin="10,155,115,155" Source="IPE-Profil.png"/>
 
 
                 </Grid>
