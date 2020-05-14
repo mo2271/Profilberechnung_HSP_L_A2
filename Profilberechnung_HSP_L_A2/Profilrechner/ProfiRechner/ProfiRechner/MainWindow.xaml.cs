@@ -80,6 +80,9 @@ namespace ProfiRechner
         {
             tabH_Rechteckprofil.Visibility = Visibility.Visible;
             tab_Rechteckprofil.Visibility = Visibility.Visible;
+
+            TabItem tab_Rechteck = (TabItem)tabctrl_Profilauswahl.Items[0];     // Index Rechtecktab: 0
+            tab_Rechteck.Focus();       // Fokussiere Rechtecktab
         }
 
         private void img_CloseButton_Rechteck_MouseDown(object sender, MouseButtonEventArgs e)
@@ -152,6 +155,9 @@ namespace ProfiRechner
 
             btn_StartRechteckprofil_Berechnung.Visibility = Visibility.Hidden;
             btn_StartRechteckprofil_hohl_Berechnung.Visibility = Visibility.Visible;
+
+            TabItem tab_Rechteck = (TabItem)tabctrl_Profilauswahl.Items[0];
+            tab_Rechteck.Focus();
         }
 
         private void lb_item_Rechteck_Vollprofil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -172,6 +178,9 @@ namespace ProfiRechner
 
             btn_StartRechteckprofil_Berechnung.Visibility = Visibility.Visible;
             btn_StartRechteckprofil_hohl_Berechnung.Visibility = Visibility.Hidden;
+
+            TabItem tab_Rechteck = (TabItem)tabctrl_Profilauswahl.Items[0];
+            tab_Rechteck.Focus();
         }
 
 
@@ -219,6 +228,9 @@ namespace ProfiRechner
         {
             tabH_Kreisprofil.Visibility = Visibility.Visible;
             tab_Kreisprofil.Visibility = Visibility.Visible;
+
+            TabItem tab_Kreis = (TabItem)tabctrl_Profilauswahl.Items[1];    // Index Kreistab: 1
+            tab_Kreis.Focus();      // Fokussiere Kreistab
         }
 
         private void img_CloseButton_Kreis_MouseDown(object sender, MouseButtonEventArgs e)
@@ -280,6 +292,9 @@ namespace ProfiRechner
 
             btn_StartKreisprofil_Berechnung.Visibility = Visibility.Hidden;
             btn_StartKreisprofil_hohl_Berechnung.Visibility = Visibility.Visible;
+
+            TabItem tab_Kreis = (TabItem)tabctrl_Profilauswahl.Items[1];
+            tab_Kreis.Focus();
         }
 
         private void lb_item_Kreis_Vollprofil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -296,6 +311,9 @@ namespace ProfiRechner
 
             btn_StartKreisprofil_Berechnung.Visibility = Visibility.Visible;
             btn_StartKreisprofil_hohl_Berechnung.Visibility = Visibility.Hidden;
+
+            TabItem tab_Kreis = (TabItem)tabctrl_Profilauswahl.Items[1];
+            tab_Kreis.Focus();
         }
         #endregion
 
@@ -331,12 +349,18 @@ namespace ProfiRechner
         {
             tabH_Sonderprofile.Visibility = Visibility.Visible;
             tab_Sonderprofile.Visibility = Visibility.Visible;
+
+            TabItem tab_I_Profil = (TabItem)tabctrl_Profilauswahl.Items[2];     // Index Sonderprofiltab
+            tab_I_Profil.Focus();       // Fokussiere Sonderprofiltab
         }
 
         private void lb_item_Sonder_I_Profil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             tabH_Sonderprofile.Visibility = Visibility.Visible;
             tab_Sonderprofile.Visibility = Visibility.Visible;
+
+            TabItem tab_I_Profil = (TabItem)tabctrl_Profilauswahl.Items[2];
+            tab_I_Profil.Focus();    
         }
 
         private void img_CloseButton_Sonder_MouseDown(object sender, MouseButtonEventArgs e)
