@@ -299,6 +299,126 @@ namespace ProfiRechner
             
             
         }
+        public void Kontrolle_I_Profil()
+        {
+            Double.TryParse(tbx_Input_IPEBreite.Text, out double B);
+            Double.TryParse(tbx_Input_IPEHoehe.Text, out double h);
+            Double.TryParse(tbx_Input_IPEFlanschbreite.Text, out double b);
+            Double.TryParse(tbx_Input_IPEStegbreite.Text, out double sb);
+
+            double Breite;
+            double Hoehe;
+            double Flanschbreite;
+            double Stegbreite;
+
+            Breite = B;
+            Hoehe = h;
+            Flanschbreite = b;
+            Stegbreite = sb;
+
+            if (Stegbreite < Breite)
+            {
+                if (Flanschbreite < Hoehe)
+                {
+                    string Zeichenlaenge_B;
+                    string Zeichenlaenge_h;
+                    string Zeichenlaenge_b;
+                    string Zeichenlaenge_sb;
+                    //string Zeichenlaenge_l;
+
+                    Zeichenlaenge_B = Convert.ToString(B);
+                    Zeichenlaenge_h = Convert.ToString(h);
+                    Zeichenlaenge_b = Convert.ToString(b);
+                    Zeichenlaenge_sb = Convert.ToString(sb);
+                    //Zeichenlaenge_l = Convert.ToString(l);
+
+                    if (Zeichenlaenge_B.Length > 4)
+                    {
+                        MessageBoxResult result;
+                        result = MessageBox.Show("Breite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "WichtigeFrage",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Question
+                        );
+                        if (result == MessageBoxResult.OK)
+                        {
+                            tbx_Input_IPEBreite.Text = "";
+
+                            tbx_Input_IPEBreite.Focus();
+                        }
+                    }
+                    else if (Zeichenlaenge_h.Length > 4)
+                    {
+                        MessageBoxResult result;
+                        result = MessageBox.Show("Höhe: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "WichtigeFrage",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Question
+                        );
+                        if (result == MessageBoxResult.OK)
+                        {
+                            tbx_Input_IPEHoehe.Text = "";
+
+                            tbx_Input_IPEHoehe.Focus();
+                        }
+                    }
+                    else if (Zeichenlaenge_b.Length > 2)
+                    {
+                        MessageBoxResult result;
+                        result = MessageBox.Show("Flanschbreite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 2 Stellen.", "WichtigeFrage",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Question
+                        );
+                        if (result == MessageBoxResult.OK)
+                        {
+                            tbx_Input_IPEFlanschbreite.Text = "";
+
+                            tbx_Input_IPEFlanschbreite.Focus();
+                        }
+                    }
+                    else if (Zeichenlaenge_sb.Length > 2)
+                    {
+                        MessageBoxResult result;
+                        result = MessageBox.Show("Stegbreite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 2 Stellen.", "WichtigeFrage",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Question
+                        );
+                        if (result == MessageBoxResult.OK)
+                        {
+                            tbx_Input_IPEStegbreite.Text = "";
+
+                            tbx_Input_IPEStegbreite.Focus();
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBoxResult result;
+                    result = MessageBox.Show("Fehler: Sie haben die Flanschbreite größer als die Höhe gewählt.", "WichtigeFrage",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Question
+                    );
+                    if (result == MessageBoxResult.OK)
+                    {
+                        tbx_Input_IPEFlanschbreite.Text = "";
+
+                        tbx_Input_IPEFlanschbreite.Focus();
+                    }
+                }
+            }
+            else
+            {
+                MessageBoxResult result;
+                result = MessageBox.Show("Fehler: Sie haben die Stegbreite größer als die Breite gewählt.", "WichtigeFrage",
+                MessageBoxButton.OK,
+                MessageBoxImage.Question
+                );
+                if (result == MessageBoxResult.OK)
+                {
+                    tbx_Input_IPEStegbreite.Text = "";
+
+                    tbx_Input_IPEStegbreite.Focus();
+                }
+            }
+        }
         public MainWindow()
         {
             InitializeComponent();
@@ -653,6 +773,7 @@ namespace ProfiRechner
 
         private void btn_StartIPE_Berechnung_Click(object sender, RoutedEventArgs e)
         {
+            Kontrolle_I_Profil();
             I_Profil_Berechnung();
         }
 
