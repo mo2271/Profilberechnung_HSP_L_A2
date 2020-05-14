@@ -218,6 +218,10 @@ namespace ProfiRechner
             ChB_Kreisprofil_Vollprofil.IsChecked = false;
             img_Kreisprofil_hohl.Visibility = Visibility.Visible;
             img_Kreisprofil.Visibility = Visibility.Hidden;
+            lbl_Input_Kreis_hohlWandstaerke.Visibility = Visibility.Visible;
+            tbx_Input_Kreis_hohlWandstaerke.Visibility = Visibility.Visible;
+            lbl_KreisGrafik_Durchmesser.Visibility = Visibility.Visible;
+            lbl_Kreis_hohlGrafik_Wandstaerke.Visibility = Visibility.Visible;
         }
 
         private void ChB_Kreisprofil_Vollprofil_Checked(object sender, RoutedEventArgs e)
@@ -225,6 +229,10 @@ namespace ProfiRechner
             ChB_Kreisprofil_Hohlprofil.IsChecked = false;
             img_Kreisprofil_hohl.Visibility = Visibility.Hidden;
             img_Kreisprofil.Visibility = Visibility.Visible;
+            lbl_Input_Kreis_hohlWandstaerke.Visibility = Visibility.Hidden;
+            tbx_Input_Kreis_hohlWandstaerke.Visibility = Visibility.Hidden;
+            lbl_KreisGrafik_Durchmesser.Visibility = Visibility.Visible;
+            lbl_Kreis_hohlGrafik_Wandstaerke.Visibility = Visibility.Hidden;
         }
 
         private void lb_item_Kreis_Hohlprofil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -234,6 +242,10 @@ namespace ProfiRechner
             tab_Kreisprofil.Visibility = Visibility.Visible;
             img_Kreisprofil_hohl.Visibility = Visibility.Visible;
             img_Kreisprofil.Visibility = Visibility.Hidden;
+            lbl_Input_Kreis_hohlWandstaerke.Visibility = Visibility.Visible;
+            tbx_Input_Kreis_hohlWandstaerke.Visibility = Visibility.Visible;
+            lbl_KreisGrafik_Durchmesser.Visibility = Visibility.Visible;
+            lbl_Kreis_hohlGrafik_Wandstaerke.Visibility = Visibility.Visible;
         }
 
         private void lb_item_Kreis_Vollprofil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -243,8 +255,27 @@ namespace ProfiRechner
             tab_Kreisprofil.Visibility = Visibility.Visible;
             img_Kreisprofil_hohl.Visibility = Visibility.Hidden;
             img_Kreisprofil.Visibility = Visibility.Visible;
+            lbl_Input_Kreis_hohlWandstaerke.Visibility = Visibility.Hidden;
+            tbx_Input_Kreis_hohlWandstaerke.Visibility = Visibility.Hidden;
+            lbl_KreisGrafik_Durchmesser.Visibility = Visibility.Visible;
+            lbl_Kreis_hohlGrafik_Wandstaerke.Visibility = Visibility.Hidden;
         }
         #endregion
+
+        #region Grafische Darstellung
+
+        private void tbx_Input_KreisDurchmesser_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lbl_KreisGrafik_Durchmesser.Content = tbx_Input_KreisDurchmesser.Text;
+        }
+
+        private void tbx_Input_Kreis_hohlWandstaerke_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lbl_Kreis_hohlGrafik_Wandstaerke.Content = tbx_Input_Kreis_hohlWandstaerke.Text;
+        }
+
+        #endregion
+
         #endregion
 
         #region Sonderprofil-Steuerung
@@ -270,6 +301,8 @@ namespace ProfiRechner
             tabH_Sonderprofile.Visibility = Visibility.Hidden;
             tab_Sonderprofile.Visibility = Visibility.Hidden;
         }
+
+
 
 
 
