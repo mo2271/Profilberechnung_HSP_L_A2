@@ -54,7 +54,7 @@ namespace ProfiRechner
         {
 
         }
-        public void Kontrolle_Rechteckprofil()     //Kontrolle der Eingabelängen 
+        public void Kontrolle_Rechteckprofil()     //Kontrolle der Eingaben 
         {
             Double.TryParse(tbx_Input_RechteckBreite.Text, out double b);   // Eingaben in Double umwandeln
             Double.TryParse(tbx_Input_RechteckHoehe.Text, out double h);
@@ -118,7 +118,7 @@ namespace ProfiRechner
             }
             
         }
-        public void Kontrolle_Rechteckprofil_hohl()
+        public void Kontrolle_Rechteckprofil_hohl()     //Kontrolle der Eingaben
         {
             Double.TryParse(tbx_Input_RechteckBreite.Text, out double b);   // Eingaben in Double umwandeln
             Double.TryParse(tbx_Input_RechteckHoehe.Text, out double h);
@@ -196,7 +196,109 @@ namespace ProfiRechner
             
         }
         #endregion
+        public void Kontrolle_Kreisprofil()
+        {
+            Double.TryParse(tbx_Input_KreisDurchmesser.Text, out double D);
+            //Double.TryParse(tbx_Input_.........Text, out double l);
+            string Zeichenlaenge_Durchmesser;
+            //string Zeichenlaenge_l;
 
+            Zeichenlaenge_Durchmesser = Convert.ToString(D);
+            //Zeichenlaenge_l = Convert.ToString(l);
+
+
+            if (Zeichenlaenge_Durchmesser.Length > 4)
+            {
+                MessageBoxResult result;
+                result = MessageBox.Show("Durchmeser: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "WichtigeFrage",
+                MessageBoxButton.OK,
+                MessageBoxImage.Question
+                );
+                if (result == MessageBoxResult.OK)
+                {
+                    tbx_Input_KreisDurchmesser.Text = "";
+
+                    tbx_Input_KreisDurchmesser.Focus();
+                }
+            }
+        }
+        public void Kontrolle_Kreisprofil_hohl()
+        {
+            Double.TryParse(tbx_Input_KreisDurchmesser.Text, out double D);
+            Double.TryParse(tbx_Input_Kreis_hohlWandstaerke.Text, out double w);
+            //Double.TryParse(tbx_Input_.......Text, out double l);
+
+            double Durchmesser;
+            double Wandstaerke;
+            string Zeichenlaenge_D;
+            string Zeichenlaenge_w;
+            //string Zeichenlaenge_l;
+
+
+            Durchmesser = D;
+            Wandstaerke = w;
+
+            if (D > w)
+            {
+                Zeichenlaenge_D = Convert.ToString(D);
+                Zeichenlaenge_w = Convert.ToString(w);
+                //Zeichenlange_l = Convert.ToString(l);
+
+                if (Zeichenlaenge_D.Length > 4)
+                {
+                    MessageBoxResult result;
+                    result = MessageBox.Show("Durchmeser: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "WichtigeFrage",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Question
+                    );
+                    if (result == MessageBoxResult.OK)
+                    {
+                        tbx_Input_KreisDurchmesser.Text = "";
+
+                        tbx_Input_KreisDurchmesser.Focus();
+                    }
+                }
+                else if (Zeichenlaenge_w.Length > 4)
+                {
+                    MessageBoxResult result;
+                    result = MessageBox.Show("Wandstärke: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "WichtigeFrage",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Question
+                    );
+                    if (result == MessageBoxResult.OK)
+                    {
+                        tbx_Input_Kreis_hohlWandstaerke.Text = "";
+
+                        tbx_Input_Kreis_hohlWandstaerke.Focus();
+                    }
+                }
+            }
+            else
+            {
+                MessageBoxResult result;
+                result = MessageBox.Show("Fehler: Sie haben die Wandstärke größer als den Durchmesser gewählt.", "WichtigeFrage",
+                MessageBoxButton.OK,
+                MessageBoxImage.Question
+                );
+                if (result == MessageBoxResult.OK)
+                {
+                    tbx_Input_Kreis_hohlWandstaerke.Text = "";
+
+                    tbx_Input_Kreis_hohlWandstaerke.Focus();
+                }
+            }
+
+            
+            
+            
+            
+        
+
+            
+
+            
+            
+        }
         public MainWindow()
         {
             InitializeComponent();
@@ -407,11 +509,13 @@ namespace ProfiRechner
 
         private void btn_StartKreisprofil_Berechnung_Click(object sender, RoutedEventArgs e)
         {
+            Kontrolle_Kreisprofil();    //Kontrolle der Eingaben
             Kreisprofil_Berechnung();   // Startet die Kreisprofil-Berechnung
         }
 
         private void btn_StartKreisprofil_hohl_Berechnung_Click(object sender, RoutedEventArgs e)
         {
+            Kontrolle_Kreisprofil_hohl();   // Kontrolle der Eingabe
             Kreisprofil_hohl_Berechnung();  // Startet die Kreis-Hohlprofil-Berechnung
         }
 
