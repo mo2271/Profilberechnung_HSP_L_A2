@@ -77,7 +77,9 @@ namespace ProfiRechner
                 );
                 if (result == MessageBoxResult.Yes)
                 {
-                    goto
+                    tbx_Input_RechteckBreite.Text = "";
+
+                    tbx_Input_RechteckBreite.Focus();
                 }
 
             }
@@ -90,7 +92,7 @@ namespace ProfiRechner
                 );
                 if (result == MessageBoxResult.Yes)
                 {
-                    goto 
+                     
                 }
                 else
                 {
@@ -167,6 +169,7 @@ namespace ProfiRechner
 
         private void btn_StartRechteckprofil_Berechnung_Click(object sender, RoutedEventArgs e)
         {
+            Kontrolle();
             Rechteckprofil_Berechnung();    // Aufruf der Rechteckprofil-Berechnung
         }
 
