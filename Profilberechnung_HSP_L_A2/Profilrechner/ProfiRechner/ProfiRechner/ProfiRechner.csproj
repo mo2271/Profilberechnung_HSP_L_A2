@@ -109,5 +109,8 @@
   <ItemGroup>
     <Resource Include="Kreisprofil_hohl.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IPE-Profil.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
