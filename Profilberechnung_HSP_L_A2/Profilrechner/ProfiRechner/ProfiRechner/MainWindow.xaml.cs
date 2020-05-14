@@ -54,7 +54,69 @@ namespace ProfiRechner
         {
 
         }
+        public void Kontrolle()     //Kontrolle der Eingabelängen 
+        {
+            Double.TryParse(tbx_Input_RechteckBreite.Text, out double b);   // Eingaben in Double umwandeln
+            Double.TryParse(tbx_Input_RechteckHoehe.Text, out double h);
+            Double.TryParse(tbx_Input_RechteckLaenge.Text, out double l);
 
+            string Zeichenlaenge_b;
+            string Zeichenlaenge_h;
+            string Zeichenlaenge_l;
+
+            Zeichenlaenge_b = Convert.ToString(b);      //Umformung der Eingabe in einen String
+            Zeichenlaenge_h = Convert.ToString(h);
+            Zeichenlaenge_l = Convert.ToString(l);
+            
+            if (Zeichenlaenge_b.Length >= 4)
+            {
+                MessageBoxResult result; 
+                result = MessageBox.Show("Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt vier Stellen. Möchten Sie zur Eingabe zurückkehren?", "Eingabekontrolle", 
+                MessageBoxButton.YesNo, 
+                MessageBoxImage.Question
+                );
+                if (result == MessageBoxResult.Yes)
+                {
+                    goto
+                }
+
+            }
+            else if (Zeichenlaenge_h.Length >= 4)
+            {
+                MessageBoxResult result;
+                result = MessageBox.Show("Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen. Möchten Sie zur Eingabe zurückkehren?", "Eingabenkontrolle",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question
+                );
+                if (result == MessageBoxResult.Yes)
+                {
+                    goto 
+                }
+                else
+                {
+                    
+                }
+            }
+            else if (Zeichenlaenge_l.Length >= 4)
+            {
+                MessageBoxResult result;
+                result = MessageBox.Show("Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen. Möchten Sie zur Eingabe zurückkehren?", "WichtigeFrage",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question
+                );
+                if (result == MessageBoxResult.Yes)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+                
+
+           
+        }
         #endregion
 
         public MainWindow()
