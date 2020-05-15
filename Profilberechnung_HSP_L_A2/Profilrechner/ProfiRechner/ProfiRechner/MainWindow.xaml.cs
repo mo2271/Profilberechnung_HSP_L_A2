@@ -49,6 +49,12 @@ namespace ProfiRechner
             Rechteck_SWP_X = 0; // Ursprung = Schwerpunkt
             Rechteck_SWP_Y = 0; // Ursprung = Schwerpunkt
 
+            // Runden
+            Rechteck_Flaeche = Math.Round(Rechteck_Flaeche, 2);
+            Rechteck_Volumen = Math.Round(Rechteck_Volumen, 2);
+            Rechteck_FTM_X = Math.Round(Rechteck_FTM_X, 2);
+            Rechteck_FTM_Y = Math.Round(Rechteck_FTM_Y, 2);
+
             // Umwandlung in String
             string Rechteck_Flaeche_String = Convert.ToString(Rechteck_Flaeche) + " " + RechteckEinheit + "²";
             string Rechteck_Volumen_String = Convert.ToString(Rechteck_Volumen) + " " + RechteckEinheit + "³";
@@ -88,6 +94,12 @@ namespace ProfiRechner
             Rechteck_Hohl_SWP_X = 0; // Ursprung = Schwerpunkt
             Rechteck_Hohl_SWP_Y = 0; // Ursprung = Schwerpunkt
 
+            // Runden
+            Rechteck_Hohl_Flaeche = Math.Round(Rechteck_Hohl_Flaeche, 2);
+            Rechteck_Hohl_Volumen = Math.Round(Rechteck_Hohl_Volumen, 2);
+            Rechteck_Hohl_FTM_X = Math.Round(Rechteck_Hohl_FTM_X, 2);
+            Rechteck_Hohl_FTM_Y = Math.Round(Rechteck_Hohl_FTM_Y, 2);
+
             // Umwandlung in String
             string Rechteck_Hohl_Flaeche_String = Convert.ToString(Rechteck_Hohl_Flaeche) + " " + RechteckEinheit + "²";
             string Rechteck_Hohl_Volumen_String = Convert.ToString(Rechteck_Hohl_Volumen) + " " + RechteckEinheit + "³";
@@ -107,10 +119,8 @@ namespace ProfiRechner
         {
             // Übergabe von Eingabewerten
             Double.TryParse(tbx_Input_KreisDurchmesser.Text, out double KreisDurchmesser);
-            // Double.TryParse(tbx_Input_KreisLaenge.Text, out double KreisLaenge);
+            Double.TryParse(tbx_Input_KreisLaenge.Text, out double KreisLaenge);
             String KreisEinheit = Convert.ToString(CoB_Kreis_Auswahl_Einheit.SelectionBoxItem);
-
-            double KreisLaenge = 10; // ERSATZ
 
             // Klasse Kreisprofil
             Kreis K = new Kreis();
@@ -126,6 +136,12 @@ namespace ProfiRechner
             Kreis_FTM_Y = Kreis_FTM_X;
             Kreis_SWP_X = 0; // Ursprung = Schwerpunkt
             Kreis_SWP_Y = 0; // Ursprung = Schwerpunkt
+
+            // Runden
+            Kreis_Flaeche = Math.Round(Kreis_Flaeche, 2);
+            Kreis_Volumen = Math.Round(Kreis_Volumen, 2);
+            Kreis_FTM_X = Math.Round(Kreis_FTM_X, 2);
+            Kreis_FTM_Y = Math.Round(Kreis_FTM_Y, 2);
 
             // Umwandlung in String
             string Kreis_Flaeche_String = Convert.ToString(Kreis_Flaeche) + " " + KreisEinheit + "²";
@@ -146,11 +162,9 @@ namespace ProfiRechner
         {
             // Übergabe von Eingabewerten
             Double.TryParse(tbx_Input_KreisDurchmesser.Text, out double KreisHohlDurchmesser);
-            // Double.TryParse(tbx_Input_Kreis_HohlLaenge.Text, out double KreisHohlLaenge);
+            Double.TryParse(tbx_Input_KreisLaenge.Text, out double KreisHohlLaenge);
             Double.TryParse(tbx_Input_Kreis_hohlWandstaerke.Text, out double KreisHohlWandstaerke);
             String KreisEinheit = Convert.ToString(CoB_Kreis_Auswahl_Einheit.SelectionBoxItem);
-
-            double KreisHohlLaenge = 10; // ERSATZ
 
             // Klasse Kreishohlprofil
             Kreis_Hohl KH = new Kreis_Hohl();
@@ -166,6 +180,12 @@ namespace ProfiRechner
             Kreis_Hohl_FTM_Y = Kreis_Hohl_FTM_X;
             Kreis_Hohl_SWP_X = 0; // Ursprung = Schwerpunkt
             Kreis_Hohl_SWP_Y = 0; // Ursprung = Schwerpunkt
+
+            // Runden
+            Kreis_Hohl_Flaeche = Math.Round(Kreis_Hohl_Flaeche, 2);
+            Kreis_Hohl_Volumen = Math.Round(Kreis_Hohl_Volumen, 2);
+            Kreis_Hohl_FTM_X = Math.Round(Kreis_Hohl_FTM_X, 2);
+            Kreis_Hohl_FTM_Y = Math.Round(Kreis_Hohl_FTM_Y, 2);
 
             // Umwandlung in String
             string Kreis_Hohl_Flaeche_String = Convert.ToString(Kreis_Hohl_Flaeche) + " " + KreisEinheit + "²";
@@ -189,10 +209,8 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_IPEBreite.Text, out double SonderIPEBreite);
             Double.TryParse(tbx_Input_IPEFlanschbreite.Text, out double SonderIPEFlanschbreite);
             Double.TryParse(tbx_Input_IPEStegbreite.Text, out double SonderIPEStegbreite);
-            // Double.TryParse(tbx_Input_IPELaenge.Text, out double SonderIPELaenge);
+            Double.TryParse(tbx_Input_IPELaenge.Text, out double SonderIPELaenge);
             String SonderEinheit = Convert.ToString(CoB_Sonder_Auswahl_Einheit.SelectionBoxItem);
-
-            double SonderIPELaenge = 10; // ERSATZ
 
             // Klasse SonderIPEProfil
             Sonder_IPE SIPE = new Sonder_IPE();
@@ -208,6 +226,12 @@ namespace ProfiRechner
             Sonder_IPE_FTM_Y = SIPE.KlasseSonderIPEHoehe * Math.Pow(SIPE.KlasseSonderIPEBreite, 3) / 12 - 2 * ((SIPE.KlasseSonderIPEHoehe - 2 * SIPE.KlasseSonderIPEFlanschbreite) * Math.Pow((SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite), 3) / 12 + Math.Pow((SIPE.KlasseSonderIPEStegbreite + SIPE.KlasseSonderIPEBreite / 4), 2) + (SIPE.KlasseSonderIPEHoehe - SIPE.KlasseSonderIPEFlanschbreite) * ((SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite) / 2));
             Sonder_IPE_SWP_X = 0; // Ursprung = Schwerpunkt
             Sonder_IPE_SWP_Y = 0; // Ursprung = Schwerpunkt
+
+            // Runden
+            Sonder_IPE_Flaeche = Math.Round(Sonder_IPE_Flaeche, 2);
+            Sonder_IPE_Volumen = Math.Round(Sonder_IPE_Volumen, 2);
+            Sonder_IPE_FTM_X = Math.Round(Sonder_IPE_FTM_X, 2);
+            Sonder_IPE_FTM_Y = Math.Round(Sonder_IPE_FTM_Y, 2);
 
             // Umwandlung in String
             string Sonder_IPE_Flaeche_String = Convert.ToString(Sonder_IPE_Flaeche) + " " + SonderEinheit + "²";
