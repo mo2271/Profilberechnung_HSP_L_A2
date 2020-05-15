@@ -22,6 +22,7 @@ namespace ProfiRechner
     public partial class MainWindow : Window
     {
         #region Berechnungsmethoden
+       
         public void Rechteckprofil_Berechnung()     
         {
             // Übergabe von Eingabewerten
@@ -29,7 +30,10 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_RechteckHoehe.Text, out double RechteckHoehe);
             Double.TryParse(tbx_Input_RechteckLaenge.Text, out double RechteckLaenge);
             String RechteckEinheit = Convert.ToString(CoB_Rechteck_Auswahl_Einheit.SelectionBoxItem);
-           
+
+            // String ProfilWerkstoff = Convert.ToString(CoB_Werkstoff_Auswahl.SelectionBoxItem);
+            
+
             // Klasse Rechteckprofil
             Rechteck R = new Rechteck();
             R.setGeometrie(RechteckBreite, RechteckHoehe, RechteckLaenge);
@@ -156,9 +160,9 @@ namespace ProfiRechner
             double Kreis_Hohl_Flaeche, Kreis_Hohl_Volumen, Kreis_Hohl_FTM_X, Kreis_Hohl_FTM_Y, Kreis_Hohl_SWP_X, Kreis_Hohl_SWP_Y, Kreis_Hohl_Masse;
 
             // Berechnungen
-            Kreis_Hohl_Flaeche = (Math.Pow(KH.KlasseKreisHohlDurchmesser, 2)-Math.Pow((KH.KlasseKreisHohlDurchmesser-KH.KlasseKreisHohlWandstaerke), 2)) * Math.PI / 4;
+            Kreis_Hohl_Flaeche = (Math.Pow(KH.KlasseKreisHohlDurchmesser, 2)-Math.Pow((KH.KlasseKreisHohlDurchmesser-2* KH.KlasseKreisHohlWandstaerke), 2)) * Math.PI / 4;
             Kreis_Hohl_Volumen = Kreis_Hohl_Flaeche * KH.KlasseKreisHohlLaenge;
-            Kreis_Hohl_FTM_X = Math.Pow(KH.KlasseKreisHohlDurchmesser, 4) * Math.PI / 64;
+            Kreis_Hohl_FTM_X = (Math.Pow(KH.KlasseKreisHohlDurchmesser, 4)-Math.Pow((KH.KlasseKreisHohlDurchmesser-2*KH.KlasseKreisHohlWandstaerke),4)) * Math.PI / 64;
             Kreis_Hohl_FTM_Y = Kreis_Hohl_FTM_X;
             Kreis_Hohl_SWP_X = 0; // Ursprung = Schwerpunkt
             Kreis_Hohl_SWP_Y = 0; // Ursprung = Schwerpunkt

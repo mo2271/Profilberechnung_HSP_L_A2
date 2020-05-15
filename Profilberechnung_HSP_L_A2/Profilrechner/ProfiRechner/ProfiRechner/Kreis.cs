@@ -14,7 +14,7 @@ namespace ProfiRechner
         public double setGeometrie(double local_KreisDurchmesser, double local_KreisLaenge)
         {
             KlasseKreisDurchmesser = local_KreisDurchmesser;
-            KlasseKreisDurchmesser = local_KreisLaenge;
+            KlasseKreisLaenge = local_KreisLaenge;
             return KlasseKreisDurchmesser + KlasseKreisLaenge;
         }
     }
