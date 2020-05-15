@@ -79,6 +79,7 @@
                         </Label.RenderTransform>
                     </Label>
                     <Label x:Name="lbl_Rechteck_hohlGrafik_Wall" Content="t" HorizontalAlignment="Left" Height="28" Margin="195,345,0,0" VerticalAlignment="Top" Width="43" Grid.Column="0" Visibility="Hidden"/>
+                   
 
                     <ComboBox x:Name="CoB_Rechteck_Auswahl_Einheit" Grid.Column="1" HorizontalAlignment="Left" Margin="30,80,0,0" VerticalAlignment="Top" Width="120">
                         <ComboBoxItem x:Name="Rechteck_Einheit_mm" Content="mm"/>
@@ -89,6 +90,11 @@
 
                     <Button x:Name="btn_StartRechteckprofil_Berechnung" Content="Berechne Vollprofil" Grid.Column="2" Height="30" Margin="60,0,60,50" VerticalAlignment="Bottom" Click="btn_StartRechteckprofil_Berechnung_Click" Visibility="Hidden"/>
                     <Button x:Name="btn_StartRechteckprofil_hohl_Berechnung" Content="Berechne Hohlprofil" Grid.Column="2" Height="30" Margin="60,0,60,50" VerticalAlignment="Bottom" Visibility="Hidden" Click="btn_StartRechteckprofil_hohl_Berechnung_Click"/>
+                    <Label x:Name="lbl_Rechteck_Werkstoff" Content="Bitte wählen Sie einen Werkstoff aus:" HorizontalAlignment="Left" Height="28" Margin="153,50,0,0" VerticalAlignment="Top" Width="300" Grid.Column="0"/>
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="30,50,0,0" VerticalAlignment="Top" Width="120">
+                        <ComboBoxItem x:Name="Rechteck_WS_Stahl" Content="Stahl"/>
+                        <ComboBoxItem x:Name="Rechteck_WS_Aluminium" Content="Aluminium"/>
+                    </ComboBox>
 
 
                 </Grid>
@@ -145,6 +151,11 @@
 
                     <Button x:Name="btn_StartKreisprofil_Berechnung" Content="Berechne Vollprofil" Grid.Column="2" Margin="60,0,60,50" Height="30" VerticalAlignment="Bottom" Visibility="Hidden" Click="btn_StartKreisprofil_Berechnung_Click"/>
                     <Button x:Name="btn_StartKreisprofil_hohl_Berechnung" Content="Berechne Hohlprofil" Grid.Column="2" Margin="60,0,60,50" Height="30" VerticalAlignment="Bottom" Visibility="Hidden" Click="btn_StartKreisprofil_hohl_Berechnung_Click"/>
+                    <Label x:Name="lbl_Kreis_Werkstoff" Content="Bitte wählen Sie einen Werkstoff aus:" HorizontalAlignment="Left" Height="28" Margin="153,50,0,0" VerticalAlignment="Top" Width="300" Grid.Column="0"/>
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="30,50,0,0" VerticalAlignment="Top" Width="120">
+                        <ComboBoxItem x:Name="Kreis_WS_Stahl" Content="Stahl"/>
+                        <ComboBoxItem x:Name="Kreis_WS_Aluminium" Content="Aluminium"/>
+                    </ComboBox>
 
 
                 </Grid>
@@ -211,6 +222,11 @@
                         </Label.RenderTransform>
                     </Label>
                     <Button x:Name="btn_StartIPE_Berechnung" Content="Berechne I-Profil" Grid.Column="2" Margin="60,0,60,50" Height="30" VerticalAlignment="Bottom" Click="btn_StartIPE_Berechnung_Click"/>
+                    <Label x:Name="lbl_Sonder_Werkstoff" Content="Bitte wählen Sie einen Werkstoff aus:" HorizontalAlignment="Left" Height="28" Margin="153,50,0,0" VerticalAlignment="Top" Width="300" Grid.Column="0"/>
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="30,50,0,0" VerticalAlignment="Top" Width="120">
+                        <ComboBoxItem x:Name="Sonder_WS_Stahl" Content="Stahl"/>
+                        <ComboBoxItem x:Name="Sonder_WS_Aluminium" Content="Aluminium"/>
+                    </ComboBox>
 
 
                 </Grid>
