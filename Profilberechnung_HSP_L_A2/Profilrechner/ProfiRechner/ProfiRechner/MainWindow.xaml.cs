@@ -22,7 +22,9 @@ namespace ProfiRechner
     public partial class MainWindow : Window
     {
         #region Berechnungsmethoden
-       
+
+        #region BerechnungRechteckvollprofil
+
         public void Rechteckprofil_Berechnung()     
         {
             // Übergabe von Eingabewerten
@@ -30,9 +32,8 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_RechteckHoehe.Text, out double RechteckHoehe);
             Double.TryParse(tbx_Input_RechteckLaenge.Text, out double RechteckLaenge);
             String RechteckEinheit = Convert.ToString(CoB_Rechteck_Auswahl_Einheit.SelectionBoxItem);
-
-            // String ProfilWerkstoff = Convert.ToString(CoB_Werkstoff_Auswahl.SelectionBoxItem);
-            
+            // Double.TryParse(CoB_Werkstoff_Dichte.SelectionBoxItem, out double WerkstoffDichte);
+            double WerkstoffDichte = 7850; // ERSATZ
 
             // Klasse Rechteckprofil
             Rechteck R = new Rechteck();
@@ -40,10 +41,21 @@ namespace ProfiRechner
 
             // neue Variablen
             double Rechteck_Flaeche, Rechteck_Volumen, Rechteck_FTM_X, Rechteck_FTM_Y, Rechteck_SWP_X, Rechteck_SWP_Y, Rechteck_Masse;
+            
+            // Einheitenumrechnung
+            if (RechteckEinheit.Equals("mm"))
+            {
+                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 9);
+            }
+            else if (RechteckEinheit.Equals("cm"))
+            {
+                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 6);
+            }
 
             // Berechnungen
             Rechteck_Flaeche = R.KlasseRechteckBreite * R.KlasseRechteckHoehe;
             Rechteck_Volumen = Rechteck_Flaeche * R.KlasseRechteckLaenge;
+            Rechteck_Masse = Rechteck_Volumen * WerkstoffDichte;      
             Rechteck_FTM_X = R.KlasseRechteckBreite * Math.Pow(R.KlasseRechteckHoehe, 3) / 12;
             Rechteck_FTM_Y = R.KlasseRechteckHoehe * Math.Pow(R.KlasseRechteckBreite, 3) / 12;
             Rechteck_SWP_X = 0; // Ursprung = Schwerpunkt
@@ -52,12 +64,14 @@ namespace ProfiRechner
             // Runden
             Rechteck_Flaeche = Math.Round(Rechteck_Flaeche, 2);
             Rechteck_Volumen = Math.Round(Rechteck_Volumen, 2);
+            Rechteck_Masse = Math.Round(Rechteck_Masse, 3);
             Rechteck_FTM_X = Math.Round(Rechteck_FTM_X, 2);
             Rechteck_FTM_Y = Math.Round(Rechteck_FTM_Y, 2);
 
             // Umwandlung in String
             string Rechteck_Flaeche_String = Convert.ToString(Rechteck_Flaeche) + " " + RechteckEinheit + "²";
             string Rechteck_Volumen_String = Convert.ToString(Rechteck_Volumen) + " " + RechteckEinheit + "³";
+            string Rechteck_Masse_String = Convert.ToString(Rechteck_Masse) + " kg";
             string Rechteck_FTM_X_String = Convert.ToString(Rechteck_FTM_X) + " " + RechteckEinheit + "^4";
             string Rechteck_FTM_Y_String = Convert.ToString(Rechteck_FTM_Y) + " " + RechteckEinheit + "^4";
             string Rechteck_SWP_String = "(x=" + Rechteck_SWP_X + " " + RechteckEinheit + "/y=" + Rechteck_SWP_Y + " " + RechteckEinheit + ")";
@@ -65,10 +79,15 @@ namespace ProfiRechner
             // Übergabe Ergebnisse
             lbl_Rechteck_Fläche_Ergebnis.Content = Rechteck_Flaeche_String;
             lbl_Rechteck_Volumen_Ergebnis.Content = Rechteck_Volumen_String;
+            lbl_Rechteck_Masse_Ergebnis.Content = Rechteck_Masse_String;
             lbl_Rechteck_FTM_X_Ergebnis.Content = Rechteck_FTM_X_String;
             lbl_Rechteck_FTM_Y_Ergebnis.Content = Rechteck_FTM_Y_String;
             lbl_Rechteck_Schwerpunkt_Ergebnis.Content = Rechteck_SWP_String;
         }
+
+        #endregion
+
+        #region BerechnungRechteckhohlprofil
 
         public void Rechteckprofil_hohl_Berechnung()
         {
@@ -78,6 +97,8 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_RechteckLaenge.Text, out double RechteckHohlLaenge);
             Double.TryParse(tbx_Input_Rechteck_hohl_Wall.Text, out double RechteckHohlWandstaerke);
             String RechteckEinheit = Convert.ToString(CoB_Rechteck_Auswahl_Einheit.SelectionBoxItem);
+            // Double.TryParse(CoB_Werkstoff_Dichte.SelectionBoxItem, out double WerkstoffDichte);
+            double WerkstoffDichte = 7850; // ERSATZ
 
             // Klasse Rechteckhohlprofil
             Rechteck_Hohl RH = new Rechteck_Hohl();
@@ -86,9 +107,19 @@ namespace ProfiRechner
             // neue Variablen
             double Rechteck_Hohl_Flaeche, Rechteck_Hohl_Volumen, Rechteck_Hohl_FTM_X, Rechteck_Hohl_FTM_Y, Rechteck_Hohl_SWP_X, Rechteck_Hohl_SWP_Y, Rechteck_Hohl_Masse;
 
+            // Einheitenumrechnung
+            if (RechteckEinheit.Equals("mm"))
+            {
+                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 9);
+            }
+            else if (RechteckEinheit.Equals("cm"))
+            {
+                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 6);
+            }
             // Berechnungen
             Rechteck_Hohl_Flaeche = RH.KlasseRechteckHohlBreite * RH.KlasseRechteckHohlHoehe - (RH.KlasseRechteckHohlBreite - 2* RH.KlasseRechteckHohlWandstaerke) *(RH.KlasseRechteckHohlHoehe - 2 * RH.KlasseRechteckHohlWandstaerke);
             Rechteck_Hohl_Volumen = Rechteck_Hohl_Flaeche * RH.KlasseRechteckHohlLaenge;
+            Rechteck_Hohl_Masse = Rechteck_Hohl_Volumen * WerkstoffDichte;
             Rechteck_Hohl_FTM_X = RH.KlasseRechteckHohlBreite * Math.Pow(RH.KlasseRechteckHohlHoehe, 3) / 12 - (RH.KlasseRechteckHohlBreite - 2 * RH.KlasseRechteckHohlWandstaerke) * Math.Pow((RH.KlasseRechteckHohlHoehe - 2 * RH.KlasseRechteckHohlWandstaerke), 3) / 12;
             Rechteck_Hohl_FTM_Y = RH.KlasseRechteckHohlHoehe * Math.Pow(RH.KlasseRechteckHohlBreite, 3) / 12 - (RH.KlasseRechteckHohlHoehe - 2 * RH.KlasseRechteckHohlWandstaerke) * Math.Pow((RH.KlasseRechteckHohlBreite - 2 * RH.KlasseRechteckHohlWandstaerke), 3) / 12;
             Rechteck_Hohl_SWP_X = 0; // Ursprung = Schwerpunkt
@@ -97,12 +128,14 @@ namespace ProfiRechner
             // Runden
             Rechteck_Hohl_Flaeche = Math.Round(Rechteck_Hohl_Flaeche, 2);
             Rechteck_Hohl_Volumen = Math.Round(Rechteck_Hohl_Volumen, 2);
+            Rechteck_Hohl_Masse = Math.Round(Rechteck_Hohl_Masse, 3);
             Rechteck_Hohl_FTM_X = Math.Round(Rechteck_Hohl_FTM_X, 2);
             Rechteck_Hohl_FTM_Y = Math.Round(Rechteck_Hohl_FTM_Y, 2);
 
             // Umwandlung in String
             string Rechteck_Hohl_Flaeche_String = Convert.ToString(Rechteck_Hohl_Flaeche) + " " + RechteckEinheit + "²";
             string Rechteck_Hohl_Volumen_String = Convert.ToString(Rechteck_Hohl_Volumen) + " " + RechteckEinheit + "³";
+            string Rechteck_Hohl_Masse_String = Convert.ToString(Rechteck_Hohl_Masse) + " kg";
             string Rechteck_Hohl_FTM_X_String = Convert.ToString(Rechteck_Hohl_FTM_X) + " " + RechteckEinheit + "^4";
             string Rechteck_Hohl_FTM_Y_String = Convert.ToString(Rechteck_Hohl_FTM_Y) + " " + RechteckEinheit + "^4";
             string Rechteck_Hohl_SWP_String = "(x=" + Rechteck_Hohl_SWP_X + " " + RechteckEinheit + "/y=" + Rechteck_Hohl_SWP_Y + " " + RechteckEinheit + ")";
@@ -110,10 +143,15 @@ namespace ProfiRechner
             // Übergabe Ergebnisse
             lbl_Rechteck_Fläche_Ergebnis.Content = Rechteck_Hohl_Flaeche_String;
             lbl_Rechteck_Volumen_Ergebnis.Content = Rechteck_Hohl_Volumen_String;
+            lbl_Rechteck_Masse_Ergebnis.Content = Rechteck_Hohl_Masse_String;
             lbl_Rechteck_FTM_X_Ergebnis.Content = Rechteck_Hohl_FTM_X_String;
             lbl_Rechteck_FTM_Y_Ergebnis.Content = Rechteck_Hohl_FTM_Y_String;
             lbl_Rechteck_Schwerpunkt_Ergebnis.Content = Rechteck_Hohl_SWP_String;
         }
+
+        #endregion
+
+        #region BerechnungKreisvollprofil
 
         public void Kreisprofil_Berechnung()
         {
@@ -121,6 +159,8 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_KreisDurchmesser.Text, out double KreisDurchmesser);
             Double.TryParse(tbx_Input_KreisLaenge.Text, out double KreisLaenge);
             String KreisEinheit = Convert.ToString(CoB_Kreis_Auswahl_Einheit.SelectionBoxItem);
+            // Double.TryParse(CoB_Werkstoff_Dichte.SelectionBoxItem, out double WerkstoffDichte);
+            double WerkstoffDichte = 7850; // ERSATZ
 
             // Klasse Kreisprofil
             Kreis K = new Kreis();
@@ -129,9 +169,20 @@ namespace ProfiRechner
             // neue Variablen
             double Kreis_Flaeche, Kreis_Volumen, Kreis_FTM_X, Kreis_FTM_Y, Kreis_SWP_X, Kreis_SWP_Y, Kreis_Masse;
 
+            // Einheitenumrechnung
+            if (KreisEinheit.Equals("mm"))
+            {
+                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 9);
+            }
+            else if (KreisEinheit.Equals("cm"))
+            {
+                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 6);
+            }
+
             // Berechnungen
             Kreis_Flaeche = Math.Pow(K.KlasseKreisDurchmesser, 2) * Math.PI / 4;
             Kreis_Volumen = Kreis_Flaeche * K.KlasseKreisLaenge;
+            Kreis_Masse = Kreis_Volumen * WerkstoffDichte;
             Kreis_FTM_X = Math.Pow(K.KlasseKreisDurchmesser, 4) * Math.PI / 64;
             Kreis_FTM_Y = Kreis_FTM_X;
             Kreis_SWP_X = 0; // Ursprung = Schwerpunkt
@@ -140,12 +191,14 @@ namespace ProfiRechner
             // Runden
             Kreis_Flaeche = Math.Round(Kreis_Flaeche, 2);
             Kreis_Volumen = Math.Round(Kreis_Volumen, 2);
+            Kreis_Masse = Math.Round(Kreis_Masse, 3);
             Kreis_FTM_X = Math.Round(Kreis_FTM_X, 2);
             Kreis_FTM_Y = Math.Round(Kreis_FTM_Y, 2);
 
             // Umwandlung in String
             string Kreis_Flaeche_String = Convert.ToString(Kreis_Flaeche) + " " + KreisEinheit + "²";
             string Kreis_Volumen_String = Convert.ToString(Kreis_Volumen) + " " + KreisEinheit + "³";
+            string Kreis_Masse_String = Convert.ToString(Kreis_Masse) + " kg";
             string Kreis_FTM_X_String = Convert.ToString(Kreis_FTM_X) + " " + KreisEinheit + "^4";
             string Kreis_FTM_Y_String = Convert.ToString(Kreis_FTM_Y) + " " + KreisEinheit + "^4";
             string Kreis_SWP_String = "(x=" + Kreis_SWP_X + " " + KreisEinheit + "/y=" + Kreis_SWP_Y + " " + KreisEinheit + ")";
@@ -153,10 +206,15 @@ namespace ProfiRechner
             // Übergabe Ergebnisse
             lbl_Kreis_Fläche_Ergebnis.Content = Kreis_Flaeche_String;
             lbl_Kreis_Volumen_Ergebnis.Content = Kreis_Volumen_String;
+            lbl_Kreis_Masse_Ergebnis.Content = Kreis_Masse_String;
             lbl_Kreis_FTM_X_Ergebnis.Content = Kreis_FTM_X_String;
             lbl_Kreis_FTM_Y_Ergebnis.Content = Kreis_FTM_Y_String;
             lbl_Kreis_Schwerpunkt_Ergebnis.Content = Kreis_SWP_String;
         }
+
+        #endregion
+
+        #region BerechnungKreishohlprofil
 
         public void Kreisprofil_hohl_Berechnung()
         {
@@ -165,6 +223,8 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_KreisLaenge.Text, out double KreisHohlLaenge);
             Double.TryParse(tbx_Input_Kreis_hohlWandstaerke.Text, out double KreisHohlWandstaerke);
             String KreisEinheit = Convert.ToString(CoB_Kreis_Auswahl_Einheit.SelectionBoxItem);
+            // Double.TryParse(CoB_Werkstoff_Dichte.SelectionBoxItem, out double WerkstoffDichte);
+            double WerkstoffDichte = 7850; // ERSATZ
 
             // Klasse Kreishohlprofil
             Kreis_Hohl KH = new Kreis_Hohl();
@@ -173,9 +233,20 @@ namespace ProfiRechner
             // neue Variablen
             double Kreis_Hohl_Flaeche, Kreis_Hohl_Volumen, Kreis_Hohl_FTM_X, Kreis_Hohl_FTM_Y, Kreis_Hohl_SWP_X, Kreis_Hohl_SWP_Y, Kreis_Hohl_Masse;
 
+            // Einheitenumrechnung
+            if (KreisEinheit.Equals("mm"))
+            {
+                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 9);
+            }
+            else if (KreisEinheit.Equals("cm"))
+            {
+                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 6);
+            }
+
             // Berechnungen
             Kreis_Hohl_Flaeche = (Math.Pow(KH.KlasseKreisHohlDurchmesser, 2)-Math.Pow((KH.KlasseKreisHohlDurchmesser-2* KH.KlasseKreisHohlWandstaerke), 2)) * Math.PI / 4;
             Kreis_Hohl_Volumen = Kreis_Hohl_Flaeche * KH.KlasseKreisHohlLaenge;
+            Kreis_Hohl_Masse = Kreis_Hohl_Volumen * WerkstoffDichte;
             Kreis_Hohl_FTM_X = (Math.Pow(KH.KlasseKreisHohlDurchmesser, 4)-Math.Pow((KH.KlasseKreisHohlDurchmesser-2*KH.KlasseKreisHohlWandstaerke),4)) * Math.PI / 64;
             Kreis_Hohl_FTM_Y = Kreis_Hohl_FTM_X;
             Kreis_Hohl_SWP_X = 0; // Ursprung = Schwerpunkt
@@ -184,12 +255,14 @@ namespace ProfiRechner
             // Runden
             Kreis_Hohl_Flaeche = Math.Round(Kreis_Hohl_Flaeche, 2);
             Kreis_Hohl_Volumen = Math.Round(Kreis_Hohl_Volumen, 2);
+            Kreis_Hohl_Masse = Math.Round(Kreis_Hohl_Masse, 3);
             Kreis_Hohl_FTM_X = Math.Round(Kreis_Hohl_FTM_X, 2);
             Kreis_Hohl_FTM_Y = Math.Round(Kreis_Hohl_FTM_Y, 2);
 
             // Umwandlung in String
             string Kreis_Hohl_Flaeche_String = Convert.ToString(Kreis_Hohl_Flaeche) + " " + KreisEinheit + "²";
             string Kreis_Hohl_Volumen_String = Convert.ToString(Kreis_Hohl_Volumen) + " " + KreisEinheit + "³";
+            string Kreis_Hohl_Masse_String = Convert.ToString(Kreis_Hohl_Masse) + " kg";
             string Kreis_Hohl_FTM_X_String = Convert.ToString(Kreis_Hohl_FTM_X) + " " + KreisEinheit + "^4";
             string Kreis_Hohl_FTM_Y_String = Convert.ToString(Kreis_Hohl_FTM_Y) + " " + KreisEinheit + "^4";
             string Kreis_Hohl_SWP_String = "(x=" + Kreis_Hohl_SWP_X + " " + KreisEinheit + "/y=" + Kreis_Hohl_SWP_Y + " " + KreisEinheit + ")";
@@ -197,10 +270,15 @@ namespace ProfiRechner
             // Übergabe Ergebnisse
             lbl_Kreis_Fläche_Ergebnis.Content = Kreis_Hohl_Flaeche_String;
             lbl_Kreis_Volumen_Ergebnis.Content = Kreis_Hohl_Volumen_String;
+            lbl_Kreis_Masse_Ergebnis.Content = Kreis_Hohl_Masse_String;
             lbl_Kreis_FTM_X_Ergebnis.Content = Kreis_Hohl_FTM_X_String;
             lbl_Kreis_FTM_Y_Ergebnis.Content = Kreis_Hohl_FTM_Y_String;
             lbl_Kreis_Schwerpunkt_Ergebnis.Content = Kreis_Hohl_SWP_String;
         }
+
+        #endregion
+
+        #region BerechnungSonderIPEProfil
 
         public void I_Profil_Berechnung()
         {
@@ -211,6 +289,8 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_IPEStegbreite.Text, out double SonderIPEStegbreite);
             Double.TryParse(tbx_Input_IPELaenge.Text, out double SonderIPELaenge);
             String SonderEinheit = Convert.ToString(CoB_Sonder_Auswahl_Einheit.SelectionBoxItem);
+            // Double.TryParse(CoB_Werkstoff_Dichte.SelectionBoxItem, out double WerkstoffDichte);
+            double WerkstoffDichte = 7850; // ERSATZ
 
             // Klasse SonderIPEProfil
             Sonder_IPE SIPE = new Sonder_IPE();
@@ -219,9 +299,20 @@ namespace ProfiRechner
             // neue Variablen
             double Sonder_IPE_Flaeche, Sonder_IPE_Volumen, Sonder_IPE_FTM_X, Sonder_IPE_FTM_Y, Sonder_IPE_SWP_X, Sonder_IPE_SWP_Y, Sonder_IPE_Masse;
 
+            // Einheitenumrechnung
+            if (SonderEinheit.Equals("mm"))
+            {
+                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 9);
+            }
+            else if (SonderEinheit.Equals("cm"))
+            {
+                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 6);
+            }
+
             // Berechnungen
             Sonder_IPE_Flaeche = SIPE.KlasseSonderIPEBreite * SIPE.KlasseSonderIPEHoehe - ((SIPE.KlasseSonderIPEHoehe - 2 * SIPE.KlasseSonderIPEFlanschbreite)*(SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite));
             Sonder_IPE_Volumen = Sonder_IPE_Flaeche * SIPE.KlasseSonderIPELaenge;
+            Sonder_IPE_Masse = Sonder_IPE_Volumen * WerkstoffDichte;
             Sonder_IPE_FTM_X = SIPE.KlasseSonderIPEBreite * Math.Pow(SIPE.KlasseSonderIPEHoehe, 3) / 12 - (SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite) * Math.Pow((SIPE.KlasseSonderIPEHoehe - 2 * SIPE.KlasseSonderIPEFlanschbreite), 3) / 12;
             Sonder_IPE_FTM_Y = SIPE.KlasseSonderIPEHoehe * Math.Pow(SIPE.KlasseSonderIPEBreite, 3) / 12 - 2 * ((SIPE.KlasseSonderIPEHoehe - 2 * SIPE.KlasseSonderIPEFlanschbreite) * Math.Pow((SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite), 3) / 12 + Math.Pow((SIPE.KlasseSonderIPEStegbreite + SIPE.KlasseSonderIPEBreite / 4), 2) + (SIPE.KlasseSonderIPEHoehe - SIPE.KlasseSonderIPEFlanschbreite) * ((SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite) / 2));
             Sonder_IPE_SWP_X = 0; // Ursprung = Schwerpunkt
@@ -230,12 +321,14 @@ namespace ProfiRechner
             // Runden
             Sonder_IPE_Flaeche = Math.Round(Sonder_IPE_Flaeche, 2);
             Sonder_IPE_Volumen = Math.Round(Sonder_IPE_Volumen, 2);
+            Sonder_IPE_Masse = Math.Round(Sonder_IPE_Masse, 3);
             Sonder_IPE_FTM_X = Math.Round(Sonder_IPE_FTM_X, 2);
             Sonder_IPE_FTM_Y = Math.Round(Sonder_IPE_FTM_Y, 2);
 
             // Umwandlung in String
             string Sonder_IPE_Flaeche_String = Convert.ToString(Sonder_IPE_Flaeche) + " " + SonderEinheit + "²";
             string Sonder_IPE_Volumen_String = Convert.ToString(Sonder_IPE_Volumen) + " " + SonderEinheit + "³";
+            string Sonder_IPE_Masse_String = Convert.ToString(Sonder_IPE_Masse) + " kg";
             string Sonder_IPE_FTM_X_String = Convert.ToString(Sonder_IPE_FTM_X) + " " + SonderEinheit + "^4";
             string Sonder_IPE_FTM_Y_String = Convert.ToString(Sonder_IPE_FTM_Y) + " " + SonderEinheit + "^4";
             string Sonder_IPE_SWP_String = "(x=" + Sonder_IPE_SWP_X + " " + SonderEinheit + "/y=" + Sonder_IPE_SWP_Y + " " + SonderEinheit + ")";
@@ -243,10 +336,14 @@ namespace ProfiRechner
             // Übergabe Ergebnisse
             lbl_Rechteck_Fläche_Ergebnis.Content = Sonder_IPE_Flaeche_String;
             lbl_Rechteck_Volumen_Ergebnis.Content = Sonder_IPE_Volumen_String;
+            lbl_Rechteck_Masse_Ergebnis.Content = Sonder_IPE_Masse_String;
             lbl_Rechteck_FTM_X_Ergebnis.Content = Sonder_IPE_FTM_X_String;
             lbl_Rechteck_FTM_Y_Ergebnis.Content = Sonder_IPE_FTM_Y_String;
             lbl_Rechteck_Schwerpunkt_Ergebnis.Content = Sonder_IPE_SWP_String;
         }
+
+        #endregion
+
         public void Kontrolle_Rechteckprofil()     //Kontrolle der Eingaben 
         {
             Double.TryParse(tbx_Input_RechteckBreite.Text, out double b);   // Eingaben in Double umwandeln
