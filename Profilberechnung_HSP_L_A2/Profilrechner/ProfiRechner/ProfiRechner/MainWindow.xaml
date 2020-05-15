@@ -108,7 +108,8 @@
                     <Image x:Name="img_Kreisprofil" Margin="10,155,115,155" Source="Kreisprofil.png" Visibility="Hidden"/>
                     <Image x:Name="img_Kreisprofil_hohl" Margin="10,155,115,155" Source="Kreisprofil_hohl.png" Visibility="Hidden"/>
                     <Label x:Name="lbl_Input_KreisDurchmesser" Content="Durchmesser:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,160,0,0" VerticalAlignment="Top" Width="90"/>
-                    <Label x:Name="lbl_Input_Kreis_hohlWandstaerke" Content="Wandstärke:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,200,0,0" VerticalAlignment="Top" Width="90" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Input_KreisLaenge" Content="Länge:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,200,0,0" VerticalAlignment="Top" Width="90"/>
+                    <Label x:Name="lbl_Input_Kreis_hohlWandstaerke" Content="Wandstärke:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,240,0,0" VerticalAlignment="Top" Width="90" Visibility="Hidden"/>
                     <Label x:Name="lbl_Kreis_Fläche" Content="Querschnittsfläche:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Kreis_Volumen" Content="Volumen:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Kreis_Masse" Content="Masse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top"/>
@@ -128,7 +129,8 @@
                     </ComboBox>
                     <Label x:Name="lbl_Kreis_Hinweis_Einheiten" Content="Bitte wählen Sie eine Einheit aus:" Margin="190,80,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="200"/>
                     <TextBox x:Name="tbx_Input_KreisDurchmesser" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_KreisDurchmesser_TextChanged"/>
-                    <TextBox x:Name="tbx_Input_Kreis_hohlWandstaerke" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Visibility="Hidden" TextChanged="tbx_Input_Kreis_hohlWandstaerke_TextChanged"/>
+                    <TextBox x:Name="tbx_Input_KreisLaenge" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+                    <TextBox x:Name="tbx_Input_Kreis_hohlWandstaerke" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,240,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Visibility="Hidden" TextChanged="tbx_Input_Kreis_hohlWandstaerke_TextChanged"/>
                     <Label x:Name="lbl_KreisGrafik_Durchmesser" Content="d" HorizontalAlignment="Left" Height="36" Margin="124,180,0,0" VerticalAlignment="Top" Width="66" Visibility="Hidden"/>
                     <Label x:Name="lbl_Kreis_hohlGrafik_Wandstaerke" Content="t" HorizontalAlignment="Left" Height="30" Margin="190,376,0,0" VerticalAlignment="Top" Width="61" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
                         <Label.RenderTransform>
@@ -180,10 +182,12 @@
                     <Label x:Name="lbl_Input_IPEHoehe" Content="Höhe:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,200,0,0" VerticalAlignment="Top" Width="90"/>
                     <Label x:Name="lbl_Input_IPEStegbreite" Content="Stegbreite:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,240,0,0" VerticalAlignment="Top" Width="90"/>
                     <Label x:Name="lbl_Input_IPEFlanschbreite" Content="Flanschbreite:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,280,0,0" VerticalAlignment="Top" Width="90"/>
+                    <Label x:Name="lbl_Input_IPELaenge" Content="Länge:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,320,0,0" VerticalAlignment="Top" Width="90"/>
                     <TextBox x:Name="tbx_Input_IPEBreite" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_IPEBreite_TextChanged"/>
                     <TextBox x:Name="tbx_Input_IPEHoehe" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_IPEHoehe_TextChanged"/>
                     <TextBox x:Name="tbx_Input_IPEStegbreite" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,240,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_IPEStegbreite_TextChanged"/>
                     <TextBox x:Name="tbx_Input_IPEFlanschbreite" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_IPEFlanschbreite_TextChanged"/>
+                    <TextBox x:Name="tbx_Input_IPELaenge" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
                     <Label x:Name="lbl_IPEGrafik_Breite" Content="b" HorizontalAlignment="Left" Height="28" Margin="84,418,0,0" VerticalAlignment="Top" Width="69"/>
                     <Label x:Name="lbl_IPEGrafik_Hoehe" Content="h" HorizontalAlignment="Left" Height="26" Margin="165,274,0,0" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.5,0.5">
                         <Label.RenderTransform>
