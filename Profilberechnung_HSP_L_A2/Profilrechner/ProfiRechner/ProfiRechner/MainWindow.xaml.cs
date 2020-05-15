@@ -32,8 +32,7 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_RechteckHoehe.Text, out double RechteckHoehe);
             Double.TryParse(tbx_Input_RechteckLaenge.Text, out double RechteckLaenge);
             String RechteckEinheit = Convert.ToString(CoB_Rechteck_Auswahl_Einheit.SelectionBoxItem);
-            // Double.TryParse(CoB_Werkstoff_Dichte.SelectionBoxItem, out double WerkstoffDichte);
-            double WerkstoffDichte = 7850; // ERSATZ
+            Double RechteckWSDichte = CoB_Rechteck_WS.Text.Equals("Stahl") ? 7850 : 2700;
 
             // Klasse Rechteckprofil
             Rechteck R = new Rechteck();
@@ -41,21 +40,21 @@ namespace ProfiRechner
 
             // neue Variablen
             double Rechteck_Flaeche, Rechteck_Volumen, Rechteck_FTM_X, Rechteck_FTM_Y, Rechteck_SWP_X, Rechteck_SWP_Y, Rechteck_Masse;
-            
+
             // Einheitenumrechnung
             if (RechteckEinheit.Equals("mm"))
             {
-                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 9);
+                RechteckWSDichte = RechteckWSDichte / Math.Pow(10, 9);
             }
             else if (RechteckEinheit.Equals("cm"))
             {
-                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 6);
+                RechteckWSDichte = RechteckWSDichte / Math.Pow(10, 6);
             }
 
             // Berechnungen
             Rechteck_Flaeche = R.KlasseRechteckBreite * R.KlasseRechteckHoehe;
             Rechteck_Volumen = Rechteck_Flaeche * R.KlasseRechteckLaenge;
-            Rechteck_Masse = Rechteck_Volumen * WerkstoffDichte;      
+            Rechteck_Masse = Rechteck_Volumen * RechteckWSDichte;      
             Rechteck_FTM_X = R.KlasseRechteckBreite * Math.Pow(R.KlasseRechteckHoehe, 3) / 12;
             Rechteck_FTM_Y = R.KlasseRechteckHoehe * Math.Pow(R.KlasseRechteckBreite, 3) / 12;
             Rechteck_SWP_X = 0; // Ursprung = Schwerpunkt
@@ -97,8 +96,7 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_RechteckLaenge.Text, out double RechteckHohlLaenge);
             Double.TryParse(tbx_Input_Rechteck_hohl_Wall.Text, out double RechteckHohlWandstaerke);
             String RechteckEinheit = Convert.ToString(CoB_Rechteck_Auswahl_Einheit.SelectionBoxItem);
-            // Double.TryParse(CoB_Werkstoff_Dichte.SelectionBoxItem, out double WerkstoffDichte);
-            double WerkstoffDichte = 7850; // ERSATZ
+            Double RechteckWSDichte = CoB_Rechteck_WS.Text.Equals("Stahl") ? 7850 : 2700;
 
             // Klasse Rechteckhohlprofil
             Rechteck_Hohl RH = new Rechteck_Hohl();
@@ -110,16 +108,16 @@ namespace ProfiRechner
             // Einheitenumrechnung
             if (RechteckEinheit.Equals("mm"))
             {
-                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 9);
+                RechteckWSDichte = RechteckWSDichte / Math.Pow(10, 9);
             }
             else if (RechteckEinheit.Equals("cm"))
             {
-                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 6);
+                RechteckWSDichte = RechteckWSDichte / Math.Pow(10, 6);
             }
             // Berechnungen
             Rechteck_Hohl_Flaeche = RH.KlasseRechteckHohlBreite * RH.KlasseRechteckHohlHoehe - (RH.KlasseRechteckHohlBreite - 2* RH.KlasseRechteckHohlWandstaerke) *(RH.KlasseRechteckHohlHoehe - 2 * RH.KlasseRechteckHohlWandstaerke);
             Rechteck_Hohl_Volumen = Rechteck_Hohl_Flaeche * RH.KlasseRechteckHohlLaenge;
-            Rechteck_Hohl_Masse = Rechteck_Hohl_Volumen * WerkstoffDichte;
+            Rechteck_Hohl_Masse = Rechteck_Hohl_Volumen * RechteckWSDichte;
             Rechteck_Hohl_FTM_X = RH.KlasseRechteckHohlBreite * Math.Pow(RH.KlasseRechteckHohlHoehe, 3) / 12 - (RH.KlasseRechteckHohlBreite - 2 * RH.KlasseRechteckHohlWandstaerke) * Math.Pow((RH.KlasseRechteckHohlHoehe - 2 * RH.KlasseRechteckHohlWandstaerke), 3) / 12;
             Rechteck_Hohl_FTM_Y = RH.KlasseRechteckHohlHoehe * Math.Pow(RH.KlasseRechteckHohlBreite, 3) / 12 - (RH.KlasseRechteckHohlHoehe - 2 * RH.KlasseRechteckHohlWandstaerke) * Math.Pow((RH.KlasseRechteckHohlBreite - 2 * RH.KlasseRechteckHohlWandstaerke), 3) / 12;
             Rechteck_Hohl_SWP_X = 0; // Ursprung = Schwerpunkt
@@ -159,8 +157,7 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_KreisDurchmesser.Text, out double KreisDurchmesser);
             Double.TryParse(tbx_Input_KreisLaenge.Text, out double KreisLaenge);
             String KreisEinheit = Convert.ToString(CoB_Kreis_Auswahl_Einheit.SelectionBoxItem);
-            // Double.TryParse(CoB_Werkstoff_Dichte.SelectionBoxItem, out double WerkstoffDichte);
-            double WerkstoffDichte = 7850; // ERSATZ
+            Double KreisWSDichte = CoB_Kreis_WS.Text.Equals("Stahl") ? 7850 : 2700;
 
             // Klasse Kreisprofil
             Kreis K = new Kreis();
@@ -172,17 +169,17 @@ namespace ProfiRechner
             // Einheitenumrechnung
             if (KreisEinheit.Equals("mm"))
             {
-                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 9);
+                KreisWSDichte = KreisWSDichte / Math.Pow(10, 9);
             }
             else if (KreisEinheit.Equals("cm"))
             {
-                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 6);
+                KreisWSDichte = KreisWSDichte / Math.Pow(10, 6);
             }
 
             // Berechnungen
             Kreis_Flaeche = Math.Pow(K.KlasseKreisDurchmesser, 2) * Math.PI / 4;
             Kreis_Volumen = Kreis_Flaeche * K.KlasseKreisLaenge;
-            Kreis_Masse = Kreis_Volumen * WerkstoffDichte;
+            Kreis_Masse = Kreis_Volumen * KreisWSDichte;
             Kreis_FTM_X = Math.Pow(K.KlasseKreisDurchmesser, 4) * Math.PI / 64;
             Kreis_FTM_Y = Kreis_FTM_X;
             Kreis_SWP_X = 0; // Ursprung = Schwerpunkt
@@ -223,8 +220,7 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_KreisLaenge.Text, out double KreisHohlLaenge);
             Double.TryParse(tbx_Input_Kreis_hohlWandstaerke.Text, out double KreisHohlWandstaerke);
             String KreisEinheit = Convert.ToString(CoB_Kreis_Auswahl_Einheit.SelectionBoxItem);
-            // Double.TryParse(CoB_Werkstoff_Dichte.SelectionBoxItem, out double WerkstoffDichte);
-            double WerkstoffDichte = 7850; // ERSATZ
+            Double KreisWSDichte = CoB_Kreis_WS.Text.Equals("Stahl") ? 7850 : 2700;
 
             // Klasse Kreishohlprofil
             Kreis_Hohl KH = new Kreis_Hohl();
@@ -236,17 +232,17 @@ namespace ProfiRechner
             // Einheitenumrechnung
             if (KreisEinheit.Equals("mm"))
             {
-                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 9);
+                KreisWSDichte = KreisWSDichte / Math.Pow(10, 9);
             }
             else if (KreisEinheit.Equals("cm"))
             {
-                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 6);
+                KreisWSDichte = KreisWSDichte / Math.Pow(10, 6);
             }
 
             // Berechnungen
             Kreis_Hohl_Flaeche = (Math.Pow(KH.KlasseKreisHohlDurchmesser, 2)-Math.Pow((KH.KlasseKreisHohlDurchmesser-2* KH.KlasseKreisHohlWandstaerke), 2)) * Math.PI / 4;
             Kreis_Hohl_Volumen = Kreis_Hohl_Flaeche * KH.KlasseKreisHohlLaenge;
-            Kreis_Hohl_Masse = Kreis_Hohl_Volumen * WerkstoffDichte;
+            Kreis_Hohl_Masse = Kreis_Hohl_Volumen * KreisWSDichte;
             Kreis_Hohl_FTM_X = (Math.Pow(KH.KlasseKreisHohlDurchmesser, 4)-Math.Pow((KH.KlasseKreisHohlDurchmesser-2*KH.KlasseKreisHohlWandstaerke),4)) * Math.PI / 64;
             Kreis_Hohl_FTM_Y = Kreis_Hohl_FTM_X;
             Kreis_Hohl_SWP_X = 0; // Ursprung = Schwerpunkt
@@ -289,8 +285,7 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_IPEStegbreite.Text, out double SonderIPEStegbreite);
             Double.TryParse(tbx_Input_IPELaenge.Text, out double SonderIPELaenge);
             String SonderEinheit = Convert.ToString(CoB_Sonder_Auswahl_Einheit.SelectionBoxItem);
-            // Double.TryParse(CoB_Werkstoff_Dichte.SelectionBoxItem, out double WerkstoffDichte);
-            double WerkstoffDichte = 7850; // ERSATZ
+            Double SonderWSDichte = CoB_Sonder_WS.Text.Equals("Stahl") ? 7850 : 2700;
 
             // Klasse SonderIPEProfil
             Sonder_IPE SIPE = new Sonder_IPE();
@@ -302,17 +297,17 @@ namespace ProfiRechner
             // Einheitenumrechnung
             if (SonderEinheit.Equals("mm"))
             {
-                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 9);
+                SonderWSDichte = SonderWSDichte / Math.Pow(10, 9);
             }
             else if (SonderEinheit.Equals("cm"))
             {
-                WerkstoffDichte = WerkstoffDichte / Math.Pow(10, 6);
+                SonderWSDichte = SonderWSDichte / Math.Pow(10, 6);
             }
 
             // Berechnungen
             Sonder_IPE_Flaeche = SIPE.KlasseSonderIPEBreite * SIPE.KlasseSonderIPEHoehe - ((SIPE.KlasseSonderIPEHoehe - 2 * SIPE.KlasseSonderIPEFlanschbreite)*(SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite));
             Sonder_IPE_Volumen = Sonder_IPE_Flaeche * SIPE.KlasseSonderIPELaenge;
-            Sonder_IPE_Masse = Sonder_IPE_Volumen * WerkstoffDichte;
+            Sonder_IPE_Masse = Sonder_IPE_Volumen * SonderWSDichte;
             Sonder_IPE_FTM_X = SIPE.KlasseSonderIPEBreite * Math.Pow(SIPE.KlasseSonderIPEHoehe, 3) / 12 - (SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite) * Math.Pow((SIPE.KlasseSonderIPEHoehe - 2 * SIPE.KlasseSonderIPEFlanschbreite), 3) / 12;
             Sonder_IPE_FTM_Y = SIPE.KlasseSonderIPEHoehe * Math.Pow(SIPE.KlasseSonderIPEBreite, 3) / 12 - 2 * ((SIPE.KlasseSonderIPEHoehe - 2 * SIPE.KlasseSonderIPEFlanschbreite) * Math.Pow((SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite), 3) / 12 + Math.Pow((SIPE.KlasseSonderIPEStegbreite + SIPE.KlasseSonderIPEBreite / 4), 2) + (SIPE.KlasseSonderIPEHoehe - SIPE.KlasseSonderIPEFlanschbreite) * ((SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite) / 2));
             Sonder_IPE_SWP_X = 0; // Ursprung = Schwerpunkt
