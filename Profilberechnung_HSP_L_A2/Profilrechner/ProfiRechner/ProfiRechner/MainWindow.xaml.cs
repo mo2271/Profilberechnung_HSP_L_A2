@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,38 +22,206 @@ namespace ProfiRechner
     public partial class MainWindow : Window
     {
         #region Berechnungsmethoden
-        public void Rechteckprofil_Berechnung()     // exemplarische Berechnung in übergeordneter Methode
+       
+        public void Rechteckprofil_Berechnung()     
         {
-            Double.TryParse(tbx_Input_RechteckBreite.Text, out double b);   // Eingaben in Double umwandeln
-            Double.TryParse(tbx_Input_RechteckHoehe.Text, out double h);
+            // Übergabe von Eingabewerten
+            Double.TryParse(tbx_Input_RechteckBreite.Text, out double RechteckBreite);  
+            Double.TryParse(tbx_Input_RechteckHoehe.Text, out double RechteckHoehe);
+            Double.TryParse(tbx_Input_RechteckLaenge.Text, out double RechteckLaenge);
+            String RechteckEinheit = Convert.ToString(CoB_Rechteck_Auswahl_Einheit.SelectionBoxItem);
 
-            double Flaeche;     // Definition des Ergebnis-Doubles
+            // String ProfilWerkstoff = Convert.ToString(CoB_Werkstoff_Auswahl.SelectionBoxItem);
+            
 
-            Flaeche = b * h;    // Durchführung der Berechnung
+            // Klasse Rechteckprofil
+            Rechteck R = new Rechteck();
+            R.setGeometrie(RechteckBreite, RechteckHoehe, RechteckLaenge);
 
-            string resFlaeche = Convert.ToString(Flaeche);  // Ergebnis-Double in string zurückwandeln
+            // neue Variablen
+            double Rechteck_Flaeche, Rechteck_Volumen, Rechteck_FTM_X, Rechteck_FTM_Y, Rechteck_SWP_X, Rechteck_SWP_Y, Rechteck_Masse;
 
-            lbl_Rechteck_Fläche_Ergebnis.Content = resFlaeche;  // Rückgabe des Ergebnisstrings an das Ergebnis-Label
+            // Berechnungen
+            Rechteck_Flaeche = R.KlasseRechteckBreite * R.KlasseRechteckHoehe;
+            Rechteck_Volumen = Rechteck_Flaeche * R.KlasseRechteckLaenge;
+            Rechteck_FTM_X = R.KlasseRechteckBreite * Math.Pow(R.KlasseRechteckHoehe, 3) / 12;
+            Rechteck_FTM_Y = R.KlasseRechteckHoehe * Math.Pow(R.KlasseRechteckBreite, 3) / 12;
+            Rechteck_SWP_X = 0; // Ursprung = Schwerpunkt
+            Rechteck_SWP_Y = 0; // Ursprung = Schwerpunkt
+
+            // Umwandlung in String
+            string Rechteck_Flaeche_String = Convert.ToString(Rechteck_Flaeche) + " " + RechteckEinheit + "²";
+            string Rechteck_Volumen_String = Convert.ToString(Rechteck_Volumen) + " " + RechteckEinheit + "³";
+            string Rechteck_FTM_X_String = Convert.ToString(Rechteck_FTM_X) + " " + RechteckEinheit + "^4";
+            string Rechteck_FTM_Y_String = Convert.ToString(Rechteck_FTM_Y) + " " + RechteckEinheit + "^4";
+            string Rechteck_SWP_String = "(x=" + Rechteck_SWP_X + " " + RechteckEinheit + "/y=" + Rechteck_SWP_Y + " " + RechteckEinheit + ")";
+
+            // Übergabe Ergebnisse
+            lbl_Rechteck_Fläche_Ergebnis.Content = Rechteck_Flaeche_String;
+            lbl_Rechteck_Volumen_Ergebnis.Content = Rechteck_Volumen_String;
+            lbl_Rechteck_FTM_X_Ergebnis.Content = Rechteck_FTM_X_String;
+            lbl_Rechteck_FTM_Y_Ergebnis.Content = Rechteck_FTM_Y_String;
+            lbl_Rechteck_Schwerpunkt_Ergebnis.Content = Rechteck_SWP_String;
         }
 
         public void Rechteckprofil_hohl_Berechnung()
         {
+            // Übergabe von Eingabewerten
+            Double.TryParse(tbx_Input_RechteckBreite.Text, out double RechteckHohlBreite);
+            Double.TryParse(tbx_Input_RechteckHoehe.Text, out double RechteckHohlHoehe);
+            Double.TryParse(tbx_Input_RechteckLaenge.Text, out double RechteckHohlLaenge);
+            Double.TryParse(tbx_Input_Rechteck_hohl_Wall.Text, out double RechteckHohlWandstaerke);
+            String RechteckEinheit = Convert.ToString(CoB_Rechteck_Auswahl_Einheit.SelectionBoxItem);
 
+            // Klasse Rechteckhohlprofil
+            Rechteck_Hohl RH = new Rechteck_Hohl();
+            RH.setGeometrie(RechteckHohlBreite, RechteckHohlHoehe, RechteckHohlLaenge, RechteckHohlWandstaerke);
+
+            // neue Variablen
+            double Rechteck_Hohl_Flaeche, Rechteck_Hohl_Volumen, Rechteck_Hohl_FTM_X, Rechteck_Hohl_FTM_Y, Rechteck_Hohl_SWP_X, Rechteck_Hohl_SWP_Y, Rechteck_Hohl_Masse;
+
+            // Berechnungen
+            Rechteck_Hohl_Flaeche = RH.KlasseRechteckHohlBreite * RH.KlasseRechteckHohlHoehe - (RH.KlasseRechteckHohlBreite - 2* RH.KlasseRechteckHohlWandstaerke) *(RH.KlasseRechteckHohlHoehe - 2 * RH.KlasseRechteckHohlWandstaerke);
+            Rechteck_Hohl_Volumen = Rechteck_Hohl_Flaeche * RH.KlasseRechteckHohlLaenge;
+            Rechteck_Hohl_FTM_X = RH.KlasseRechteckHohlBreite * Math.Pow(RH.KlasseRechteckHohlHoehe, 3) / 12 - (RH.KlasseRechteckHohlBreite - 2 * RH.KlasseRechteckHohlWandstaerke) * Math.Pow((RH.KlasseRechteckHohlHoehe - 2 * RH.KlasseRechteckHohlWandstaerke), 3) / 12;
+            Rechteck_Hohl_FTM_Y = RH.KlasseRechteckHohlHoehe * Math.Pow(RH.KlasseRechteckHohlBreite, 3) / 12 - (RH.KlasseRechteckHohlHoehe - 2 * RH.KlasseRechteckHohlWandstaerke) * Math.Pow((RH.KlasseRechteckHohlBreite - 2 * RH.KlasseRechteckHohlWandstaerke), 3) / 12;
+            Rechteck_Hohl_SWP_X = 0; // Ursprung = Schwerpunkt
+            Rechteck_Hohl_SWP_Y = 0; // Ursprung = Schwerpunkt
+
+            // Umwandlung in String
+            string Rechteck_Hohl_Flaeche_String = Convert.ToString(Rechteck_Hohl_Flaeche) + " " + RechteckEinheit + "²";
+            string Rechteck_Hohl_Volumen_String = Convert.ToString(Rechteck_Hohl_Volumen) + " " + RechteckEinheit + "³";
+            string Rechteck_Hohl_FTM_X_String = Convert.ToString(Rechteck_Hohl_FTM_X) + " " + RechteckEinheit + "^4";
+            string Rechteck_Hohl_FTM_Y_String = Convert.ToString(Rechteck_Hohl_FTM_Y) + " " + RechteckEinheit + "^4";
+            string Rechteck_Hohl_SWP_String = "(x=" + Rechteck_Hohl_SWP_X + " " + RechteckEinheit + "/y=" + Rechteck_Hohl_SWP_Y + " " + RechteckEinheit + ")";
+
+            // Übergabe Ergebnisse
+            lbl_Rechteck_Fläche_Ergebnis.Content = Rechteck_Hohl_Flaeche_String;
+            lbl_Rechteck_Volumen_Ergebnis.Content = Rechteck_Hohl_Volumen_String;
+            lbl_Rechteck_FTM_X_Ergebnis.Content = Rechteck_Hohl_FTM_X_String;
+            lbl_Rechteck_FTM_Y_Ergebnis.Content = Rechteck_Hohl_FTM_Y_String;
+            lbl_Rechteck_Schwerpunkt_Ergebnis.Content = Rechteck_Hohl_SWP_String;
         }
 
         public void Kreisprofil_Berechnung()
         {
+            // Übergabe von Eingabewerten
+            Double.TryParse(tbx_Input_KreisDurchmesser.Text, out double KreisDurchmesser);
+            // Double.TryParse(tbx_Input_KreisLaenge.Text, out double KreisLaenge);
+            String KreisEinheit = Convert.ToString(CoB_Kreis_Auswahl_Einheit.SelectionBoxItem);
 
+            double KreisLaenge = 10; // ERSATZ
+
+            // Klasse Kreisprofil
+            Kreis K = new Kreis();
+            K.setGeometrie(KreisDurchmesser,KreisLaenge);
+
+            // neue Variablen
+            double Kreis_Flaeche, Kreis_Volumen, Kreis_FTM_X, Kreis_FTM_Y, Kreis_SWP_X, Kreis_SWP_Y, Kreis_Masse;
+
+            // Berechnungen
+            Kreis_Flaeche = Math.Pow(K.KlasseKreisDurchmesser, 2) * Math.PI / 4;
+            Kreis_Volumen = Kreis_Flaeche * K.KlasseKreisLaenge;
+            Kreis_FTM_X = Math.Pow(K.KlasseKreisDurchmesser, 4) * Math.PI / 64;
+            Kreis_FTM_Y = Kreis_FTM_X;
+            Kreis_SWP_X = 0; // Ursprung = Schwerpunkt
+            Kreis_SWP_Y = 0; // Ursprung = Schwerpunkt
+
+            // Umwandlung in String
+            string Kreis_Flaeche_String = Convert.ToString(Kreis_Flaeche) + " " + KreisEinheit + "²";
+            string Kreis_Volumen_String = Convert.ToString(Kreis_Volumen) + " " + KreisEinheit + "³";
+            string Kreis_FTM_X_String = Convert.ToString(Kreis_FTM_X) + " " + KreisEinheit + "^4";
+            string Kreis_FTM_Y_String = Convert.ToString(Kreis_FTM_Y) + " " + KreisEinheit + "^4";
+            string Kreis_SWP_String = "(x=" + Kreis_SWP_X + " " + KreisEinheit + "/y=" + Kreis_SWP_Y + " " + KreisEinheit + ")";
+
+            // Übergabe Ergebnisse
+            lbl_Kreis_Fläche_Ergebnis.Content = Kreis_Flaeche_String;
+            lbl_Kreis_Volumen_Ergebnis.Content = Kreis_Volumen_String;
+            lbl_Kreis_FTM_X_Ergebnis.Content = Kreis_FTM_X_String;
+            lbl_Kreis_FTM_Y_Ergebnis.Content = Kreis_FTM_Y_String;
+            lbl_Kreis_Schwerpunkt_Ergebnis.Content = Kreis_SWP_String;
         }
 
         public void Kreisprofil_hohl_Berechnung()
         {
+            // Übergabe von Eingabewerten
+            Double.TryParse(tbx_Input_KreisDurchmesser.Text, out double KreisHohlDurchmesser);
+            // Double.TryParse(tbx_Input_Kreis_HohlLaenge.Text, out double KreisHohlLaenge);
+            Double.TryParse(tbx_Input_Kreis_hohlWandstaerke.Text, out double KreisHohlWandstaerke);
+            String KreisEinheit = Convert.ToString(CoB_Kreis_Auswahl_Einheit.SelectionBoxItem);
 
+            double KreisHohlLaenge = 10; // ERSATZ
+
+            // Klasse Kreishohlprofil
+            Kreis_Hohl KH = new Kreis_Hohl();
+            KH.setGeometrie(KreisHohlDurchmesser, KreisHohlLaenge, KreisHohlWandstaerke);
+
+            // neue Variablen
+            double Kreis_Hohl_Flaeche, Kreis_Hohl_Volumen, Kreis_Hohl_FTM_X, Kreis_Hohl_FTM_Y, Kreis_Hohl_SWP_X, Kreis_Hohl_SWP_Y, Kreis_Hohl_Masse;
+
+            // Berechnungen
+            Kreis_Hohl_Flaeche = (Math.Pow(KH.KlasseKreisHohlDurchmesser, 2)-Math.Pow((KH.KlasseKreisHohlDurchmesser-2* KH.KlasseKreisHohlWandstaerke), 2)) * Math.PI / 4;
+            Kreis_Hohl_Volumen = Kreis_Hohl_Flaeche * KH.KlasseKreisHohlLaenge;
+            Kreis_Hohl_FTM_X = (Math.Pow(KH.KlasseKreisHohlDurchmesser, 4)-Math.Pow((KH.KlasseKreisHohlDurchmesser-2*KH.KlasseKreisHohlWandstaerke),4)) * Math.PI / 64;
+            Kreis_Hohl_FTM_Y = Kreis_Hohl_FTM_X;
+            Kreis_Hohl_SWP_X = 0; // Ursprung = Schwerpunkt
+            Kreis_Hohl_SWP_Y = 0; // Ursprung = Schwerpunkt
+
+            // Umwandlung in String
+            string Kreis_Hohl_Flaeche_String = Convert.ToString(Kreis_Hohl_Flaeche) + " " + KreisEinheit + "²";
+            string Kreis_Hohl_Volumen_String = Convert.ToString(Kreis_Hohl_Volumen) + " " + KreisEinheit + "³";
+            string Kreis_Hohl_FTM_X_String = Convert.ToString(Kreis_Hohl_FTM_X) + " " + KreisEinheit + "^4";
+            string Kreis_Hohl_FTM_Y_String = Convert.ToString(Kreis_Hohl_FTM_Y) + " " + KreisEinheit + "^4";
+            string Kreis_Hohl_SWP_String = "(x=" + Kreis_Hohl_SWP_X + " " + KreisEinheit + "/y=" + Kreis_Hohl_SWP_Y + " " + KreisEinheit + ")";
+
+            // Übergabe Ergebnisse
+            lbl_Kreis_Fläche_Ergebnis.Content = Kreis_Hohl_Flaeche_String;
+            lbl_Kreis_Volumen_Ergebnis.Content = Kreis_Hohl_Volumen_String;
+            lbl_Kreis_FTM_X_Ergebnis.Content = Kreis_Hohl_FTM_X_String;
+            lbl_Kreis_FTM_Y_Ergebnis.Content = Kreis_Hohl_FTM_Y_String;
+            lbl_Kreis_Schwerpunkt_Ergebnis.Content = Kreis_Hohl_SWP_String;
         }
 
         public void I_Profil_Berechnung()
         {
+            // Übergabe von Eingabewerten
+            Double.TryParse(tbx_Input_IPEHoehe.Text, out double SonderIPEHoehe);
+            Double.TryParse(tbx_Input_IPEBreite.Text, out double SonderIPEBreite);
+            Double.TryParse(tbx_Input_IPEFlanschbreite.Text, out double SonderIPEFlanschbreite);
+            Double.TryParse(tbx_Input_IPEStegbreite.Text, out double SonderIPEStegbreite);
+            // Double.TryParse(tbx_Input_IPELaenge.Text, out double SonderIPELaenge);
+            String SonderEinheit = Convert.ToString(CoB_Sonder_Auswahl_Einheit.SelectionBoxItem);
 
+            double SonderIPELaenge = 10; // ERSATZ
+
+            // Klasse SonderIPEProfil
+            Sonder_IPE SIPE = new Sonder_IPE();
+            SIPE.setGeometrie(SonderIPEHoehe, SonderIPEBreite, SonderIPEFlanschbreite, SonderIPEStegbreite, SonderIPELaenge);
+
+            // neue Variablen
+            double Sonder_IPE_Flaeche, Sonder_IPE_Volumen, Sonder_IPE_FTM_X, Sonder_IPE_FTM_Y, Sonder_IPE_SWP_X, Sonder_IPE_SWP_Y, Sonder_IPE_Masse;
+
+            // Berechnungen
+            Sonder_IPE_Flaeche = SIPE.KlasseSonderIPEBreite * SIPE.KlasseSonderIPEHoehe - ((SIPE.KlasseSonderIPEHoehe - 2 * SIPE.KlasseSonderIPEFlanschbreite)*(SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite));
+            Sonder_IPE_Volumen = Sonder_IPE_Flaeche * SIPE.KlasseSonderIPELaenge;
+            Sonder_IPE_FTM_X = SIPE.KlasseSonderIPEBreite * Math.Pow(SIPE.KlasseSonderIPEHoehe, 3) / 12 - (SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite) * Math.Pow((SIPE.KlasseSonderIPEHoehe - 2 * SIPE.KlasseSonderIPEFlanschbreite), 3) / 12;
+            Sonder_IPE_FTM_Y = SIPE.KlasseSonderIPEHoehe * Math.Pow(SIPE.KlasseSonderIPEBreite, 3) / 12 - 2 * ((SIPE.KlasseSonderIPEHoehe - 2 * SIPE.KlasseSonderIPEFlanschbreite) * Math.Pow((SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite), 3) / 12 + Math.Pow((SIPE.KlasseSonderIPEStegbreite + SIPE.KlasseSonderIPEBreite / 4), 2) + (SIPE.KlasseSonderIPEHoehe - SIPE.KlasseSonderIPEFlanschbreite) * ((SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite) / 2));
+            Sonder_IPE_SWP_X = 0; // Ursprung = Schwerpunkt
+            Sonder_IPE_SWP_Y = 0; // Ursprung = Schwerpunkt
+
+            // Umwandlung in String
+            string Sonder_IPE_Flaeche_String = Convert.ToString(Sonder_IPE_Flaeche) + " " + SonderEinheit + "²";
+            string Sonder_IPE_Volumen_String = Convert.ToString(Sonder_IPE_Volumen) + " " + SonderEinheit + "³";
+            string Sonder_IPE_FTM_X_String = Convert.ToString(Sonder_IPE_FTM_X) + " " + SonderEinheit + "^4";
+            string Sonder_IPE_FTM_Y_String = Convert.ToString(Sonder_IPE_FTM_Y) + " " + SonderEinheit + "^4";
+            string Sonder_IPE_SWP_String = "(x=" + Sonder_IPE_SWP_X + " " + SonderEinheit + "/y=" + Sonder_IPE_SWP_Y + " " + SonderEinheit + ")";
+
+            // Übergabe Ergebnisse
+            lbl_Rechteck_Fläche_Ergebnis.Content = Sonder_IPE_Flaeche_String;
+            lbl_Rechteck_Volumen_Ergebnis.Content = Sonder_IPE_Volumen_String;
+            lbl_Rechteck_FTM_X_Ergebnis.Content = Sonder_IPE_FTM_X_String;
+            lbl_Rechteck_FTM_Y_Ergebnis.Content = Sonder_IPE_FTM_Y_String;
+            lbl_Rechteck_Schwerpunkt_Ergebnis.Content = Sonder_IPE_SWP_String;
         }
         public void Kontrolle_Rechteckprofil()     //Kontrolle der Eingaben 
         {

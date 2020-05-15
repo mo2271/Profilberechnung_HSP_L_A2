@@ -55,6 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Kreis.cs" />
+    <Compile Include="Kreis_Hohl.cs" />
+    <Compile Include="Rechteck.cs" />
+    <Compile Include="Rechteck_Hohl.cs" />
+    <Compile Include="Sonder_IPE.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
