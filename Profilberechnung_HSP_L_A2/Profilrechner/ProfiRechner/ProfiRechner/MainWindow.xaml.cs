@@ -355,6 +355,13 @@ namespace ProfiRechner
                 MessageBoxButton.OK,
                 MessageBoxImage.Error
                 );
+                if (result == MessageBoxResult.OK)
+                {
+
+                    CoB_Rechteck_WS.IsDropDownOpen= true;
+                    
+
+                }
                 
             }
             else
@@ -368,6 +375,11 @@ namespace ProfiRechner
                     MessageBoxButton.OK,
                     MessageBoxImage.Error
                     );
+                    if (result == MessageBoxResult.OK)
+                    {
+                        CoB_Rechteck_Auswahl_Einheit.IsDropDownOpen = true;
+                        
+                    }
 
                 }
                 else
@@ -445,6 +457,10 @@ namespace ProfiRechner
                 MessageBoxButton.OK,
                 MessageBoxImage.Error
                 );
+                if (result == MessageBoxResult.OK)
+                {
+                    CoB_Rechteck_WS.IsDropDownOpen = true;
+                }
             }
             else
             {
@@ -457,6 +473,10 @@ namespace ProfiRechner
                     MessageBoxButton.OK,
                     MessageBoxImage.Error
                     );
+                    if (result == MessageBoxResult.OK)
+                    {
+                        CoB_Rechteck_Auswahl_Einheit.IsDropDownOpen = true;
+                    }
 
                 }
                 else
@@ -587,6 +607,11 @@ namespace ProfiRechner
                 MessageBoxButton.OK,
                 MessageBoxImage.Error
                 );
+                
+                if (result == MessageBoxResult.OK)
+                {
+                    CoB_Kreis_WS.IsDropDownOpen = true;
+                }
             }
             else
             {
@@ -599,6 +624,11 @@ namespace ProfiRechner
                     MessageBoxButton.OK,
                     MessageBoxImage.Error
                     );
+                    if (result == MessageBoxResult.OK)
+                    {
+                        CoB_Kreis_Auswahl_Einheit.IsDropDownOpen = true;
+                    }
+
                 }
                 else
                 {
@@ -656,6 +686,10 @@ namespace ProfiRechner
                 MessageBoxButton.OK,
                 MessageBoxImage.Error
                 );
+                if (result == MessageBoxResult.OK)
+                {
+                    CoB_Kreis_WS.IsDropDownOpen = true;
+                }
             }
             else
             {
@@ -668,6 +702,10 @@ namespace ProfiRechner
                     MessageBoxButton.OK,
                     MessageBoxImage.Error
                     );
+                    if (result == MessageBoxResult.OK)
+                    {
+                        CoB_Kreis_Auswahl_Einheit.IsDropDownOpen = true;
+                    }
                 }
                 else
                 {
@@ -765,6 +803,10 @@ namespace ProfiRechner
                 MessageBoxButton.OK,
                 MessageBoxImage.Error
                 );
+                if (result == MessageBoxResult.OK)
+                {
+                    CoB_Sonder_WS.IsDropDownOpen = true;
+                }
             }
             else
             {
@@ -777,6 +819,10 @@ namespace ProfiRechner
                     MessageBoxButton.OK,
                     MessageBoxImage.Error
                     );
+                    if (result == MessageBoxResult.OK)
+                    {
+                        CoB_Sonder_Auswahl_Einheit.IsDropDownOpen = true;
+                    }
 
                 }
                 else
