@@ -304,12 +304,20 @@ namespace ProfiRechner
                 SonderWSDichte = SonderWSDichte / Math.Pow(10, 6);
             }
 
+            // Hilfsgrößen, da Formeln für FTMX und FTMY sehr lang
+            double FTM_X_grossesRechteck, FTM_X_kleinesRechteck, FTM_Y_grossesRechteck, FTM_Y_kleinesRechteckumSWPA, FTM_Y_kleinesRechteckSteiner;
+
             // Berechnungen
-            Sonder_IPE_Flaeche = SIPE.KlasseSonderIPEBreite * SIPE.KlasseSonderIPEHoehe - ((SIPE.KlasseSonderIPEHoehe - 2 * SIPE.KlasseSonderIPEFlanschbreite)*(SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite));
+            Sonder_IPE_Flaeche = SIPE.KlasseSonderIPEHoehe*SIPE.KlasseSonderIPEBreite - (SIPE.KlasseSonderIPEHoehe-2*SIPE.KlasseSonderIPEFlanschbreite)*(SIPE.KlasseSonderIPEBreite-SIPE.KlasseSonderIPEStegbreite);
             Sonder_IPE_Volumen = Sonder_IPE_Flaeche * SIPE.KlasseSonderIPELaenge;
             Sonder_IPE_Masse = Sonder_IPE_Volumen * SonderWSDichte;
-            Sonder_IPE_FTM_X = SIPE.KlasseSonderIPEBreite * Math.Pow(SIPE.KlasseSonderIPEHoehe, 3) / 12 - (SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite) * Math.Pow((SIPE.KlasseSonderIPEHoehe - 2 * SIPE.KlasseSonderIPEFlanschbreite), 3) / 12;
-            Sonder_IPE_FTM_Y = SIPE.KlasseSonderIPEHoehe * Math.Pow(SIPE.KlasseSonderIPEBreite, 3) / 12 - 2 * ((SIPE.KlasseSonderIPEHoehe - 2 * SIPE.KlasseSonderIPEFlanschbreite) * Math.Pow((SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite), 3) / 12 + Math.Pow((SIPE.KlasseSonderIPEStegbreite + SIPE.KlasseSonderIPEBreite / 4), 2) + (SIPE.KlasseSonderIPEHoehe - SIPE.KlasseSonderIPEFlanschbreite) * ((SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite) / 2));
+            FTM_X_grossesRechteck = (SIPE.KlasseSonderIPEBreite * Math.Pow(SIPE.KlasseSonderIPEHoehe,3)) / 12;
+            FTM_X_kleinesRechteck = ((SIPE.KlasseSonderIPEBreite-SIPE.KlasseSonderIPEStegbreite)/2) * Math.Pow((SIPE.KlasseSonderIPEHoehe-2*SIPE.KlasseSonderIPEFlanschbreite), 3) / 12;
+            Sonder_IPE_FTM_X = FTM_X_grossesRechteck - 2 * FTM_X_kleinesRechteck;
+            FTM_Y_grossesRechteck = (SIPE.KlasseSonderIPEHoehe * Math.Pow(SIPE.KlasseSonderIPEBreite, 3)) / 12;
+            FTM_Y_kleinesRechteckumSWPA = ((SIPE.KlasseSonderIPEHoehe-2*SIPE.KlasseSonderIPEFlanschbreite) * Math.Pow(((SIPE.KlasseSonderIPEBreite-SonderIPEStegbreite)/2), 3)) / 12;
+            FTM_Y_kleinesRechteckSteiner = (SIPE.KlasseSonderIPEHoehe-2*SIPE.KlasseSonderIPEFlanschbreite)*((SIPE.KlasseSonderIPEBreite-SIPE.KlasseSonderIPEStegbreite)/2)*Math.Pow(((SIPE.KlasseSonderIPEBreite+SonderIPEStegbreite)/4),2); // nur Flaeche * Abstand²
+            Sonder_IPE_FTM_Y = FTM_Y_grossesRechteck - 2*(FTM_Y_kleinesRechteckumSWPA+ FTM_Y_kleinesRechteckSteiner);
             Sonder_IPE_SWP_X = 0; // Ursprung = Schwerpunkt
             Sonder_IPE_SWP_Y = 0; // Ursprung = Schwerpunkt
 
