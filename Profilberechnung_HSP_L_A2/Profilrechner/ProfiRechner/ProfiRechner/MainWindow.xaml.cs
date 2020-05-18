@@ -329,12 +329,12 @@ namespace ProfiRechner
             string Sonder_IPE_SWP_String = "(x=" + Sonder_IPE_SWP_X + " " + SonderEinheit + "/y=" + Sonder_IPE_SWP_Y + " " + SonderEinheit + ")";
 
             // Übergabe Ergebnisse
-            lbl_Rechteck_Fläche_Ergebnis.Content = Sonder_IPE_Flaeche_String;
-            lbl_Rechteck_Volumen_Ergebnis.Content = Sonder_IPE_Volumen_String;
-            lbl_Rechteck_Masse_Ergebnis.Content = Sonder_IPE_Masse_String;
-            lbl_Rechteck_FTM_X_Ergebnis.Content = Sonder_IPE_FTM_X_String;
-            lbl_Rechteck_FTM_Y_Ergebnis.Content = Sonder_IPE_FTM_Y_String;
-            lbl_Rechteck_Schwerpunkt_Ergebnis.Content = Sonder_IPE_SWP_String;
+            lbl_Sonder_Fläche_Ergebnis.Content = Sonder_IPE_Flaeche_String;
+            lbl_Sonder_Volumen_Ergebnis.Content = Sonder_IPE_Volumen_String;
+            lbl_Sonder_Masse_Ergebnis.Content = Sonder_IPE_Masse_String;
+            lbl_Sonder_FTM_X_Ergebnis.Content = Sonder_IPE_FTM_X_String;
+            lbl_Sonder_FTM_Y_Ergebnis.Content = Sonder_IPE_FTM_Y_String;
+            lbl_Sonder_Schwerpunkt_Ergebnis.Content = Sonder_IPE_SWP_String;
         }
 
         #endregion
