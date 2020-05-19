@@ -437,7 +437,7 @@ namespace ProfiRechner
                     else if (Zeichenlaenge_l.Length > 4)
                     {
                         MessageBoxResult result;
-                        result = MessageBox.Show("Länge: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "WichtigeFrage",
+                        result = MessageBox.Show("Länge: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabekontrolle",
                         MessageBoxButton.OK,
                         MessageBoxImage.Error
                         );
@@ -449,7 +449,7 @@ namespace ProfiRechner
                         }
                     }
                 }
-            
+                Rechteckprofil_Berechnung(); // Aufrud der Berechnung
             }
 
             
@@ -541,7 +541,7 @@ namespace ProfiRechner
                             else if (Zeichenlaenge_l.Length > 4)
                             {
                                 MessageBoxResult result;
-                                result = MessageBox.Show("Länge: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "WichtigeFrage",
+                                result = MessageBox.Show("Länge: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabekontrolle",
                                 MessageBoxButton.OK,
                                 MessageBoxImage.Error
                                 );
@@ -555,7 +555,7 @@ namespace ProfiRechner
                             else if (Zeichenlaenge_w.Length > 2)
                             {
                                 MessageBoxResult result;
-                                result = MessageBox.Show("Wandstärke: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "WichtigeFrage",
+                                result = MessageBox.Show("Wandstärke: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabekontrolle",
                                 MessageBoxButton.OK,
                                 MessageBoxImage.Error
                                 );
@@ -596,9 +596,11 @@ namespace ProfiRechner
                             tbx_Input_Rechteck_hohl_Wall.Focus();
                         }
                     }
-                }
 
-            
+                }
+                Rechteckprofil_hohl_Berechnung();       //Aufruf der Berechnung
+
+
             } 
         }
         #endregion
@@ -679,6 +681,7 @@ namespace ProfiRechner
 
                     }
                 }
+                Kreisprofil_Berechnung();   // Startet die Kreisprofil-Berechnung
             }
             
            
@@ -795,6 +798,7 @@ namespace ProfiRechner
                         }
                     }
                 }
+                Kreisprofil_hohl_Berechnung();  // Startet die Kreis-Hohlprofil-Berechnung
             }
         }
         #endregion
@@ -871,7 +875,7 @@ namespace ProfiRechner
                             if (Zeichenlaenge_B.Length > 4)
                             {
                                 MessageBoxResult result;
-                                result = MessageBox.Show("Breite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "WichtigeFrage",
+                                result = MessageBox.Show("Breite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabekontrolle",
                                 MessageBoxButton.OK,
                                 MessageBoxImage.Error
                                 );
@@ -969,6 +973,7 @@ namespace ProfiRechner
                         }
                     }
                 }
+                I_Profil_Berechnung();
             }
             
             
@@ -1028,14 +1033,14 @@ namespace ProfiRechner
         {
             
             Kontrolle_Rechteckprofil();
-            Rechteckprofil_Berechnung();    // Aufruf der Rechteckprofil-Berechnung
+                
         }
 
         private void btn_StartRechteckprofil_hohl_Berechnung_Click(object sender, RoutedEventArgs e)
         {
             
             Kontrolle_Rechteckprofil_hohl();
-            Rechteckprofil_hohl_Berechnung();   // Aufruf der Rechteck-Hohlprofil-Berechnung
+            
         }
 
         #region Checkboxen_Profilwahl
@@ -1192,14 +1197,14 @@ namespace ProfiRechner
         {
             
             Kontrolle_Kreisprofil();    //Kontrolle der Eingaben
-            Kreisprofil_Berechnung();   // Startet die Kreisprofil-Berechnung
+            
         }
 
         private void btn_StartKreisprofil_hohl_Berechnung_Click(object sender, RoutedEventArgs e)
         {
             
             Kontrolle_Kreisprofil_hohl();   // Kontrolle der Eingabe
-            Kreisprofil_hohl_Berechnung();  // Startet die Kreis-Hohlprofil-Berechnung
+            
         }
 
         #region Checkboxen_Profilwahl
@@ -1338,7 +1343,7 @@ namespace ProfiRechner
         {
             
             Kontrolle_I_Profil();
-            I_Profil_Berechnung();
+           
         }
 
         #region Grafische Darstellung
