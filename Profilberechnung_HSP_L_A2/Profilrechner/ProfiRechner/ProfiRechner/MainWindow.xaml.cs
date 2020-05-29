@@ -453,9 +453,17 @@ namespace ProfiRechner
                     }
                 }
                 Rechteckprofil_Berechnung(); // Aufruf der Berechnung
+
+                lbl_Rechteck_Fläche_Ergebnis.Visibility = Visibility.Visible;   //Schaltet Sichtbarkeit der Ergebnisse um
+                lbl_Rechteck_Masse_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Rechteck_Volumen_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Rechteck_Schwerpunkt_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Rechteck_FTM_X_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Rechteck_FTM_Y_Ergebnis.Visibility = Visibility.Visible;
+
             }
 
-            
+
         }
         public void Kontrolle_Rechteckprofil_hohl()     //Kontrolle der Eingaben
         {
@@ -604,6 +612,14 @@ namespace ProfiRechner
                 Rechteckprofil_hohl_Berechnung();       //Aufruf der Berechnung
 
 
+                lbl_Rechteck_Fläche_Ergebnis.Visibility = Visibility.Visible;   //Schaltet Sichtbarkeit der Ergebnisse um
+                lbl_Rechteck_Masse_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Rechteck_Volumen_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Rechteck_Schwerpunkt_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Rechteck_FTM_X_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Rechteck_FTM_Y_Ergebnis.Visibility = Visibility.Visible;
+
+
             } 
         }
         #endregion
@@ -685,6 +701,13 @@ namespace ProfiRechner
                     }
                 }
                 Kreisprofil_Berechnung();   // Startet die Kreisprofil-Berechnung
+
+                lbl_Kreis_Fläche_Ergebnis.Visibility = Visibility.Visible;  //Schaltet Ergebnis Sichtbarkeit um
+                lbl_Kreis_Masse_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Kreis_Volumen_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Kreis_Schwerpunkt_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Kreis_FTM_X_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Kreis_FTM_Y_Ergebnis.Visibility = Visibility.Visible;
             }
             
            
@@ -802,6 +825,13 @@ namespace ProfiRechner
                     }
                 }
                 Kreisprofil_hohl_Berechnung();  // Startet die Kreis-Hohlprofil-Berechnung
+
+                lbl_Kreis_Fläche_Ergebnis.Visibility = Visibility.Visible;  //Schaltet Ergebnis Sichtbarkeit um
+                lbl_Kreis_Masse_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Kreis_Volumen_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Kreis_Schwerpunkt_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Kreis_FTM_X_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Kreis_FTM_Y_Ergebnis.Visibility = Visibility.Visible;
             }
         }
         #endregion
@@ -977,6 +1007,12 @@ namespace ProfiRechner
                     }
                 }
                 I_Profil_Berechnung();
+                lbl_Sonder_Fläche_Ergebnis.Visibility = Visibility.Visible;     //Schaltet Ergebnis Sichtbarkeit um
+                lbl_Sonder_Masse_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Sonder_Volumen_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Sonder_Schwerpunkt_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Sonder_FTM_X_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Sonder_FTM_Y_Ergebnis.Visibility = Visibility.Visible;
             }
             
             
@@ -1057,14 +1093,12 @@ namespace ProfiRechner
 
         private void btn_StartRechteckprofil_Berechnung_Click(object sender, RoutedEventArgs e)
         {
-            
             Kontrolle_Rechteckprofil();
                 
         }
 
         private void btn_StartRechteckprofil_hohl_Berechnung_Click(object sender, RoutedEventArgs e)
         {
-            
             Kontrolle_Rechteckprofil_hohl();
             
         }
@@ -1221,15 +1255,13 @@ namespace ProfiRechner
 
         private void btn_StartKreisprofil_Berechnung_Click(object sender, RoutedEventArgs e)
         {
-            
             Kontrolle_Kreisprofil();    //Kontrolle der Eingaben
             
         }
 
         private void btn_StartKreisprofil_hohl_Berechnung_Click(object sender, RoutedEventArgs e)
         {
-            
-            Kontrolle_Kreisprofil_hohl();   // Kontrolle der Eingabe
+          Kontrolle_Kreisprofil_hohl();   // Kontrolle der Eingabe
             
         }
 
@@ -1339,12 +1371,39 @@ namespace ProfiRechner
         }
 
         private void lb_item_Sonder_I_Profil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
+        { 
             tabH_Sonderprofile.Visibility = Visibility.Visible;
             tab_Sonderprofile.Visibility = Visibility.Visible;
+            btn_StartIPE_Berechnung.Visibility = Visibility.Visible;
+
+            ChB_Sonder_I_Profil.IsChecked = true;
 
             TabItem tab_I_Profil = (TabItem)tabctrl_Profilauswahl.Items[2];
             tab_I_Profil.Focus();    
+        }
+
+        private void lb_item_Sonder_U_Profil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            tabH_Sonderprofile.Visibility = Visibility.Visible;
+            tab_Sonderprofile.Visibility = Visibility.Visible;
+            btn_StartU_Berechnung.Visibility = Visibility.Visible;
+
+            ChB_Sonder_U_Profil.IsChecked = true;
+
+            TabItem tab_I_Profil = (TabItem)tabctrl_Profilauswahl.Items[2];
+            tab_I_Profil.Focus();
+        }
+
+        private void lb_item_Sonder_T_Profil_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            tabH_Sonderprofile.Visibility = Visibility.Visible;
+            tab_Sonderprofile.Visibility = Visibility.Visible;
+            btn_StartT_Berechnung.Visibility = Visibility.Visible;
+
+            ChB_Sonder_T_Profil.IsChecked = true;
+
+            TabItem tab_I_Profil = (TabItem)tabctrl_Profilauswahl.Items[2];
+            tab_I_Profil.Focus();
         }
 
         private void img_CloseButton_Sonder_MouseDown(object sender, MouseButtonEventArgs e)
@@ -1367,10 +1426,47 @@ namespace ProfiRechner
 
         private void btn_StartIPE_Berechnung_Click(object sender, RoutedEventArgs e)
         {
-            
             Kontrolle_I_Profil();
            
         }
+
+        #region Checkboxen Profilwahl
+        private void ChB_Sonder_I_Profil_Checked(object sender, RoutedEventArgs e)
+        {
+            btn_StartIPE_Berechnung.Visibility = Visibility.Visible;
+
+            ChB_Sonder_T_Profil.IsChecked = false;
+            ChB_Sonder_U_Profil.IsChecked = false;
+
+            btn_StartT_Berechnung.Visibility = Visibility.Hidden;
+            btn_StartU_Berechnung.Visibility = Visibility.Hidden;
+        }
+
+        private void ChB_Sonder_U_Profil_Checked(object sender, RoutedEventArgs e)
+        {
+            btn_StartU_Berechnung.Visibility = Visibility.Visible;
+
+            ChB_Sonder_T_Profil.IsChecked = false;
+            ChB_Sonder_I_Profil.IsChecked = false;
+
+            btn_StartIPE_Berechnung.Visibility = Visibility.Hidden;
+            btn_StartT_Berechnung.Visibility = Visibility.Hidden;
+        }
+
+        private void ChB_Sonder_T_Profil_Checked(object sender, RoutedEventArgs e)
+        {
+            btn_StartT_Berechnung.Visibility = Visibility.Visible;
+
+            ChB_Sonder_I_Profil.IsChecked = false;
+            ChB_Sonder_U_Profil.IsChecked = false;
+
+            btn_StartU_Berechnung.Visibility = Visibility.Hidden;
+            btn_StartIPE_Berechnung.Visibility = Visibility.Hidden;
+        }
+
+
+
+        #endregion 
 
         #region Grafische Darstellung
 
@@ -1400,9 +1496,12 @@ namespace ProfiRechner
 
 
 
+
+
         #endregion
 
         #endregion
+
 
     }
 }
