@@ -1,15 +1,36 @@
 ﻿using System;
+using System.Windows;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using INFITF;
+using MECMOD;
+using PARTITF;
 
 namespace ProfiRechner
 {
     class Rechteck
     {
-        MECMOD.PartDocument Rechteckprofil;
-        MECMOD.Sketch Rechteck2D;
+        INFITF.Application CATIA_Rechteck;
+        MECMOD.PartDocument CATIA_RechteckPart;
+        MECMOD.Sketch CATIA_Rechteck2D;
+
+        public bool CATIA_Rechteck_Run()
+        {
+            try
+            {
+                object catiaObject = System.Runtime.InteropServices.Marshal.GetActiveObject("CATIA.Application");
+                CATIA_Rechteck = (INFITF.Application)catiaObject;
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+
+            }
+        }
 
         public double KlasseRechteckBreite;
         public double KlasseRechteckHoehe;
@@ -21,6 +42,33 @@ namespace ProfiRechner
             KlasseRechteckHoehe = local_RechteckHoehe;
             KlasseRechteckLaenge = local_RechteckLaenge;
             return KlasseRechteckBreite + KlasseRechteckHoehe + KlasseRechteckLaenge;
+        }
+
+        
+        public void PartRechteck()
+        {
+            INFITF.Documents RechteckPart = CATIA_Rechteck.Documents;
+            CATIA_RechteckPart = RechteckPart.Add("Part") as MECMOD.PartDocument;          
+        }
+
+        public void CreateSketch()
+        {
+            HybridBodies RechteckHybridBodies = CATIA_RechteckPart.Part.HybridBodies;
+            HybridBody RechteckHybridBody;
+
+            try
+            {
+                RechteckHybridBody = RechteckHybridBodies.Item("Geometrisches Set.1");
+            }
+            catch (Exception)
+            {
+                MessageBoxResult result;
+                result = MessageBox.Show("CATIA wird nicht ausgeführt!", "Fehler",
+                MessageBoxButton.OK,
+                MessageBoxImage.Error
+                );
+                return;
+            }
         }
     }
 }
