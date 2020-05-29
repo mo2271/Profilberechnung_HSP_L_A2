@@ -16,6 +16,8 @@
             <ListBoxItem x:Name="lb_item_Kreis_Vollprofil" Content="Vollprofil" Margin="20,0,0,0" MouseDoubleClick="lb_item_Kreis_Vollprofil_MouseDoubleClick" ToolTip="Doppelklicken, um Profil auszuwählen und die Berechnung zu starten."/>
             <ListBoxItem x:Name="lb_item_Sonderprofil" Content="Sonderprofile" Background="Gray" MouseEnter="lb_item_Sonderprofil_MouseEnter" MouseLeave="lb_item_Sonderprofil_MouseLeave" MouseDoubleClick="lb_item_Sonderprofil_MouseDoubleClick" ToolTip="Doppelklicken, um Profil auszuwählen und die Berechnung zu starten."/>
             <ListBoxItem x:Name="lb_item_Sonder_I_Profil" Content="I-Profil" Margin="20,0,0,0" MouseDoubleClick="lb_item_Sonder_I_Profil_MouseDoubleClick" ToolTip="Doppelklicken, um Profil auszuwählen und die Berechnung zu starten."/>
+            <ListBoxItem x:Name="lb_item_Sonder_U_Profil" Content="U-Profil" Margin="20,0,0,0" MouseDoubleClick="lb_item_Sonder_U_Profil_MouseDoubleClick" ToolTip="Doppelklicken, um Profil auszuwählen und die Berechnung zu starten."/>
+            <ListBoxItem x:Name="lb_item_Sonder_T_Profil" Content="T-Profil" Margin="20,0,0,0" MouseDoubleClick="lb_item_Sonder_T_Profil_MouseDoubleClick" ToolTip="Doppelklicken, um Profil auszuwählen und die Berechnung zu starten."/>
         </ListBox>
         <TabControl x:Name="tabctrl_Profilauswahl" Margin="170,10,10,10">
             <TabItem x:Name="tabH_Rechteckprofil" Header="Rechteckprofile" HorizontalAlignment="Left" Margin="0,-2,0,-0.2" Width="100" Visibility="Hidden">
@@ -41,12 +43,12 @@
                     <Label x:Name="lbl_Rechteck_Schwerpunkt" Content="Schwerpunkt:" Grid.Column="3" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Rechteck_FTM_X" Content="FTM um die X-Achse:" Grid.Column="3" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Rechteck_FTM_Y" Content="FTM um die Y-Achse:" Grid.Column="3" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Rechteck_Fläche_Ergebnis" Content="Ergebnis 1" Grid.Column="3" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Rechteck_Volumen_Ergebnis" Content="Ergebnis 2" Grid.Column="3" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Rechteck_Masse_Ergebnis" Content="Ergebnis 3" Grid.Column="3" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Rechteck_Schwerpunkt_Ergebnis" Content="Ergebnis 4" Grid.Column="3" HorizontalAlignment="Left" Margin="200,240,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Rechteck_FTM_X_Ergebnis" Content="Ergebnis 5:" Grid.Column="3" HorizontalAlignment="Left" Margin="200,270,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Rechteck_FTM_Y_Ergebnis" Content="Ergebnis 6:" Grid.Column="3" HorizontalAlignment="Left" Margin="200,300,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Rechteck_Fläche_Ergebnis" Content="Ergebnis 1" Grid.Column="3" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Rechteck_Volumen_Ergebnis" Content="Ergebnis 2" Grid.Column="3" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Rechteck_Masse_Ergebnis" Content="Ergebnis 3" Grid.Column="3" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Rechteck_Schwerpunkt_Ergebnis" Content="Ergebnis 4" Grid.Column="3" HorizontalAlignment="Left" Margin="200,240,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Rechteck_FTM_X_Ergebnis" Content="Ergebnis 5:" Grid.Column="3" HorizontalAlignment="Left" Margin="200,270,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Rechteck_FTM_Y_Ergebnis" Content="Ergebnis 6:" Grid.Column="3" HorizontalAlignment="Left" Margin="200,300,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Image x:Name="img_Rechteckprofil_hohl" Margin="10,155,115,155" Stretch="Fill" Source="Rechteckprofil_hohl.png" Grid.ColumnSpan="1" Visibility="Hidden"/>
                     <Label x:Name="lbl_Input_RechteckBreite" Content="Breite:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,160,0,0" VerticalAlignment="Top" Width="68"/>
                     <TextBox x:Name="tbx_Input_RechteckBreite" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_RechteckBreite_TextChanged"/>
@@ -79,7 +81,7 @@
                         </Label.RenderTransform>
                     </Label>
                     <Label x:Name="lbl_Rechteck_hohlGrafik_Wall" Content="t" HorizontalAlignment="Left" Height="28" Margin="195,345,0,0" VerticalAlignment="Top" Width="43" Grid.Column="0" Visibility="Hidden"/>
-                   
+
 
                     <ComboBox x:Name="CoB_Rechteck_Auswahl_Einheit" Grid.Column="1" HorizontalAlignment="Left" Margin="30,80,0,0" VerticalAlignment="Top" Width="120">
                         <ComboBoxItem x:Name="Rechteck_Einheit_mm" Content="mm"/>
@@ -99,9 +101,9 @@
 
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabH_Kreisprofil" Header="Kreisprofile" HorizontalAlignment="Left" Margin="0,-2,0,-0.2" Width="100" Visibility="Hidden" IsSelected="True">
+            <TabItem x:Name="tabH_Kreisprofil" Header="Kreisprofile" HorizontalAlignment="Left" Margin="0,-2,0,-0.2" Width="100" IsSelected="True">
 
-                <Grid x:Name="tab_Kreisprofil" Background="#FFE5E5E5" Visibility="Hidden">
+                <Grid x:Name="tab_Kreisprofil" Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -122,12 +124,12 @@
                     <Label x:Name="lbl_Kreis_Schwerpunkt" Content="Schwerpunkt:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Kreis_FTM_X" Content="FTM um die X-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Kreis_FTM_Y" Content="FTM um die Y-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Kreis_Fläche_Ergebnis" Content="Ergebnis 1" Grid.Column="2" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Kreis_Volumen_Ergebnis" Content="Ergebnis 2" Grid.Column="2" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Kreis_Masse_Ergebnis" Content="Ergebnis 3" Grid.Column="2" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Kreis_Schwerpunkt_Ergebnis" Content="Ergebnis 4" Grid.Column="2" HorizontalAlignment="Left" Margin="200,240,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Kreis_FTM_X_Ergebnis" Content="Ergebnis 5:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,270,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Kreis_FTM_Y_Ergebnis" Content="Ergebnis 6:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,300,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Kreis_Fläche_Ergebnis" Content="Ergebnis 1" Grid.Column="2" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Kreis_Volumen_Ergebnis" Content="Ergebnis 2" Grid.Column="2" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Kreis_Masse_Ergebnis" Content="Ergebnis 3" Grid.Column="2" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Kreis_Schwerpunkt_Ergebnis" Content="Ergebnis 4" Grid.Column="2" HorizontalAlignment="Left" Margin="200,240,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Kreis_FTM_X_Ergebnis" Content="Ergebnis 5:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,270,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Kreis_FTM_Y_Ergebnis" Content="Ergebnis 6:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,300,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <ComboBox x:Name="CoB_Kreis_Auswahl_Einheit" Grid.Column="1" HorizontalAlignment="Left" Margin="30.2,80,0,0" VerticalAlignment="Top" Width="120">
                         <ComboBoxItem x:Name="Kreis_Einheit_mm" Content="mm"/>
                         <ComboBoxItem x:Name="Kreis_Einheit_cm" Content="cm"/>
@@ -160,9 +162,9 @@
 
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabH_Sonderprofile" Header="Sonderprofile" HorizontalAlignment="Right" Margin="0,-2,0,-0.2" Width="100" Visibility="Hidden">
+            <TabItem x:Name="tabH_Sonderprofile" Header="Sonderprofile" HorizontalAlignment="Right" Margin="0,-2,0,-0.2" Width="100">
 
-                <Grid x:Name="tab_Sonderprofile" Background="#FFE5E5E5" Visibility="Hidden">
+                <Grid x:Name="tab_Sonderprofile" Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -176,12 +178,12 @@
                     <Label x:Name="lbl_Sonder_Schwerpunkt" Content="Schwerpunkt:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Sonder_FTM_X" Content="FTM um die X-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Sonder_FTM_Y" Content="FTM um die Y-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Sonder_Fläche_Ergebnis" Content="Ergebnis 1" Grid.Column="2" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Sonder_Volumen_Ergebnis" Content="Ergebnis 2" Grid.Column="2" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Sonder_Masse_Ergebnis" Content="Ergebnis 3" Grid.Column="2" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Sonder_Schwerpunkt_Ergebnis" Content="Ergebnis 4" Grid.Column="2" HorizontalAlignment="Left" Margin="200,240,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Sonder_FTM_X_Ergebnis" Content="Ergebnis 5:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,270,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Sonder_FTM_Y_Ergebnis" Content="Ergebnis 6:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,300,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Sonder_Fläche_Ergebnis" Content="Ergebnis 1" Grid.Column="2" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Sonder_Volumen_Ergebnis" Content="Ergebnis 2" Grid.Column="2" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Sonder_Masse_Ergebnis" Content="Ergebnis 3" Grid.Column="2" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Sonder_Schwerpunkt_Ergebnis" Content="Ergebnis 4" Grid.Column="2" HorizontalAlignment="Left" Margin="200,240,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Sonder_FTM_X_Ergebnis" Content="Ergebnis 5:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,270,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Sonder_FTM_Y_Ergebnis" Content="Ergebnis 6:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,300,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <ComboBox x:Name="CoB_Sonder_Auswahl_Einheit" Grid.Column="1" HorizontalAlignment="Left" Margin="30.2,80,0,0" VerticalAlignment="Top" Width="120">
                         <ComboBoxItem x:Name="Sonder_Einheit_mm" Content="mm"/>
                         <ComboBoxItem x:Name="Sonder_Einheit_cm" Content="cm"/>
@@ -221,12 +223,17 @@
                             </TransformGroup>
                         </Label.RenderTransform>
                     </Label>
-                    <Button x:Name="btn_StartIPE_Berechnung" Content="Berechne I-Profil" Grid.Column="2" Margin="60,0,60,50" Height="30" VerticalAlignment="Bottom" Click="btn_StartIPE_Berechnung_Click"/>
+                    <Button x:Name="btn_StartIPE_Berechnung" Content="Berechne I-Profil" Grid.Column="2" Margin="60,0,60,50" Height="30" VerticalAlignment="Bottom" Click="btn_StartIPE_Berechnung_Click" Visibility="Hidden"/>
+                    <Button x:Name="btn_StartU_Berechnung" Content="Berechne U-Profil" Grid.Column="2" Margin="60,0,60,50" Height="30" VerticalAlignment="Bottom" Visibility="Hidden"/>
+                    <Button x:Name="btn_StartT_Berechnung" Content="Berechne T-Profil" Grid.Column="2" Margin="60,0,60,50" Height="30" VerticalAlignment="Bottom" Visibility="Hidden"/>
                     <Label x:Name="lbl_Sonder_Werkstoff" Content="Bitte wählen Sie einen Werkstoff aus:" HorizontalAlignment="Left" Height="28" Margin="153,50,0,0" VerticalAlignment="Top" Width="300" Grid.Column="0"/>
                     <ComboBox x:Name="CoB_Sonder_WS" Grid.Column="1" HorizontalAlignment="Left" Margin="30,50,0,0" VerticalAlignment="Top" Width="120">
                         <ComboBoxItem x:Name="Sonder_WS_Stahl" Content="Stahl"/>
                         <ComboBoxItem x:Name="Sonder_WS_Aluminium" Content="Aluminium"/>
                     </ComboBox>
+                    <CheckBox x:Name="ChB_Sonder_I_Profil" Content="I-Profil" HorizontalAlignment="Left" Margin="30.2,10,0,0" VerticalAlignment="Top" Grid.Column="1" FontSize="16" Checked="ChB_Sonder_I_Profil_Checked"/>
+                    <CheckBox x:Name="ChB_Sonder_U_Profil" Content="U-Profil" Grid.Column="1" HorizontalAlignment="Left" Margin="150.2,10,0,0" VerticalAlignment="Top" FontSize="16" Checked="ChB_Sonder_U_Profil_Checked"/>
+                    <CheckBox x:Name="ChB_Sonder_T_Profil" Content="T-Profil" Grid.Column="1" HorizontalAlignment="Left" Margin="270.2,10,0,0" VerticalAlignment="Top" FontSize="16" Checked="ChB_Sonder_T_Profil_Checked"/>
 
 
                 </Grid>
