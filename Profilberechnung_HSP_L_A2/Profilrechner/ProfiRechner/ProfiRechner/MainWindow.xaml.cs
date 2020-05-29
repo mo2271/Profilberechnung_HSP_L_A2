@@ -13,13 +13,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using INFITF;
+using MECMOD;
+using PARTITF;
 
 namespace ProfiRechner
 {
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : System.Windows.Window
     {
         #region Berechnungsmethoden
 
@@ -985,7 +988,30 @@ namespace ProfiRechner
 
         public MainWindow()
         {
-            InitializeComponent();
+            //InitializeComponent();
+
+            CATIAConnection cc = new CATIAConnection();
+
+            if (cc.CATIA_Run())
+            {
+                MessageBoxResult result;
+                result = MessageBox.Show("CATIA wird ausgeführt.", "Hinweis",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
+                );
+
+                InitializeComponent();
+            }
+            else
+            {
+                MessageBoxResult result;
+                result = MessageBox.Show("CATIA wird nicht ausgeführt!", "Fehler",
+                MessageBoxButton.OK,
+                MessageBoxImage.Error
+                );
+
+                Environment.Exit(0);
+            }
         }
 
 
