@@ -8,6 +8,9 @@ namespace ProfiRechner
 {
     class Rechteck
     {
+        MECMOD.PartDocument Rechteckprofil;
+        MECMOD.Sketch Rechteck2D;
+
         public double KlasseRechteckBreite;
         public double KlasseRechteckHoehe;
         public double KlasseRechteckLaenge;
