@@ -1366,6 +1366,14 @@ namespace ProfiRechner
             tabH_Sonderprofile.Visibility = Visibility.Visible;
             tab_Sonderprofile.Visibility = Visibility.Visible;
 
+            img_IPE_Profil.Visibility = Visibility.Hidden;
+            lbl_IPEGrafik_Breite.Visibility = Visibility.Hidden;
+            lbl_IPEGrafik_Flanschbreite.Visibility = Visibility.Hidden;
+            lbl_IPEGrafik_Hoehe.Visibility = Visibility.Hidden;
+            lbl_IPEGrafik_Stegbreite.Visibility = Visibility.Hidden;
+
+
+
             TabItem tab_I_Profil = (TabItem)tabctrl_Profilauswahl.Items[2];     // Index Sonderprofiltab: 2
             tab_I_Profil.Focus();       // Fokussiere Sonderprofiltab
         }
@@ -1440,6 +1448,8 @@ namespace ProfiRechner
 
             btn_StartT_Berechnung.Visibility = Visibility.Hidden;
             btn_StartU_Berechnung.Visibility = Visibility.Hidden;
+
+            img_IPE_Profil.Visibility = Visibility.Visible;
         }
 
         private void ChB_Sonder_U_Profil_Checked(object sender, RoutedEventArgs e)
@@ -1451,6 +1461,12 @@ namespace ProfiRechner
 
             btn_StartIPE_Berechnung.Visibility = Visibility.Hidden;
             btn_StartT_Berechnung.Visibility = Visibility.Hidden;
+
+            img_IPE_Profil.Visibility = Visibility.Hidden;
+            lbl_IPEGrafik_Breite.Visibility = Visibility.Hidden;
+            lbl_IPEGrafik_Flanschbreite.Visibility = Visibility.Hidden;
+            lbl_IPEGrafik_Hoehe.Visibility = Visibility.Hidden;
+            lbl_IPEGrafik_Stegbreite.Visibility = Visibility.Hidden;
         }
 
         private void ChB_Sonder_T_Profil_Checked(object sender, RoutedEventArgs e)
@@ -1462,6 +1478,12 @@ namespace ProfiRechner
 
             btn_StartU_Berechnung.Visibility = Visibility.Hidden;
             btn_StartIPE_Berechnung.Visibility = Visibility.Hidden;
+
+            img_IPE_Profil.Visibility = Visibility.Hidden;
+            lbl_IPEGrafik_Breite.Visibility = Visibility.Hidden;
+            lbl_IPEGrafik_Flanschbreite.Visibility = Visibility.Hidden;
+            lbl_IPEGrafik_Hoehe.Visibility = Visibility.Hidden;
+            lbl_IPEGrafik_Stegbreite.Visibility = Visibility.Hidden;
         }
 
 
