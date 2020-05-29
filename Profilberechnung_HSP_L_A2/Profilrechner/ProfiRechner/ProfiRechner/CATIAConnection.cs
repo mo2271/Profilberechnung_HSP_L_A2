@@ -20,7 +20,7 @@ namespace ProfiRechner
             try
             {
                 object catiaObject = System.Runtime.InteropServices.Marshal.GetActiveObject("CATIA.Application");
-                CATIA_ProfilProfi = (INFITF.Application)catiaObject;
+                CATIA_ProfilProfi = (INFITF.Application) catiaObject;
 
                 
 
