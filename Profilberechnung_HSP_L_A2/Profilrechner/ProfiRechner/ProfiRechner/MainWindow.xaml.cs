@@ -452,7 +452,7 @@ namespace ProfiRechner
                         }
                     }
                 }
-                Rechteckprofil_Berechnung(); // Aufrud der Berechnung
+                Rechteckprofil_Berechnung(); // Aufruf der Berechnung
             }
 
             
