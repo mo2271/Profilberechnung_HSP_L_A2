@@ -357,6 +357,7 @@ namespace ProfiRechner
         #region KontrolleRechteckprofile
         public void Kontrolle_Rechteckprofil()     //Kontrolle der Eingaben 
         {
+            
             string Material = Convert.ToString(CoB_Rechteck_WS.SelectionBoxItem);
             
             if (Material == "")
@@ -395,6 +396,7 @@ namespace ProfiRechner
                 }
                 else
                 {
+                    
                     Double.TryParse(tbx_Input_RechteckBreite.Text, out double b);   // Eingaben in Double umwandeln
                     Double.TryParse(tbx_Input_RechteckHoehe.Text, out double h);
                     Double.TryParse(tbx_Input_RechteckLaenge.Text, out double l);
@@ -406,6 +408,15 @@ namespace ProfiRechner
                     Zeichenlaenge_b = Convert.ToString(b);      //Umformung der Eingabe in einen String
                     Zeichenlaenge_h = Convert.ToString(h);
                     Zeichenlaenge_l = Convert.ToString(l);
+
+                    string Zeichenlaenge_b_klein = Zeichenlaenge_b.ToLower();
+                    string Zeichenlaenge_h_klein = Zeichenlaenge_h.ToLower();
+                    string Zeichenlaenge_l_klein = Zeichenlaenge_l.ToLower();
+
+                    
+                    
+
+                    
 
                     if (Zeichenlaenge_b.Length > 4)
                     {
@@ -1018,6 +1029,87 @@ namespace ProfiRechner
             
 
         }
+
+        public void Kontrolle_U_Profil()
+        {
+            string Material = Convert.ToString(CoB_Sonder_WS.SelectionBoxItem);
+
+            if (Material == "")
+            {
+                MessageBoxResult result;
+                result = MessageBox.Show("Werkstoff: Sie haben keinen Werkstoff ausgewählt. Bitte wählen Sie einen Werkstoff aus.", "Eingabekontrolle",
+                MessageBoxButton.OK,
+                MessageBoxImage.Error
+                );
+                if (result == MessageBoxResult.OK)
+                {
+                    CoB_Sonder_WS.IsDropDownOpen = true;
+                }
+            }
+            else
+            {
+                String Einheit = Convert.ToString(CoB_Sonder_Auswahl_Einheit.SelectionBoxItem);
+
+                if (Einheit == "")          //Beginn Einheitenkontrolle        
+                {
+                    MessageBoxResult result;
+                    result = MessageBox.Show("Einheit: Sie haben keine Einheit ausgewählt. Bitte wählen Sie eine Einheit aus.", "Eingabekontrolle",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                    );
+                    if (result == MessageBoxResult.OK)
+                    {
+                        CoB_Sonder_Auswahl_Einheit.IsDropDownOpen = true;
+                    }
+
+                }
+                else
+                {
+
+                }
+            }
+        }
+
+        public void Kontrolle_T_Profil()
+        {
+            string Material = Convert.ToString(CoB_Sonder_WS.SelectionBoxItem);
+
+            if (Material == "")
+            {
+                MessageBoxResult result;
+                result = MessageBox.Show("Werkstoff: Sie haben keinen Werkstoff ausgewählt. Bitte wählen Sie einen Werkstoff aus.", "Eingabekontrolle",
+                MessageBoxButton.OK,
+                MessageBoxImage.Error
+                );
+                if (result == MessageBoxResult.OK)
+                {
+                    CoB_Sonder_WS.IsDropDownOpen = true;
+                }
+            }
+            else
+            {
+                String Einheit = Convert.ToString(CoB_Sonder_Auswahl_Einheit.SelectionBoxItem);
+
+                if (Einheit == "")          //Beginn Einheitenkontrolle        
+                {
+                    MessageBoxResult result;
+                    result = MessageBox.Show("Einheit: Sie haben keine Einheit ausgewählt. Bitte wählen Sie eine Einheit aus.", "Eingabekontrolle",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                    );
+                    if (result == MessageBoxResult.OK)
+                    {
+                        CoB_Sonder_Auswahl_Einheit.IsDropDownOpen = true;
+                    }
+
+                }
+                else
+                {
+
+                }
+            }
+        }
+
         #endregion
 
         #endregion
