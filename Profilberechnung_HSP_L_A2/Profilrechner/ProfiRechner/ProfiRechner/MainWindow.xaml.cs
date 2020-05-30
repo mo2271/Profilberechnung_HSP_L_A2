@@ -410,18 +410,98 @@ namespace ProfiRechner
                     Zeichenlaenge_l = Convert.ToString(l);
 
                     string Zeichenlaenge_b_klein = Zeichenlaenge_b.ToLower();
-                    string Zeichenlaenge_h_klein = Zeichenlaenge_h.ToLower();
-                    string Zeichenlaenge_l_klein = Zeichenlaenge_l.ToLower();
-
                     
-                    
+                    //string Zeichenlaenge_l_klein = Zeichenlaenge_l.ToLower();
 
-                    
+                    if (Zeichenlaenge_b_klein.Contains("0123456789"))
+                    {
+                        string Zeichenlaenge_h_klein = Zeichenlaenge_h.ToLower();
 
-                    if (Zeichenlaenge_b.Length > 4)
+                        if (Zeichenlaenge_h_klein.Contains("0123456789"))
+                        {
+                            string Zeichenlaenge_l_klein = Zeichenlaenge_l.ToLower();
+
+                            if (Zeichenlaenge_l_klein.Contains("0123456789"))
+                            {
+                                if (Zeichenlaenge_b.Length > 4)
+                                {
+                                    MessageBoxResult result;
+                                    result = MessageBox.Show("Breite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt vier Stellen.", "Eingabekontrolle",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Error
+                                    );
+                                    if (result == MessageBoxResult.OK)
+                                    {
+                                        tbx_Input_RechteckBreite.Text = "";
+
+                                        tbx_Input_RechteckBreite.Focus();
+                                    }
+
+                                }
+                                else if (Zeichenlaenge_h.Length > 4)
+                                {
+                                    MessageBoxResult result;
+                                    result = MessageBox.Show("Hoehe: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabenkontrolle",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Error
+                                    );
+                                    if (result == MessageBoxResult.OK)
+                                    {
+                                        tbx_Input_RechteckHoehe.Text = "";
+
+                                        tbx_Input_RechteckHoehe.Focus();
+                                    }
+
+                                }
+                                else if (Zeichenlaenge_l.Length > 4)
+                                {
+                                    MessageBoxResult result;
+                                    result = MessageBox.Show("Länge: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabekontrolle",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Error
+                                    );
+                                    if (result == MessageBoxResult.OK)
+                                    {
+                                        tbx_Input_RechteckLaenge.Text = "";
+
+                                        tbx_Input_RechteckLaenge.Focus();
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                MessageBoxResult result;
+                                result = MessageBox.Show("Fehler: Ihre Eingabe enthält einen oder mehrere Buchstaben.Bitte geben Sie nur Zahlen ein.", "Eingabekontrolle",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Error
+                                );
+                                if (result == MessageBoxResult.OK)
+                                {
+                                    tbx_Input_RechteckLaenge.Text = "";
+
+                                    tbx_Input_RechteckLaenge.Focus();
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageBoxResult result;
+                            result = MessageBox.Show("Fehler: Ihre Eingabe enthält einen oder mehrere Buchstaben.Bitte geben Sie nur Zahlen ein.", "Eingabekontrolle",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error
+                            );
+                            if (result == MessageBoxResult.OK)
+                            {
+                                tbx_Input_RechteckHoehe.Text = "";
+
+                                tbx_Input_RechteckHoehe.Focus();
+                            }
+                        }
+                    }
+                    else
                     {
                         MessageBoxResult result;
-                        result = MessageBox.Show("Breite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt vier Stellen.", "Eingabekontrolle",
+                        result = MessageBox.Show("Fehler: Ihre Eingabe enthält einen oder mehrere Buchstaben.Bitte geben Sie nur Zahlen ein.", "Eingabekontrolle",
                         MessageBoxButton.OK,
                         MessageBoxImage.Error
                         );
@@ -431,37 +511,9 @@ namespace ProfiRechner
 
                             tbx_Input_RechteckBreite.Focus();
                         }
-
                     }
-                    else if (Zeichenlaenge_h.Length > 4)
-                    {
-                        MessageBoxResult result;
-                        result = MessageBox.Show("Hoehe: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabenkontrolle",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error
-                        );
-                        if (result == MessageBoxResult.OK)
-                        {
-                            tbx_Input_RechteckHoehe.Text = "";
 
-                            tbx_Input_RechteckHoehe.Focus();
-                        }
-
-                    }
-                    else if (Zeichenlaenge_l.Length > 4)
-                    {
-                        MessageBoxResult result;
-                        result = MessageBox.Show("Länge: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabekontrolle",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error
-                        );
-                        if (result == MessageBoxResult.OK)
-                        {
-                            tbx_Input_RechteckLaenge.Text = "";
-
-                            tbx_Input_RechteckLaenge.Focus();
-                        }
-                    }
+                    
                 }
                 Rechteckprofil_Berechnung(); // Aufruf der Berechnung
 
@@ -527,6 +579,22 @@ namespace ProfiRechner
                     Zeichenlaenge_h = Convert.ToString(h);
                     Zeichenlaenge_l = Convert.ToString(l);
                     Zeichenlaenge_w = Convert.ToString(w);
+
+                    if (Zeichenlaenge_b.Contains("0123456789"))
+                    {
+                        if (Zeichenlaenge_h.Contains("0123456789"))
+                        {
+
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                    else
+                    {
+
+                    }
 
                     if (w < (b / 2))
                     {
