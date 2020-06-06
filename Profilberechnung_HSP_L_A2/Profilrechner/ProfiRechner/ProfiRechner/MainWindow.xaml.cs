@@ -397,9 +397,91 @@ namespace ProfiRechner
                 else
                 {
 
-                    if (Double.TryParse(tbx_Input_RechteckBreite.Text, out double b))
+                    if (Double.TryParse(tbx_Input_RechteckBreite.Text, out double b))   //Abfrage ob Konvertierung erfolgreich war
                     {
-                        // Konvertierung erfolgreich!
+                        //Konvertierung erfolgreich
+
+                        if (Double.TryParse(tbx_Input_RechteckHoehe.Text, out double h))
+                        {
+                            //Konvertierung erfolgreich
+
+                            if (Double.TryParse(tbx_Input_RechteckLaenge.Text, out double l))
+                            {
+                                //Konvertierung erfolgreich
+
+                                string Zeichenlaenge_b;
+                                string Zeichenlaenge_h;
+                                string Zeichenlaenge_l;
+
+                                Zeichenlaenge_b = Convert.ToString(b);      //Umformung der Eingabe in einen String
+                                Zeichenlaenge_h = Convert.ToString(h);
+                                Zeichenlaenge_l = Convert.ToString(l);
+
+                                if (Zeichenlaenge_b.Length > 4)     //Kontrolle der Zahlenlänge der Breite
+                                {
+                                    MessageBoxResult result;
+                                    result = MessageBox.Show("Breite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt vier Stellen.", "Eingabekontrolle",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Error
+                                    );
+                                    if (result == MessageBoxResult.OK)
+                                    {
+                                        tbx_Input_RechteckBreite.Text = "";
+
+                                        tbx_Input_RechteckBreite.Focus();
+                                    }
+                                }
+                                else if (Zeichenlaenge_h.Length > 4)
+                                {
+                                    MessageBoxResult result;
+                                    result = MessageBox.Show("Höhe: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt vier Stellen.", "Eingabekontrolle",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Error
+                                    );
+                                    if (result == MessageBoxResult.OK)
+                                    {
+                                        tbx_Input_RechteckHoehe.Text = "";
+
+                                        tbx_Input_RechteckHoehe.Focus();
+                                    }
+                                }
+                                else if (Zeichenlaenge_l.Length > 4)
+                                {
+                                    MessageBoxResult result;
+                                    result = MessageBox.Show("Breite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt vier Stellen.", "Eingabekontrolle",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Error
+                                    );
+                                    if (result == MessageBoxResult.OK)
+                                    {
+                                        tbx_Input_RechteckLaenge.Text = "";
+
+                                        tbx_Input_RechteckLaenge.Focus();
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Fehler: Eingabe von Buchstaben nicht zulässig!", "Eingabekontrolle",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Error
+                                );
+
+                                tbx_Input_RechteckLaenge.Clear();
+                                tbx_Input_RechteckLaenge.Focus();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Fehler: Eingabe von Buchstaben nicht zulässig!", "Eingabekontrolle",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error
+                            );
+
+                            tbx_Input_RechteckHoehe.Clear();
+                            tbx_Input_RechteckHoehe.Focus();
+                        }
+                        
                     }
                     else
                     {
@@ -411,16 +493,7 @@ namespace ProfiRechner
                         tbx_Input_RechteckBreite.Clear();
                         tbx_Input_RechteckBreite.Focus();
                     }
-                    Double.TryParse(tbx_Input_RechteckHoehe.Text, out double h);
-                    Double.TryParse(tbx_Input_RechteckLaenge.Text, out double l);
-
-                    string Zeichenlaenge_b;
-                    string Zeichenlaenge_h;
-                    string Zeichenlaenge_l;
-
-                    Zeichenlaenge_b = Convert.ToString(b);      //Umformung der Eingabe in einen String
-                    Zeichenlaenge_h = Convert.ToString(h);
-                    Zeichenlaenge_l = Convert.ToString(l);
+                    
                 }
              
                     
@@ -472,29 +545,33 @@ namespace ProfiRechner
                 }
                 else
                 {
-                    Double.TryParse(tbx_Input_RechteckBreite.Text, out double b);   // Eingaben in Double umwandeln
-                    Double.TryParse(tbx_Input_RechteckHoehe.Text, out double h);
-                    Double.TryParse(tbx_Input_RechteckLaenge.Text, out double l);
-                    Double.TryParse(tbx_Input_Rechteck_hohl_Wall.Text, out double w);
-
-                    string Zeichenlaenge_b;
-                    string Zeichenlaenge_h;
-                    string Zeichenlaenge_l;
-                    string Zeichenlaenge_w;
-
-
-
-                    Zeichenlaenge_b = Convert.ToString(b);      //Umformung der Eingabe in einen String
-                    Zeichenlaenge_h = Convert.ToString(h);
-                    Zeichenlaenge_l = Convert.ToString(l);
-                    Zeichenlaenge_w = Convert.ToString(w);
-
-                    if (Zeichenlaenge_b.Contains("0123456789"))     //Kontrolle auf Buchstaben der Breite
+                    
+                    if (Double.TryParse(tbx_Input_RechteckBreite.Text, out double b))     //Kontrolle auf Buchstaben der Breite
                     {
-                        if (Zeichenlaenge_h.Contains("0123456789"))     //Kontrolle auf Buchstaben der Höhe
+                        //Konvertierung erfolgreich
+
+                        if (Double.TryParse(tbx_Input_RechteckHoehe.Text, out double h))     //Kontrolle auf Buchstaben der Höhe
                         {
-                            if (Zeichenlaenge_l.Contains("0123456789"))     //Kontrolle auf Buchstaben der Länge
+                            //Konvertierung erfolgreich
+
+                            if (Double.TryParse(tbx_Input_RechteckLaenge.Text, out double l))     //Kontrolle auf Buchstaben der Länge
                             {
+                                // Konvertierung erfolgreich
+
+                                Double.TryParse(tbx_Input_Rechteck_hohl_Wall.Text, out double w);
+                               
+                                string Zeichenlaenge_b;
+                                string Zeichenlaenge_h;
+                                string Zeichenlaenge_l;
+                                string Zeichenlaenge_w;
+
+
+
+                                Zeichenlaenge_b = Convert.ToString(b);      //Umformung der Eingabe in einen String
+                                Zeichenlaenge_h = Convert.ToString(h);
+                                Zeichenlaenge_l = Convert.ToString(l);
+                                Zeichenlaenge_w = Convert.ToString(w);
+
                                 if (Zeichenlaenge_w.Contains("0123456789"))     //Kontrolle auf Buchstaben der Wandstärke
                                 {
                                     if (w < (b / 2))                            //Kontrolle der Verhältnismäßigkeit der Wandstärke
@@ -703,18 +780,17 @@ namespace ProfiRechner
                 }
                 else
                 {
-                    Double.TryParse(tbx_Input_KreisDurchmesser.Text, out double D);
-                    Double.TryParse(tbx_Input_KreisLaenge.Text, out double l);
-                    string Zeichenlaenge_Durchmesser;
-                    string Zeichenlaenge_l;
-
-                    Zeichenlaenge_Durchmesser = Convert.ToString(D);
-                    Zeichenlaenge_l = Convert.ToString(l);
-
-                    if (Zeichenlaenge_Durchmesser.Contains("0123456789"))       //Kontrolle auf Buchstaben des Durchmessers
+                    
+                    if (Double.TryParse(tbx_Input_KreisDurchmesser.Text, out double D))       //Kontrolle auf Buchstaben des Durchmessers
                     {
-                        if (Zeichenlaenge_l.Contains("0123456789"))     //Kontrolle auf Buchstaben der Länge
+                        if (Double.TryParse(tbx_Input_KreisLaenge.Text, out double l))     //Kontrolle auf Buchstaben der Länge
                         {
+                            string Zeichenlaenge_Durchmesser;
+                            string Zeichenlaenge_l;
+
+                            Zeichenlaenge_Durchmesser = Convert.ToString(D);
+                            Zeichenlaenge_l = Convert.ToString(l);
+
                             if (Zeichenlaenge_Durchmesser.Length > 4)       //Kontrolle der Zeichenlänge des Durchmessers
                             {
                                 MessageBoxResult result;
@@ -824,30 +900,26 @@ namespace ProfiRechner
                 }
                 else
                 {
-                    Double.TryParse(tbx_Input_KreisDurchmesser.Text, out double D);
-                    Double.TryParse(tbx_Input_Kreis_hohlWandstaerke.Text, out double w);
-                    Double.TryParse(tbx_Input_KreisLaenge.Text, out double l);
-
-                    double Durchmesser;
-                    double Wandstaerke;
-                    string Zeichenlaenge_D;
-                    string Zeichenlaenge_w;
-                    string Zeichenlaenge_l;
-
-
-                    Durchmesser = D;
-                    Wandstaerke = w;
-
-                    Zeichenlaenge_D = Convert.ToString(D);
-                    Zeichenlaenge_w = Convert.ToString(w);
-                    Zeichenlaenge_l = Convert.ToString(l);
-
-                    if (Zeichenlaenge_D.Contains("0123456789"))     //Kontrolle auf Buchstaben des Durchmessers
+                    if (Double.TryParse(tbx_Input_KreisDurchmesser.Text, out double D))     //Kontrolle auf Buchstaben des Durchmessers
                     {
-                        if (Zeichenlaenge_w.Contains("0123456789"))     //Kontrolle auf Buchstaben der Wandstärke
+                        if (Double.TryParse(tbx_Input_Kreis_hohlWandstaerke.Text, out double w))     //Kontrolle auf Buchstaben der Wandstärke
                         {
-                            if (Zeichenlaenge_l.Contains("0123456789"))     //Kontrolle auf Buchstaben der Länge
+                            if (Double.TryParse(tbx_Input_KreisLaenge.Text, out double l))     //Kontrolle auf Buchstaben der Länge
                             {
+                                double Durchmesser;
+                                double Wandstaerke;
+                                string Zeichenlaenge_D;
+                                string Zeichenlaenge_w;
+                                string Zeichenlaenge_l;
+
+
+                                Durchmesser = D;
+                                Wandstaerke = w;
+
+                                Zeichenlaenge_D = Convert.ToString(D);
+                                Zeichenlaenge_w = Convert.ToString(w);
+                                Zeichenlaenge_l = Convert.ToString(l);
+
                                 if ((D / 2) > w)        //Kontrolle auf Verhältnismäßigkeit der Wandstärke
                                 {
                                     if (Zeichenlaenge_D.Length > 4)     //Kontrolle der Zeichenlänge des Durchmessers
@@ -1007,45 +1079,38 @@ namespace ProfiRechner
                 }
                 else
                 {
-                    // Kontrolle der eingegebenen Zahlen
-                    Double.TryParse(tbx_Input_IPEBreite.Text, out double B);
-                    Double.TryParse(tbx_Input_IPEHoehe.Text, out double h);
-                    Double.TryParse(tbx_Input_IPELaenge.Text, out double l);
-                    Double.TryParse(tbx_Input_IPEFlanschbreite.Text, out double b);
-                    Double.TryParse(tbx_Input_IPEStegbreite.Text, out double sb);
-
-                    double Breite;
-                    double Hoehe;
-                    double Flanschbreite;
-                    double Stegbreite;
-
-                    Breite = B;
-                    Hoehe = h;
-                    Flanschbreite = b;
-                    Stegbreite = sb;
-
-                    string Zeichenlaenge_B;
-                    string Zeichenlaenge_h;
-                    string Zeichenlaenge_b;
-                    string Zeichenlaenge_sb;
-                    string Zeichenlaenge_l;
-
-                    Zeichenlaenge_B = Convert.ToString(B);
-                    Zeichenlaenge_h = Convert.ToString(h);
-                    Zeichenlaenge_b = Convert.ToString(b);
-                    Zeichenlaenge_sb = Convert.ToString(sb);
-                    Zeichenlaenge_l = Convert.ToString(l);
-
-                    if (Zeichenlaenge_B.Contains("0123456789"))     //Kontrolle auf Buchstaben der Breite
+                    if (Double.TryParse(tbx_Input_IPEBreite.Text, out double B))     //Kontrolle auf Buchstaben der Breite
                     {
-                        if (Zeichenlaenge_h.Contains("0123456789"))     //Kontrolle auf Buchstaben der Höhe
+                        if (Double.TryParse(tbx_Input_IPEHoehe.Text, out double h))     //Kontrolle auf Buchstaben der Höhe
                         {
-                            if (Zeichenlaenge_b.Contains("0123456789"))     //Kontrolle auf Buchstaben der Flanschbreite
+                            if (Double.TryParse(tbx_Input_IPEFlanschbreite.Text, out double b))     //Kontrolle auf Buchstaben der Flanschbreite
                             {
-                                if (Zeichenlaenge_sb.Contains("0123456789"))        //Kontrolle auf Buchstaben der Stegbreite
+                                if (Double.TryParse(tbx_Input_IPEStegbreite.Text, out double sb))        //Kontrolle auf Buchstaben der Stegbreite
                                 {
-                                    if (Zeichenlaenge_l.Contains("0123456789"))     //Kontrolle auf Buchstaben der Länge
+                                    if (Double.TryParse(tbx_Input_IPELaenge.Text, out double l))     //Kontrolle auf Buchstaben der Länge
                                     {
+                                        double Breite;
+                                        double Hoehe;
+                                        double Flanschbreite;
+                                        double Stegbreite;
+
+                                        Breite = B;
+                                        Hoehe = h;
+                                        Flanschbreite = b;
+                                        Stegbreite = sb;
+
+                                        string Zeichenlaenge_B;
+                                        string Zeichenlaenge_h;
+                                        string Zeichenlaenge_b;
+                                        string Zeichenlaenge_sb;
+                                        string Zeichenlaenge_l;
+
+                                        Zeichenlaenge_B = Convert.ToString(B);
+                                        Zeichenlaenge_h = Convert.ToString(h);
+                                        Zeichenlaenge_b = Convert.ToString(b);
+                                        Zeichenlaenge_sb = Convert.ToString(sb);
+                                        Zeichenlaenge_l = Convert.ToString(l);
+
                                         if (Stegbreite < Breite)        //Kontrolle der Verhältnismäßigkeit der Stegbreite
                                         {
                                             if (Flanschbreite < (Hoehe / 2))        //Kontrolle der Verhältnismäßigkeit der Flanschbreite
