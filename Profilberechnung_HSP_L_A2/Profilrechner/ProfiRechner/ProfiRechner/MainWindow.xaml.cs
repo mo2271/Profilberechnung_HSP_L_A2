@@ -93,6 +93,7 @@ namespace ProfiRechner
                 CatR.PartRechteck();
                 CatR.Rechteck_CreateSketch();
                 CatR.Rechteck_DrawSketch(RechteckBreite, RechteckHoehe);
+                CatR.RechteckExtrusion(RechteckLaenge);
             }
         }
 
