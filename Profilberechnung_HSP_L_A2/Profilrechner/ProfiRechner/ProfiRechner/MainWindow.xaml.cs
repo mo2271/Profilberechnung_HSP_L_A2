@@ -369,10 +369,7 @@ namespace ProfiRechner
                 );
                 if (result == MessageBoxResult.OK)
                 {
-
                     CoB_Rechteck_WS.IsDropDownOpen= true;
-                    
-
                 }
                 
             }
@@ -390,7 +387,6 @@ namespace ProfiRechner
                     if (result == MessageBoxResult.OK)
                     {
                         CoB_Rechteck_Auswahl_Einheit.IsDropDownOpen = true;
-
                     }
 
                 }
@@ -431,34 +427,50 @@ namespace ProfiRechner
                                         tbx_Input_RechteckBreite.Focus();
                                     }
                                 }
-                                else if (Zeichenlaenge_h.Length > 4)
+                                if (Zeichenlaenge_b.Length <= 4)
                                 {
-                                    MessageBoxResult result;
-                                    result = MessageBox.Show("Höhe: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt vier Stellen.", "Eingabekontrolle",
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.Error
-                                    );
-                                    if (result == MessageBoxResult.OK)
+                                    if (Zeichenlaenge_h.Length > 4)
                                     {
-                                        tbx_Input_RechteckHoehe.Text = "";
+                                        MessageBoxResult result;
+                                        result = MessageBox.Show("Höhe: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt vier Stellen.", "Eingabekontrolle",
+                                        MessageBoxButton.OK,
+                                        MessageBoxImage.Error
+                                        );
+                                        if (result == MessageBoxResult.OK)
+                                        {
+                                            tbx_Input_RechteckHoehe.Text = "";
 
-                                        tbx_Input_RechteckHoehe.Focus();
+                                            tbx_Input_RechteckHoehe.Focus();
+                                        }
                                     }
-                                }
-                                else if (Zeichenlaenge_l.Length > 4)
-                                {
-                                    MessageBoxResult result;
-                                    result = MessageBox.Show("Breite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt vier Stellen.", "Eingabekontrolle",
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.Error
-                                    );
-                                    if (result == MessageBoxResult.OK)
+                                    if (Zeichenlaenge_h.Length <= 4)
                                     {
-                                        tbx_Input_RechteckLaenge.Text = "";
+                                        if (Zeichenlaenge_l.Length > 4)
+                                        {
+                                            MessageBoxResult result;
+                                            result = MessageBox.Show("Breite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt vier Stellen.", "Eingabekontrolle",
+                                            MessageBoxButton.OK,
+                                            MessageBoxImage.Error
+                                            );
+                                            if (result == MessageBoxResult.OK)
+                                            {
+                                                tbx_Input_RechteckLaenge.Text = "";
 
-                                        tbx_Input_RechteckLaenge.Focus();
+                                                tbx_Input_RechteckLaenge.Focus();
+                                            }
+                                        }
+                                        if (Zeichenlaenge_l.Length <= 4)
+                                        {
+                                            Rechteck CatR = new Rechteck();
+
+                                            if (CatR.CATIA_Rechteck_Run())
+                                            {
+                                                CatR.PartRechteck();
+                                                CatR.Rechteck_CreateSketch();
+                                            }
+                                        }
                                     }
-                                }
+                                }                              
                             }
                             else
                             {
@@ -493,13 +505,7 @@ namespace ProfiRechner
                         tbx_Input_RechteckBreite.Clear();
                         tbx_Input_RechteckBreite.Focus();
                     }
-                    Rechteck CatR = new Rechteck();
-
-                    if (CatR.CATIA_Rechteck_Run())
-                    {
-                        CatR.PartRechteck();
-                        CatR.Rechteck_CreateSketch();
-                    }
+                    
                 }
              
                     
@@ -510,11 +516,8 @@ namespace ProfiRechner
                 lbl_Rechteck_Volumen_Ergebnis.Visibility = Visibility.Visible;
                 lbl_Rechteck_Schwerpunkt_Ergebnis.Visibility = Visibility.Visible;
                 lbl_Rechteck_FTM_X_Ergebnis.Visibility = Visibility.Visible;
-                lbl_Rechteck_FTM_Y_Ergebnis.Visibility = Visibility.Visible;
-
-                
+                lbl_Rechteck_FTM_Y_Ergebnis.Visibility = Visibility.Visible;           
             }
-
 
         }
         public void Kontrolle_Rechteckprofil_hohl()     //Kontrolle der Eingaben
