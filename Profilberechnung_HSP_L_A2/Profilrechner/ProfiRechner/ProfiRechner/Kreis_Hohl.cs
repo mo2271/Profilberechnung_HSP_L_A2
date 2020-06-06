@@ -70,10 +70,10 @@ namespace ProfiRechner
                 return;
             }
             Kreis_hohl_HybridBody.set_Name("Querschnitt-Skizze");
-            Sketches KreisSketch = Kreis_hohl_HybridBody.HybridSketches;
+            Sketches Kreis_hohl_Sketch = Kreis_hohl_HybridBody.HybridSketches;
             OriginElements Kreis_hohl_OriginElements = CATIA_Kreis_hohl_Part.Part.OriginElements;
             Reference Kreis_hohl_Reference = (Reference)Kreis_hohl_OriginElements.PlaneYZ;
-            CATIA_Kreis_hohl_2D = KreisSketch.Add(Kreis_hohl_Reference);
+            CATIA_Kreis_hohl_2D = Kreis_hohl_Sketch.Add(Kreis_hohl_Reference);
 
             ReferenzAchsensystem();
 
