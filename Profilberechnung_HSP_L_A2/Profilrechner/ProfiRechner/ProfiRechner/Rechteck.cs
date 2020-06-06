@@ -31,6 +31,7 @@ namespace ProfiRechner
 
             }
         }
+        
 
         public double KlasseRechteckBreite;
         public double KlasseRechteckHoehe;
@@ -44,14 +45,13 @@ namespace ProfiRechner
             return KlasseRechteckBreite + KlasseRechteckHoehe + KlasseRechteckLaenge;
         }
 
-        
         public void PartRechteck()
         {
             INFITF.Documents RechteckPart = CATIA_Rechteck.Documents;
-            CATIA_RechteckPart = RechteckPart.Add("Part") as MECMOD.PartDocument;          
+            CATIA_RechteckPart = RechteckPart.Add("Part") as MECMOD.PartDocument;
         }
 
-        public void CreateSketch()
+        public void Rechteck_CreateSketch()
         {
             HybridBodies RechteckHybridBodies = CATIA_RechteckPart.Part.HybridBodies;
             HybridBody RechteckHybridBody;
@@ -69,6 +69,12 @@ namespace ProfiRechner
                 );
                 return;
             }
+            RechteckHybridBody.set_Name("Querschnitt-Skizze");
+            Sketches RechteckSketch = RechteckHybridBody.HybridSketches;
+            OriginElements RechteckOriginElements = CATIA_RechteckPart.Part.OriginElements;
+            Reference RechteckReference = (Reference)RechteckOriginElements.PlaneYZ;
+            CATIA_Rechteck2D = RechteckSketch.Add(RechteckReference);
         }
+
     }
 }
