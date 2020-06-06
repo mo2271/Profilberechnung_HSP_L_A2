@@ -101,19 +101,45 @@ namespace ProfiRechner
             // Definition der Eckpunkte
             Point2D Rechteck_Eckpunkt1 = RechteckFactory.CreatePoint(0, 0);
             Point2D Rechteck_Eckpunkt2 = RechteckFactory.CreatePoint(b, 0);
-            Point2D Rechteck_Eckpunkt3 = RechteckFactory.CreatePoint(0, h);
-            Point2D Rechteck_Eckpunkt4 = RechteckFactory.CreatePoint(b, h);
+            Point2D Rechteck_Eckpunkt3 = RechteckFactory.CreatePoint(b, h);
+            Point2D Rechteck_Eckpunkt4 = RechteckFactory.CreatePoint(0, h);
 
             // Definition der Linien
-            Line2D RechteckLinie1 = RechteckFactory.CreateLine(0, 0, 0, 0);
+            Line2D RechteckLinie1 = RechteckFactory.CreateLine(0, 0, b, 0);
             RechteckLinie1.StartPoint = Rechteck_Eckpunkt1;
             RechteckLinie1.EndPoint = Rechteck_Eckpunkt2;
+
+            Line2D RechteckLinie2 = RechteckFactory.CreateLine(b, 0, b, h);
+            RechteckLinie2.StartPoint = Rechteck_Eckpunkt2;
+            RechteckLinie2.EndPoint = Rechteck_Eckpunkt3;
+
+            Line2D RechteckLinie3 = RechteckFactory.CreateLine(b, h, 0, h);
+            RechteckLinie3.StartPoint = Rechteck_Eckpunkt3;
+            RechteckLinie3.EndPoint = Rechteck_Eckpunkt4;
+
+            Line2D RechteckLinie4 = RechteckFactory.CreateLine(0, 0, 0, h);
+            RechteckLinie4.StartPoint = Rechteck_Eckpunkt1;
+            RechteckLinie4.EndPoint = Rechteck_Eckpunkt4;
 
             CATIA_Rechteck2D.CloseEdition();
 
             CATIA_RechteckPart.Part.Update();
             
         }
+        public void RechteckExtrusion(double RechteckLaenge)
+        {
+            double l = RechteckLaenge;
+
+            CATIA_RechteckPart.Part.InWorkObject = CATIA_RechteckPart.Part.MainBody;
+
+            ShapeFactory Rechteck3D = (ShapeFactory)CATIA_RechteckPart.Part.ShapeFactory;
+            Pad RechteckPad = Rechteck3D.AddNewPad(CATIA_Rechteck2D, l);
+
+            RechteckPad.set_Name("Rechteckbalken");
+
+            CATIA_RechteckPart.Part.Update();
+        }
+
 
     }
 }
