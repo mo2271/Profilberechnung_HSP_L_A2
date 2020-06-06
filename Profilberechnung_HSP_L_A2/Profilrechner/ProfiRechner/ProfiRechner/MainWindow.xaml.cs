@@ -376,7 +376,7 @@ namespace ProfiRechner
                 }
                 
             }
-            else
+            if (Material != "")
             {
                 String Einheit = Convert.ToString(CoB_Rechteck_Auswahl_Einheit.SelectionBoxItem);
 
@@ -394,7 +394,7 @@ namespace ProfiRechner
                     }
 
                 }
-                else
+                if (Einheit != "")
                 {
 
                     if (Double.TryParse(tbx_Input_RechteckBreite.Text, out double b))   //Abfrage ob Konvertierung erfolgreich war
@@ -493,7 +493,13 @@ namespace ProfiRechner
                         tbx_Input_RechteckBreite.Clear();
                         tbx_Input_RechteckBreite.Focus();
                     }
-                    
+                    Rechteck CatR = new Rechteck();
+
+                    if (CatR.CATIA_Rechteck_Run())
+                    {
+                        CatR.PartRechteck();
+                        CatR.Rechteck_CreateSketch();
+                    }
                 }
              
                     
@@ -506,6 +512,7 @@ namespace ProfiRechner
                 lbl_Rechteck_FTM_X_Ergebnis.Visibility = Visibility.Visible;
                 lbl_Rechteck_FTM_Y_Ergebnis.Visibility = Visibility.Visible;
 
+                
             }
 
 
@@ -1465,13 +1472,7 @@ namespace ProfiRechner
         private void btn_StartRechteckprofil_Berechnung_Click(object sender, RoutedEventArgs e)
         {
             Kontrolle_Rechteckprofil();
-            Rechteck CatR = new Rechteck();
-
-            if (CatR.CATIA_Rechteck_Run())
-            {
-                CatR.PartRechteck();
-                CatR.Rechteck_CreateSketch();
-            }
+            
                 
         }
 
