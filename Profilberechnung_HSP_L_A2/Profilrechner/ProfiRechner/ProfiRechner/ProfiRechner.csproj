@@ -36,15 +36,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Interop.INFITF">
-      <HintPath>..\..\..\..\..\..\..\Desktop\Duales Studium\Studium\Fächer\Semester 3\Hochsprachenprogrammierung\Gruppenaufgaben\Interop.INFITF.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files\Dassault Systemes\B28\win_b64\code\bin\Interop.INFITF.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Interop.MECMOD">
-      <HintPath>..\..\..\..\..\..\..\Desktop\Duales Studium\Studium\Fächer\Semester 3\Hochsprachenprogrammierung\Gruppenaufgaben\Interop.MECMOD.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files\Dassault Systemes\B28\win_b64\code\bin\Interop.MECMOD.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Interop.PARTITF">
-      <HintPath>..\..\..\..\..\..\..\Desktop\Duales Studium\Studium\Fächer\Semester 3\Hochsprachenprogrammierung\Gruppenaufgaben\Interop.PARTITF.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files\Dassault Systemes\B28\win_b64\code\bin\Interop.PARTITF.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
