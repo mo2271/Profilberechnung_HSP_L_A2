@@ -85,6 +85,15 @@ namespace ProfiRechner
             lbl_Rechteck_FTM_X_Ergebnis.Content = Rechteck_FTM_X_String;
             lbl_Rechteck_FTM_Y_Ergebnis.Content = Rechteck_FTM_Y_String;
             lbl_Rechteck_Schwerpunkt_Ergebnis.Content = Rechteck_SWP_String;
+
+            Rechteck CatR = new Rechteck();
+
+            if (CatR.CATIA_Rechteck_Run())
+            {
+                CatR.PartRechteck();
+                CatR.Rechteck_CreateSketch();
+                CatR.Rechteck_DrawSketch(RechteckBreite, RechteckHoehe);
+            }
         }
 
         #endregion
@@ -461,13 +470,9 @@ namespace ProfiRechner
                                         }
                                         if (Zeichenlaenge_l.Length <= 4)
                                         {
-                                            Rechteck CatR = new Rechteck();
+                                            Rechteckprofil_Berechnung(); // Aufruf der Berechnung
 
-                                            if (CatR.CATIA_Rechteck_Run())
-                                            {
-                                                CatR.PartRechteck();
-                                                CatR.Rechteck_CreateSketch();
-                                            }
+                                            
                                         }
                                     }
                                 }                              
@@ -509,7 +514,7 @@ namespace ProfiRechner
                 }
              
                     
-                Rechteckprofil_Berechnung(); // Aufruf der Berechnung
+                
 
                 lbl_Rechteck_Fläche_Ergebnis.Visibility = Visibility.Visible;   //Schaltet Sichtbarkeit der Ergebnisse um
                 lbl_Rechteck_Masse_Ergebnis.Visibility = Visibility.Visible;
