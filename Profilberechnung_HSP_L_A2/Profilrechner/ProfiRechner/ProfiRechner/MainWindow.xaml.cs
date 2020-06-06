@@ -158,6 +158,16 @@ namespace ProfiRechner
             lbl_Rechteck_FTM_X_Ergebnis.Content = Rechteck_Hohl_FTM_X_String;
             lbl_Rechteck_FTM_Y_Ergebnis.Content = Rechteck_Hohl_FTM_Y_String;
             lbl_Rechteck_Schwerpunkt_Ergebnis.Content = Rechteck_Hohl_SWP_String;
+
+            Rechteck_Hohl CatR_hohl = new Rechteck_Hohl();
+
+            if (CatR_hohl.CATIA_Rechteck_hohl_Run())
+            {
+                CatR_hohl.PartRechteck_hohl();
+                CatR_hohl.Rechteck_hohl_CreateSketch();
+                CatR_hohl.Rechteck_hohl_DrawSketch(RechteckHohlBreite, RechteckHohlHoehe, RechteckHohlWandstaerke);
+                CatR_hohl.Rechteck_hohl_Extrusion(RechteckHohlLaenge);
+            }
         }
 
         #endregion
