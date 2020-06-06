@@ -220,6 +220,16 @@ namespace ProfiRechner
             lbl_Kreis_FTM_X_Ergebnis.Content = Kreis_FTM_X_String;
             lbl_Kreis_FTM_Y_Ergebnis.Content = Kreis_FTM_Y_String;
             lbl_Kreis_Schwerpunkt_Ergebnis.Content = Kreis_SWP_String;
+
+            Kreis CatKr = new Kreis();
+
+            if (CatKr.CATIA_Kreis_Run())
+            {
+                CatKr.PartKreis();
+                CatKr.Kreis_CreateSketch();
+                CatKr.Kreis_DrawSketch(KreisDurchmesser);
+                CatKr.KreisExtrusion(KreisLaenge);
+            }
         }
 
         #endregion
@@ -283,6 +293,16 @@ namespace ProfiRechner
             lbl_Kreis_FTM_X_Ergebnis.Content = Kreis_Hohl_FTM_X_String;
             lbl_Kreis_FTM_Y_Ergebnis.Content = Kreis_Hohl_FTM_Y_String;
             lbl_Kreis_Schwerpunkt_Ergebnis.Content = Kreis_Hohl_SWP_String;
+
+            Kreis_Hohl CatKr_hohl = new Kreis_Hohl();
+
+            if (CatKr_hohl.CATIA_Kreis_hohl_Run())
+            {
+                CatKr_hohl.PartKreis_hohl();
+                CatKr_hohl.Kreis_hohl_CreateSketch();
+                CatKr_hohl.Kreis_hohl_DrawSketch(KreisHohlDurchmesser, KreisHohlWandstaerke);
+                CatKr_hohl.Kreis_hohl_Extrusion(KreisHohlLaenge);
+            }
         }
 
         #endregion
