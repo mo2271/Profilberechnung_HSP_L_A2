@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using INFITF;
 using MECMOD;
 using PARTITF;
+using System.Data.SqlTypes;
 
 namespace ProfiRechner
 {
@@ -44,7 +45,7 @@ namespace ProfiRechner
             KlasseRechteckLaenge = local_RechteckLaenge;
             return KlasseRechteckBreite + KlasseRechteckHoehe + KlasseRechteckLaenge;
         }
-
+        
         public void PartRechteck()
         {
             INFITF.Documents RechteckPart = CATIA_Rechteck.Documents;
@@ -74,6 +75,44 @@ namespace ProfiRechner
             OriginElements RechteckOriginElements = CATIA_RechteckPart.Part.OriginElements;
             Reference RechteckReference = (Reference)RechteckOriginElements.PlaneYZ;
             CATIA_Rechteck2D = RechteckSketch.Add(RechteckReference);
+
+            ReferenzAchsensystem();
+
+            CATIA_RechteckPart.Part.Update();
+        }
+
+        private void ReferenzAchsensystem()
+        {
+            object[] ReferenceArray = new object[] {0.0, 0.0, 0.0,
+                                                    0.0, 1.0, 0.0,
+                                                    0.0, 0.0, 1.0};
+            CATIA_Rechteck2D.SetAbsoluteAxisData(ReferenceArray);
+        }
+
+        public void Rechteck_DrawSketch(double RechteckBreite, double RechteckHoehe)
+        {
+            double b = RechteckBreite;
+            double h = RechteckHoehe;
+            
+            CATIA_Rechteck2D.set_Name("Rechteckprofil");
+
+            Factory2D RechteckFactory = CATIA_Rechteck2D.OpenEdition();
+
+            // Definition der Eckpunkte
+            Point2D Rechteck_Eckpunkt1 = RechteckFactory.CreatePoint(0, 0);
+            Point2D Rechteck_Eckpunkt2 = RechteckFactory.CreatePoint(b, 0);
+            Point2D Rechteck_Eckpunkt3 = RechteckFactory.CreatePoint(0, h);
+            Point2D Rechteck_Eckpunkt4 = RechteckFactory.CreatePoint(b, h);
+
+            // Definition der Linien
+            Line2D RechteckLinie1 = RechteckFactory.CreateLine(0, 0, 0, 0);
+            RechteckLinie1.StartPoint = Rechteck_Eckpunkt1;
+            RechteckLinie1.EndPoint = Rechteck_Eckpunkt2;
+
+            CATIA_Rechteck2D.CloseEdition();
+
+            CATIA_RechteckPart.Part.Update();
+            
         }
 
     }
