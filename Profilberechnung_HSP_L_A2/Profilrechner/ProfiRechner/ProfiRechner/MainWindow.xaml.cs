@@ -1400,6 +1400,13 @@ namespace ProfiRechner
         private void btn_StartRechteckprofil_Berechnung_Click(object sender, RoutedEventArgs e)
         {
             Kontrolle_Rechteckprofil();
+            Rechteck CatR = new Rechteck();
+
+            if (CatR.CATIA_Rechteck_Run())
+            {
+                CatR.PartRechteck();
+                CatR.Rechteck_CreateSketch();
+            }
                 
         }
 
