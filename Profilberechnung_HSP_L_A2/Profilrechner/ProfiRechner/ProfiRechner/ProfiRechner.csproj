@@ -73,6 +73,8 @@
     <Compile Include="Rechteck.cs" />
     <Compile Include="Rechteck_Hohl.cs" />
     <Compile Include="Sonder_IPE.cs" />
+    <Compile Include="Sonder_T.cs" />
+    <Compile Include="Sonder_U.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

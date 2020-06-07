@@ -60,15 +60,15 @@ namespace ProfiRechner
             Rechteck_Masse = Rechteck_Volumen * RechteckWSDichte;
             Rechteck_FTM_X = R.KlasseRechteckBreite * Math.Pow(R.KlasseRechteckHoehe, 3) / 12;
             Rechteck_FTM_Y = R.KlasseRechteckHoehe * Math.Pow(R.KlasseRechteckBreite, 3) / 12;
-            Rechteck_SWP_X = 0; // Ursprung = Schwerpunkt
-            Rechteck_SWP_Y = 0; // Ursprung = Schwerpunkt
+            Rechteck_SWP_X = R.KlasseRechteckBreite / 2;
+            Rechteck_SWP_Y = R.KlasseRechteckHoehe / 2;
 
-            // Runden
-            Rechteck_Flaeche = Math.Round(Rechteck_Flaeche, 2);
-            Rechteck_Volumen = Math.Round(Rechteck_Volumen, 2);
-            Rechteck_Masse = Math.Round(Rechteck_Masse, 3);
-            Rechteck_FTM_X = Math.Round(Rechteck_FTM_X, 2);
-            Rechteck_FTM_Y = Math.Round(Rechteck_FTM_Y, 2);
+            // Runden      
+            Rechteck_Flaeche = Math.Round(Rechteck_Flaeche / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_Flaeche, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_Flaeche))));
+            Rechteck_Volumen = Math.Round(Rechteck_Volumen / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_Volumen, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_Volumen))));
+            Rechteck_Masse = Math.Round(Rechteck_Masse / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_Masse, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_Masse))));
+            Rechteck_FTM_X = Math.Round(Rechteck_FTM_X / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_FTM_X, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_FTM_X))));
+            Rechteck_FTM_Y = Math.Round(Rechteck_FTM_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_FTM_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_FTM_Y))));
 
             // Umwandlung in String
             string Rechteck_Flaeche_String = Convert.ToString(Rechteck_Flaeche) + " " + RechteckEinheit + "²";
@@ -133,15 +133,15 @@ namespace ProfiRechner
             Rechteck_Hohl_Masse = Rechteck_Hohl_Volumen * RechteckWSDichte;
             Rechteck_Hohl_FTM_X = RH.KlasseRechteckHohlBreite * Math.Pow(RH.KlasseRechteckHohlHoehe, 3) / 12 - (RH.KlasseRechteckHohlBreite - 2 * RH.KlasseRechteckHohlWandstaerke) * Math.Pow((RH.KlasseRechteckHohlHoehe - 2 * RH.KlasseRechteckHohlWandstaerke), 3) / 12;
             Rechteck_Hohl_FTM_Y = RH.KlasseRechteckHohlHoehe * Math.Pow(RH.KlasseRechteckHohlBreite, 3) / 12 - (RH.KlasseRechteckHohlHoehe - 2 * RH.KlasseRechteckHohlWandstaerke) * Math.Pow((RH.KlasseRechteckHohlBreite - 2 * RH.KlasseRechteckHohlWandstaerke), 3) / 12;
-            Rechteck_Hohl_SWP_X = 0; // Ursprung = Schwerpunkt
-            Rechteck_Hohl_SWP_Y = 0; // Ursprung = Schwerpunkt
+            Rechteck_Hohl_SWP_X = RH.KlasseRechteckHohlBreite / 2;
+            Rechteck_Hohl_SWP_Y = RH.KlasseRechteckHohlHoehe / 2;
 
             // Runden
-            Rechteck_Hohl_Flaeche = Math.Round(Rechteck_Hohl_Flaeche, 2);
-            Rechteck_Hohl_Volumen = Math.Round(Rechteck_Hohl_Volumen, 2);
-            Rechteck_Hohl_Masse = Math.Round(Rechteck_Hohl_Masse, 3);
-            Rechteck_Hohl_FTM_X = Math.Round(Rechteck_Hohl_FTM_X, 2);
-            Rechteck_Hohl_FTM_Y = Math.Round(Rechteck_Hohl_FTM_Y, 2);
+            Rechteck_Hohl_Flaeche = Math.Round(Rechteck_Hohl_Flaeche / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_Hohl_Flaeche, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_Hohl_Flaeche))));
+            Rechteck_Hohl_Volumen = Math.Round(Rechteck_Hohl_Volumen / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_Hohl_Volumen, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_Hohl_Volumen))));
+            Rechteck_Hohl_Masse = Math.Round(Rechteck_Hohl_Masse / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_Hohl_Masse, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_Hohl_Masse))));
+            Rechteck_Hohl_FTM_X = Math.Round(Rechteck_Hohl_FTM_X / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_Hohl_FTM_X, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_Hohl_FTM_X))));
+            Rechteck_Hohl_FTM_Y = Math.Round(Rechteck_Hohl_FTM_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_Hohl_FTM_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_Hohl_FTM_Y))));
 
             // Umwandlung in String
             string Rechteck_Hohl_Flaeche_String = Convert.ToString(Rechteck_Hohl_Flaeche) + " " + RechteckEinheit + "²";
@@ -205,15 +205,15 @@ namespace ProfiRechner
             Kreis_Masse = Kreis_Volumen * KreisWSDichte;
             Kreis_FTM_X = Math.Pow(K.KlasseKreisDurchmesser, 4) * Math.PI / 64;
             Kreis_FTM_Y = Kreis_FTM_X;
-            Kreis_SWP_X = 0; // Ursprung = Schwerpunkt
-            Kreis_SWP_Y = 0; // Ursprung = Schwerpunkt
+            Kreis_SWP_X = K.KlasseKreisDurchmesser / 2;
+            Kreis_SWP_Y = K.KlasseKreisDurchmesser / 2;
 
             // Runden
-            Kreis_Flaeche = Math.Round(Kreis_Flaeche, 2);
-            Kreis_Volumen = Math.Round(Kreis_Volumen, 2);
-            Kreis_Masse = Math.Round(Kreis_Masse, 3);
-            Kreis_FTM_X = Math.Round(Kreis_FTM_X, 2);
-            Kreis_FTM_Y = Math.Round(Kreis_FTM_Y, 2);
+            Kreis_Flaeche = Math.Round(Kreis_Flaeche / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_Flaeche, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_Flaeche))));
+            Kreis_Volumen = Math.Round(Kreis_Volumen / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_Volumen, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_Volumen))));
+            Kreis_Masse = Math.Round(Kreis_Masse / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_Masse, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_Masse))));
+            Kreis_FTM_X = Math.Round(Kreis_FTM_X / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_FTM_X, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_FTM_X))));
+            Kreis_FTM_Y = Math.Round(Kreis_FTM_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_FTM_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_FTM_Y))));
 
             // Umwandlung in String
             string Kreis_Flaeche_String = Convert.ToString(Kreis_Flaeche) + " " + KreisEinheit + "²";
@@ -278,15 +278,15 @@ namespace ProfiRechner
             Kreis_Hohl_Masse = Kreis_Hohl_Volumen * KreisWSDichte;
             Kreis_Hohl_FTM_X = (Math.Pow(KH.KlasseKreisHohlDurchmesser, 4) - Math.Pow((KH.KlasseKreisHohlDurchmesser - 2 * KH.KlasseKreisHohlWandstaerke), 4)) * Math.PI / 64;
             Kreis_Hohl_FTM_Y = Kreis_Hohl_FTM_X;
-            Kreis_Hohl_SWP_X = 0; // Ursprung = Schwerpunkt
-            Kreis_Hohl_SWP_Y = 0; // Ursprung = Schwerpunkt
+            Kreis_Hohl_SWP_X = KH.KlasseKreisHohlDurchmesser / 2;
+            Kreis_Hohl_SWP_Y = KH.KlasseKreisHohlDurchmesser / 2;
 
             // Runden
-            Kreis_Hohl_Flaeche = Math.Round(Kreis_Hohl_Flaeche, 2);
-            Kreis_Hohl_Volumen = Math.Round(Kreis_Hohl_Volumen, 2);
-            Kreis_Hohl_Masse = Math.Round(Kreis_Hohl_Masse, 3);
-            Kreis_Hohl_FTM_X = Math.Round(Kreis_Hohl_FTM_X, 2);
-            Kreis_Hohl_FTM_Y = Math.Round(Kreis_Hohl_FTM_Y, 2);
+            Kreis_Hohl_Flaeche = Math.Round(Kreis_Hohl_Flaeche / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_Hohl_Flaeche, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_Hohl_Flaeche))));
+            Kreis_Hohl_Volumen = Math.Round(Kreis_Hohl_Volumen / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_Hohl_Volumen, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_Hohl_Volumen))));
+            Kreis_Hohl_Masse = Math.Round(Kreis_Hohl_Masse / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_Hohl_Masse, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_Hohl_Masse))));
+            Kreis_Hohl_FTM_X = Math.Round(Kreis_Hohl_FTM_X / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_Hohl_FTM_X, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_Hohl_FTM_X))));
+            Kreis_Hohl_FTM_Y = Math.Round(Kreis_Hohl_FTM_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_Hohl_FTM_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_Hohl_FTM_Y))));
 
             // Umwandlung in String
             string Kreis_Hohl_Flaeche_String = Convert.ToString(Kreis_Hohl_Flaeche) + " " + KreisEinheit + "²";
@@ -358,18 +358,18 @@ namespace ProfiRechner
             FTM_X_kleinesRechteck = ((SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite) / 2) * Math.Pow((SIPE.KlasseSonderIPEHoehe - 2 * SIPE.KlasseSonderIPEFlanschbreite), 3) / 12;
             Sonder_IPE_FTM_X = FTM_X_grossesRechteck - 2 * FTM_X_kleinesRechteck;
             FTM_Y_grossesRechteck = (SIPE.KlasseSonderIPEHoehe * Math.Pow(SIPE.KlasseSonderIPEBreite, 3)) / 12;
-            FTM_Y_kleinesRechteckumSWPA = ((SIPE.KlasseSonderIPEHoehe - 2 * SIPE.KlasseSonderIPEFlanschbreite) * Math.Pow(((SIPE.KlasseSonderIPEBreite - SonderIPEStegbreite) / 2), 3)) / 12;
+            FTM_Y_kleinesRechteckumSWPA = ((SIPE.KlasseSonderIPEHoehe - 2 * SIPE.KlasseSonderIPEFlanschbreite) * Math.Pow(((SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite) / 2), 3)) / 12;
             FTM_Y_kleinesRechteckSteiner = (SIPE.KlasseSonderIPEHoehe - 2 * SIPE.KlasseSonderIPEFlanschbreite) * ((SIPE.KlasseSonderIPEBreite - SIPE.KlasseSonderIPEStegbreite) / 2) * Math.Pow(((SIPE.KlasseSonderIPEBreite + SonderIPEStegbreite) / 4), 2); // nur Flaeche * Abstand²
             Sonder_IPE_FTM_Y = FTM_Y_grossesRechteck - 2 * (FTM_Y_kleinesRechteckumSWPA + FTM_Y_kleinesRechteckSteiner);
-            Sonder_IPE_SWP_X = 0; // Ursprung = Schwerpunkt
-            Sonder_IPE_SWP_Y = 0; // Ursprung = Schwerpunkt
+            Sonder_IPE_SWP_X = SIPE.KlasseSonderIPEHoehe / 2;
+            Sonder_IPE_SWP_Y = SIPE.KlasseSonderIPEBreite / 2;
 
             // Runden
-            Sonder_IPE_Flaeche = Math.Round(Sonder_IPE_Flaeche, 2);
-            Sonder_IPE_Volumen = Math.Round(Sonder_IPE_Volumen, 2);
-            Sonder_IPE_Masse = Math.Round(Sonder_IPE_Masse, 3);
-            Sonder_IPE_FTM_X = Math.Round(Sonder_IPE_FTM_X, 2);
-            Sonder_IPE_FTM_Y = Math.Round(Sonder_IPE_FTM_Y, 2);
+            Sonder_IPE_Flaeche = Math.Round(Sonder_IPE_Flaeche / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_IPE_Flaeche, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_IPE_Flaeche))));
+            Sonder_IPE_Volumen = Math.Round(Sonder_IPE_Volumen / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_IPE_Volumen, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_IPE_Volumen))));
+            Sonder_IPE_Masse = Math.Round(Sonder_IPE_Masse / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_IPE_Masse, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_IPE_Masse))));
+            Sonder_IPE_FTM_X = Math.Round(Sonder_IPE_FTM_X / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_IPE_FTM_X, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_IPE_FTM_X))));
+            Sonder_IPE_FTM_Y = Math.Round(Sonder_IPE_FTM_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_IPE_FTM_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_IPE_FTM_Y))));
 
             // Umwandlung in String
             string Sonder_IPE_Flaeche_String = Convert.ToString(Sonder_IPE_Flaeche) + " " + SonderEinheit + "²";
@@ -396,6 +396,186 @@ namespace ProfiRechner
                 CatIPE.SonderIPE_DrawSketch(SonderIPEBreite, SonderIPEHoehe, SonderIPEFlanschbreite, SonderIPEStegbreite);
                 CatIPE.SonderIPE_Extrusion(SonderIPELaenge);
             }
+        }
+
+        #endregion
+
+        #region BerechnungSonderTProfil
+
+        public void T_Profil_Berechnung()
+        {
+            // Übergabe von Eingabewerten
+            Double.TryParse(tbx_Input_IPEHoehe.Text, out double SonderTHoehe);
+            Double.TryParse(tbx_Input_IPEBreite.Text, out double SonderTBreite);
+            Double.TryParse(tbx_Input_IPEFlanschbreite.Text, out double SonderTFlanschbreite);
+            Double.TryParse(tbx_Input_IPEStegbreite.Text, out double SonderTStegbreite);
+            Double.TryParse(tbx_Input_IPELaenge.Text, out double SonderTLaenge);
+            String SonderEinheit = Convert.ToString(CoB_Sonder_Auswahl_Einheit.SelectionBoxItem);
+            Double SonderWSDichte = CoB_Sonder_WS.Text.Equals("Stahl") ? 7850 : 2700;
+
+            // Klasse SonderTProfil
+            Sonder_T ST = new Sonder_T();
+            ST.setGeometrie(SonderTHoehe, SonderTBreite, SonderTFlanschbreite, SonderTStegbreite, SonderTLaenge);
+
+            // neue Variablen
+            double Sonder_T_Flaeche, Sonder_T_Volumen, Sonder_T_FTM_X, Sonder_T_FTM_Y, Sonder_T_SWP_X, Sonder_T_SWP_Y, Sonder_T_Masse;
+
+            // Einheitenumrechnung
+            if (SonderEinheit.Equals("mm"))
+            {
+                SonderWSDichte = SonderWSDichte / Math.Pow(10, 9);
+            }
+            else if (SonderEinheit.Equals("cm"))
+            {
+                SonderWSDichte = SonderWSDichte / Math.Pow(10, 6);
+            }
+
+            // Hilfsgrößen, da Formeln für FTMX und FTMY sehr lang
+            double FTM_X_grossesRechteckumSWPA, FTM_X_grossesRechteckSteiner, FTM_X_kleinesRechteckumSWPA, FTM_X_kleinesRechteckSteiner, FTM_Y_grossesRechteckumSWPA, FTM_Y_grossesRechteckSteiner, FTM_Y_kleinesRechteckumSWPA, FTM_Y_kleinesRechteckSteiner;
+
+            // Berechnungen
+            Sonder_T_Flaeche = ST.KlasseSonderTHoehe * ST.KlasseSonderTBreite - (ST.KlasseSonderTHoehe - ST.KlasseSonderTFlanschbreite) * (ST.KlasseSonderTBreite - ST.KlasseSonderTStegbreite);
+            Sonder_T_Volumen = Sonder_T_Flaeche * ST.KlasseSonderTLaenge;
+            Sonder_T_Masse = Sonder_T_Volumen * SonderWSDichte;
+
+            Sonder_T_SWP_X = ST.KlasseSonderTBreite / 2;
+            Sonder_T_SWP_Y = 0.5*(ST.KlasseSonderTBreite*Math.Pow(ST.KlasseSonderTHoehe,2)-Math.Pow(ST.KlasseSonderTHoehe-ST.KlasseSonderTFlanschbreite,2)*(ST.KlasseSonderTBreite-ST.KlasseSonderTStegbreite));
+
+            FTM_X_grossesRechteckumSWPA = ST.KlasseSonderTBreite * Math.Pow(ST.KlasseSonderTHoehe, 3) / 12;
+            FTM_X_grossesRechteckSteiner = ST.KlasseSonderTHoehe * ST.KlasseSonderTBreite * Math.Pow((ST.KlasseSonderTHoehe/2)-Sonder_T_SWP_Y, 2);
+            FTM_X_kleinesRechteckumSWPA = ((ST.KlasseSonderTBreite-ST.KlasseSonderTStegbreite)/2) * Math.Pow((ST.KlasseSonderTHoehe-ST.KlasseSonderTFlanschbreite), 3) / 12;
+            FTM_X_kleinesRechteckSteiner = (ST.KlasseSonderTHoehe - ST.KlasseSonderTFlanschbreite) * (ST.KlasseSonderTBreite - ST.KlasseSonderTStegbreite) / 2 * Math.Pow(Sonder_T_SWP_Y-(ST.KlasseSonderTHoehe-ST.KlasseSonderTFlanschbreite)/2, 2);
+            Sonder_T_FTM_X = FTM_X_grossesRechteckumSWPA + FTM_X_grossesRechteckSteiner - 2 * (FTM_X_kleinesRechteckumSWPA + FTM_X_kleinesRechteckSteiner);
+
+            FTM_Y_grossesRechteckumSWPA = ST.KlasseSonderTHoehe * Math.Pow(ST.KlasseSonderTBreite, 3) / 12;
+            FTM_Y_grossesRechteckSteiner = 0;
+            FTM_Y_kleinesRechteckumSWPA = Math.Pow(((ST.KlasseSonderTBreite - ST.KlasseSonderTStegbreite) / 2),3) * (ST.KlasseSonderTHoehe - ST.KlasseSonderTFlanschbreite) / 12;
+            FTM_Y_kleinesRechteckSteiner = (ST.KlasseSonderTHoehe - ST.KlasseSonderTFlanschbreite) * (ST.KlasseSonderTBreite - ST.KlasseSonderTStegbreite) / 2 * Math.Pow((ST.KlasseSonderTBreite-ST.KlasseSonderTStegbreite)/4, 2);
+            Sonder_T_FTM_Y = FTM_Y_grossesRechteckumSWPA + FTM_Y_grossesRechteckSteiner - 2 * (FTM_Y_kleinesRechteckumSWPA + FTM_Y_kleinesRechteckSteiner);
+
+            // Runden
+            Sonder_T_Flaeche = Math.Round(Sonder_T_Flaeche / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_T_Flaeche, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_T_Flaeche))));
+            Sonder_T_Volumen = Math.Round(Sonder_T_Volumen / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_T_Volumen, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_T_Volumen))));
+            Sonder_T_Masse = Math.Round(Sonder_T_Masse / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_T_Masse, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_T_Masse))));
+            Sonder_T_FTM_X = Math.Round(Sonder_T_FTM_X / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_T_FTM_X, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_T_FTM_X))));
+            Sonder_T_FTM_Y = Math.Round(Sonder_T_FTM_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_T_FTM_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_T_FTM_Y))));
+
+            // Umwandlung in String
+            string Sonder_T_Flaeche_String = Convert.ToString(Sonder_T_Flaeche) + " " + SonderEinheit + "²";
+            string Sonder_T_Volumen_String = Convert.ToString(Sonder_T_Volumen) + " " + SonderEinheit + "³";
+            string Sonder_T_Masse_String = Convert.ToString(Sonder_T_Masse) + " kg";
+            string Sonder_T_FTM_X_String = Convert.ToString(Sonder_T_FTM_X) + " " + SonderEinheit + "^4";
+            string Sonder_T_FTM_Y_String = Convert.ToString(Sonder_T_FTM_Y) + " " + SonderEinheit + "^4";
+            string Sonder_T_SWP_String = "(x=" + Sonder_T_SWP_X + " " + SonderEinheit + "/y=" + Sonder_T_SWP_Y + " " + SonderEinheit + ")";
+
+            // Übergabe Ergebnisse
+            lbl_Sonder_Fläche_Ergebnis.Content = Sonder_T_Flaeche_String;
+            lbl_Sonder_Volumen_Ergebnis.Content = Sonder_T_Volumen_String;
+            lbl_Sonder_Masse_Ergebnis.Content = Sonder_T_Masse_String;
+            lbl_Sonder_FTM_X_Ergebnis.Content = Sonder_T_FTM_X_String;
+            lbl_Sonder_FTM_Y_Ergebnis.Content = Sonder_T_FTM_Y_String;
+            lbl_Sonder_Schwerpunkt_Ergebnis.Content = Sonder_T_SWP_String;
+
+            Sonder_IPE CatIPE = new Sonder_IPE();
+            /*
+            if (CatIPE.CATIA_SonderIPE_Run())
+            {
+                CatIPE.PartSonderIPE();
+                CatIPE.SonderIPE_CreateSketch();
+                CatIPE.SonderIPE_DrawSketch(SonderTBreite, SonderTHoehe, SonderTFlanschbreite, SonderTStegbreite);
+                CatIPE.SonderIPE_Extrusion(SonderTLaenge);
+            }
+            */
+        }
+
+        #endregion
+
+        #region BerechnungSonderUProfil
+
+        public void U_Profil_Berechnung()
+        {
+            // Übergabe von Eingabewerten
+            Double.TryParse(tbx_Input_IPEHoehe.Text, out double SonderUHoehe);
+            Double.TryParse(tbx_Input_IPEBreite.Text, out double SonderUBreite);
+            Double.TryParse(tbx_Input_IPEFlanschbreite.Text, out double SonderUFlanschbreite);
+            Double.TryParse(tbx_Input_IPEStegbreite.Text, out double SonderUStegbreite);
+            Double.TryParse(tbx_Input_IPELaenge.Text, out double SonderULaenge);
+            String SonderEinheit = Convert.ToString(CoB_Sonder_Auswahl_Einheit.SelectionBoxItem);
+            Double SonderWSDichte = CoB_Sonder_WS.Text.Equals("Stahl") ? 7850 : 2700;
+
+            // Klasse SonderUProfil
+            Sonder_U SU = new Sonder_U();
+            SU.setGeometrie(SonderUHoehe, SonderUBreite, SonderUFlanschbreite, SonderUStegbreite, SonderULaenge);
+
+            // neue Variablen
+            double Sonder_U_Flaeche, Sonder_U_Volumen, Sonder_U_FTM_X, Sonder_U_FTM_Y, Sonder_U_SWP_X, Sonder_U_SWP_Y, Sonder_U_Masse;
+
+            // Einheitenumrechnung
+            if (SonderEinheit.Equals("mm"))
+            {
+                SonderWSDichte = SonderWSDichte / Math.Pow(10, 9);
+            }
+            else if (SonderEinheit.Equals("cm"))
+            {
+                SonderWSDichte = SonderWSDichte / Math.Pow(10, 6);
+            }
+
+            // Hilfsgrößen, da Formeln für FTMX und FTMY sehr lang
+            double FTM_X_grossesRechteckumSWPA, FTM_X_grossesRechteckSteiner, FTM_X_kleinesRechteckumSWPA, FTM_X_kleinesRechteckSteiner, FTM_Y_grossesRechteckumSWPA, FTM_Y_grossesRechteckSteiner, FTM_Y_kleinesRechteckumSWPA, FTM_Y_kleinesRechteckSteiner;
+
+            // Berechnungen
+            Sonder_U_Flaeche = SU.KlasseSonderUHoehe * SU.KlasseSonderUBreite - (SU.KlasseSonderUHoehe - SU.KlasseSonderUFlanschbreite) * (SU.KlasseSonderUBreite - SU.KlasseSonderUStegbreite);
+            Sonder_U_Volumen = Sonder_U_Flaeche * SU.KlasseSonderULaenge;
+            Sonder_U_Masse = Sonder_U_Volumen * SonderWSDichte;
+
+            Sonder_U_SWP_X = SU.KlasseSonderUBreite / 2;
+            Sonder_U_SWP_Y = 0.5 * (SU.KlasseSonderUBreite*Math.Pow(SU.KlasseSonderUHoehe,2)-(SU.KlasseSonderUBreite-2*SU.KlasseSonderUStegbreite)*(SU.KlasseSonderUHoehe-SU.KlasseSonderUFlanschbreite)*(SU.KlasseSonderUFlanschbreite+SU.KlasseSonderUHoehe));
+
+            FTM_X_grossesRechteckumSWPA = SU.KlasseSonderUBreite*Math.Pow(SU.KlasseSonderUHoehe,3)/12;
+            FTM_X_grossesRechteckSteiner = SU.KlasseSonderUBreite*SU.KlasseSonderUHoehe*Math.Pow(((SU.KlasseSonderUHoehe)/2-Sonder_U_SWP_Y),2);
+            FTM_X_kleinesRechteckumSWPA = (SU.KlasseSonderUBreite-2*SU.KlasseSonderUStegbreite) * Math.Pow((SU.KlasseSonderUHoehe-SU.KlasseSonderUFlanschbreite), 3) / 12; ;
+            FTM_X_kleinesRechteckSteiner = (SU.KlasseSonderUBreite - 2 * SU.KlasseSonderUStegbreite) * Math.Pow((SU.KlasseSonderUHoehe - SU.KlasseSonderUFlanschbreite), 3) / 12;
+            Sonder_U_FTM_X = FTM_X_grossesRechteckumSWPA + FTM_X_grossesRechteckSteiner - (FTM_X_kleinesRechteckumSWPA + FTM_X_kleinesRechteckSteiner);
+
+            FTM_Y_grossesRechteckumSWPA = SU.KlasseSonderUHoehe * Math.Pow(SU.KlasseSonderUBreite, 3) / 12;
+            FTM_Y_grossesRechteckSteiner = 0;
+            FTM_Y_kleinesRechteckumSWPA = (SU.KlasseSonderUHoehe - 2 * SU.KlasseSonderUFlanschbreite) * Math.Pow((SU.KlasseSonderUBreite - SU.KlasseSonderUStegbreite), 3) / 12; ;
+            FTM_Y_kleinesRechteckSteiner = 0;
+            Sonder_U_FTM_Y = FTM_Y_grossesRechteckumSWPA + FTM_Y_grossesRechteckSteiner - (FTM_Y_kleinesRechteckumSWPA + FTM_Y_kleinesRechteckSteiner);
+
+            // Runden
+            Sonder_U_Flaeche = Math.Round(Sonder_U_Flaeche / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_U_Flaeche, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_U_Flaeche))));
+            Sonder_U_Volumen = Math.Round(Sonder_U_Volumen / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_U_Volumen, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_U_Volumen))));
+            Sonder_U_Masse = Math.Round(Sonder_U_Masse / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_U_Masse, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_U_Masse))));
+            Sonder_U_FTM_X = Math.Round(Sonder_U_FTM_X / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_U_FTM_X, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_U_FTM_X))));
+            Sonder_U_FTM_Y = Math.Round(Sonder_U_FTM_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_U_FTM_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_U_FTM_Y))));
+
+            // Umwandlung in String
+            string Sonder_T_Flaeche_String = Convert.ToString(Sonder_U_Flaeche) + " " + SonderEinheit + "²";
+            string Sonder_T_Volumen_String = Convert.ToString(Sonder_U_Volumen) + " " + SonderEinheit + "³";
+            string Sonder_T_Masse_String = Convert.ToString(Sonder_U_Masse) + " kg";
+            string Sonder_T_FTM_X_String = Convert.ToString(Sonder_U_FTM_X) + " " + SonderEinheit + "^4";
+            string Sonder_T_FTM_Y_String = Convert.ToString(Sonder_U_FTM_Y) + " " + SonderEinheit + "^4";
+            string Sonder_T_SWP_String = "(x=" + Sonder_U_SWP_X + " " + SonderEinheit + "/y=" + Sonder_U_SWP_Y + " " + SonderEinheit + ")";
+
+            // Übergabe Ergebnisse
+            lbl_Sonder_Fläche_Ergebnis.Content = Sonder_T_Flaeche_String;
+            lbl_Sonder_Volumen_Ergebnis.Content = Sonder_T_Volumen_String;
+            lbl_Sonder_Masse_Ergebnis.Content = Sonder_T_Masse_String;
+            lbl_Sonder_FTM_X_Ergebnis.Content = Sonder_T_FTM_X_String;
+            lbl_Sonder_FTM_Y_Ergebnis.Content = Sonder_T_FTM_Y_String;
+            lbl_Sonder_Schwerpunkt_Ergebnis.Content = Sonder_T_SWP_String;
+
+            Sonder_IPE CatIPE = new Sonder_IPE();
+            /*
+            if (CatIPE.CATIA_SonderIPE_Run())
+            {
+                CatIPE.PartSonderIPE();
+                CatIPE.SonderIPE_CreateSketch();
+                CatIPE.SonderIPE_DrawSketch(SonderTBreite, SonderTHoehe, SonderTFlanschbreite, SonderTStegbreite);
+                CatIPE.SonderIPE_Extrusion(SonderTLaenge);
+            }
+            */
         }
 
         #endregion
