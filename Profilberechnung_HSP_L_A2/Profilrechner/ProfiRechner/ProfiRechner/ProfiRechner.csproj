@@ -36,15 +36,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Interop.INFITF">
-      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Dassault Systemes\B28\win_b64\code\bin\Interop.INFITF.dll</HintPath>
+      <HintPath>C:\Program Files\Dassault Systemes\B28\win_b64\code\bin\Interop.INFITF.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Interop.MECMOD">
-      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Dassault Systemes\B28\win_b64\code\bin\Interop.MECMOD.dll</HintPath>
+      <HintPath>C:\Program Files\Dassault Systemes\B28\win_b64\code\bin\Interop.MECMOD.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Interop.PARTITF">
-      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Dassault Systemes\B28\win_b64\code\bin\Interop.PARTITF.dll</HintPath>
+      <HintPath>C:\Program Files\Dassault Systemes\B28\win_b64\code\bin\Interop.PARTITF.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
@@ -129,6 +129,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="IPE-Profil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="U.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="U-Profil.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="T-Profil.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="T_Neu.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="U_Neu.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

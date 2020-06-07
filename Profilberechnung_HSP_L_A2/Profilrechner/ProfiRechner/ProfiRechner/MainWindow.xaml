@@ -101,9 +101,9 @@
 
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabH_Kreisprofil" Header="Kreisprofile" HorizontalAlignment="Left" Margin="0,-2,0,-0.2" Width="100" IsSelected="True">
+            <TabItem x:Name="tabH_Kreisprofil" Header="Kreisprofile" HorizontalAlignment="Left" Margin="0,-2,0,-0.2" Width="100" IsSelected="True" Visibility="Hidden">
 
-                <Grid x:Name="tab_Kreisprofil" Background="#FFE5E5E5">
+                <Grid x:Name="tab_Kreisprofil" Background="#FFE5E5E5" Visibility="Hidden">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -162,15 +162,16 @@
 
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabH_Sonderprofile" Header="Sonderprofile" HorizontalAlignment="Right" Margin="0,-2,0,-0.2" Width="100">
+            <TabItem x:Name="tabH_Sonderprofile" Header="Sonderprofile" HorizontalAlignment="Right" Margin="0,-2,0,-0.2" Width="100" Visibility="Hidden">
 
-                <Grid x:Name="tab_Sonderprofile" Background="#FFE5E5E5">
+                <Grid x:Name="tab_Sonderprofile" Background="#FFE5E5E5" Margin="0,0,-0.4,0.2" Visibility="Hidden">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
 
                     </Grid.ColumnDefinitions>
+                    <Image x:Name="img_T_Profil" HorizontalAlignment="Left" Height="364" Margin="23,155,0,0" VerticalAlignment="Top" Width="320" Source="T_Neu.PNG" Visibility="Hidden"/>
                     <Image x:Name="img_CloseButton_Sonder" Grid.Column="2" Margin="0,0,-0.4,0" Source="Close-Button.jpg" MouseDown="img_CloseButton_Sonder_MouseDown" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top" ToolTip="Tab schließen"/>
                     <Label x:Name="lbl_Sonder_Fläche" Content="Querschnittsfläche:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Sonder_Volumen" Content="Volumen:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top"/>
@@ -190,19 +191,19 @@
                         <ComboBoxItem x:Name="Sonder_Einheit_m" Content="m"/>
                     </ComboBox>
                     <Label x:Name="lbl_Sonder_Hinweis_Einheiten" Content="Bitte wählen Sie eine Einheit aus:" Margin="190,80,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="200"/>
-                    <Image x:Name="img_IPE_Profil" Margin="10,155,115,155" Source="IPE-Profil.png"/>
+                    <Image x:Name="img_IPE_Profil" Margin="10,155,115,155" Source="IPE-Profil.png" Visibility="Hidden"/>
                     <Label x:Name="lbl_Input_IPEBreite" Content="Breite:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,160,0,0" VerticalAlignment="Top" Width="90"/>
                     <Label x:Name="lbl_Input_IPEHoehe" Content="Höhe:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,200,0,0" VerticalAlignment="Top" Width="90"/>
-                    <Label x:Name="lbl_Input_IPEStegbreite" Content="Stegbreite:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,240,0,0" VerticalAlignment="Top" Width="90"/>
-                    <Label x:Name="lbl_Input_IPEFlanschbreite" Content="Flanschbreite:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,280,0,0" VerticalAlignment="Top" Width="90"/>
+                    <Label x:Name="lbl_Input_IPEStegbreite" Content="Stegbreite(s):" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,240,0,0" VerticalAlignment="Top" Width="90"/>
+                    <Label x:Name="lbl_Input_IPEFlanschbreite" Content="Flanschbreite(t):" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,280,0,0" VerticalAlignment="Top" Width="95"/>
                     <Label x:Name="lbl_Input_IPELaenge" Content="Länge:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,320,0,0" VerticalAlignment="Top" Width="90"/>
                     <TextBox x:Name="tbx_Input_IPEBreite" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_IPEBreite_TextChanged"/>
                     <TextBox x:Name="tbx_Input_IPEHoehe" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_IPEHoehe_TextChanged"/>
                     <TextBox x:Name="tbx_Input_IPEStegbreite" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,240,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_IPEStegbreite_TextChanged"/>
                     <TextBox x:Name="tbx_Input_IPEFlanschbreite" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_IPEFlanschbreite_TextChanged"/>
                     <TextBox x:Name="tbx_Input_IPELaenge" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
-                    <Label x:Name="lbl_IPEGrafik_Breite" Content="b" HorizontalAlignment="Left" Height="28" Margin="84,418,0,0" VerticalAlignment="Top" Width="69"/>
-                    <Label x:Name="lbl_IPEGrafik_Hoehe" Content="h" HorizontalAlignment="Left" Height="26" Margin="165,274,0,0" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.5,0.5">
+                    <Label x:Name="lbl_IPEGrafik_Breite" Content="b" HorizontalAlignment="Left" Height="28" Margin="84,418,0,0" VerticalAlignment="Top" Width="69" Visibility="Hidden"/>
+                    <Label x:Name="lbl_IPEGrafik_Hoehe" Content="h" HorizontalAlignment="Left" Height="26" Margin="165,274,0,0" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
                         <Label.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -212,8 +213,8 @@
                             </TransformGroup>
                         </Label.RenderTransform>
                     </Label>
-                    <Label x:Name="lbl_IPEGrafik_Stegbreite" Content="s" HorizontalAlignment="Left" Height="27" Margin="113,300,0,0" VerticalAlignment="Top" Width="69"/>
-                    <Label x:Name="lbl_IPEGrafik_Flanschbreite" Content="t" HorizontalAlignment="Left" Height="28" Margin="150,340,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.5,0.5">
+                    <Label x:Name="lbl_IPEGrafik_Stegbreite" Content="s" HorizontalAlignment="Left" Height="27" Margin="113,300,0,0" VerticalAlignment="Top" Width="69" Visibility="Hidden"/>
+                    <Label x:Name="lbl_IPEGrafik_Flanschbreite" Content="t" HorizontalAlignment="Left" Height="28" Margin="150,340,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
                         <Label.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -234,6 +235,52 @@
                     <CheckBox x:Name="ChB_Sonder_I_Profil" Content="I-Profil" HorizontalAlignment="Left" Margin="30.2,10,0,0" VerticalAlignment="Top" Grid.Column="1" FontSize="16" Checked="ChB_Sonder_I_Profil_Checked"/>
                     <CheckBox x:Name="ChB_Sonder_U_Profil" Content="U-Profil" Grid.Column="1" HorizontalAlignment="Left" Margin="150.2,10,0,0" VerticalAlignment="Top" FontSize="16" Checked="ChB_Sonder_U_Profil_Checked"/>
                     <CheckBox x:Name="ChB_Sonder_T_Profil" Content="T-Profil" Grid.Column="1" HorizontalAlignment="Left" Margin="270.2,10,0,0" VerticalAlignment="Top" FontSize="16" Checked="ChB_Sonder_T_Profil_Checked"/>
+                    <Image x:Name="img_U_Profil" HorizontalAlignment="Left" Height="458" Margin="23,155,0,0" VerticalAlignment="Top" Width="282" Source="U_Neu.PNG" Visibility="Hidden"/>
+                    <Label x:Name="lbl_U_Breite" Content="b" HorizontalAlignment="Left" Margin="176,426,0,0" VerticalAlignment="Top" Width="71" FontSize="14" Visibility="Hidden"/>
+                    <Label x:Name="lbl_U_Hoehe" Content="h" HorizontalAlignment="Left" Margin="16,249,0,0" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.5,0.5" FontSize="14" Visibility="Hidden">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-89.962"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="lbl_U_Flanschbreite" Content="t" HorizontalAlignment="Left" Margin="264,292,0,0" VerticalAlignment="Top" Width="31" RenderTransformOrigin="0.5,0.5" FontSize="14" Visibility="Hidden">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-89.267"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="lbl_U_Stegbreite" Content="s" HorizontalAlignment="Left" Margin="70,218,0,0" VerticalAlignment="Top" Width="32" FontSize="14" Visibility="Hidden"/>
+                    <Label x:Name="lbl_T_Breite" Content="b" HorizontalAlignment="Left" Margin="176,178,0,0" VerticalAlignment="Top" Width="62" FontSize="14" Visibility="Hidden"/>
+                    <Label x:Name="lbl_T_Hoehe" Content="h" HorizontalAlignment="Left" Margin="11,309,0,0" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.5,0.5" FontSize="14" Visibility="Hidden">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-89.597"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="lbl_T_Flanschbreite" Content="t" HorizontalAlignment="Left" Margin="26,183,0,0" VerticalAlignment="Top" Width="71" RenderTransformOrigin="0.5,0.5" FontSize="14" Visibility="Hidden">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-89.82"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="lbl_T_Stegbreite" Content="s" HorizontalAlignment="Left" Margin="228,305,0,0" VerticalAlignment="Top" Width="77" FontSize="14" Visibility="Hidden"/>
+                    <Label x:Name="lbl_U_CMaß" Content="c" HorizontalAlignment="Left" Margin="204,378,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
 
 
                 </Grid>
