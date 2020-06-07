@@ -638,52 +638,61 @@ namespace ProfiRechner
                                                     tbx_Input_RechteckBreite.Focus();
                                                 }
                                             }          // Kontrolle der einzelnen Eingabefelder
-                                            else if (Zeichenlaenge_h.Length > 4)        //Kontrolle der Zeichenlänge der Höhe
+                                            if (Zeichenlaenge_b.Length <= 4)
                                             {
-                                                MessageBoxResult result;
-                                                result = MessageBox.Show("Hoehe: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabenkontrolle",
-                                                MessageBoxButton.OK,
-                                                MessageBoxImage.Error
-                                                );
-                                                if (result == MessageBoxResult.OK)
+                                                if (Zeichenlaenge_h.Length > 4)        //Kontrolle der Zeichenlänge der Höhe
                                                 {
-                                                    tbx_Input_RechteckHoehe.Text = "";
+                                                    MessageBoxResult result;
+                                                    result = MessageBox.Show("Hoehe: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabenkontrolle",
+                                                    MessageBoxButton.OK,
+                                                    MessageBoxImage.Error
+                                                    );
+                                                    if (result == MessageBoxResult.OK)
+                                                    {
+                                                        tbx_Input_RechteckHoehe.Text = "";
 
-                                                    tbx_Input_RechteckHoehe.Focus();
+                                                        tbx_Input_RechteckHoehe.Focus();
+                                                    }
                                                 }
-                                            }
-                                            else if (Zeichenlaenge_l.Length > 4)        //Kontrolle der Zeichenlänge der Länge
-                                            {
-                                                MessageBoxResult result;
-                                                result = MessageBox.Show("Länge: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabekontrolle",
-                                                MessageBoxButton.OK,
-                                                MessageBoxImage.Error
-                                                );
-                                                if (result == MessageBoxResult.OK)
+                                                if (Zeichenlaenge_h.Length <= 4)
                                                 {
-                                                    tbx_Input_RechteckLaenge.Text = "";
+                                                    if (Zeichenlaenge_l.Length > 4)        //Kontrolle der Zeichenlänge der Länge
+                                                    {
+                                                        MessageBoxResult result;
+                                                        result = MessageBox.Show("Länge: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabekontrolle",
+                                                        MessageBoxButton.OK,
+                                                        MessageBoxImage.Error
+                                                        );
+                                                        if (result == MessageBoxResult.OK)
+                                                        {
+                                                            tbx_Input_RechteckLaenge.Text = "";
 
-                                                    tbx_Input_RechteckLaenge.Focus();
-                                                }
-                                            }
-                                            else if (Zeichenlaenge_w.Length > 2)        //Kontrolle der Zeichenlänge der Wandstärke
-                                            {
-                                                MessageBoxResult result;
-                                                result = MessageBox.Show("Wandstärke: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 2 Stellen.", "Eingabekontrolle",
-                                                MessageBoxButton.OK,
-                                                MessageBoxImage.Error
-                                                );
-                                                if (result == MessageBoxResult.OK)
-                                                {
-                                                    tbx_Input_Rechteck_hohl_Wall.Text = "";
+                                                            tbx_Input_RechteckLaenge.Focus();
+                                                        }
+                                                    }
+                                                    if (Zeichenlaenge_l.Length <= 4)
+                                                    {
+                                                        if (Zeichenlaenge_w.Length > 2)        //Kontrolle der Zeichenlänge der Wandstärke
+                                                        {
+                                                            MessageBoxResult result;
+                                                            result = MessageBox.Show("Wandstärke: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 2 Stellen.", "Eingabekontrolle",
+                                                            MessageBoxButton.OK,
+                                                            MessageBoxImage.Error
+                                                            );
+                                                            if (result == MessageBoxResult.OK)
+                                                            {
+                                                                tbx_Input_Rechteck_hohl_Wall.Text = "";
 
-                                                    tbx_Input_Rechteck_hohl_Wall.Focus();
+                                                                tbx_Input_Rechteck_hohl_Wall.Focus();
+                                                            }
+                                                        }
+                                                        if (Zeichenlaenge_w.Length < 4)
+                                                        {
+                                                            Rechteckprofil_hohl_Berechnung();       //Aufruf der Berechnung
+                                                        }
+                                                    }
                                                 }
-                                            }
-                                            if (Zeichenlaenge_w.Length < 4)
-                                            {
-                                                Rechteckprofil_hohl_Berechnung();       //Aufruf der Berechnung
-                                            }
+                                            } 
                                         }
                                         else
                                         {
@@ -858,25 +867,29 @@ namespace ProfiRechner
                                     tbx_Input_KreisDurchmesser.Focus();
                                 }
                             }
-                            else if (Zeichenlaenge_l.Length > 4)        //Kontrolle der Zeichenlänge der Länge
+                            if (Zeichenlaenge_Durchmesser.Length <= 4)
                             {
-                                MessageBoxResult result;
-                                result = MessageBox.Show("Länge: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabekontrolle",
-                                MessageBoxButton.OK,
-                                MessageBoxImage.Error
-                                );
-                                if (result == MessageBoxResult.OK)
+                                if (Zeichenlaenge_l.Length > 4)        //Kontrolle der Zeichenlänge der Länge
                                 {
-                                    tbx_Input_KreisLaenge.Text = "";
+                                    MessageBoxResult result;
+                                    result = MessageBox.Show("Länge: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabekontrolle",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Error
+                                    );
+                                    if (result == MessageBoxResult.OK)
+                                    {
+                                        tbx_Input_KreisLaenge.Text = "";
 
-                                    tbx_Input_KreisLaenge.Focus();
+                                        tbx_Input_KreisLaenge.Focus();
+                                    }
+
                                 }
-
+                                if (Zeichenlaenge_l.Length <= 4)
+                                {
+                                    Kreisprofil_Berechnung();   // Startet die Kreisprofil-Berechnung
+                                }
                             }
-                            if (Zeichenlaenge_l.Length < 4)
-                            {
-                                Kreisprofil_Berechnung();   // Startet die Kreisprofil-Berechnung
-                            }
+                            
                         }
                         else
                         {
@@ -887,9 +900,9 @@ namespace ProfiRechner
                             );
                             if (result == MessageBoxResult.OK)
                             {
-                                tbx_Input_RechteckLaenge.Text = "";
+                                tbx_Input_KreisLaenge.Text = "";
 
-                                tbx_Input_RechteckLaenge.Focus();
+                                tbx_Input_KreisLaenge.Focus();
                             }
                         }
                     }
@@ -963,15 +976,10 @@ namespace ProfiRechner
                         {
                             if (Double.TryParse(tbx_Input_KreisLaenge.Text, out double l))     //Kontrolle auf Buchstaben der Länge
                             {
-                                double Durchmesser;
-                                double Wandstaerke;
+                                
                                 string Zeichenlaenge_D;
                                 string Zeichenlaenge_w;
                                 string Zeichenlaenge_l;
-
-
-                                Durchmesser = D;
-                                Wandstaerke = w;
 
                                 Zeichenlaenge_D = Convert.ToString(D);
                                 Zeichenlaenge_w = Convert.ToString(w);
@@ -993,38 +1001,44 @@ namespace ProfiRechner
                                             tbx_Input_KreisDurchmesser.Focus();
                                         }
                                     }
-                                    else if (Zeichenlaenge_w.Length > 3)        //Kontrolle der Zeichenlänge der Wandstärke
+                                    if (Zeichenlaenge_D.Length <= 4)
                                     {
-                                        MessageBoxResult result;
-                                        result = MessageBox.Show("Wandstärke: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 3 Stellen.", "Eingabekontrolle",
-                                        MessageBoxButton.OK,
-                                        MessageBoxImage.Error
-                                        );
-                                        if (result == MessageBoxResult.OK)
+                                        if (Zeichenlaenge_l.Length > 4)        //Kontrolle der Zeichenlänge der Länge
                                         {
-                                            tbx_Input_Kreis_hohlWandstaerke.Text = "";
+                                            MessageBoxResult result;
+                                            result = MessageBox.Show("Länge: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabekontrolle",
+                                            MessageBoxButton.OK,
+                                            MessageBoxImage.Error
+                                            );
+                                            if (result == MessageBoxResult.OK)
+                                            {
+                                                tbx_Input_KreisLaenge.Text = "";
 
-                                            tbx_Input_Kreis_hohlWandstaerke.Focus();
+                                                tbx_Input_KreisLaenge.Focus();
+                                            }
                                         }
-                                    }
-                                    else if (Zeichenlaenge_l.Length > 4)        //Kontrolle der Zeichenlänge der Länge
-                                    {
-                                        MessageBoxResult result;
-                                        result = MessageBox.Show("Länge: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabekontrolle",
-                                        MessageBoxButton.OK,
-                                        MessageBoxImage.Error
-                                        );
-                                        if (result == MessageBoxResult.OK)
+                                        if (Zeichenlaenge_l.Length <= 4)
                                         {
-                                            tbx_Input_KreisLaenge.Text = "";
+                                            if (Zeichenlaenge_w.Length > 3)        //Kontrolle der Zeichenlänge der Wandstärke
+                                            {
+                                                MessageBoxResult result;
+                                                result = MessageBox.Show("Wandstärke: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 3 Stellen.", "Eingabekontrolle",
+                                                MessageBoxButton.OK,
+                                                MessageBoxImage.Error
+                                                );
+                                                if (result == MessageBoxResult.OK)
+                                                {
+                                                    tbx_Input_Kreis_hohlWandstaerke.Text = "";
 
-                                            tbx_Input_KreisLaenge.Focus();
+                                                    tbx_Input_Kreis_hohlWandstaerke.Focus();
+                                                }
+                                            }
+                                            if (Zeichenlaenge_w.Length <= 3)
+                                            {
+                                                Kreisprofil_hohl_Berechnung();      //Aufruf der Berechnung
+                                            }
                                         }
-                                    }
-                                    if (Zeichenlaenge_l.Length < 4)
-                                    {
-                                        Kreisprofil_hohl_Berechnung();      //Aufruf der Berechnung
-                                    }
+                                    }  
                                 }
                                 else
                                 {
@@ -1190,66 +1204,78 @@ namespace ProfiRechner
                                                         tbx_Input_IPEBreite.Focus();
                                                     }
                                                 }
-                                                else if (Zeichenlaenge_h.Length > 4)        //Kontrolle der Zeichenlaenge der Höhe
+                                                if (Zeichenlaenge_B.Length <= 4)
                                                 {
-                                                    MessageBoxResult result;
-                                                    result = MessageBox.Show("Höhe: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabekontrolle",
-                                                    MessageBoxButton.OK,
-                                                    MessageBoxImage.Error
-                                                    );
-                                                    if (result == MessageBoxResult.OK)
+                                                    if (Zeichenlaenge_h.Length > 4)        //Kontrolle der Zeichenlaenge der Höhe
                                                     {
-                                                        tbx_Input_IPEHoehe.Text = "";
+                                                        MessageBoxResult result;
+                                                        result = MessageBox.Show("Höhe: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabekontrolle",
+                                                        MessageBoxButton.OK,
+                                                        MessageBoxImage.Error
+                                                        );
+                                                        if (result == MessageBoxResult.OK)
+                                                        {
+                                                            tbx_Input_IPEHoehe.Text = "";
 
-                                                        tbx_Input_IPEHoehe.Focus();
+                                                            tbx_Input_IPEHoehe.Focus();
+                                                        }
                                                     }
-                                                }
-                                                else if (Zeichenlaenge_l.Length > 4)        //Kontrolle der Zeichenlaenge der Länge
-                                                {
-                                                    MessageBoxResult result;
-                                                    result = MessageBox.Show("Länge: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabekontrolle",
-                                                    MessageBoxButton.OK,
-                                                    MessageBoxImage.Error
-                                                    );
-                                                    if (result == MessageBoxResult.OK)
+                                                    if (Zeichenlaenge_h.Length <= 4)
                                                     {
-                                                        tbx_Input_IPELaenge.Text = "";
+                                                        if (Zeichenlaenge_l.Length > 4)        //Kontrolle der Zeichenlaenge der Länge
+                                                        {
+                                                            MessageBoxResult result;
+                                                            result = MessageBox.Show("Länge: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 4 Stellen.", "Eingabekontrolle",
+                                                            MessageBoxButton.OK,
+                                                            MessageBoxImage.Error
+                                                            );
+                                                            if (result == MessageBoxResult.OK)
+                                                            {
+                                                                tbx_Input_IPELaenge.Text = "";
 
-                                                        tbx_Input_IPELaenge.Focus();
-                                                    }
-                                                }
-                                                else if (Zeichenlaenge_b.Length > 2)        //Kontrolle der Zeichenlaenge der Flanschbreite
-                                                {
-                                                    MessageBoxResult result;
-                                                    result = MessageBox.Show("Flanschbreite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 2 Stellen.", "Eingabekontrolle",
-                                                    MessageBoxButton.OK,
-                                                    MessageBoxImage.Error
-                                                    );
-                                                    if (result == MessageBoxResult.OK)
-                                                    {
-                                                        tbx_Input_IPEFlanschbreite.Text = "";
+                                                                tbx_Input_IPELaenge.Focus();
+                                                            }
+                                                        }
+                                                        if (Zeichenlaenge_l.Length <= 4)
+                                                        {
+                                                            if (Zeichenlaenge_b.Length > 2)        //Kontrolle der Zeichenlaenge der Flanschbreite
+                                                            {
+                                                                MessageBoxResult result;
+                                                                result = MessageBox.Show("Flanschbreite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 2 Stellen.", "Eingabekontrolle",
+                                                                MessageBoxButton.OK,
+                                                                MessageBoxImage.Error
+                                                                );
+                                                                if (result == MessageBoxResult.OK)
+                                                                {
+                                                                    tbx_Input_IPEFlanschbreite.Text = "";
 
-                                                        tbx_Input_IPEFlanschbreite.Focus();
-                                                    }
-                                                }
-                                                else if (Zeichenlaenge_sb.Length > 2)       //Kontrolle der Zeichenlaenge der Stegbreite
-                                                {
-                                                    MessageBoxResult result;
-                                                    result = MessageBox.Show("Stegbreite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 2 Stellen.", "Eingabekontrolle",
-                                                    MessageBoxButton.OK,
-                                                    MessageBoxImage.Error
-                                                    );
-                                                    if (result == MessageBoxResult.OK)
-                                                    {
-                                                        tbx_Input_IPEStegbreite.Text = "";
+                                                                    tbx_Input_IPEFlanschbreite.Focus();
+                                                                }
+                                                            }
+                                                            if (Zeichenlaenge_b.Length <= 4)
+                                                            {
+                                                                if (Zeichenlaenge_sb.Length > 2)       //Kontrolle der Zeichenlaenge der Stegbreite
+                                                                {
+                                                                    MessageBoxResult result;
+                                                                    result = MessageBox.Show("Stegbreite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt 2 Stellen.", "Eingabekontrolle",
+                                                                    MessageBoxButton.OK,
+                                                                    MessageBoxImage.Error
+                                                                    );
+                                                                    if (result == MessageBoxResult.OK)
+                                                                    {
+                                                                        tbx_Input_IPEStegbreite.Text = "";
 
-                                                        tbx_Input_IPEStegbreite.Focus();
+                                                                        tbx_Input_IPEStegbreite.Focus();
+                                                                    }
+                                                                }
+                                                                if (Zeichenlaenge_sb.Length < 2)
+                                                                {
+                                                                    I_Profil_Berechnung();      //Aufruf der Berechnung
+                                                                }
+                                                            }
+                                                        }
                                                     }
-                                                }
-                                                if (Zeichenlaenge_sb.Length < 2)
-                                                {
-                                                    I_Profil_Berechnung();      //Aufruf der Berechnung
-                                                }
+                                                }                                                                                                                                                                                               
                                             }
                                             else
                                             {
@@ -1457,66 +1483,78 @@ namespace ProfiRechner
                                                         tbx_Input_IPEBreite.Focus();
                                                     }
                                                 }
-                                                else if (Zeichenlaenge_h.Length > 4)        //Kontrolle der Zeichenlänge der Höhe
+                                                if (Zeichenlaenge_b.Length <= 4)
                                                 {
-                                                    MessageBoxResult result;
-                                                    result = MessageBox.Show("Höhe: Ihre Eingabe enthält zu viele Stellen. Maximal erlaubt sind vier Stellen.", "Eingabekontrolle",
-                                                    MessageBoxButton.OK,
-                                                    MessageBoxImage.Error
-                                                    );
-                                                    if (result == MessageBoxResult.OK)
+                                                    if (Zeichenlaenge_h.Length > 4)        //Kontrolle der Zeichenlänge der Höhe
                                                     {
-                                                        tbx_Input_IPEHoehe.Text = "";
+                                                        MessageBoxResult result;
+                                                        result = MessageBox.Show("Höhe: Ihre Eingabe enthält zu viele Stellen. Maximal erlaubt sind vier Stellen.", "Eingabekontrolle",
+                                                        MessageBoxButton.OK,
+                                                        MessageBoxImage.Error
+                                                        );
+                                                        if (result == MessageBoxResult.OK)
+                                                        {
+                                                            tbx_Input_IPEHoehe.Text = "";
 
-                                                        tbx_Input_IPEHoehe.Focus();
+                                                            tbx_Input_IPEHoehe.Focus();
+                                                        }
                                                     }
-                                                }
-                                                else if (Zeichenlaenge_l.Length > 4)        //Kontrolle der Zeichenlänge der Länge
-                                                {
-                                                    MessageBoxResult result;
-                                                    result = MessageBox.Show("Länge: Ihre Eingabe enthält zu viele Stellen. Maximal erlaubt sind vier Stellen.", "Eingabekontrolle",
-                                                    MessageBoxButton.OK,
-                                                    MessageBoxImage.Error
-                                                    );
-                                                    if (result == MessageBoxResult.OK)
+                                                    if (Zeichenlaenge_h.Length <= 4)
                                                     {
-                                                        tbx_Input_IPELaenge.Text = "";
+                                                        if (Zeichenlaenge_l.Length > 4)        //Kontrolle der Zeichenlänge der Länge
+                                                        {
+                                                            MessageBoxResult result;
+                                                            result = MessageBox.Show("Länge: Ihre Eingabe enthält zu viele Stellen. Maximal erlaubt sind vier Stellen.", "Eingabekontrolle",
+                                                            MessageBoxButton.OK,
+                                                            MessageBoxImage.Error
+                                                            );
+                                                            if (result == MessageBoxResult.OK)
+                                                            {
+                                                                tbx_Input_IPELaenge.Text = "";
 
-                                                        tbx_Input_IPELaenge.Focus();
-                                                    }
-                                                }
-                                                else if (Zeichenlaenge_fb.Length > 2)       //Kontrolle der Zeichenlänge der Flanschbreite
-                                                {
-                                                    MessageBoxResult result;
-                                                    result = MessageBox.Show("Flanschbreite: Ihre Eingabe enthält zu viele Stellen. Maximal erlaubt sind zwei Stellen.", "Eingabekontrolle",
-                                                    MessageBoxButton.OK,
-                                                    MessageBoxImage.Error
-                                                    );
-                                                    if (result == MessageBoxResult.OK)
-                                                    {
-                                                        tbx_Input_IPEFlanschbreite.Text = "";
+                                                                tbx_Input_IPELaenge.Focus();
+                                                            }
+                                                        }
+                                                        if (Zeichenlaenge_l.Length <= 4)
+                                                        {
+                                                            if (Zeichenlaenge_fb.Length > 2)       //Kontrolle der Zeichenlänge der Flanschbreite
+                                                            {
+                                                                MessageBoxResult result;
+                                                                result = MessageBox.Show("Flanschbreite: Ihre Eingabe enthält zu viele Stellen. Maximal erlaubt sind zwei Stellen.", "Eingabekontrolle",
+                                                                MessageBoxButton.OK,
+                                                                MessageBoxImage.Error
+                                                                );
+                                                                if (result == MessageBoxResult.OK)
+                                                                {
+                                                                    tbx_Input_IPEFlanschbreite.Text = "";
 
-                                                        tbx_Input_IPEFlanschbreite.Focus();
-                                                    }
-                                                }
-                                                else if (Zeichenlaenge_sb.Length > 2)       //Kontrolle der Zeichenlänge der Stegbreite
-                                                {
-                                                    MessageBoxResult result;
-                                                    result = MessageBox.Show("Stegbreite: Ihre Eingabe enthält zu viele Stellen. Maximal erlaubt sind zwei Stellen.", "Eingabekontrolle",
-                                                    MessageBoxButton.OK,
-                                                    MessageBoxImage.Error
-                                                    );
-                                                    if (result == MessageBoxResult.OK)
-                                                    {
-                                                        tbx_Input_IPEStegbreite.Text = "";
+                                                                    tbx_Input_IPEFlanschbreite.Focus();
+                                                                }
+                                                            }
+                                                            if (Zeichenlaenge_fb.Length <= 2)
+                                                            {
+                                                                if (Zeichenlaenge_sb.Length > 2)       //Kontrolle der Zeichenlänge der Stegbreite
+                                                                {
+                                                                    MessageBoxResult result;
+                                                                    result = MessageBox.Show("Stegbreite: Ihre Eingabe enthält zu viele Stellen. Maximal erlaubt sind zwei Stellen.", "Eingabekontrolle",
+                                                                    MessageBoxButton.OK,
+                                                                    MessageBoxImage.Error
+                                                                    );
+                                                                    if (result == MessageBoxResult.OK)
+                                                                    {
+                                                                        tbx_Input_IPEStegbreite.Text = "";
 
-                                                        tbx_Input_IPEStegbreite.Focus();
+                                                                        tbx_Input_IPEStegbreite.Focus();
+                                                                    }
+                                                                }
+                                                                if (Zeichenlaenge_sb.Length < 2)
+                                                                {
+                                                                    //Aufruf der Berechnung
+                                                                }
+                                                            }
+                                                        }
                                                     }
-                                                }
-                                                if (Zeichenlaenge_sb.Length < 2)
-                                                {
-                                                    //Aufruf der Berechnung
-                                                }
+                                                } 
                                             }
                                             else
                                             {
@@ -1703,66 +1741,78 @@ namespace ProfiRechner
                                                         tbx_Input_IPEBreite.Focus();
                                                     }
                                                 }
-                                                else if (Zeichenlaenge_h.Length > 4)        //Kontrolle der Zeichenlänge der Höhe
+                                                if (Zeichenlaenge_b.Length <= 4)
                                                 {
-                                                    MessageBoxResult result;
-                                                    result = MessageBox.Show("Höhe: Ihre Eingabe enthält zu viele Stellen. Maximal erlaubt sind vier Stellen.", "Eingabekontrolle",
-                                                    MessageBoxButton.OK,
-                                                    MessageBoxImage.Error
-                                                    );
-                                                    if (result == MessageBoxResult.OK)
+                                                    if (Zeichenlaenge_h.Length > 4)        //Kontrolle der Zeichenlänge der Höhe
                                                     {
-                                                        tbx_Input_IPEHoehe.Text = "";
+                                                        MessageBoxResult result;
+                                                        result = MessageBox.Show("Höhe: Ihre Eingabe enthält zu viele Stellen. Maximal erlaubt sind vier Stellen.", "Eingabekontrolle",
+                                                        MessageBoxButton.OK,
+                                                        MessageBoxImage.Error
+                                                        );
+                                                        if (result == MessageBoxResult.OK)
+                                                        {
+                                                            tbx_Input_IPEHoehe.Text = "";
 
-                                                        tbx_Input_IPEHoehe.Focus();
+                                                            tbx_Input_IPEHoehe.Focus();
+                                                        }
                                                     }
-                                                }
-                                                else if (Zeichenlaenge_l.Length > 4)        //Kontrolle der Zeichenlänge der Länge
-                                                {
-                                                    MessageBoxResult result;
-                                                    result = MessageBox.Show("Länge: Ihre Eingabe enthält zu viele Stellen. Maximal erlaubt sind vier Stellen.", "Eingabekontrolle",
-                                                    MessageBoxButton.OK,
-                                                    MessageBoxImage.Error
-                                                    );
-                                                    if (result == MessageBoxResult.OK)
+                                                    if (Zeichenlaenge_h.Length <= 4)
                                                     {
-                                                        tbx_Input_IPELaenge.Text = "";
+                                                        if (Zeichenlaenge_l.Length > 4)        //Kontrolle der Zeichenlänge der Länge
+                                                        {
+                                                            MessageBoxResult result;
+                                                            result = MessageBox.Show("Länge: Ihre Eingabe enthält zu viele Stellen. Maximal erlaubt sind vier Stellen.", "Eingabekontrolle",
+                                                            MessageBoxButton.OK,
+                                                            MessageBoxImage.Error
+                                                            );
+                                                            if (result == MessageBoxResult.OK)
+                                                            {
+                                                                tbx_Input_IPELaenge.Text = "";
 
-                                                        tbx_Input_IPELaenge.Focus();
-                                                    }
-                                                }
-                                                else if (Zeichenlaenge_fb.Length > 2)       //Kontrolle der Zeichenlänge der Flanschbreite
-                                                {
-                                                    MessageBoxResult result;
-                                                    result = MessageBox.Show("Flanschbreite: Ihre Eingabe enthält zu viele Stellen. Maximal erlaubt sind zwei Stellen.", "Eingabekontrolle",
-                                                    MessageBoxButton.OK,
-                                                    MessageBoxImage.Error
-                                                    );
-                                                    if (result == MessageBoxResult.OK)
-                                                    {
-                                                        tbx_Input_IPEFlanschbreite.Text = "";
+                                                                tbx_Input_IPELaenge.Focus();
+                                                            }
+                                                        }
+                                                        if (Zeichenlaenge_l.Length <= 4)
+                                                        {
+                                                            if (Zeichenlaenge_fb.Length > 2)       //Kontrolle der Zeichenlänge der Flanschbreite
+                                                            {
+                                                                MessageBoxResult result;
+                                                                result = MessageBox.Show("Flanschbreite: Ihre Eingabe enthält zu viele Stellen. Maximal erlaubt sind zwei Stellen.", "Eingabekontrolle",
+                                                                MessageBoxButton.OK,
+                                                                MessageBoxImage.Error
+                                                                );
+                                                                if (result == MessageBoxResult.OK)
+                                                                {
+                                                                    tbx_Input_IPEFlanschbreite.Text = "";
 
-                                                        tbx_Input_IPEFlanschbreite.Focus();
-                                                    }
-                                                }
-                                                else if (Zeichenlaenge_sb.Length > 2)       //Kontrolle der Zeichenlänge der Stegbreite
-                                                {
-                                                    MessageBoxResult result;
-                                                    result = MessageBox.Show("Stegbreite: Ihre Eingabe enthält zu viele Stellen. Maximal erlaubt sind zwei Stellen.", "Eingabekontrolle",
-                                                    MessageBoxButton.OK,
-                                                    MessageBoxImage.Error
-                                                    );
-                                                    if (result == MessageBoxResult.OK)
-                                                    {
-                                                        tbx_Input_IPEStegbreite.Text = "";
+                                                                    tbx_Input_IPEFlanschbreite.Focus();
+                                                                }
+                                                            }
+                                                            if (Zeichenlaenge_fb.Length <= 2)
+                                                            {
+                                                                if (Zeichenlaenge_sb.Length > 2)       //Kontrolle der Zeichenlänge der Stegbreite
+                                                                {
+                                                                    MessageBoxResult result;
+                                                                    result = MessageBox.Show("Stegbreite: Ihre Eingabe enthält zu viele Stellen. Maximal erlaubt sind zwei Stellen.", "Eingabekontrolle",
+                                                                    MessageBoxButton.OK,
+                                                                    MessageBoxImage.Error
+                                                                    );
+                                                                    if (result == MessageBoxResult.OK)
+                                                                    {
+                                                                        tbx_Input_IPEStegbreite.Text = "";
 
-                                                        tbx_Input_IPEStegbreite.Focus();
+                                                                        tbx_Input_IPEStegbreite.Focus();
+                                                                    }
+                                                                }
+                                                                if (Zeichenlaenge_sb.Length < 2)
+                                                                {
+                                                                    //Aufruf der Berechnung
+                                                                }
+                                                            }
+                                                        }
                                                     }
-                                                }
-                                                if (Zeichenlaenge_sb.Length < 2)
-                                                {
-                                                    //Aufruf der Berechnung
-                                                }
+                                                } 
                                             }
                                             else
                                             {
