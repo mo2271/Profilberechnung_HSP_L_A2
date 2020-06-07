@@ -119,7 +119,7 @@ namespace ProfiRechner
 
             ri = ra - t;
 
-            CATIA_Rechteck_hohl_2D.set_Name("Kreis-Hohlprofil");
+            CATIA_Rechteck_hohl_2D.set_Name("Rechteck-Hohlprofil");
 
             Factory2D Rechteck_hohl_Factory = CATIA_Rechteck_hohl_2D.OpenEdition();
 
@@ -174,7 +174,53 @@ namespace ProfiRechner
             Eckenverrundung67.CenterPoint = Mittelpunkt4;
             Eckenverrundung67.StartPoint = Konturpunkt6;
             Eckenverrundung67.EndPoint = Konturpunkt7;
-            
+
+            // Definition des inneren Rechtecks
+            Point2D Konturpunkt_i1 = Rechteck_hohl_Factory.CreatePoint(ra, t);
+            Point2D Konturpunkt_i2 = Rechteck_hohl_Factory.CreatePoint((b - ra), t);
+            Point2D Konturpunkt_i3 = Rechteck_hohl_Factory.CreatePoint((b-t), ra);
+            Point2D Konturpunkt_i4 = Rechteck_hohl_Factory.CreatePoint((b-t), (h - ra));
+            Point2D Konturpunkt_i5 = Rechteck_hohl_Factory.CreatePoint((b - ra), (h-t));
+            Point2D Konturpunkt_i6 = Rechteck_hohl_Factory.CreatePoint(ra, (h-t));
+            Point2D Konturpunkt_i7 = Rechteck_hohl_Factory.CreatePoint(t, (h - ra));
+            Point2D Konturpunkt_i8 = Rechteck_hohl_Factory.CreatePoint(t, ra);
+
+            Line2D Linie_i12 = Rechteck_hohl_Factory.CreateLine(ra, t, (b - ra), t);
+            Linie_i12.StartPoint = Konturpunkt_i1;
+            Linie_i12.EndPoint = Konturpunkt_i2;
+
+            Line2D Linie_i34 = Rechteck_hohl_Factory.CreateLine((b - t), ra, (b - t), (h - ra));
+            Linie_i34.StartPoint = Konturpunkt_i3;
+            Linie_i34.EndPoint = Konturpunkt_i4;
+
+            Line2D Linie_i56 = Rechteck_hohl_Factory.CreateLine((b - ra), (h - t), ra, (h - t));
+            Linie_i56.StartPoint = Konturpunkt_i5;
+            Linie_i56.EndPoint = Konturpunkt_i6;
+
+            Line2D Linie_i78 = Rechteck_hohl_Factory.CreateLine(t, (h - ra), t, ra);
+            Linie_i78.StartPoint = Konturpunkt_i7;
+            Linie_i78.EndPoint = Konturpunkt_i8;
+
+            Circle2D Eckenverrundung_i81 = Rechteck_hohl_Factory.CreateCircle(ra, ra, ri, 0, 0);
+            Eckenverrundung_i81.CenterPoint = Mittelpunkt1;
+            Eckenverrundung_i81.StartPoint = Konturpunkt_i8;
+            Eckenverrundung_i81.EndPoint = Konturpunkt_i1;
+
+            Circle2D Eckenverrundung_i23 = Rechteck_hohl_Factory.CreateCircle((b - ra), ra, ri, 0, 0);
+            Eckenverrundung_i23.CenterPoint = Mittelpunkt2;
+            Eckenverrundung_i23.StartPoint = Konturpunkt_i2;
+            Eckenverrundung_i23.EndPoint = Konturpunkt_i3;
+
+            Circle2D Eckenverrundung_i45 = Rechteck_hohl_Factory.CreateCircle((b - ra), (h - ra), ri, 0, 0);
+            Eckenverrundung_i45.CenterPoint = Mittelpunkt3;
+            Eckenverrundung_i45.StartPoint = Konturpunkt_i4;
+            Eckenverrundung_i45.EndPoint = Konturpunkt_i5;
+
+            Circle2D Eckenverrundung_i67 = Rechteck_hohl_Factory.CreateCircle(ra, (h - ra), ri, 0, 0);
+            Eckenverrundung_i67.CenterPoint = Mittelpunkt4;
+            Eckenverrundung_i67.StartPoint = Konturpunkt_i6;
+            Eckenverrundung_i67.EndPoint = Konturpunkt_i7;
+
 
             CATIA_Rechteck_hohl_2D.CloseEdition();
 
@@ -190,7 +236,7 @@ namespace ProfiRechner
             ShapeFactory Rechteck_hohl_3D = (ShapeFactory)CATIA_Rechteck_hohl_Part.Part.ShapeFactory;
             Pad Rechteck_hohl_Pad = Rechteck_hohl_3D.AddNewPad(CATIA_Rechteck_hohl_2D, l);
 
-            Rechteck_hohl_Pad.set_Name("Rohr");
+            Rechteck_hohl_Pad.set_Name("Rechteckrohr");
 
             CATIA_Rechteck_hohl_Part.Part.Update();
         }
