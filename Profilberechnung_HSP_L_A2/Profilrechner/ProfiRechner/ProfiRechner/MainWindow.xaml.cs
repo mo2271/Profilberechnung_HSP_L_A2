@@ -322,10 +322,10 @@ namespace ProfiRechner
         public void I_Profil_Berechnung()
         {
             // Übergabe von Eingabewerten
-            Double.TryParse(tbx_Input_IPEHoehe.Text, out double SonderIPEHoehe);
-            Double.TryParse(tbx_Input_IPEBreite.Text, out double SonderIPEBreite);
-            Double.TryParse(tbx_Input_IPEFlanschbreite.Text, out double SonderIPEFlanschbreite);
-            Double.TryParse(tbx_Input_IPEStegbreite.Text, out double SonderIPEStegbreite);
+            Double.TryParse(tbx_Input_SonderHoehe.Text, out double SonderIPEHoehe);
+            Double.TryParse(tbx_Input_SonderBreite.Text, out double SonderIPEBreite);
+            Double.TryParse(tbx_Input_SonderFlanschbreite.Text, out double SonderIPEFlanschbreite);
+            Double.TryParse(tbx_Input_SonderStegbreite.Text, out double SonderIPEStegbreite);
             Double.TryParse(tbx_Input_IPELaenge.Text, out double SonderIPELaenge);
             String SonderEinheit = Convert.ToString(CoB_Sonder_Auswahl_Einheit.SelectionBoxItem);
             Double SonderWSDichte = CoB_Sonder_WS.Text.Equals("Stahl") ? 7850 : 2700;
@@ -405,10 +405,10 @@ namespace ProfiRechner
         public void T_Profil_Berechnung()
         {
             // Übergabe von Eingabewerten
-            Double.TryParse(tbx_Input_IPEHoehe.Text, out double SonderTHoehe);
-            Double.TryParse(tbx_Input_IPEBreite.Text, out double SonderTBreite);
-            Double.TryParse(tbx_Input_IPEFlanschbreite.Text, out double SonderTFlanschbreite);
-            Double.TryParse(tbx_Input_IPEStegbreite.Text, out double SonderTStegbreite);
+            Double.TryParse(tbx_Input_SonderHoehe.Text, out double SonderTHoehe);
+            Double.TryParse(tbx_Input_SonderBreite.Text, out double SonderTBreite);
+            Double.TryParse(tbx_Input_SonderFlanschbreite.Text, out double SonderTFlanschbreite);
+            Double.TryParse(tbx_Input_SonderStegbreite.Text, out double SonderTStegbreite);
             Double.TryParse(tbx_Input_IPELaenge.Text, out double SonderTLaenge);
             String SonderEinheit = Convert.ToString(CoB_Sonder_Auswahl_Einheit.SelectionBoxItem);
             Double SonderWSDichte = CoB_Sonder_WS.Text.Equals("Stahl") ? 7850 : 2700;
@@ -495,10 +495,10 @@ namespace ProfiRechner
         public void U_Profil_Berechnung()
         {
             // Übergabe von Eingabewerten
-            Double.TryParse(tbx_Input_IPEHoehe.Text, out double SonderUHoehe);
-            Double.TryParse(tbx_Input_IPEBreite.Text, out double SonderUBreite);
-            Double.TryParse(tbx_Input_IPEFlanschbreite.Text, out double SonderUFlanschbreite);
-            Double.TryParse(tbx_Input_IPEStegbreite.Text, out double SonderUStegbreite);
+            Double.TryParse(tbx_Input_SonderHoehe.Text, out double SonderUHoehe);
+            Double.TryParse(tbx_Input_SonderBreite.Text, out double SonderUBreite);
+            Double.TryParse(tbx_Input_SonderFlanschbreite.Text, out double SonderUFlanschbreite);
+            Double.TryParse(tbx_Input_SonderStegbreite.Text, out double SonderUStegbreite);
             Double.TryParse(tbx_Input_IPELaenge.Text, out double SonderULaenge);
             String SonderEinheit = Convert.ToString(CoB_Sonder_Auswahl_Einheit.SelectionBoxItem);
             Double SonderWSDichte = CoB_Sonder_WS.Text.Equals("Stahl") ? 7850 : 2700;
@@ -1344,13 +1344,13 @@ namespace ProfiRechner
                 }
                 if (Einheit != "")
                 {
-                    if (Double.TryParse(tbx_Input_IPEBreite.Text, out double B))     //Kontrolle auf Buchstaben der Breite
+                    if (Double.TryParse(tbx_Input_SonderBreite.Text, out double B))     //Kontrolle auf Buchstaben der Breite
                     {
-                        if (Double.TryParse(tbx_Input_IPEHoehe.Text, out double h))     //Kontrolle auf Buchstaben der Höhe
+                        if (Double.TryParse(tbx_Input_SonderHoehe.Text, out double h))     //Kontrolle auf Buchstaben der Höhe
                         {
-                            if (Double.TryParse(tbx_Input_IPEFlanschbreite.Text, out double b))     //Kontrolle auf Buchstaben der Flanschbreite
+                            if (Double.TryParse(tbx_Input_SonderFlanschbreite.Text, out double b))     //Kontrolle auf Buchstaben der Flanschbreite
                             {
-                                if (Double.TryParse(tbx_Input_IPEStegbreite.Text, out double sb))        //Kontrolle auf Buchstaben der Stegbreite
+                                if (Double.TryParse(tbx_Input_SonderStegbreite.Text, out double sb))        //Kontrolle auf Buchstaben der Stegbreite
                                 {
                                     if (Double.TryParse(tbx_Input_IPELaenge.Text, out double l))     //Kontrolle auf Buchstaben der Länge
                                     {
@@ -1389,9 +1389,9 @@ namespace ProfiRechner
                                                     );
                                                     if (result == MessageBoxResult.OK)
                                                     {
-                                                        tbx_Input_IPEBreite.Text = "";
+                                                        tbx_Input_SonderBreite.Text = "";
 
-                                                        tbx_Input_IPEBreite.Focus();
+                                                        tbx_Input_SonderBreite.Focus();
                                                     }
                                                 }
                                                 if (Zeichenlaenge_B.Length <= 4)
@@ -1405,9 +1405,9 @@ namespace ProfiRechner
                                                         );
                                                         if (result == MessageBoxResult.OK)
                                                         {
-                                                            tbx_Input_IPEHoehe.Text = "";
+                                                            tbx_Input_SonderHoehe.Text = "";
 
-                                                            tbx_Input_IPEHoehe.Focus();
+                                                            tbx_Input_SonderHoehe.Focus();
                                                         }
                                                     }
                                                     if (Zeichenlaenge_h.Length <= 4)
@@ -1437,9 +1437,9 @@ namespace ProfiRechner
                                                                 );
                                                                 if (result == MessageBoxResult.OK)
                                                                 {
-                                                                    tbx_Input_IPEFlanschbreite.Text = "";
+                                                                    tbx_Input_SonderFlanschbreite.Text = "";
 
-                                                                    tbx_Input_IPEFlanschbreite.Focus();
+                                                                    tbx_Input_SonderFlanschbreite.Focus();
                                                                 }
                                                             }
                                                             if (Zeichenlaenge_b.Length <= 4)
@@ -1453,9 +1453,9 @@ namespace ProfiRechner
                                                                     );
                                                                     if (result == MessageBoxResult.OK)
                                                                     {
-                                                                        tbx_Input_IPEStegbreite.Text = "";
+                                                                        tbx_Input_SonderStegbreite.Text = "";
 
-                                                                        tbx_Input_IPEStegbreite.Focus();
+                                                                        tbx_Input_SonderStegbreite.Focus();
                                                                     }
                                                                 }
                                                                 if (Zeichenlaenge_sb.Length < 2)
@@ -1476,9 +1476,9 @@ namespace ProfiRechner
                                                 );
                                                 if (result == MessageBoxResult.OK)
                                                 {
-                                                    tbx_Input_IPEFlanschbreite.Text = "";
+                                                    tbx_Input_SonderFlanschbreite.Text = "";
 
-                                                    tbx_Input_IPEFlanschbreite.Focus();
+                                                    tbx_Input_SonderFlanschbreite.Focus();
                                                 }
                                             }
                                         }
@@ -1491,9 +1491,9 @@ namespace ProfiRechner
                                             );
                                             if (result == MessageBoxResult.OK)
                                             {
-                                                tbx_Input_IPEStegbreite.Text = "";
+                                                tbx_Input_SonderStegbreite.Text = "";
 
-                                                tbx_Input_IPEStegbreite.Focus();
+                                                tbx_Input_SonderStegbreite.Focus();
                                             }
                                         }
                                     }
@@ -1521,9 +1521,9 @@ namespace ProfiRechner
                                     );
                                     if (result == MessageBoxResult.OK)
                                     {
-                                        tbx_Input_IPEStegbreite.Text = "";
+                                        tbx_Input_SonderStegbreite.Text = "";
 
-                                        tbx_Input_IPEStegbreite.Focus();
+                                        tbx_Input_SonderStegbreite.Focus();
                                     }
                                 }
                             }
@@ -1536,9 +1536,9 @@ namespace ProfiRechner
                                 );
                                 if (result == MessageBoxResult.OK)
                                 {
-                                    tbx_Input_IPEFlanschbreite.Text = "";
+                                    tbx_Input_SonderFlanschbreite.Text = "";
 
-                                    tbx_Input_IPEFlanschbreite.Focus();
+                                    tbx_Input_SonderFlanschbreite.Focus();
                                 }
                             }
                         }
@@ -1551,9 +1551,9 @@ namespace ProfiRechner
                             );
                             if (result == MessageBoxResult.OK)
                             {
-                                tbx_Input_IPEHoehe.Text = "";
+                                tbx_Input_SonderHoehe.Text = "";
 
-                                tbx_Input_IPEHoehe.Focus();
+                                tbx_Input_SonderHoehe.Focus();
                             }
                         }
                     }
@@ -1566,9 +1566,9 @@ namespace ProfiRechner
                         );
                         if (result == MessageBoxResult.OK)
                         {
-                            tbx_Input_IPEBreite.Text = "";
+                            tbx_Input_SonderBreite.Text = "";
 
-                            tbx_Input_IPEBreite.Focus();
+                            tbx_Input_SonderBreite.Focus();
                         }
                     }
 
@@ -1625,11 +1625,11 @@ namespace ProfiRechner
                 }
                 if (Einheit != "")
                 {
-                    if (Double.TryParse(tbx_Input_IPEBreite.Text, out double b))        //Kontrolle auf Buchstaben der Breite
+                    if (Double.TryParse(tbx_Input_SonderBreite.Text, out double b))        //Kontrolle auf Buchstaben der Breite
                     {
                         //Konvertierung erfolgreich
 
-                        if (Double.TryParse(tbx_Input_IPEHoehe.Text, out double h))     //Kontrolle auf Buchstaben der Höhe
+                        if (Double.TryParse(tbx_Input_SonderHoehe.Text, out double h))     //Kontrolle auf Buchstaben der Höhe
                         {
                             //Konvertierung erfolgreich
 
@@ -1637,11 +1637,11 @@ namespace ProfiRechner
                             {
                                 //Konvertierung erfolgreich
 
-                                if (Double.TryParse(tbx_Input_IPEFlanschbreite.Text, out double fb))        //Kontrolle auf Buchstaben der Flanschbreite
+                                if (Double.TryParse(tbx_Input_SonderFlanschbreite.Text, out double fb))        //Kontrolle auf Buchstaben der Flanschbreite
                                 {
                                     //Konvertierung erfolgreich
 
-                                    if (Double.TryParse(tbx_Input_IPEStegbreite.Text, out double sb))       //Kontrolle auf Buchstaben der Stegbreite
+                                    if (Double.TryParse(tbx_Input_SonderStegbreite.Text, out double sb))       //Kontrolle auf Buchstaben der Stegbreite
                                     {
                                         string Zeichenlaenge_b;
                                         string Zeichenlaenge_h;
@@ -1668,9 +1668,9 @@ namespace ProfiRechner
                                                     );
                                                     if (result == MessageBoxResult.OK)
                                                     {
-                                                        tbx_Input_IPEBreite.Text = "";
+                                                        tbx_Input_SonderBreite.Text = "";
 
-                                                        tbx_Input_IPEBreite.Focus();
+                                                        tbx_Input_SonderBreite.Focus();
                                                     }
                                                 }
                                                 if (Zeichenlaenge_b.Length <= 4)
@@ -1684,9 +1684,9 @@ namespace ProfiRechner
                                                         );
                                                         if (result == MessageBoxResult.OK)
                                                         {
-                                                            tbx_Input_IPEHoehe.Text = "";
+                                                            tbx_Input_SonderHoehe.Text = "";
 
-                                                            tbx_Input_IPEHoehe.Focus();
+                                                            tbx_Input_SonderHoehe.Focus();
                                                         }
                                                     }
                                                     if (Zeichenlaenge_h.Length <= 4)
@@ -1716,9 +1716,9 @@ namespace ProfiRechner
                                                                 );
                                                                 if (result == MessageBoxResult.OK)
                                                                 {
-                                                                    tbx_Input_IPEFlanschbreite.Text = "";
+                                                                    tbx_Input_SonderFlanschbreite.Text = "";
 
-                                                                    tbx_Input_IPEFlanschbreite.Focus();
+                                                                    tbx_Input_SonderFlanschbreite.Focus();
                                                                 }
                                                             }
                                                             if (Zeichenlaenge_fb.Length <= 2)
@@ -1732,9 +1732,9 @@ namespace ProfiRechner
                                                                     );
                                                                     if (result == MessageBoxResult.OK)
                                                                     {
-                                                                        tbx_Input_IPEStegbreite.Text = "";
+                                                                        tbx_Input_SonderStegbreite.Text = "";
 
-                                                                        tbx_Input_IPEStegbreite.Focus();
+                                                                        tbx_Input_SonderStegbreite.Focus();
                                                                     }
                                                                 }
                                                                 if (Zeichenlaenge_sb.Length < 2)
@@ -1755,9 +1755,9 @@ namespace ProfiRechner
                                                 );
                                                 if (result == MessageBoxResult.OK)
                                                 {
-                                                    tbx_Input_IPEFlanschbreite.Text = "";
+                                                    tbx_Input_SonderFlanschbreite.Text = "";
 
-                                                    tbx_Input_IPEFlanschbreite.Focus();
+                                                    tbx_Input_SonderFlanschbreite.Focus();
                                                 }
                                             }
 
@@ -1771,9 +1771,9 @@ namespace ProfiRechner
                                             );
                                             if (result == MessageBoxResult.OK)
                                             {
-                                                tbx_Input_IPEBreite.Text = "";
+                                                tbx_Input_SonderBreite.Text = "";
 
-                                                tbx_Input_IPEBreite.Focus();
+                                                tbx_Input_SonderBreite.Focus();
                                             }
                                         }
 
@@ -1787,9 +1787,9 @@ namespace ProfiRechner
                                         );
                                         if (result == MessageBoxResult.OK)
                                         {
-                                            tbx_Input_IPEStegbreite.Text = "";
+                                            tbx_Input_SonderStegbreite.Text = "";
 
-                                            tbx_Input_IPEStegbreite.Focus();
+                                            tbx_Input_SonderStegbreite.Focus();
                                         }
                                     }
                                 }
@@ -1802,9 +1802,9 @@ namespace ProfiRechner
                                     );
                                     if (result == MessageBoxResult.OK)
                                     {
-                                        tbx_Input_IPEFlanschbreite.Text = "";
+                                        tbx_Input_SonderFlanschbreite.Text = "";
 
-                                        tbx_Input_IPEFlanschbreite.Focus();
+                                        tbx_Input_SonderFlanschbreite.Focus();
                                     }
                                 }
                             }
@@ -1832,9 +1832,9 @@ namespace ProfiRechner
                             );
                             if (result == MessageBoxResult.OK)
                             {
-                                tbx_Input_IPEHoehe.Text = "";
+                                tbx_Input_SonderHoehe.Text = "";
 
-                                tbx_Input_IPEHoehe.Focus();
+                                tbx_Input_SonderHoehe.Focus();
                             }
                         }
                     }
@@ -1847,9 +1847,9 @@ namespace ProfiRechner
                         );
                         if (result == MessageBoxResult.OK)
                         {
-                            tbx_Input_IPEBreite.Text = "";
+                            tbx_Input_SonderBreite.Text = "";
 
-                            tbx_Input_IPEBreite.Focus();
+                            tbx_Input_SonderBreite.Focus();
                         }
                     }
                 }
@@ -1891,15 +1891,15 @@ namespace ProfiRechner
                 }
                 if (Einheit != "")
                 {
-                    if (Double.TryParse(tbx_Input_IPEBreite.Text, out double b))        //Kontrolle auf Buchstaben der Breite
+                    if (Double.TryParse(tbx_Input_SonderBreite.Text, out double b))        //Kontrolle auf Buchstaben der Breite
                     {
-                        if (Double.TryParse(tbx_Input_IPEHoehe.Text, out double h))     //Kontrolle auf Buchstaben der Höhe
+                        if (Double.TryParse(tbx_Input_SonderHoehe.Text, out double h))     //Kontrolle auf Buchstaben der Höhe
                         {
                             if (Double.TryParse(tbx_Input_IPELaenge.Text, out double l))        //Kontrolle auf Buchstaben der Länge
                             {
-                                if (Double.TryParse(tbx_Input_IPEStegbreite.Text, out double sb))       //Kontrolle auf Buchstaben der Stegbreite
+                                if (Double.TryParse(tbx_Input_SonderStegbreite.Text, out double sb))       //Kontrolle auf Buchstaben der Stegbreite
                                 {
-                                    if (Double.TryParse(tbx_Input_IPEFlanschbreite.Text, out double fb))     //Kontrolle auf Buchstaben der Flanschbreite
+                                    if (Double.TryParse(tbx_Input_SonderFlanschbreite.Text, out double fb))     //Kontrolle auf Buchstaben der Flanschbreite
                                     {
                                         if (sb < (b / 4))     //Prüfung auf Verhältnismäßigkeit der Stegbreite
                                         {
@@ -1926,9 +1926,9 @@ namespace ProfiRechner
                                                     );
                                                     if (result == MessageBoxResult.OK)
                                                     {
-                                                        tbx_Input_IPEBreite.Text = "";
+                                                        tbx_Input_SonderBreite.Text = "";
 
-                                                        tbx_Input_IPEBreite.Focus();
+                                                        tbx_Input_SonderBreite.Focus();
                                                     }
                                                 }
                                                 if (Zeichenlaenge_b.Length <= 4)
@@ -1942,9 +1942,9 @@ namespace ProfiRechner
                                                         );
                                                         if (result == MessageBoxResult.OK)
                                                         {
-                                                            tbx_Input_IPEHoehe.Text = "";
+                                                            tbx_Input_SonderHoehe.Text = "";
 
-                                                            tbx_Input_IPEHoehe.Focus();
+                                                            tbx_Input_SonderHoehe.Focus();
                                                         }
                                                     }
                                                     if (Zeichenlaenge_h.Length <= 4)
@@ -1974,9 +1974,9 @@ namespace ProfiRechner
                                                                 );
                                                                 if (result == MessageBoxResult.OK)
                                                                 {
-                                                                    tbx_Input_IPEFlanschbreite.Text = "";
+                                                                    tbx_Input_SonderFlanschbreite.Text = "";
 
-                                                                    tbx_Input_IPEFlanschbreite.Focus();
+                                                                    tbx_Input_SonderFlanschbreite.Focus();
                                                                 }
                                                             }
                                                             if (Zeichenlaenge_fb.Length <= 2)
@@ -1990,9 +1990,9 @@ namespace ProfiRechner
                                                                     );
                                                                     if (result == MessageBoxResult.OK)
                                                                     {
-                                                                        tbx_Input_IPEStegbreite.Text = "";
+                                                                        tbx_Input_SonderStegbreite.Text = "";
 
-                                                                        tbx_Input_IPEStegbreite.Focus();
+                                                                        tbx_Input_SonderStegbreite.Focus();
                                                                     }
                                                                 }
                                                                 if (Zeichenlaenge_sb.Length < 2)
@@ -2013,9 +2013,9 @@ namespace ProfiRechner
                                                 );
                                                 if (result == MessageBoxResult.OK)
                                                 {
-                                                    tbx_Input_IPEFlanschbreite.Text = "";
+                                                    tbx_Input_SonderFlanschbreite.Text = "";
 
-                                                    tbx_Input_IPEFlanschbreite.Focus();
+                                                    tbx_Input_SonderFlanschbreite.Focus();
                                                 }
                                             }
                                         }
@@ -2028,9 +2028,9 @@ namespace ProfiRechner
                                             );
                                             if (result == MessageBoxResult.OK)
                                             {
-                                                tbx_Input_IPEStegbreite.Text = "";
+                                                tbx_Input_SonderStegbreite.Text = "";
 
-                                                tbx_Input_IPEStegbreite.Focus();
+                                                tbx_Input_SonderStegbreite.Focus();
                                             }
                                         }
                                     }
@@ -2043,9 +2043,9 @@ namespace ProfiRechner
                                         );
                                         if (result == MessageBoxResult.OK)
                                         {
-                                            tbx_Input_IPEFlanschbreite.Text = "";
+                                            tbx_Input_SonderFlanschbreite.Text = "";
 
-                                            tbx_Input_IPEFlanschbreite.Focus();
+                                            tbx_Input_SonderFlanschbreite.Focus();
                                         }
                                     }
                                 }
@@ -2058,9 +2058,9 @@ namespace ProfiRechner
                                     );
                                     if (result == MessageBoxResult.OK)
                                     {
-                                        tbx_Input_IPEStegbreite.Text = "";
+                                        tbx_Input_SonderStegbreite.Text = "";
 
-                                        tbx_Input_IPEStegbreite.Focus();
+                                        tbx_Input_SonderStegbreite.Focus();
                                     }
                                 }
                             }
@@ -2088,9 +2088,9 @@ namespace ProfiRechner
                             );
                             if (result == MessageBoxResult.OK)
                             {
-                                tbx_Input_IPEHoehe.Text = "";
+                                tbx_Input_SonderHoehe.Text = "";
 
-                                tbx_Input_IPEHoehe.Focus();
+                                tbx_Input_SonderHoehe.Focus();
                             }
                         }
                     }
@@ -2103,9 +2103,9 @@ namespace ProfiRechner
                         );
                         if (result == MessageBoxResult.OK)
                         {
-                            tbx_Input_IPEBreite.Text = "";
+                            tbx_Input_SonderBreite.Text = "";
 
-                            tbx_Input_IPEBreite.Focus();
+                            tbx_Input_SonderBreite.Focus();
                         }
                     }
                 }
@@ -2632,33 +2632,33 @@ namespace ProfiRechner
 
         #region Grafische Darstellung
 
-        private void tbx_Input_IPEBreite_TextChanged(object sender, TextChangedEventArgs e)
+        private void tbx_Input_SonderBreite_TextChanged(object sender, TextChangedEventArgs e)
         {
-            lbl_IPEGrafik_Breite.Content = tbx_Input_IPEBreite.Text;
-            lbl_U_Breite.Content = tbx_Input_IPEBreite.Text;
-            lbl_T_Breite.Content = tbx_Input_IPEBreite.Text;
+            lbl_IPEGrafik_Breite.Content = tbx_Input_SonderBreite.Text;
+            lbl_U_Breite.Content = tbx_Input_SonderBreite.Text;
+            lbl_T_Breite.Content = tbx_Input_SonderBreite.Text;
 
         }
 
-        private void tbx_Input_IPEHoehe_TextChanged(object sender, TextChangedEventArgs e)
+        private void tbx_Input_SonderHoehe_TextChanged(object sender, TextChangedEventArgs e)
         {
-            lbl_IPEGrafik_Hoehe.Content = tbx_Input_IPEHoehe.Text;
-            lbl_U_Hoehe.Content = tbx_Input_IPEHoehe.Text;
-            lbl_T_Hoehe.Content = tbx_Input_IPEHoehe.Text;
+            lbl_IPEGrafik_Hoehe.Content = tbx_Input_SonderHoehe.Text;
+            lbl_U_Hoehe.Content = tbx_Input_SonderHoehe.Text;
+            lbl_T_Hoehe.Content = tbx_Input_SonderHoehe.Text;
         }
 
-        private void tbx_Input_IPEStegbreite_TextChanged(object sender, TextChangedEventArgs e)
+        private void tbx_Input_SonderStegbreite_TextChanged(object sender, TextChangedEventArgs e)
         {
-            lbl_IPEGrafik_Stegbreite.Content = tbx_Input_IPEStegbreite.Text;
-            lbl_U_Stegbreite.Content = tbx_Input_IPEStegbreite.Text;
-            lbl_T_Stegbreite.Content = tbx_Input_IPEStegbreite.Text;
+            lbl_IPEGrafik_Stegbreite.Content = tbx_Input_SonderStegbreite.Text;
+            lbl_U_Stegbreite.Content = tbx_Input_SonderStegbreite.Text;
+            lbl_T_Stegbreite.Content = tbx_Input_SonderStegbreite.Text;
         }         
 
-        private void tbx_Input_IPEFlanschbreite_TextChanged(object sender, TextChangedEventArgs e)
+        private void tbx_Input_SonderFlanschbreite_TextChanged(object sender, TextChangedEventArgs e)
         {
-            lbl_IPEGrafik_Flanschbreite.Content = tbx_Input_IPEFlanschbreite.Text;
-            lbl_U_Flanschbreite.Content = tbx_Input_IPEFlanschbreite.Text;
-            lbl_T_Flanschbreite.Content = tbx_Input_IPEFlanschbreite.Text;
+            lbl_IPEGrafik_Flanschbreite.Content = tbx_Input_SonderFlanschbreite.Text;
+            lbl_U_Flanschbreite.Content = tbx_Input_SonderFlanschbreite.Text;
+            lbl_T_Flanschbreite.Content = tbx_Input_SonderFlanschbreite.Text;
         }
 
 
