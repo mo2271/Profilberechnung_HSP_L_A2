@@ -2305,6 +2305,23 @@ namespace ProfiRechner
             btn_StartU_Berechnung.Visibility = Visibility.Hidden;
 
             img_IPE_Profil.Visibility = Visibility.Visible;
+            lbl_IPEGrafik_Breite.Visibility = Visibility.Visible;
+            lbl_IPEGrafik_Flanschbreite.Visibility = Visibility.Visible;
+            lbl_IPEGrafik_Hoehe.Visibility = Visibility.Visible;
+            lbl_IPEGrafik_Stegbreite.Visibility = Visibility.Visible;
+
+            lbl_U_Breite.Visibility = Visibility.Hidden;
+            lbl_U_Flanschbreite.Visibility = Visibility.Hidden;
+            lbl_U_Hoehe.Visibility = Visibility.Hidden;
+            lbl_U_Stegbreite.Visibility = Visibility.Hidden;
+            img_U_Profil.Visibility = Visibility.Hidden;
+            lbl_U_CMaß.Visibility = Visibility.Hidden;
+
+            lbl_T_Breite.Visibility = Visibility.Hidden;
+            lbl_T_Flanschbreite.Visibility = Visibility.Hidden;
+            lbl_T_Hoehe.Visibility = Visibility.Hidden;
+            lbl_T_Stegbreite.Visibility = Visibility.Hidden;
+            img_T_Profil.Visibility = Visibility.Hidden;
         }
 
         private void ChB_Sonder_U_Profil_Checked(object sender, RoutedEventArgs e)
@@ -2322,6 +2339,20 @@ namespace ProfiRechner
             lbl_IPEGrafik_Flanschbreite.Visibility = Visibility.Hidden;
             lbl_IPEGrafik_Hoehe.Visibility = Visibility.Hidden;
             lbl_IPEGrafik_Stegbreite.Visibility = Visibility.Hidden;
+
+            lbl_U_Breite.Visibility = Visibility.Visible;
+            lbl_U_Flanschbreite.Visibility = Visibility.Visible;
+            lbl_U_Hoehe.Visibility = Visibility.Visible;
+            lbl_U_Stegbreite.Visibility = Visibility.Visible;
+            img_U_Profil.Visibility = Visibility.Visible;
+            lbl_U_CMaß.Visibility = Visibility.Visible;
+
+            lbl_T_Breite.Visibility = Visibility.Hidden;
+            lbl_T_Flanschbreite.Visibility = Visibility.Hidden;
+            lbl_T_Hoehe.Visibility = Visibility.Hidden;
+            lbl_T_Stegbreite.Visibility = Visibility.Hidden;
+            img_T_Profil.Visibility = Visibility.Hidden;
+
         }
 
         private void ChB_Sonder_T_Profil_Checked(object sender, RoutedEventArgs e)
@@ -2339,6 +2370,20 @@ namespace ProfiRechner
             lbl_IPEGrafik_Flanschbreite.Visibility = Visibility.Hidden;
             lbl_IPEGrafik_Hoehe.Visibility = Visibility.Hidden;
             lbl_IPEGrafik_Stegbreite.Visibility = Visibility.Hidden;
+
+            lbl_U_Breite.Visibility = Visibility.Hidden;
+            lbl_U_Flanschbreite.Visibility = Visibility.Hidden;
+            lbl_U_Hoehe.Visibility = Visibility.Hidden;
+            lbl_U_Stegbreite.Visibility = Visibility.Hidden;
+            img_U_Profil.Visibility = Visibility.Hidden;
+            lbl_U_CMaß.Visibility = Visibility.Hidden;
+
+
+            lbl_T_Breite.Visibility = Visibility.Visible;
+            lbl_T_Flanschbreite.Visibility = Visibility.Visible;
+            lbl_T_Hoehe.Visibility = Visibility.Visible;
+            lbl_T_Stegbreite.Visibility = Visibility.Visible;
+            img_T_Profil.Visibility = Visibility.Visible;
         }
 
 
@@ -2350,21 +2395,30 @@ namespace ProfiRechner
         private void tbx_Input_IPEBreite_TextChanged(object sender, TextChangedEventArgs e)
         {
             lbl_IPEGrafik_Breite.Content = tbx_Input_IPEBreite.Text;
+            lbl_U_Breite.Content = tbx_Input_IPEBreite.Text;
+            lbl_T_Breite.Content = tbx_Input_IPEBreite.Text;
+
         }
 
         private void tbx_Input_IPEHoehe_TextChanged(object sender, TextChangedEventArgs e)
         {
             lbl_IPEGrafik_Hoehe.Content = tbx_Input_IPEHoehe.Text;
+            lbl_U_Hoehe.Content = tbx_Input_IPEHoehe.Text;
+            lbl_T_Hoehe.Content = tbx_Input_IPEHoehe.Text;
         }
 
         private void tbx_Input_IPEStegbreite_TextChanged(object sender, TextChangedEventArgs e)
         {
             lbl_IPEGrafik_Stegbreite.Content = tbx_Input_IPEStegbreite.Text;
-        }
+            lbl_U_Stegbreite.Content = tbx_Input_IPEStegbreite.Text;
+            lbl_T_Stegbreite.Content = tbx_Input_IPEStegbreite.Text;
+        }         
 
         private void tbx_Input_IPEFlanschbreite_TextChanged(object sender, TextChangedEventArgs e)
         {
             lbl_IPEGrafik_Flanschbreite.Content = tbx_Input_IPEFlanschbreite.Text;
+            lbl_U_Flanschbreite.Content = tbx_Input_IPEFlanschbreite.Text;
+            lbl_T_Flanschbreite.Content = tbx_Input_IPEFlanschbreite.Text;
         }
 
 
