@@ -386,6 +386,16 @@ namespace ProfiRechner
             lbl_Sonder_FTM_X_Ergebnis.Content = Sonder_IPE_FTM_X_String;
             lbl_Sonder_FTM_Y_Ergebnis.Content = Sonder_IPE_FTM_Y_String;
             lbl_Sonder_Schwerpunkt_Ergebnis.Content = Sonder_IPE_SWP_String;
+
+            Sonder_IPE CatIPE = new Sonder_IPE();
+
+            if (CatIPE.CATIA_SonderIPE_Run())
+            {
+                CatIPE.PartSonderIPE();
+                CatIPE.SonderIPE_CreateSketch();
+                CatIPE.SonderIPE_DrawSketch(SonderIPEBreite, SonderIPEHoehe, SonderIPEFlanschbreite, SonderIPEStegbreite);
+                CatIPE.SonderIPE_Extrusion(SonderIPELaenge);
+            }
         }
 
         #endregion
