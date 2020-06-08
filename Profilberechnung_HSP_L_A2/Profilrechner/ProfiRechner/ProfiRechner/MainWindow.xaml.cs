@@ -1311,7 +1311,7 @@ namespace ProfiRechner
         public void Kontrolle_I_Profil()
         {
             string Material = Convert.ToString(CoB_Sonder_WS.SelectionBoxItem);
-
+            
             if (Material == "")     //Kontrolle der Materialauswahl
             {
                 MessageBoxResult result;
@@ -1357,7 +1357,7 @@ namespace ProfiRechner
                                         double Hoehe;
                                         double Flanschbreite;
                                         double Stegbreite;
-
+                                        
                                         Breite = B;
                                         Hoehe = h;
                                         Flanschbreite = b;
@@ -1395,6 +1395,7 @@ namespace ProfiRechner
                                                 }
                                                 if (Zeichenlaenge_B.Length <= 4)
                                                 {
+                                                    
                                                     if (Zeichenlaenge_h.Length > 4)        //Kontrolle der Zeichenlaenge der Höhe
                                                     {
                                                         MessageBoxResult result;
@@ -1426,6 +1427,7 @@ namespace ProfiRechner
                                                             }
                                                         }
                                                         if (Zeichenlaenge_l.Length <= 4)
+                                                            
                                                         {
                                                             if (Zeichenlaenge_b.Length > 2)        //Kontrolle der Zeichenlaenge der Flanschbreite
                                                             {
@@ -1457,21 +1459,14 @@ namespace ProfiRechner
                                                                         tbx_Input_SonderStegbreite.Focus();
                                                                     }
                                                                 }
-                                                                if (Zeichenlaenge_sb.Length < 2)
+                                                                
+                                                                
+                                                                if (Zeichenlaenge_sb.Length <= 2)
                                                                 {
                                                                     //Aufruf der Berechnung
-                                                                    if (ChB_Sonder_I_Profil.Content.Equals("I-Profil"))
-                                                                    {
-                                                                        I_Profil_Berechnung();
-                                                                    }
-                                                                    else if (ChB_Sonder_I_Profil.Content.Equals("U-Profil"))
-                                                                    {
-                                                                        U_Profil_Berechnung();
-                                                                    }
-                                                                    else if (ChB_Sonder_I_Profil.Content.Equals("T-Profil"))
-                                                                    {
-                                                                        T_Profil_Berechnung();
-                                                                    }
+                                                                   
+                                                                    I_Profil_Berechnung();
+                                                                    
 
                                                                 }
                                                             }
@@ -1749,7 +1744,7 @@ namespace ProfiRechner
                                                                         tbx_Input_SonderStegbreite.Focus();
                                                                     }
                                                                 }
-                                                                if (Zeichenlaenge_sb.Length < 2)
+                                                                if (Zeichenlaenge_sb.Length <= 2)
                                                                 {
                                                                     U_Profil_Berechnung();
                                                                 }
@@ -2013,7 +2008,7 @@ namespace ProfiRechner
                                                                         tbx_Input_SonderStegbreite.Focus();
                                                                     }
                                                                 }
-                                                                if (Zeichenlaenge_sb.Length < 2)
+                                                                if (Zeichenlaenge_sb.Length <= 2)
                                                                 {
                                                                     T_Profil_Berechnung();
                                                                 }
