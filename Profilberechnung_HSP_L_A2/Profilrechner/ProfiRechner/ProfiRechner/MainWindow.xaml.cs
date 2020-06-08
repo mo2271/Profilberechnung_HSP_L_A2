@@ -483,7 +483,7 @@ namespace ProfiRechner
                 CatT.PartSonderT();
                 CatT.SonderT_CreateSketch();
                 CatT.SonderT_DrawSketch(SonderTBreite, SonderTHoehe, SonderTFlanschbreite, SonderTStegbreite);
-                CatT.SonderT_Extrusion(SonderTLaenge, SonderTFlanschbreite);
+                CatT.SonderT_Extrusion(SonderTLaenge, SonderTFlanschbreite, SonderTStegbreite);
             }
         }
 
