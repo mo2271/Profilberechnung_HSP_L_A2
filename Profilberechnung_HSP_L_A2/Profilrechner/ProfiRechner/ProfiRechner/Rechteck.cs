@@ -134,17 +134,7 @@ namespace ProfiRechner
 
             ShapeFactory Rechteck3D = (ShapeFactory)CATIA_RechteckPart.Part.ShapeFactory;
             Pad RechteckPad = Rechteck3D.AddNewPad(CATIA_Rechteck2D, l);
-
-            //  Experiment: Einfügen einer Kantenverrundung
-            /*
-            Reference Referenz1 = CATIA_RechteckPart.Part.CreateReferenceFromName("");
-            ConstRadEdgeFillet Verrundung = Rechteck3D.AddNewEdgeFilletWithConstantRadius(Referenz1, CatFilletEdgePropagation.catTangencyFilletEdgePropagation, 5);
-            Reference Referenz2 = CATIA_RechteckPart.Part.CreateReferenceFromBRepName("REdge:(Edge:(Face:(Brp:(Pad.1;0:(Brp:(Sketch.1;3)));None:();Cf11:());Face:(Brp:(Pad.1;0:(Brp:(Sketch.1;2)));None:();Cf11:());None:(Limits1:();Limits2:());Cf11:());WithTemporaryBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)", RechteckPad);
-            
-            Verrundung.AddObjectToFillet(Referenz2);
-            */
-            
-
+         
             RechteckPad.set_Name("Rechteckbalken");
 
             CATIA_RechteckPart.Part.Update();
