@@ -566,16 +566,16 @@ namespace ProfiRechner
             lbl_Sonder_FTM_Y_Ergebnis.Content = Sonder_T_FTM_Y_String;
             lbl_Sonder_Schwerpunkt_Ergebnis.Content = Sonder_T_SWP_String;
 
-            Sonder_IPE CatIPE = new Sonder_IPE();
-            /*
-            if (CatIPE.CATIA_SonderIPE_Run())
+            Sonder_U CatU = new Sonder_U();
+            
+            if (CatU.CATIA_SonderU_Run())
             {
-                CatIPE.PartSonderIPE();
-                CatIPE.SonderIPE_CreateSketch();
-                CatIPE.SonderIPE_DrawSketch(SonderTBreite, SonderTHoehe, SonderTFlanschbreite, SonderTStegbreite);
-                CatIPE.SonderIPE_Extrusion(SonderTLaenge);
+                CatU.PartSonderU();
+                CatU.SonderU_CreateSketch();
+                CatU.SonderU_DrawSketch(SonderUBreite, SonderUHoehe, SonderUFlanschbreite, SonderUStegbreite);
+                CatU.SonderU_Extrusion(SonderULaenge, SonderUFlanschbreite);
             }
-            */
+            
         }
 
         #endregion
@@ -1739,7 +1739,7 @@ namespace ProfiRechner
                                                                 }
                                                                 if (Zeichenlaenge_sb.Length < 2)
                                                                 {
-                                                                    //Aufruf der Berechnung
+                                                                    U_Profil_Berechnung();
                                                                 }
                                                             }
                                                         }
@@ -2533,6 +2533,11 @@ namespace ProfiRechner
 
         }
 
+        private void btn_StartU_Berechnung_Click(object sender, RoutedEventArgs e)
+        {
+            Kontrolle_U_Profil();
+        }
+
         #region Checkboxen Profilwahl
         private void ChB_Sonder_I_Profil_Checked(object sender, RoutedEventArgs e)
         {
@@ -2669,10 +2674,11 @@ namespace ProfiRechner
 
 
 
-        #endregion
 
         #endregion
 
+        #endregion
 
+        
     }
 }
