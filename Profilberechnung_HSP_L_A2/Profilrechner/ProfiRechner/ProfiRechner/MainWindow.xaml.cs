@@ -1865,6 +1865,12 @@ namespace ProfiRechner
                         }
                     }
                 }
+                lbl_Sonder_Fläche_Ergebnis.Visibility = Visibility.Visible;     //Schaltet Ergebnis Sichtbarkeit um
+                lbl_Sonder_Masse_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Sonder_Volumen_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Sonder_Schwerpunkt_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Sonder_FTM_X_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Sonder_FTM_Y_Ergebnis.Visibility = Visibility.Visible;
             }
         }
 
@@ -2121,6 +2127,13 @@ namespace ProfiRechner
                         }
                     }
                 }
+                lbl_Sonder_Fläche_Ergebnis.Visibility = Visibility.Visible;     //Schaltet Ergebnis Sichtbarkeit um
+                lbl_Sonder_Masse_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Sonder_Volumen_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Sonder_Schwerpunkt_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Sonder_FTM_X_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Sonder_FTM_Y_Ergebnis.Visibility = Visibility.Visible;
+
             }
         }
 
