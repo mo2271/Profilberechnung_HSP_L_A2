@@ -139,6 +139,38 @@ namespace ProfiRechner
             Point2D Konturpunkt7 = SonderU_Factory.CreatePoint(b, h);
             Point2D Konturpunkt8 = SonderU_Factory.CreatePoint(0, h);
 
+            Line2D Linie12 = SonderU_Factory.CreateLine(0, 0, b, 0);
+            Linie12.StartPoint = Konturpunkt1;
+            Linie12.EndPoint = Konturpunkt2;
+
+            Line2D Linie23 = SonderU_Factory.CreateLine(b, 0, b, (f - outerDelta));
+            Linie23.StartPoint = Konturpunkt2;
+            Linie23.EndPoint = Konturpunkt3;
+
+            Line2D Linie34 = SonderU_Factory.CreateLine(b, (f - outerDelta), s, (f + innerDelta));
+            Linie34.StartPoint = Konturpunkt3;
+            Linie34.EndPoint = Konturpunkt4;
+
+            Line2D Linie45 = SonderU_Factory.CreateLine(s, (f + innerDelta), s, (h - f - innerDelta));
+            Linie45.StartPoint = Konturpunkt4;
+            Linie45.EndPoint = Konturpunkt5;
+
+            Line2D Linie56 = SonderU_Factory.CreateLine(s, (h - f - innerDelta), b, (h - f + outerDelta));
+            Linie56.StartPoint = Konturpunkt5;
+            Linie56.EndPoint = Konturpunkt6;
+
+            Line2D Linie67 = SonderU_Factory.CreateLine(b, (h - f + outerDelta), b, h);
+            Linie67.StartPoint = Konturpunkt6;
+            Linie67.EndPoint = Konturpunkt7;
+
+            Line2D Linie78 = SonderU_Factory.CreateLine(b, h, 0, h);
+            Linie78.StartPoint = Konturpunkt7;
+            Linie78.EndPoint = Konturpunkt8;
+
+            Line2D Linie81 = SonderU_Factory.CreateLine(0, h, 0, 0);
+            Linie81.StartPoint = Konturpunkt8;
+            Linie81.EndPoint = Konturpunkt1;
+
             CATIA_SonderU_2D.CloseEdition();
 
             CATIA_SonderU_Part.Part.Update();
@@ -156,7 +188,33 @@ namespace ProfiRechner
             ShapeFactory SonderU_3D = (ShapeFactory)CATIA_SonderU_Part.Part.ShapeFactory;
             Pad SonderU_Pad = SonderU_3D.AddNewPad(CATIA_SonderU_2D, l);
 
-             
+            // Kantenverrundung #1 für R1
+            Reference Referenz11_R1 = CATIA_SonderU_Part.Part.CreateReferenceFromName("");
+            ConstRadEdgeFillet Verrundung1_R1 = SonderU_3D.AddNewEdgeFilletWithConstantRadius(Referenz11_R1, CatFilletEdgePropagation.catTangencyFilletEdgePropagation, R1);
+            Reference Referenz21_R1 = CATIA_SonderU_Part.Part.CreateReferenceFromBRepName("REdge:(Edge:(Face:(Brp:(Pad.1;0:(Brp:(Sketch.1;4)));None:();Cf11:());Face:(Brp:(Pad.1;0:(Brp:(Sketch.1;3)));None:();Cf11:());None:(Limits1:();Limits2:());Cf11:());WithTemporaryBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)", SonderU_Pad);
+            Verrundung1_R1.AddObjectToFillet(Referenz21_R1);
+            Verrundung1_R1.set_Name("Verrundung1_R1 = " + R1);
+            
+            // Kantenverrundung #2 für R1
+            Reference Referenz12_R1 = CATIA_SonderU_Part.Part.CreateReferenceFromName("");
+            ConstRadEdgeFillet Verrundung2_R1 = SonderU_3D.AddNewEdgeFilletWithConstantRadius(Referenz12_R1, CatFilletEdgePropagation.catTangencyFilletEdgePropagation, R1);
+            Reference Referenz22_R1 = CATIA_SonderU_Part.Part.CreateReferenceFromBRepName("REdge:(Edge:(Face:(Brp:(Pad.1;0:(Brp:(Sketch.1;5)));None:();Cf11:());Face:(Brp:(Pad.1;0:(Brp:(Sketch.1;4)));None:();Cf11:());None:(Limits1:();Limits2:());Cf11:());WithTemporaryBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)", SonderU_Pad);
+            Verrundung2_R1.AddObjectToFillet(Referenz22_R1);
+            Verrundung2_R1.set_Name("Verrundung2_R1 = " + R1);
+
+            // Kantenverrundung #1 für R2
+            Reference Referenz11_R2 = CATIA_SonderU_Part.Part.CreateReferenceFromName("");
+            ConstRadEdgeFillet Verrundung1_R2 = SonderU_3D.AddNewEdgeFilletWithConstantRadius(Referenz11_R2, CatFilletEdgePropagation.catTangencyFilletEdgePropagation, R2);
+            Reference Referenz21_R2 = CATIA_SonderU_Part.Part.CreateReferenceFromBRepName("REdge:(Edge:(Face:(Brp:(Pad.1;0:(Brp:(Sketch.1;3)));None:();Cf11:());Face:(Brp:(Pad.1;0:(Brp:(Sketch.1;2)));None:();Cf11:());None:(Limits1:();Limits2:());Cf11:());WithTemporaryBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)", SonderU_Pad);
+            Verrundung1_R2.AddObjectToFillet(Referenz21_R2);
+            Verrundung1_R2.set_Name("Verrundung1_R2 = " + R2);
+
+            // Kantenverrundung #2 für R2
+            Reference Referenz12_R2 = CATIA_SonderU_Part.Part.CreateReferenceFromName("");
+            ConstRadEdgeFillet Verrundung2_R2 = SonderU_3D.AddNewEdgeFilletWithConstantRadius(Referenz12_R2, CatFilletEdgePropagation.catTangencyFilletEdgePropagation, R2);
+            Reference Referenz22_R2 = CATIA_SonderU_Part.Part.CreateReferenceFromBRepName("REdge:(Edge:(Face:(Brp:(Pad.1;0:(Brp:(Sketch.1;6)));None:();Cf11:());Face:(Brp:(Pad.1;0:(Brp:(Sketch.1;5)));None:();Cf11:());None:(Limits1:();Limits2:());Cf11:());WithTemporaryBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)", SonderU_Pad);
+            Verrundung2_R2.AddObjectToFillet(Referenz22_R2);
+            Verrundung2_R2.set_Name("Verrundung2_R2 = " + R2);
 
             SonderU_Pad.set_Name("U-Profiltraeger");
 
