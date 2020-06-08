@@ -439,7 +439,7 @@ namespace ProfiRechner
             Sonder_T_Masse = Sonder_T_Volumen * SonderWSDichte;
 
             Sonder_T_SWP_X = ST.KlasseSonderTBreite / 2;
-            Sonder_T_SWP_Y = 0.5*(ST.KlasseSonderTBreite*Math.Pow(ST.KlasseSonderTHoehe,2)-Math.Pow(ST.KlasseSonderTHoehe-ST.KlasseSonderTFlanschbreite,2)*(ST.KlasseSonderTBreite-ST.KlasseSonderTStegbreite));
+            Sonder_T_SWP_Y = 0.5 * ((ST.KlasseSonderTBreite * Math.Pow(ST.KlasseSonderTHoehe, 2)- Math.Pow(ST.KlasseSonderTHoehe - ST.KlasseSonderTFlanschbreite, 2) * (ST.KlasseSonderTBreite - ST.KlasseSonderTStegbreite)))/(ST.KlasseSonderTBreite*ST.KlasseSonderTHoehe-(ST.KlasseSonderTBreite-ST.KlasseSonderTStegbreite)*(ST.KlasseSonderTHoehe-ST.KlasseSonderTFlanschbreite));
 
             FTM_X_grossesRechteckumSWPA = ST.KlasseSonderTBreite * Math.Pow(ST.KlasseSonderTHoehe, 3) / 12;
             FTM_X_grossesRechteckSteiner = ST.KlasseSonderTHoehe * ST.KlasseSonderTBreite * Math.Pow((ST.KlasseSonderTHoehe/2)-Sonder_T_SWP_Y, 2);
@@ -450,13 +450,15 @@ namespace ProfiRechner
             FTM_Y_grossesRechteckumSWPA = ST.KlasseSonderTHoehe * Math.Pow(ST.KlasseSonderTBreite, 3) / 12;
             FTM_Y_grossesRechteckSteiner = 0;
             FTM_Y_kleinesRechteckumSWPA = Math.Pow(((ST.KlasseSonderTBreite - ST.KlasseSonderTStegbreite) / 2),3) * (ST.KlasseSonderTHoehe - ST.KlasseSonderTFlanschbreite) / 12;
-            FTM_Y_kleinesRechteckSteiner = (ST.KlasseSonderTHoehe - ST.KlasseSonderTFlanschbreite) * (ST.KlasseSonderTBreite - ST.KlasseSonderTStegbreite) / 2 * Math.Pow((ST.KlasseSonderTBreite-ST.KlasseSonderTStegbreite)/4, 2);
+            FTM_Y_kleinesRechteckSteiner = ((ST.KlasseSonderTHoehe - ST.KlasseSonderTFlanschbreite) * (ST.KlasseSonderTBreite - ST.KlasseSonderTStegbreite) / 2) * Math.Pow((ST.KlasseSonderTBreite+ST.KlasseSonderTStegbreite)/4, 2);
             Sonder_T_FTM_Y = FTM_Y_grossesRechteckumSWPA + FTM_Y_grossesRechteckSteiner - 2 * (FTM_Y_kleinesRechteckumSWPA + FTM_Y_kleinesRechteckSteiner);
 
             // Runden
             Sonder_T_Flaeche = Math.Round(Sonder_T_Flaeche / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_T_Flaeche, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_T_Flaeche))));
             Sonder_T_Volumen = Math.Round(Sonder_T_Volumen / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_T_Volumen, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_T_Volumen))));
             Sonder_T_Masse = Math.Round(Sonder_T_Masse / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_T_Masse, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_T_Masse))));
+            Sonder_T_SWP_X = Math.Round(Sonder_T_SWP_X / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_T_SWP_X, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_T_SWP_X))));
+            Sonder_T_SWP_Y = Math.Round(Sonder_T_SWP_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_T_SWP_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_T_SWP_Y))));
             Sonder_T_FTM_X = Math.Round(Sonder_T_FTM_X / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_T_FTM_X, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_T_FTM_X))));
             Sonder_T_FTM_Y = Math.Round(Sonder_T_FTM_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_T_FTM_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_T_FTM_Y))));
 
@@ -527,25 +529,27 @@ namespace ProfiRechner
             Sonder_U_Volumen = Sonder_U_Flaeche * SU.KlasseSonderULaenge;
             Sonder_U_Masse = Sonder_U_Volumen * SonderWSDichte;
 
-            Sonder_U_SWP_X = SU.KlasseSonderUBreite / 2;
-            Sonder_U_SWP_Y = 0.5 * (SU.KlasseSonderUBreite*Math.Pow(SU.KlasseSonderUHoehe,2)-(SU.KlasseSonderUBreite-2*SU.KlasseSonderUStegbreite)*(SU.KlasseSonderUHoehe-SU.KlasseSonderUFlanschbreite)*(SU.KlasseSonderUFlanschbreite+SU.KlasseSonderUHoehe));
+            Sonder_U_SWP_X = ((Math.Pow(SU.KlasseSonderUBreite, 2) * SU.KlasseSonderUHoehe / 2) - (SU.KlasseSonderUBreite - SU.KlasseSonderUStegbreite) * (SU.KlasseSonderUHoehe - 2 * SU.KlasseSonderUFlanschbreite) * ((SU.KlasseSonderUStegbreite + SU.KlasseSonderUBreite) / 2))/((SU.KlasseSonderUBreite*SU.KlasseSonderUHoehe)-(SU.KlasseSonderUBreite-SU.KlasseSonderUStegbreite)*(SU.KlasseSonderUHoehe-2*SU.KlasseSonderUFlanschbreite));
+            Sonder_U_SWP_Y = SU.KlasseSonderUHoehe / 2;
 
             FTM_X_grossesRechteckumSWPA = SU.KlasseSonderUBreite*Math.Pow(SU.KlasseSonderUHoehe,3)/12;
-            FTM_X_grossesRechteckSteiner = SU.KlasseSonderUBreite*SU.KlasseSonderUHoehe*Math.Pow(((SU.KlasseSonderUHoehe)/2-Sonder_U_SWP_Y),2);
-            FTM_X_kleinesRechteckumSWPA = (SU.KlasseSonderUBreite-2*SU.KlasseSonderUStegbreite) * Math.Pow((SU.KlasseSonderUHoehe-SU.KlasseSonderUFlanschbreite), 3) / 12; ;
-            FTM_X_kleinesRechteckSteiner = (SU.KlasseSonderUBreite - 2 * SU.KlasseSonderUStegbreite) * Math.Pow((SU.KlasseSonderUHoehe - SU.KlasseSonderUFlanschbreite), 3) / 12;
+            FTM_X_grossesRechteckSteiner = 0;
+            FTM_X_kleinesRechteckumSWPA = (SU.KlasseSonderUBreite-2*SU.KlasseSonderUStegbreite) * Math.Pow((SU.KlasseSonderUHoehe-2*SU.KlasseSonderUFlanschbreite), 3) / 12;
+            FTM_X_kleinesRechteckSteiner = 0;
             Sonder_U_FTM_X = FTM_X_grossesRechteckumSWPA + FTM_X_grossesRechteckSteiner - (FTM_X_kleinesRechteckumSWPA + FTM_X_kleinesRechteckSteiner);
 
             FTM_Y_grossesRechteckumSWPA = SU.KlasseSonderUHoehe * Math.Pow(SU.KlasseSonderUBreite, 3) / 12;
-            FTM_Y_grossesRechteckSteiner = 0;
-            FTM_Y_kleinesRechteckumSWPA = (SU.KlasseSonderUHoehe - 2 * SU.KlasseSonderUFlanschbreite) * Math.Pow((SU.KlasseSonderUBreite - SU.KlasseSonderUStegbreite), 3) / 12; ;
-            FTM_Y_kleinesRechteckSteiner = 0;
+            FTM_Y_grossesRechteckSteiner = SU.KlasseSonderUHoehe * SU.KlasseSonderUBreite * Math.Pow(((SU.KlasseSonderUBreite/2)-Sonder_U_SWP_X),2);
+            FTM_Y_kleinesRechteckumSWPA = (SU.KlasseSonderUHoehe - 2 * SU.KlasseSonderUFlanschbreite) * Math.Pow((SU.KlasseSonderUBreite - SU.KlasseSonderUStegbreite), 3) / 12; 
+            FTM_Y_kleinesRechteckSteiner = (SU.KlasseSonderUHoehe-2*SU.KlasseSonderUFlanschbreite)*(SU.KlasseSonderUBreite-SU.KlasseSonderUStegbreite)*Math.Pow((((SU.KlasseSonderUBreite+SU.KlasseSonderUStegbreite)/2)-Sonder_U_SWP_X),2);
             Sonder_U_FTM_Y = FTM_Y_grossesRechteckumSWPA + FTM_Y_grossesRechteckSteiner - (FTM_Y_kleinesRechteckumSWPA + FTM_Y_kleinesRechteckSteiner);
 
             // Runden
             Sonder_U_Flaeche = Math.Round(Sonder_U_Flaeche / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_U_Flaeche, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_U_Flaeche))));
             Sonder_U_Volumen = Math.Round(Sonder_U_Volumen / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_U_Volumen, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_U_Volumen))));
             Sonder_U_Masse = Math.Round(Sonder_U_Masse / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_U_Masse, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_U_Masse))));
+            Sonder_U_SWP_X = Math.Round(Sonder_U_SWP_X / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_U_SWP_X, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_U_SWP_X))));
+            Sonder_U_SWP_Y = Math.Round(Sonder_U_SWP_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_U_SWP_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_U_SWP_Y))));
             Sonder_U_FTM_X = Math.Round(Sonder_U_FTM_X / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_U_FTM_X, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_U_FTM_X))));
             Sonder_U_FTM_Y = Math.Round(Sonder_U_FTM_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_U_FTM_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_U_FTM_Y))));
 
