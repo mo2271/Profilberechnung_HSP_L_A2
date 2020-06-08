@@ -475,17 +475,16 @@ namespace ProfiRechner
             lbl_Sonder_FTM_X_Ergebnis.Content = Sonder_T_FTM_X_String;
             lbl_Sonder_FTM_Y_Ergebnis.Content = Sonder_T_FTM_Y_String;
             lbl_Sonder_Schwerpunkt_Ergebnis.Content = Sonder_T_SWP_String;
+            
+            Sonder_T CatT = new Sonder_T();
 
-            Sonder_IPE CatIPE = new Sonder_IPE();
-            /*
-            if (CatIPE.CATIA_SonderIPE_Run())
+            if (CatT.CATIA_SonderT_Run())
             {
-                CatIPE.PartSonderIPE();
-                CatIPE.SonderIPE_CreateSketch();
-                CatIPE.SonderIPE_DrawSketch(SonderTBreite, SonderTHoehe, SonderTFlanschbreite, SonderTStegbreite);
-                CatIPE.SonderIPE_Extrusion(SonderTLaenge);
+                CatT.PartSonderT();
+                CatT.SonderT_CreateSketch();
+                CatT.SonderT_DrawSketch(SonderTBreite, SonderTHoehe, SonderTFlanschbreite, SonderTStegbreite);
+                CatT.SonderT_Extrusion(SonderTLaenge, SonderTFlanschbreite);
             }
-            */
         }
 
         #endregion
@@ -1997,7 +1996,7 @@ namespace ProfiRechner
                                                                 }
                                                                 if (Zeichenlaenge_sb.Length < 2)
                                                                 {
-                                                                    //Aufruf der Berechnung
+                                                                    T_Profil_Berechnung();
                                                                 }
                                                             }
                                                         }
@@ -2538,6 +2537,11 @@ namespace ProfiRechner
             Kontrolle_U_Profil();
         }
 
+        private void btn_StartT_Berechnung_Click(object sender, RoutedEventArgs e)
+        {
+            Kontrolle_T_Profil();
+        }
+
         #region Checkboxen Profilwahl
         private void ChB_Sonder_I_Profil_Checked(object sender, RoutedEventArgs e)
         {
@@ -2665,6 +2669,7 @@ namespace ProfiRechner
             lbl_U_Flanschbreite.Content = tbx_Input_SonderFlanschbreite.Text;
             lbl_T_Flanschbreite.Content = tbx_Input_SonderFlanschbreite.Text;
         }
+
 
 
 
