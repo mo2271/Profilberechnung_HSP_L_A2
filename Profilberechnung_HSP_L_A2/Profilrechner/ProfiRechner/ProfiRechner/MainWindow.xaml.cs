@@ -1459,7 +1459,20 @@ namespace ProfiRechner
                                                                 }
                                                                 if (Zeichenlaenge_sb.Length < 2)
                                                                 {
-                                                                    I_Profil_Berechnung();      //Aufruf der Berechnung
+                                                                    //Aufruf der Berechnung
+                                                                    if (ChB_Sonder_I_Profil.Content.Equals("I-Profil"))
+                                                                    {
+                                                                        I_Profil_Berechnung();
+                                                                    }
+                                                                    else if (ChB_Sonder_I_Profil.Content.Equals("U-Profil"))
+                                                                    {
+                                                                        U_Profil_Berechnung();
+                                                                    }
+                                                                    else if (ChB_Sonder_I_Profil.Content.Equals("T-Profil"))
+                                                                    {
+                                                                        T_Profil_Berechnung();
+                                                                    }
+
                                                                 }
                                                             }
                                                         }
