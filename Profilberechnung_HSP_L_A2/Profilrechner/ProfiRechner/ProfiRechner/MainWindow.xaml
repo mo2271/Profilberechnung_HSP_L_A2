@@ -225,7 +225,7 @@
                         </Label.RenderTransform>
                     </Label>
                     <Button x:Name="btn_StartIPE_Berechnung" Content="Berechne I-Profil" Grid.Column="2" Margin="60,0,60,50" Height="30" VerticalAlignment="Bottom" Click="btn_StartIPE_Berechnung_Click" Visibility="Hidden"/>
-                    <Button x:Name="btn_StartU_Berechnung" Content="Berechne U-Profil" Grid.Column="2" Margin="60,0,60,50" Height="30" VerticalAlignment="Bottom" Visibility="Hidden"/>
+                    <Button x:Name="btn_StartU_Berechnung" Content="Berechne U-Profil" Grid.Column="2" Margin="60,0,60,50" Height="30" VerticalAlignment="Bottom" Visibility="Hidden" Click="btn_StartU_Berechnung_Click"/>
                     <Button x:Name="btn_StartT_Berechnung" Content="Berechne T-Profil" Grid.Column="2" Margin="60,0,60,50" Height="30" VerticalAlignment="Bottom" Visibility="Hidden"/>
                     <Label x:Name="lbl_Sonder_Werkstoff" Content="Bitte wählen Sie einen Werkstoff aus:" HorizontalAlignment="Left" Height="28" Margin="153,50,0,0" VerticalAlignment="Top" Width="300" Grid.Column="0"/>
                     <ComboBox x:Name="CoB_Sonder_WS" Grid.Column="1" HorizontalAlignment="Left" Margin="30,50,0,0" VerticalAlignment="Top" Width="120">
