@@ -129,7 +129,7 @@
                     <Label x:Name="lbl_Kreis_Schwerpunkt" Content="Schwerpunkt:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Kreis_FTM_X" Content="FTM um die X-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Kreis_FTM_Y" Content="FTM um die Y-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Kreis_Preis" Content="Preis pro lfd. Meter [€/m]:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Kreis_Preis" Content="Preis:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Kreis_Fläche_Ergebnis" Content="Ergebnis 1:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Label x:Name="lbl_Kreis_Volumen_Ergebnis" Content="Ergebnis 2:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Label x:Name="lbl_Kreis_Masse_Ergebnis" Content="Ergebnis 3:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
@@ -189,7 +189,7 @@
                     <Label x:Name="lbl_Sonder_Schwerpunkt" Content="Schwerpunkt:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Sonder_FTM_X" Content="FTM um die X-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Sonder_FTM_Y" Content="FTM um die Y-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Sonder_Preis" Content="Preis pro lfd. Meter:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Sonder_Preis" Content="Preis:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Sonder_Fläche_Ergebnis" Content="Ergebnis 1:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Label x:Name="lbl_Sonder_Volumen_Ergebnis" Content="Ergebnis 2:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Label x:Name="lbl_Sonder_Masse_Ergebnis" Content="Ergebnis 3:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
@@ -197,12 +197,12 @@
                     <Label x:Name="lbl_Sonder_FTM_X_Ergebnis" Content="Ergebnis 5:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,270,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Label x:Name="lbl_Sonder_FTM_Y_Ergebnis" Content="Ergebnis 6:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,300,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Label x:Name="lbl_Sonder_Preis_Ergebnis" Content="Ergebnis 7:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,330,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
-                    <ComboBox x:Name="CoB_Sonder_Auswahl_Einheit" Grid.Column="1" HorizontalAlignment="Left" Margin="30.2,80,0,0" VerticalAlignment="Top" Width="120">
+                    <ComboBox x:Name="CoB_Sonder_Auswahl_Einheit" Grid.Column="1" HorizontalAlignment="Left" Margin="30,80,0,0" VerticalAlignment="Top" Width="120">
                         <ComboBoxItem x:Name="Sonder_Einheit_mm" Content="mm"/>
                         <ComboBoxItem x:Name="Sonder_Einheit_cm" Content="cm"/>
                         <ComboBoxItem x:Name="Sonder_Einheit_m" Content="m"/>
                     </ComboBox>
-                    <Label x:Name="lbl_Sonder_Hinweis_Einheiten" Content="Bitte wählen Sie eine Einheit aus:" Margin="190,80,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="200"/>
+                    <Label x:Name="lbl_Sonder_Hinweis_Einheiten" Content="Bitte wählen Sie eine Einheit aus:" Margin="153,76,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="200"/>
                     <Image x:Name="img_IPE_Profil" Margin="10,155,115,155" Source="IPE-Profil.png" Visibility="Hidden"/>
                     <Label x:Name="lbl_Input_IPEBreite" Content="Breite:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,160,0,0" VerticalAlignment="Top" Width="90"/>
                     <Label x:Name="lbl_Input_IPEHoehe" Content="Höhe:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,200,0,0" VerticalAlignment="Top" Width="90"/>
