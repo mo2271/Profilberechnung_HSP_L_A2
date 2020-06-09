@@ -36,22 +36,25 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_RechteckLaenge.Text, out double RechteckLaenge);
             String RechteckEinheit = Convert.ToString(CoB_Rechteck_Auswahl_Einheit.SelectionBoxItem);
             Double RechteckWSDichte = CoB_Rechteck_WS.Text.Equals("Stahl") ? 7850 : 2700;
+            Double.TryParse(tbx_Input_RechteckPreisProMeter.Text, out double RechteckPreisProMeter);
 
             // Klasse Rechteckprofil
             Rechteck R = new Rechteck();
             R.setGeometrie(RechteckBreite, RechteckHoehe, RechteckLaenge);
 
             // neue Variablen
-            double Rechteck_Flaeche, Rechteck_Volumen, Rechteck_FTM_X, Rechteck_FTM_Y, Rechteck_SWP_X, Rechteck_SWP_Y, Rechteck_Masse;
+            double Rechteck_Flaeche, Rechteck_Volumen, Rechteck_FTM_X, Rechteck_FTM_Y, Rechteck_SWP_X, Rechteck_SWP_Y, Rechteck_Masse, Rechteck_Preis;
 
             // Einheitenumrechnung
             if (RechteckEinheit.Equals("mm"))
             {
                 RechteckWSDichte = RechteckWSDichte / Math.Pow(10, 9);
+                RechteckPreisProMeter = RechteckPreisProMeter / Math.Pow(10, 3);
             }
             else if (RechteckEinheit.Equals("cm"))
             {
                 RechteckWSDichte = RechteckWSDichte / Math.Pow(10, 6);
+                RechteckPreisProMeter = RechteckPreisProMeter / Math.Pow(10, 2);
             }
 
             // Berechnungen
@@ -62,6 +65,7 @@ namespace ProfiRechner
             Rechteck_FTM_Y = R.KlasseRechteckHoehe * Math.Pow(R.KlasseRechteckBreite, 3) / 12;
             Rechteck_SWP_X = R.KlasseRechteckBreite / 2;
             Rechteck_SWP_Y = R.KlasseRechteckHoehe / 2;
+            Rechteck_Preis = RechteckPreisProMeter * R.KlasseRechteckLaenge;
 
             // Runden      
             Rechteck_Flaeche = Math.Round(Rechteck_Flaeche / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_Flaeche, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_Flaeche))));
@@ -69,6 +73,8 @@ namespace ProfiRechner
             Rechteck_Masse = Math.Round(Rechteck_Masse / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_Masse, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_Masse))));
             Rechteck_FTM_X = Math.Round(Rechteck_FTM_X / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_FTM_X, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_FTM_X))));
             Rechteck_FTM_Y = Math.Round(Rechteck_FTM_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_FTM_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_FTM_Y))));
+            Rechteck_Preis = Math.Round(Rechteck_Preis / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_Preis, 2))))), 2) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_Preis))));
+
 
             // Umwandlung in String
             string Rechteck_Flaeche_String = Convert.ToString(Rechteck_Flaeche) + " " + RechteckEinheit + "²";
@@ -77,6 +83,7 @@ namespace ProfiRechner
             string Rechteck_FTM_X_String = Convert.ToString(Rechteck_FTM_X) + " " + RechteckEinheit + "^4";
             string Rechteck_FTM_Y_String = Convert.ToString(Rechteck_FTM_Y) + " " + RechteckEinheit + "^4";
             string Rechteck_SWP_String = "(x=" + Rechteck_SWP_X + " " + RechteckEinheit + "/y=" + Rechteck_SWP_Y + " " + RechteckEinheit + ")";
+            string Rechteck_Preis_String = Convert.ToString(Rechteck_Preis) + " €";
 
             // Übergabe Ergebnisse
             lbl_Rechteck_Fläche_Ergebnis.Content = Rechteck_Flaeche_String;
@@ -85,6 +92,7 @@ namespace ProfiRechner
             lbl_Rechteck_FTM_X_Ergebnis.Content = Rechteck_FTM_X_String;
             lbl_Rechteck_FTM_Y_Ergebnis.Content = Rechteck_FTM_Y_String;
             lbl_Rechteck_Schwerpunkt_Ergebnis.Content = Rechteck_SWP_String;
+            lbl_Rechteck_Preis_Ergebnis.Content = Rechteck_Preis_String;
 
             Rechteck CatR = new Rechteck();
 
@@ -110,22 +118,25 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_Rechteck_hohl_Wall.Text, out double RechteckHohlWandstaerke);
             String RechteckEinheit = Convert.ToString(CoB_Rechteck_Auswahl_Einheit.SelectionBoxItem);
             Double RechteckWSDichte = CoB_Rechteck_WS.Text.Equals("Stahl") ? 7850 : 2700;
+            Double.TryParse(tbx_Input_RechteckPreisProMeter.Text, out double RechteckHohlPreisProMeter);
 
             // Klasse Rechteckhohlprofil
             Rechteck_Hohl RH = new Rechteck_Hohl();
             RH.setGeometrie(RechteckHohlBreite, RechteckHohlHoehe, RechteckHohlLaenge, RechteckHohlWandstaerke);
 
             // neue Variablen
-            double Rechteck_Hohl_Flaeche, Rechteck_Hohl_Volumen, Rechteck_Hohl_FTM_X, Rechteck_Hohl_FTM_Y, Rechteck_Hohl_SWP_X, Rechteck_Hohl_SWP_Y, Rechteck_Hohl_Masse;
+            double Rechteck_Hohl_Flaeche, Rechteck_Hohl_Volumen, Rechteck_Hohl_FTM_X, Rechteck_Hohl_FTM_Y, Rechteck_Hohl_SWP_X, Rechteck_Hohl_SWP_Y, Rechteck_Hohl_Masse, Rechteck_Hohl_Preis;
 
             // Einheitenumrechnung
             if (RechteckEinheit.Equals("mm"))
             {
                 RechteckWSDichte = RechteckWSDichte / Math.Pow(10, 9);
+                RechteckHohlPreisProMeter = RechteckHohlPreisProMeter / Math.Pow(10, 3);
             }
             else if (RechteckEinheit.Equals("cm"))
             {
                 RechteckWSDichte = RechteckWSDichte / Math.Pow(10, 6);
+                RechteckHohlPreisProMeter = RechteckHohlPreisProMeter / Math.Pow(10, 2);
             }
             // Berechnungen
             Rechteck_Hohl_Flaeche = RH.KlasseRechteckHohlBreite * RH.KlasseRechteckHohlHoehe - (RH.KlasseRechteckHohlBreite - 2 * RH.KlasseRechteckHohlWandstaerke) * (RH.KlasseRechteckHohlHoehe - 2 * RH.KlasseRechteckHohlWandstaerke);
@@ -135,6 +146,7 @@ namespace ProfiRechner
             Rechteck_Hohl_FTM_Y = RH.KlasseRechteckHohlHoehe * Math.Pow(RH.KlasseRechteckHohlBreite, 3) / 12 - (RH.KlasseRechteckHohlHoehe - 2 * RH.KlasseRechteckHohlWandstaerke) * Math.Pow((RH.KlasseRechteckHohlBreite - 2 * RH.KlasseRechteckHohlWandstaerke), 3) / 12;
             Rechteck_Hohl_SWP_X = RH.KlasseRechteckHohlBreite / 2;
             Rechteck_Hohl_SWP_Y = RH.KlasseRechteckHohlHoehe / 2;
+            Rechteck_Hohl_Preis = RechteckHohlPreisProMeter * RH.KlasseRechteckHohlLaenge;
 
             // Runden
             Rechteck_Hohl_Flaeche = Math.Round(Rechteck_Hohl_Flaeche / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_Hohl_Flaeche, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_Hohl_Flaeche))));
@@ -142,6 +154,7 @@ namespace ProfiRechner
             Rechteck_Hohl_Masse = Math.Round(Rechteck_Hohl_Masse / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_Hohl_Masse, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_Hohl_Masse))));
             Rechteck_Hohl_FTM_X = Math.Round(Rechteck_Hohl_FTM_X / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_Hohl_FTM_X, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_Hohl_FTM_X))));
             Rechteck_Hohl_FTM_Y = Math.Round(Rechteck_Hohl_FTM_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_Hohl_FTM_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_Hohl_FTM_Y))));
+            Rechteck_Hohl_Preis = Math.Round(Rechteck_Hohl_Preis / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Rechteck_Hohl_Preis, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Rechteck_Hohl_Preis))));
 
             // Umwandlung in String
             string Rechteck_Hohl_Flaeche_String = Convert.ToString(Rechteck_Hohl_Flaeche) + " " + RechteckEinheit + "²";
@@ -150,6 +163,7 @@ namespace ProfiRechner
             string Rechteck_Hohl_FTM_X_String = Convert.ToString(Rechteck_Hohl_FTM_X) + " " + RechteckEinheit + "^4";
             string Rechteck_Hohl_FTM_Y_String = Convert.ToString(Rechteck_Hohl_FTM_Y) + " " + RechteckEinheit + "^4";
             string Rechteck_Hohl_SWP_String = "(x=" + Rechteck_Hohl_SWP_X + " " + RechteckEinheit + "/y=" + Rechteck_Hohl_SWP_Y + " " + RechteckEinheit + ")";
+            string Rechteck_Hohl_Preis_String = Convert.ToString(Rechteck_Hohl_Preis) + " €";
 
             // Übergabe Ergebnisse
             lbl_Rechteck_Fläche_Ergebnis.Content = Rechteck_Hohl_Flaeche_String;
@@ -158,6 +172,7 @@ namespace ProfiRechner
             lbl_Rechteck_FTM_X_Ergebnis.Content = Rechteck_Hohl_FTM_X_String;
             lbl_Rechteck_FTM_Y_Ergebnis.Content = Rechteck_Hohl_FTM_Y_String;
             lbl_Rechteck_Schwerpunkt_Ergebnis.Content = Rechteck_Hohl_SWP_String;
+            lbl_Rechteck_Preis_Ergebnis.Content = Rechteck_Hohl_Preis_String;
 
             Rechteck_Hohl CatR_hohl = new Rechteck_Hohl();
 
@@ -181,22 +196,25 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_KreisLaenge.Text, out double KreisLaenge);
             String KreisEinheit = Convert.ToString(CoB_Kreis_Auswahl_Einheit.SelectionBoxItem);
             Double KreisWSDichte = CoB_Kreis_WS.Text.Equals("Stahl") ? 7850 : 2700;
+            Double.TryParse(tbx_Input_KreisPreisProMeter.Text, out double KreisPreisProMeter);
 
             // Klasse Kreisprofil
             Kreis K = new Kreis();
             K.setGeometrie(KreisDurchmesser, KreisLaenge);
 
             // neue Variablen
-            double Kreis_Flaeche, Kreis_Volumen, Kreis_FTM_X, Kreis_FTM_Y, Kreis_SWP_X, Kreis_SWP_Y, Kreis_Masse;
+            double Kreis_Flaeche, Kreis_Volumen, Kreis_FTM_X, Kreis_FTM_Y, Kreis_SWP_X, Kreis_SWP_Y, Kreis_Masse, Kreis_Preis;
 
             // Einheitenumrechnung
             if (KreisEinheit.Equals("mm"))
             {
                 KreisWSDichte = KreisWSDichte / Math.Pow(10, 9);
+                KreisPreisProMeter = KreisPreisProMeter / Math.Pow(10, 3);
             }
             else if (KreisEinheit.Equals("cm"))
             {
                 KreisWSDichte = KreisWSDichte / Math.Pow(10, 6);
+                KreisPreisProMeter = KreisPreisProMeter / Math.Pow(10, 2);
             }
 
             // Berechnungen
@@ -207,6 +225,7 @@ namespace ProfiRechner
             Kreis_FTM_Y = Kreis_FTM_X;
             Kreis_SWP_X = K.KlasseKreisDurchmesser / 2;
             Kreis_SWP_Y = K.KlasseKreisDurchmesser / 2;
+            Kreis_Preis = KreisPreisProMeter * K.KlasseKreisLaenge;
 
             // Runden
             Kreis_Flaeche = Math.Round(Kreis_Flaeche / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_Flaeche, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_Flaeche))));
@@ -214,6 +233,8 @@ namespace ProfiRechner
             Kreis_Masse = Math.Round(Kreis_Masse / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_Masse, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_Masse))));
             Kreis_FTM_X = Math.Round(Kreis_FTM_X / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_FTM_X, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_FTM_X))));
             Kreis_FTM_Y = Math.Round(Kreis_FTM_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_FTM_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_FTM_Y))));
+            Kreis_Preis = Math.Round(Kreis_Preis / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_Preis, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_Preis))));
+
 
             // Umwandlung in String
             string Kreis_Flaeche_String = Convert.ToString(Kreis_Flaeche) + " " + KreisEinheit + "²";
@@ -222,6 +243,7 @@ namespace ProfiRechner
             string Kreis_FTM_X_String = Convert.ToString(Kreis_FTM_X) + " " + KreisEinheit + "^4";
             string Kreis_FTM_Y_String = Convert.ToString(Kreis_FTM_Y) + " " + KreisEinheit + "^4";
             string Kreis_SWP_String = "(x=" + Kreis_SWP_X + " " + KreisEinheit + "/y=" + Kreis_SWP_Y + " " + KreisEinheit + ")";
+            string Kreis_Preis_String = Convert.ToString(Kreis_Preis) + " €";
 
             // Übergabe Ergebnisse
             lbl_Kreis_Fläche_Ergebnis.Content = Kreis_Flaeche_String;
@@ -230,6 +252,7 @@ namespace ProfiRechner
             lbl_Kreis_FTM_X_Ergebnis.Content = Kreis_FTM_X_String;
             lbl_Kreis_FTM_Y_Ergebnis.Content = Kreis_FTM_Y_String;
             lbl_Kreis_Schwerpunkt_Ergebnis.Content = Kreis_SWP_String;
+            lbl_Kreis_Preis_Ergebnis.Content = Kreis_Preis_String;
 
             Kreis CatKr = new Kreis();
 
@@ -254,22 +277,25 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_Kreis_hohlWandstaerke.Text, out double KreisHohlWandstaerke);
             String KreisEinheit = Convert.ToString(CoB_Kreis_Auswahl_Einheit.SelectionBoxItem);
             Double KreisWSDichte = CoB_Kreis_WS.Text.Equals("Stahl") ? 7850 : 2700;
+            Double.TryParse(tbx_Input_KreisPreisProMeter.Text, out double KreisHohlPreisProMeter);
 
             // Klasse Kreishohlprofil
             Kreis_Hohl KH = new Kreis_Hohl();
             KH.setGeometrie(KreisHohlDurchmesser, KreisHohlLaenge, KreisHohlWandstaerke);
 
             // neue Variablen
-            double Kreis_Hohl_Flaeche, Kreis_Hohl_Volumen, Kreis_Hohl_FTM_X, Kreis_Hohl_FTM_Y, Kreis_Hohl_SWP_X, Kreis_Hohl_SWP_Y, Kreis_Hohl_Masse;
+            double Kreis_Hohl_Flaeche, Kreis_Hohl_Volumen, Kreis_Hohl_FTM_X, Kreis_Hohl_FTM_Y, Kreis_Hohl_SWP_X, Kreis_Hohl_SWP_Y, Kreis_Hohl_Masse, Kreis_Hohl_Preis;
 
             // Einheitenumrechnung
             if (KreisEinheit.Equals("mm"))
             {
                 KreisWSDichte = KreisWSDichte / Math.Pow(10, 9);
+                KreisHohlPreisProMeter = KreisHohlPreisProMeter / Math.Pow(10, 3);
             }
             else if (KreisEinheit.Equals("cm"))
             {
                 KreisWSDichte = KreisWSDichte / Math.Pow(10, 6);
+                KreisHohlPreisProMeter = KreisHohlPreisProMeter / Math.Pow(10, 2);
             }
 
             // Berechnungen
@@ -280,6 +306,7 @@ namespace ProfiRechner
             Kreis_Hohl_FTM_Y = Kreis_Hohl_FTM_X;
             Kreis_Hohl_SWP_X = KH.KlasseKreisHohlDurchmesser / 2;
             Kreis_Hohl_SWP_Y = KH.KlasseKreisHohlDurchmesser / 2;
+            Kreis_Hohl_Preis = KreisHohlPreisProMeter * KH.KlasseKreisHohlLaenge;
 
             // Runden
             Kreis_Hohl_Flaeche = Math.Round(Kreis_Hohl_Flaeche / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_Hohl_Flaeche, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_Hohl_Flaeche))));
@@ -287,6 +314,7 @@ namespace ProfiRechner
             Kreis_Hohl_Masse = Math.Round(Kreis_Hohl_Masse / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_Hohl_Masse, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_Hohl_Masse))));
             Kreis_Hohl_FTM_X = Math.Round(Kreis_Hohl_FTM_X / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_Hohl_FTM_X, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_Hohl_FTM_X))));
             Kreis_Hohl_FTM_Y = Math.Round(Kreis_Hohl_FTM_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_Hohl_FTM_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_Hohl_FTM_Y))));
+            Kreis_Hohl_Preis = Math.Round(Kreis_Hohl_Preis / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Kreis_Hohl_Preis, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Kreis_Hohl_Preis))));
 
             // Umwandlung in String
             string Kreis_Hohl_Flaeche_String = Convert.ToString(Kreis_Hohl_Flaeche) + " " + KreisEinheit + "²";
@@ -295,6 +323,7 @@ namespace ProfiRechner
             string Kreis_Hohl_FTM_X_String = Convert.ToString(Kreis_Hohl_FTM_X) + " " + KreisEinheit + "^4";
             string Kreis_Hohl_FTM_Y_String = Convert.ToString(Kreis_Hohl_FTM_Y) + " " + KreisEinheit + "^4";
             string Kreis_Hohl_SWP_String = "(x=" + Kreis_Hohl_SWP_X + " " + KreisEinheit + "/y=" + Kreis_Hohl_SWP_Y + " " + KreisEinheit + ")";
+            string Kreis_Hohl_Preis_String = Convert.ToString(Kreis_Hohl_Preis) + " €";
 
             // Übergabe Ergebnisse
             lbl_Kreis_Fläche_Ergebnis.Content = Kreis_Hohl_Flaeche_String;
@@ -303,6 +332,7 @@ namespace ProfiRechner
             lbl_Kreis_FTM_X_Ergebnis.Content = Kreis_Hohl_FTM_X_String;
             lbl_Kreis_FTM_Y_Ergebnis.Content = Kreis_Hohl_FTM_Y_String;
             lbl_Kreis_Schwerpunkt_Ergebnis.Content = Kreis_Hohl_SWP_String;
+            lbl_Kreis_Preis_Ergebnis.Content = Kreis_Hohl_Preis_String;
 
             Kreis_Hohl CatKr_hohl = new Kreis_Hohl();
 
@@ -329,22 +359,25 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_IPELaenge.Text, out double SonderIPELaenge);
             String SonderEinheit = Convert.ToString(CoB_Sonder_Auswahl_Einheit.SelectionBoxItem);
             Double SonderWSDichte = CoB_Sonder_WS.Text.Equals("Stahl") ? 7850 : 2700;
+            Double.TryParse(tbx_Input_SonderPreisProMeter.Text, out double SonderIPEPreisProMeter);
 
             // Klasse SonderIPEProfil
             Sonder_IPE SIPE = new Sonder_IPE();
             SIPE.setGeometrie(SonderIPEHoehe, SonderIPEBreite, SonderIPEFlanschbreite, SonderIPEStegbreite, SonderIPELaenge);
 
             // neue Variablen
-            double Sonder_IPE_Flaeche, Sonder_IPE_Volumen, Sonder_IPE_FTM_X, Sonder_IPE_FTM_Y, Sonder_IPE_SWP_X, Sonder_IPE_SWP_Y, Sonder_IPE_Masse;
+            double Sonder_IPE_Flaeche, Sonder_IPE_Volumen, Sonder_IPE_FTM_X, Sonder_IPE_FTM_Y, Sonder_IPE_SWP_X, Sonder_IPE_SWP_Y, Sonder_IPE_Masse, Sonder_IPE_Preis;
 
             // Einheitenumrechnung
             if (SonderEinheit.Equals("mm"))
             {
                 SonderWSDichte = SonderWSDichte / Math.Pow(10, 9);
+                SonderIPEPreisProMeter = SonderIPEPreisProMeter / Math.Pow(10, 3);
             }
             else if (SonderEinheit.Equals("cm"))
             {
                 SonderWSDichte = SonderWSDichte / Math.Pow(10, 6);
+                SonderIPEPreisProMeter = SonderIPEPreisProMeter / Math.Pow(10, 2);
             }
 
             // Hilfsgrößen, da Formeln für FTMX und FTMY sehr lang
@@ -363,6 +396,7 @@ namespace ProfiRechner
             Sonder_IPE_FTM_Y = FTM_Y_grossesRechteck - 2 * (FTM_Y_kleinesRechteckumSWPA + FTM_Y_kleinesRechteckSteiner);
             Sonder_IPE_SWP_X = SIPE.KlasseSonderIPEHoehe / 2;
             Sonder_IPE_SWP_Y = SIPE.KlasseSonderIPEBreite / 2;
+            Sonder_IPE_Preis = SonderIPEPreisProMeter * SIPE.KlasseSonderIPELaenge;
 
             // Runden
             Sonder_IPE_Flaeche = Math.Round(Sonder_IPE_Flaeche / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_IPE_Flaeche, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_IPE_Flaeche))));
@@ -370,6 +404,7 @@ namespace ProfiRechner
             Sonder_IPE_Masse = Math.Round(Sonder_IPE_Masse / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_IPE_Masse, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_IPE_Masse))));
             Sonder_IPE_FTM_X = Math.Round(Sonder_IPE_FTM_X / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_IPE_FTM_X, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_IPE_FTM_X))));
             Sonder_IPE_FTM_Y = Math.Round(Sonder_IPE_FTM_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_IPE_FTM_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_IPE_FTM_Y))));
+            Sonder_IPE_Preis = Math.Round(Sonder_IPE_Preis / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_IPE_Preis, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_IPE_Preis))));
 
             // Umwandlung in String
             string Sonder_IPE_Flaeche_String = Convert.ToString(Sonder_IPE_Flaeche) + " " + SonderEinheit + "²";
@@ -378,6 +413,7 @@ namespace ProfiRechner
             string Sonder_IPE_FTM_X_String = Convert.ToString(Sonder_IPE_FTM_X) + " " + SonderEinheit + "^4";
             string Sonder_IPE_FTM_Y_String = Convert.ToString(Sonder_IPE_FTM_Y) + " " + SonderEinheit + "^4";
             string Sonder_IPE_SWP_String = "(x=" + Sonder_IPE_SWP_X + " " + SonderEinheit + "/y=" + Sonder_IPE_SWP_Y + " " + SonderEinheit + ")";
+            string Sonder_IPE_Preis_String = Convert.ToString(Sonder_IPE_Preis) + " €";
 
             // Übergabe Ergebnisse
             lbl_Sonder_Fläche_Ergebnis.Content = Sonder_IPE_Flaeche_String;
@@ -386,6 +422,7 @@ namespace ProfiRechner
             lbl_Sonder_FTM_X_Ergebnis.Content = Sonder_IPE_FTM_X_String;
             lbl_Sonder_FTM_Y_Ergebnis.Content = Sonder_IPE_FTM_Y_String;
             lbl_Sonder_Schwerpunkt_Ergebnis.Content = Sonder_IPE_SWP_String;
+            lbl_Sonder_Preis_Ergebnis.Content = Sonder_IPE_Preis_String;
 
             Sonder_IPE CatIPE = new Sonder_IPE();
 
@@ -412,22 +449,25 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_IPELaenge.Text, out double SonderTLaenge);
             String SonderEinheit = Convert.ToString(CoB_Sonder_Auswahl_Einheit.SelectionBoxItem);
             Double SonderWSDichte = CoB_Sonder_WS.Text.Equals("Stahl") ? 7850 : 2700;
+            Double.TryParse(tbx_Input_SonderPreisProMeter.Text, out double SonderTPreisProMeter);
 
             // Klasse SonderTProfil
             Sonder_T ST = new Sonder_T();
             ST.setGeometrie(SonderTHoehe, SonderTBreite, SonderTFlanschbreite, SonderTStegbreite, SonderTLaenge);
 
             // neue Variablen
-            double Sonder_T_Flaeche, Sonder_T_Volumen, Sonder_T_FTM_X, Sonder_T_FTM_Y, Sonder_T_SWP_X, Sonder_T_SWP_Y, Sonder_T_Masse;
+            double Sonder_T_Flaeche, Sonder_T_Volumen, Sonder_T_FTM_X, Sonder_T_FTM_Y, Sonder_T_SWP_X, Sonder_T_SWP_Y, Sonder_T_Masse, Sonder_T_Preis;
 
             // Einheitenumrechnung
             if (SonderEinheit.Equals("mm"))
             {
                 SonderWSDichte = SonderWSDichte / Math.Pow(10, 9);
+                SonderTPreisProMeter = SonderTPreisProMeter / Math.Pow(10, 3);
             }
             else if (SonderEinheit.Equals("cm"))
             {
                 SonderWSDichte = SonderWSDichte / Math.Pow(10, 6);
+                SonderTPreisProMeter = SonderTPreisProMeter / Math.Pow(10, 2);
             }
 
             // Hilfsgrößen, da Formeln für FTMX und FTMY sehr lang
@@ -452,6 +492,7 @@ namespace ProfiRechner
             FTM_Y_kleinesRechteckumSWPA = Math.Pow(((ST.KlasseSonderTBreite - ST.KlasseSonderTStegbreite) / 2),3) * (ST.KlasseSonderTHoehe - ST.KlasseSonderTFlanschbreite) / 12;
             FTM_Y_kleinesRechteckSteiner = ((ST.KlasseSonderTHoehe - ST.KlasseSonderTFlanschbreite) * (ST.KlasseSonderTBreite - ST.KlasseSonderTStegbreite) / 2) * Math.Pow((ST.KlasseSonderTBreite+ST.KlasseSonderTStegbreite)/4, 2);
             Sonder_T_FTM_Y = FTM_Y_grossesRechteckumSWPA + FTM_Y_grossesRechteckSteiner - 2 * (FTM_Y_kleinesRechteckumSWPA + FTM_Y_kleinesRechteckSteiner);
+            Sonder_T_Preis = SonderTPreisProMeter * ST.KlasseSonderTLaenge;
 
             // Runden
             Sonder_T_Flaeche = Math.Round(Sonder_T_Flaeche / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_T_Flaeche, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_T_Flaeche))));
@@ -461,6 +502,7 @@ namespace ProfiRechner
             Sonder_T_SWP_Y = Math.Round(Sonder_T_SWP_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_T_SWP_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_T_SWP_Y))));
             Sonder_T_FTM_X = Math.Round(Sonder_T_FTM_X / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_T_FTM_X, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_T_FTM_X))));
             Sonder_T_FTM_Y = Math.Round(Sonder_T_FTM_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_T_FTM_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_T_FTM_Y))));
+            Sonder_T_Preis = Math.Round(Sonder_T_Preis / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_T_Preis, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_T_Preis))));
 
             // Umwandlung in String
             string Sonder_T_Flaeche_String = Convert.ToString(Sonder_T_Flaeche) + " " + SonderEinheit + "²";
@@ -469,6 +511,7 @@ namespace ProfiRechner
             string Sonder_T_FTM_X_String = Convert.ToString(Sonder_T_FTM_X) + " " + SonderEinheit + "^4";
             string Sonder_T_FTM_Y_String = Convert.ToString(Sonder_T_FTM_Y) + " " + SonderEinheit + "^4";
             string Sonder_T_SWP_String = "(x=" + Sonder_T_SWP_X + " " + SonderEinheit + "/y=" + Sonder_T_SWP_Y + " " + SonderEinheit + ")";
+            string Sonder_T_Preis_String = Convert.ToString(Sonder_T_Preis) + " €";
 
             // Übergabe Ergebnisse
             lbl_Sonder_Fläche_Ergebnis.Content = Sonder_T_Flaeche_String;
@@ -477,7 +520,8 @@ namespace ProfiRechner
             lbl_Sonder_FTM_X_Ergebnis.Content = Sonder_T_FTM_X_String;
             lbl_Sonder_FTM_Y_Ergebnis.Content = Sonder_T_FTM_Y_String;
             lbl_Sonder_Schwerpunkt_Ergebnis.Content = Sonder_T_SWP_String;
-            
+            lbl_Sonder_Preis_Ergebnis.Content = Sonder_T_Preis_String;
+
             Sonder_T CatT = new Sonder_T();
 
             if (CatT.CATIA_SonderT_Run())
@@ -503,22 +547,25 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_IPELaenge.Text, out double SonderULaenge);
             String SonderEinheit = Convert.ToString(CoB_Sonder_Auswahl_Einheit.SelectionBoxItem);
             Double SonderWSDichte = CoB_Sonder_WS.Text.Equals("Stahl") ? 7850 : 2700;
+            Double.TryParse(tbx_Input_SonderPreisProMeter.Text, out double SonderUPreisProMeter);
 
             // Klasse SonderUProfil
             Sonder_U SU = new Sonder_U();
             SU.setGeometrie(SonderUHoehe, SonderUBreite, SonderUFlanschbreite, SonderUStegbreite, SonderULaenge);
 
             // neue Variablen
-            double Sonder_U_Flaeche, Sonder_U_Volumen, Sonder_U_FTM_X, Sonder_U_FTM_Y, Sonder_U_SWP_X, Sonder_U_SWP_Y, Sonder_U_Masse;
+            double Sonder_U_Flaeche, Sonder_U_Volumen, Sonder_U_FTM_X, Sonder_U_FTM_Y, Sonder_U_SWP_X, Sonder_U_SWP_Y, Sonder_U_Masse, Sonder_U_Preis;
 
             // Einheitenumrechnung
             if (SonderEinheit.Equals("mm"))
             {
                 SonderWSDichte = SonderWSDichte / Math.Pow(10, 9);
+                SonderUPreisProMeter = SonderUPreisProMeter / Math.Pow(10, 3);
             }
             else if (SonderEinheit.Equals("cm"))
             {
                 SonderWSDichte = SonderWSDichte / Math.Pow(10, 6);
+                SonderUPreisProMeter = SonderUPreisProMeter / Math.Pow(10, 2);
             }
 
             // Hilfsgrößen, da Formeln für FTMX und FTMY sehr lang
@@ -543,6 +590,7 @@ namespace ProfiRechner
             FTM_Y_kleinesRechteckumSWPA = (SU.KlasseSonderUHoehe - 2 * SU.KlasseSonderUFlanschbreite) * Math.Pow((SU.KlasseSonderUBreite - SU.KlasseSonderUStegbreite), 3) / 12; 
             FTM_Y_kleinesRechteckSteiner = (SU.KlasseSonderUHoehe-2*SU.KlasseSonderUFlanschbreite)*(SU.KlasseSonderUBreite-SU.KlasseSonderUStegbreite)*Math.Pow((((SU.KlasseSonderUBreite+SU.KlasseSonderUStegbreite)/2)-Sonder_U_SWP_X),2);
             Sonder_U_FTM_Y = FTM_Y_grossesRechteckumSWPA + FTM_Y_grossesRechteckSteiner - (FTM_Y_kleinesRechteckumSWPA + FTM_Y_kleinesRechteckSteiner);
+            Sonder_U_Preis = SonderUPreisProMeter * SU.KlasseSonderULaenge;
 
             // Runden
             Sonder_U_Flaeche = Math.Round(Sonder_U_Flaeche / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_U_Flaeche, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_U_Flaeche))));
@@ -552,22 +600,25 @@ namespace ProfiRechner
             Sonder_U_SWP_Y = Math.Round(Sonder_U_SWP_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_U_SWP_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_U_SWP_Y))));
             Sonder_U_FTM_X = Math.Round(Sonder_U_FTM_X / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_U_FTM_X, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_U_FTM_X))));
             Sonder_U_FTM_Y = Math.Round(Sonder_U_FTM_Y / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_U_FTM_Y, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_U_FTM_Y))));
+            Sonder_U_Preis = Math.Round(Sonder_U_Preis / Math.Pow(10, Math.Floor(Math.Log10(Math.Sqrt(Math.Pow(Sonder_U_Preis, 2))))), 3) * Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(Sonder_U_Preis))));
 
             // Umwandlung in String
-            string Sonder_T_Flaeche_String = Convert.ToString(Sonder_U_Flaeche) + " " + SonderEinheit + "²";
-            string Sonder_T_Volumen_String = Convert.ToString(Sonder_U_Volumen) + " " + SonderEinheit + "³";
-            string Sonder_T_Masse_String = Convert.ToString(Sonder_U_Masse) + " kg";
-            string Sonder_T_FTM_X_String = Convert.ToString(Sonder_U_FTM_X) + " " + SonderEinheit + "^4";
-            string Sonder_T_FTM_Y_String = Convert.ToString(Sonder_U_FTM_Y) + " " + SonderEinheit + "^4";
-            string Sonder_T_SWP_String = "(x=" + Sonder_U_SWP_X + " " + SonderEinheit + "/y=" + Sonder_U_SWP_Y + " " + SonderEinheit + ")";
+            string Sonder_U_Flaeche_String = Convert.ToString(Sonder_U_Flaeche) + " " + SonderEinheit + "²";
+            string Sonder_U_Volumen_String = Convert.ToString(Sonder_U_Volumen) + " " + SonderEinheit + "³";
+            string Sonder_U_Masse_String = Convert.ToString(Sonder_U_Masse) + " kg";
+            string Sonder_U_FTM_X_String = Convert.ToString(Sonder_U_FTM_X) + " " + SonderEinheit + "^4";
+            string Sonder_U_FTM_Y_String = Convert.ToString(Sonder_U_FTM_Y) + " " + SonderEinheit + "^4";
+            string Sonder_U_SWP_String = "(x=" + Sonder_U_SWP_X + " " + SonderEinheit + "/y=" + Sonder_U_SWP_Y + " " + SonderEinheit + ")";
+            string Sonder_U_Preis_String = Convert.ToString(Sonder_U_Preis) + " €";
 
             // Übergabe Ergebnisse
-            lbl_Sonder_Fläche_Ergebnis.Content = Sonder_T_Flaeche_String;
-            lbl_Sonder_Volumen_Ergebnis.Content = Sonder_T_Volumen_String;
-            lbl_Sonder_Masse_Ergebnis.Content = Sonder_T_Masse_String;
-            lbl_Sonder_FTM_X_Ergebnis.Content = Sonder_T_FTM_X_String;
-            lbl_Sonder_FTM_Y_Ergebnis.Content = Sonder_T_FTM_Y_String;
-            lbl_Sonder_Schwerpunkt_Ergebnis.Content = Sonder_T_SWP_String;
+            lbl_Sonder_Fläche_Ergebnis.Content = Sonder_U_Flaeche_String;
+            lbl_Sonder_Volumen_Ergebnis.Content = Sonder_U_Volumen_String;
+            lbl_Sonder_Masse_Ergebnis.Content = Sonder_U_Masse_String;
+            lbl_Sonder_FTM_X_Ergebnis.Content = Sonder_U_FTM_X_String;
+            lbl_Sonder_FTM_Y_Ergebnis.Content = Sonder_U_FTM_Y_String;
+            lbl_Sonder_Schwerpunkt_Ergebnis.Content = Sonder_U_SWP_String;
+            lbl_Sonder_Preis_Ergebnis.Content = Sonder_U_Preis_String;
 
             Sonder_U CatU = new Sonder_U();
             
@@ -694,7 +745,44 @@ namespace ProfiRechner
                                         }
                                         if (Zeichenlaenge_l.Length <= 4)
                                         {
-                                            Rechteckprofil_Berechnung(); // Aufruf der Berechnung
+                                            if (Double.TryParse(tbx_Input_RechteckPreisProMeter.Text, out double pr)) // Erfolgreiche Konvertierung
+                                            {
+                                                string Zeichenlaenge_pr;
+                                                Zeichenlaenge_pr = Convert.ToString(pr);
+                                                
+
+                                                if (Zeichenlaenge_pr.Length > 4)     //Kontrolle der Zahlenlänge der Breite
+                                                {
+                                                    
+                                                    MessageBoxResult result;
+                                                    result = MessageBox.Show("Breite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt vier Stellen.", "Eingabekontrolle",
+                                                    MessageBoxButton.OK,
+                                                    MessageBoxImage.Error
+                                                    );
+                                                    if (result == MessageBoxResult.OK)
+                                                    {
+                                                        tbx_Input_RechteckPreisProMeter.Text = "";
+
+                                                        tbx_Input_RechteckPreisProMeter.Focus();
+                                                    }
+                                                    
+                                                }
+                                                if (Zeichenlaenge_pr.Length <= 4)
+                                                {
+                                                    Rechteckprofil_Berechnung(); // Aufruf der Berechnung
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Fehler: Eingabe von Buchstaben nicht zulässig!", "Eingabekontrolle",
+                                                MessageBoxButton.OK,
+                                                MessageBoxImage.Error
+                                                );
+
+                                                tbx_Input_RechteckPreisProMeter.Clear();
+                                                tbx_Input_RechteckPreisProMeter.Focus();
+                                            }
+                                        
 
 
                                         }
@@ -746,6 +834,7 @@ namespace ProfiRechner
                 lbl_Rechteck_Schwerpunkt_Ergebnis.Visibility = Visibility.Visible;
                 lbl_Rechteck_FTM_X_Ergebnis.Visibility = Visibility.Visible;
                 lbl_Rechteck_FTM_Y_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Rechteck_Preis_Ergebnis.Visibility = Visibility.Visible;
             }
 
         }
@@ -881,7 +970,45 @@ namespace ProfiRechner
                                                         }
                                                         if (Zeichenlaenge_w.Length < 4)
                                                         {
-                                                            Rechteckprofil_hohl_Berechnung();       //Aufruf der Berechnung
+                                                            if (Double.TryParse(tbx_Input_RechteckPreisProMeter.Text, out double pr)) // Erfolgreiche Konvertierung
+                                                            {
+                                                                string Zeichenlaenge_pr;
+                                                                Zeichenlaenge_pr = Convert.ToString(pr);
+
+
+                                                                if (Zeichenlaenge_pr.Length > 4)     //Kontrolle der Zahlenlänge der Breite
+                                                                {
+
+                                                                    MessageBoxResult result;
+                                                                    result = MessageBox.Show("Breite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt vier Stellen.", "Eingabekontrolle",
+                                                                    MessageBoxButton.OK,
+                                                                    MessageBoxImage.Error
+                                                                    );
+                                                                    if (result == MessageBoxResult.OK)
+                                                                    {
+                                                                        tbx_Input_RechteckPreisProMeter.Text = "";
+
+                                                                        tbx_Input_RechteckPreisProMeter.Focus();
+                                                                    }
+
+                                                                }
+                                                                if (Zeichenlaenge_pr.Length <= 4)
+                                                                {
+                                                                    Rechteckprofil_hohl_Berechnung(); // Aufruf der Berechnung
+                                                                }
+                                                            }
+                                                            else
+                                                            {
+                                                                MessageBox.Show("Fehler: Eingabe von Buchstaben nicht zulässig!", "Eingabekontrolle",
+                                                                MessageBoxButton.OK,
+                                                                MessageBoxImage.Error
+                                                                );
+
+                                                                tbx_Input_RechteckPreisProMeter.Clear();
+                                                                tbx_Input_RechteckPreisProMeter.Focus();
+                                                            }
+
+                                                            
                                                         }
                                                     }
                                                 }
@@ -992,6 +1119,7 @@ namespace ProfiRechner
                 lbl_Rechteck_Schwerpunkt_Ergebnis.Visibility = Visibility.Visible;
                 lbl_Rechteck_FTM_X_Ergebnis.Visibility = Visibility.Visible;
                 lbl_Rechteck_FTM_Y_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Rechteck_Preis_Ergebnis.Visibility = Visibility.Visible;
 
 
             }
@@ -1079,7 +1207,48 @@ namespace ProfiRechner
                                 }
                                 if (Zeichenlaenge_l.Length <= 4)
                                 {
-                                    Kreisprofil_Berechnung();   // Startet die Kreisprofil-Berechnung
+
+                                    if (Double.TryParse(tbx_Input_KreisPreisProMeter.Text, out double pr)) // Erfolgreiche Konvertierung
+                                    {
+                                        string Zeichenlaenge_pr;
+                                        Zeichenlaenge_pr = Convert.ToString(pr);
+
+
+                                        if (Zeichenlaenge_pr.Length > 4)     //Kontrolle der Zahlenlänge der Breite
+                                        {
+
+                                            MessageBoxResult result;
+                                            result = MessageBox.Show("Breite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt vier Stellen.", "Eingabekontrolle",
+                                            MessageBoxButton.OK,
+                                            MessageBoxImage.Error
+                                            );
+                                            if (result == MessageBoxResult.OK)
+                                            {
+                                                tbx_Input_KreisPreisProMeter.Text = "";
+
+                                                tbx_Input_KreisPreisProMeter.Focus();
+                                            }
+
+                                        }
+                                        if (Zeichenlaenge_pr.Length <= 4)
+                                        {
+                                            Kreisprofil_Berechnung(); // Aufruf der Berechnung
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Fehler: Eingabe von Buchstaben nicht zulässig!", "Eingabekontrolle",
+                                        MessageBoxButton.OK,
+                                        MessageBoxImage.Error
+                                        );
+
+                                        tbx_Input_RechteckPreisProMeter.Clear();
+                                        tbx_Input_RechteckPreisProMeter.Focus();
+                                    }
+
+
+                                    
+
                                 }
                             }
                             
@@ -1125,6 +1294,7 @@ namespace ProfiRechner
                 lbl_Kreis_Schwerpunkt_Ergebnis.Visibility = Visibility.Visible;
                 lbl_Kreis_FTM_X_Ergebnis.Visibility = Visibility.Visible;
                 lbl_Kreis_FTM_Y_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Kreis_Preis_Ergebnis.Visibility = Visibility.Visible;
             }
 
 
@@ -1228,7 +1398,46 @@ namespace ProfiRechner
                                             }
                                             if (Zeichenlaenge_w.Length <= 3)
                                             {
-                                                Kreisprofil_hohl_Berechnung();      //Aufruf der Berechnung
+                                                if (Double.TryParse(tbx_Input_KreisPreisProMeter.Text, out double pr)) // Erfolgreiche Konvertierung
+                                                {
+                                                    string Zeichenlaenge_pr;
+                                                    Zeichenlaenge_pr = Convert.ToString(pr);
+
+
+                                                    if (Zeichenlaenge_pr.Length > 4)     //Kontrolle der Zahlenlänge der Breite
+                                                    {
+
+                                                        MessageBoxResult result;
+                                                        result = MessageBox.Show("Breite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt vier Stellen.", "Eingabekontrolle",
+                                                        MessageBoxButton.OK,
+                                                        MessageBoxImage.Error
+                                                        );
+                                                        if (result == MessageBoxResult.OK)
+                                                        {
+                                                            tbx_Input_KreisPreisProMeter.Text = "";
+
+                                                            tbx_Input_KreisPreisProMeter.Focus();
+                                                        }
+
+                                                    }
+                                                    if (Zeichenlaenge_pr.Length <= 4)
+                                                    {
+                                                        Kreisprofil_hohl_Berechnung(); // Aufruf der Berechnung
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("Fehler: Eingabe von Buchstaben nicht zulässig!", "Eingabekontrolle",
+                                                    MessageBoxButton.OK,
+                                                    MessageBoxImage.Error
+                                                    );
+
+                                                    tbx_Input_RechteckPreisProMeter.Clear();
+                                                    tbx_Input_RechteckPreisProMeter.Focus();
+                                                }
+
+
+                                                
                                             }
                                         }
                                     }  
@@ -1307,6 +1516,7 @@ namespace ProfiRechner
                 lbl_Kreis_Schwerpunkt_Ergebnis.Visibility = Visibility.Visible;
                 lbl_Kreis_FTM_X_Ergebnis.Visibility = Visibility.Visible;
                 lbl_Kreis_FTM_Y_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Kreis_Preis_Ergebnis.Visibility = Visibility.Visible;
             }
         }
         #endregion
@@ -1468,9 +1678,47 @@ namespace ProfiRechner
                                                                 if (Zeichenlaenge_sb.Length <= 2)
                                                                 {
                                                                     //Aufruf der Berechnung
+
+                                                                    if (Double.TryParse(tbx_Input_SonderPreisProMeter.Text, out double pr)) // Erfolgreiche Konvertierung
+                                                                    {
+                                                                        string Zeichenlaenge_pr;
+                                                                        Zeichenlaenge_pr = Convert.ToString(pr);
+
+
+                                                                        if (Zeichenlaenge_pr.Length > 4)     //Kontrolle der Zahlenlänge der Breite
+                                                                        {
+
+                                                                            MessageBoxResult result;
+                                                                            result = MessageBox.Show("Breite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt vier Stellen.", "Eingabekontrolle",
+                                                                            MessageBoxButton.OK,
+                                                                            MessageBoxImage.Error
+                                                                            );
+                                                                            if (result == MessageBoxResult.OK)
+                                                                            {
+                                                                                tbx_Input_SonderPreisProMeter.Text = "";
+
+                                                                                tbx_Input_SonderPreisProMeter.Focus();
+                                                                            }
+
+                                                                        }
+                                                                        if (Zeichenlaenge_pr.Length <= 4)
+                                                                        {
+                                                                            I_Profil_Berechnung(); // Aufruf der Berechnung
+                                                                        }
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        MessageBox.Show("Fehler: Eingabe von Buchstaben nicht zulässig!", "Eingabekontrolle",
+                                                                        MessageBoxButton.OK,
+                                                                        MessageBoxImage.Error
+                                                                        );
+
+                                                                        tbx_Input_RechteckPreisProMeter.Clear();
+                                                                        tbx_Input_RechteckPreisProMeter.Focus();
+                                                                    }
+
                                                                    
-                                                                    I_Profil_Berechnung();
-                                                                    
+
 
                                                                 }
                                                             }
@@ -1595,6 +1843,7 @@ namespace ProfiRechner
                 lbl_Sonder_Schwerpunkt_Ergebnis.Visibility = Visibility.Visible;
                 lbl_Sonder_FTM_X_Ergebnis.Visibility = Visibility.Visible;
                 lbl_Sonder_FTM_Y_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Sonder_Preis_Ergebnis.Visibility = Visibility.Visible;
             }
 
 
@@ -1750,7 +1999,43 @@ namespace ProfiRechner
                                                                 }
                                                                 if (Zeichenlaenge_sb.Length <= 2)
                                                                 {
-                                                                    U_Profil_Berechnung();
+                                                                    if (Double.TryParse(tbx_Input_SonderPreisProMeter.Text, out double pr)) // Erfolgreiche Konvertierung
+                                                                    {
+                                                                        string Zeichenlaenge_pr;
+                                                                        Zeichenlaenge_pr = Convert.ToString(pr);
+
+
+                                                                        if (Zeichenlaenge_pr.Length > 4)     //Kontrolle der Zahlenlänge der Breite
+                                                                        {
+
+                                                                            MessageBoxResult result;
+                                                                            result = MessageBox.Show("Breite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt vier Stellen.", "Eingabekontrolle",
+                                                                            MessageBoxButton.OK,
+                                                                            MessageBoxImage.Error
+                                                                            );
+                                                                            if (result == MessageBoxResult.OK)
+                                                                            {
+                                                                                tbx_Input_SonderPreisProMeter.Text = "";
+
+                                                                                tbx_Input_SonderPreisProMeter.Focus();
+                                                                            }
+
+                                                                        }
+                                                                        if (Zeichenlaenge_pr.Length <= 4)
+                                                                        {
+                                                                            U_Profil_Berechnung(); // Aufruf der Berechnung
+                                                                        }
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        MessageBox.Show("Fehler: Eingabe von Buchstaben nicht zulässig!", "Eingabekontrolle",
+                                                                        MessageBoxButton.OK,
+                                                                        MessageBoxImage.Error
+                                                                        );
+
+                                                                        tbx_Input_RechteckPreisProMeter.Clear();
+                                                                        tbx_Input_RechteckPreisProMeter.Focus();
+                                                                    }
                                                                 }
                                                             }
                                                         }
@@ -1870,6 +2155,7 @@ namespace ProfiRechner
                 lbl_Sonder_Schwerpunkt_Ergebnis.Visibility = Visibility.Visible;
                 lbl_Sonder_FTM_X_Ergebnis.Visibility = Visibility.Visible;
                 lbl_Sonder_FTM_Y_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Sonder_Preis_Ergebnis.Visibility = Visibility.Visible;
             }
         }
 
@@ -2014,7 +2300,43 @@ namespace ProfiRechner
                                                                 }
                                                                 if (Zeichenlaenge_sb.Length <= 2)
                                                                 {
-                                                                    T_Profil_Berechnung();
+                                                                    if (Double.TryParse(tbx_Input_SonderPreisProMeter.Text, out double pr)) // Erfolgreiche Konvertierung
+                                                                    {
+                                                                        string Zeichenlaenge_pr;
+                                                                        Zeichenlaenge_pr = Convert.ToString(pr);
+
+
+                                                                        if (Zeichenlaenge_pr.Length > 4)     //Kontrolle der Zahlenlänge der Breite
+                                                                        {
+
+                                                                            MessageBoxResult result;
+                                                                            result = MessageBox.Show("Breite: Sie haben eine zu lange Zahl eingetragen, die maximale Länge beträgt vier Stellen.", "Eingabekontrolle",
+                                                                            MessageBoxButton.OK,
+                                                                            MessageBoxImage.Error
+                                                                            );
+                                                                            if (result == MessageBoxResult.OK)
+                                                                            {
+                                                                                tbx_Input_SonderPreisProMeter.Text = "";
+
+                                                                                tbx_Input_SonderPreisProMeter.Focus();
+                                                                            }
+
+                                                                        }
+                                                                        if (Zeichenlaenge_pr.Length <= 4)
+                                                                        {
+                                                                            U_Profil_Berechnung(); // Aufruf der Berechnung
+                                                                        }
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        MessageBox.Show("Fehler: Eingabe von Buchstaben nicht zulässig!", "Eingabekontrolle",
+                                                                        MessageBoxButton.OK,
+                                                                        MessageBoxImage.Error
+                                                                        );
+
+                                                                        tbx_Input_RechteckPreisProMeter.Clear();
+                                                                        tbx_Input_RechteckPreisProMeter.Focus();
+                                                                    }
                                                                 }
                                                             }
                                                         }
@@ -2132,6 +2454,7 @@ namespace ProfiRechner
                 lbl_Sonder_Schwerpunkt_Ergebnis.Visibility = Visibility.Visible;
                 lbl_Sonder_FTM_X_Ergebnis.Visibility = Visibility.Visible;
                 lbl_Sonder_FTM_Y_Ergebnis.Visibility = Visibility.Visible;
+                lbl_Sonder_Preis_Ergebnis.Visibility = Visibility.Visible;
 
             }
         }
@@ -2325,6 +2648,8 @@ namespace ProfiRechner
         {
             lbl_Rechteck_hohlGrafik_Wall.Content = tbx_Input_Rechteck_hohl_Wall.Text;
         }
+
+        
         #endregion
 
         #region Textboxen_Ergebnisse
