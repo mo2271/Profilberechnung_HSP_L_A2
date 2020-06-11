@@ -388,6 +388,7 @@
 
 
         </TabControl>
+        <Image x:Name="ProfiRechner_Logo" HorizontalAlignment="Left" Height="135" Margin="10,10,0,0" VerticalAlignment="Top" Width="145" Source="Logo_ProfiRechner.png" Stretch="Fill"/>
 
     </Grid>
 </Window>
