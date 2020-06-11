@@ -102,6 +102,7 @@ namespace ProfiRechner
                 CatR.Rechteck_CreateSketch();
                 CatR.Rechteck_DrawSketch(RechteckBreite, RechteckHoehe);
                 CatR.RechteckExtrusion(RechteckLaenge);
+                CatR.SaveRechteckPart(tbx_Rechteck_DateinameCATPart.Text, tbx_Rechteck_DateinameSTEP.Text, Convert.ToBoolean(ChB_ExportCATPart_Rechteck.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Rechteck.IsChecked));
             }
         }
 
