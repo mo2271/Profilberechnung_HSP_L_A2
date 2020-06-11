@@ -8,7 +8,6 @@ using INFITF;
 using MECMOD;
 using PARTITF;
 using System.Data.SqlTypes;
-using System.IO;
 
 namespace ProfiRechner
 {
@@ -120,51 +119,6 @@ namespace ProfiRechner
             Kreis_hohl_Pad.set_Name("Rohr");
 
             CATIA_Kreis_hohl_Part.Part.Update();
-        }
-
-        public void SaveKreis_hohl_Part(string CATPart_Name, string STEP_Name, bool CATPart_Checked, bool STEP_Checked)
-        {
-            string filename_CATPart = CATPart_Name;
-            string filename_STEP = STEP_Name;
-
-            // Lege die Dateien auf dem Desktop ab
-            string PARTName = Path.Combine(Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop), filename_CATPart + ".CATPart");
-            string STEPName = Path.Combine(Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop), filename_STEP);
-
-            if (CATPart_Checked)
-            {
-                // Speichern als .CATPart
-                try
-                {
-                    CATIA_Kreis_hohl.ActiveDocument.SaveAs(PARTName);
-
-                    MessageBox.Show("Datei " + filename_CATPart + ".CATPart wurde auf dem Desktop abgelegt.", "Information",
-                        MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Export der .CATPart-Datei fehlgeschlagen!", "Fehler",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-
-            }
-
-            if (STEP_Checked)
-            {
-                try
-                {
-                    // Speichern als .stp (STEP)
-                    CATIA_Kreis_hohl.ActiveDocument.ExportData(STEPName, "stp");
-
-                    MessageBox.Show("Datei " + filename_STEP + ".stp wurde auf dem Desktop abgelegt.", "Information",
-                        MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Export der .stp-Datei fehlgeschlagen!", "Fehler",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
         }
     }
 }
