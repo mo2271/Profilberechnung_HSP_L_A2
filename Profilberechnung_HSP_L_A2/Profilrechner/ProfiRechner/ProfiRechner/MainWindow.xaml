@@ -20,9 +20,9 @@
             <ListBoxItem x:Name="lb_item_Sonder_T_Profil" Content="T-Profil" Margin="20,0,0,0" MouseDoubleClick="lb_item_Sonder_T_Profil_MouseDoubleClick" ToolTip="Doppelklicken, um Profil auszuwählen und die Berechnung zu starten."/>
         </ListBox>
         <TabControl x:Name="tabctrl_Profilauswahl" Margin="170,10,10,10">
-            <TabItem x:Name="tabH_Rechteckprofil" Header="Rechteckprofile" HorizontalAlignment="Left" Margin="0,-2,0,-0.2" Width="100">
+            <TabItem x:Name="tabH_Rechteckprofil" Header="Rechteckprofile" HorizontalAlignment="Left" Margin="0,-2,0,-0.2" Width="100" Visibility="Hidden">
 
-                <Grid x:Name="tab_Rechteckprofil" Background="#FFE5E5E5">
+                <Grid x:Name="tab_Rechteckprofil" Background="#FFE5E5E5" Visibility="Hidden">
                     <Grid.ColumnDefinitions>
 
 
@@ -133,9 +133,9 @@
 
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabH_Kreisprofil" Header="Kreisprofile" HorizontalAlignment="Left" Margin="0,-2,0,-0.2" Width="100" IsSelected="True">
+            <TabItem x:Name="tabH_Kreisprofil" Header="Kreisprofile" HorizontalAlignment="Left" Margin="0,-2,0,-0.2" Width="100" IsSelected="True" Visibility="Hidden">
 
-                <Grid x:Name="tab_Kreisprofil" Background="#FFE5E5E5">
+                <Grid x:Name="tab_Kreisprofil" Background="#FFE5E5E5" Visibility="Hidden">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -205,7 +205,7 @@
                             </TransformGroup>
                         </CheckBox.RenderTransform>
                     </CheckBox>
-                    <TextBox x:Name="tbx_Kreis_DateinameCATPart" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,380,0,0" TextWrapping="Wrap" Text="Rechteck-Traeger" VerticalAlignment="Top" Width="150"/>
+                    <TextBox x:Name="tbx_Kreis_DateinameCATPart" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,380,0,0" TextWrapping="Wrap" Text="Kreis-Profil" VerticalAlignment="Top" Width="150"/>
                     <Label x:Name="lbl_KreisCATPart_Dateiname" Content="Dateiname:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5.2,380,0,0" VerticalAlignment="Top" Width="75"/>
                     <CheckBox x:Name="ChB_ExportSTEP_Kreis" Content="Als .STEP exportieren" Grid.Column="1" Margin="90,450,0,0" RenderTransformOrigin="0.5,0.5" Height="16" VerticalAlignment="Top" Width="160" HorizontalAlignment="Left">
 
@@ -218,16 +218,16 @@
                             </TransformGroup>
                         </CheckBox.RenderTransform>
                     </CheckBox>
-                    <TextBox x:Name="tbx_Kreis_DateinameSTEP" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,480,0,0" TextWrapping="Wrap" Text="Rechteck-Traeger" VerticalAlignment="Top" Width="150"/>
+                    <TextBox x:Name="tbx_Kreis_DateinameSTEP" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,480,0,0" TextWrapping="Wrap" Text="Kreis-Profil" VerticalAlignment="Top" Width="150"/>
                     <Label x:Name="lbl_KreisSTEP_Dateiname" Content="Dateiname:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5.2,480,0,0" VerticalAlignment="Top" Width="75"/>
 
 
 
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabH_Sonderprofile" Header="Sonderprofile" HorizontalAlignment="Right" Margin="0,-2,0,-0.2" Width="100">
+            <TabItem x:Name="tabH_Sonderprofile" Header="Sonderprofile" HorizontalAlignment="Right" Margin="0,-2,0,-0.2" Width="100" Visibility="Hidden">
 
-                <Grid x:Name="tab_Sonderprofile" Background="#FFE5E5E5" Margin="0,0,-0.4,0.2">
+                <Grid x:Name="tab_Sonderprofile" Background="#FFE5E5E5" Margin="0,0,-0.4,0.2" Visibility="Hidden">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -359,7 +359,7 @@
                             </TransformGroup>
                         </CheckBox.RenderTransform>
                     </CheckBox>
-                    <TextBox x:Name="tbx_Sonderprofil_DateinameCATPart" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,430,0,0" TextWrapping="Wrap" Text="Rechteck-Traeger" VerticalAlignment="Top" Width="150"/>
+                    <TextBox x:Name="tbx_Sonderprofil_DateinameCATPart" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,430,0,0" TextWrapping="Wrap" Text="Sonderprofil-Traeger" VerticalAlignment="Top" Width="150"/>
                     <Label x:Name="lbl_SonderCATPart_Dateiname" Content="Dateiname:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5.2,430,0,0" VerticalAlignment="Top" Width="75"/>
                     <CheckBox x:Name="ChB_ExportSTEP_Sonderprofil" Content="Als .STEP exportieren" Grid.Column="1" Margin="90,500,0,0" RenderTransformOrigin="0.5,0.5" Height="16" VerticalAlignment="Top" Width="160" HorizontalAlignment="Left">
 
@@ -372,7 +372,7 @@
                             </TransformGroup>
                         </CheckBox.RenderTransform>
                     </CheckBox>
-                    <TextBox x:Name="tbx_Sonderprofil_DateinameSTEP" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,530,0,0" TextWrapping="Wrap" Text="Rechteck-Traeger" VerticalAlignment="Top" Width="150"/>
+                    <TextBox x:Name="tbx_Sonderprofil_DateinameSTEP" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,530,0,0" TextWrapping="Wrap" Text="Sonderprofil-Traeger" VerticalAlignment="Top" Width="150"/>
                     <Label x:Name="lbl_SonderprofilSTEP_Dateiname" Content="Dateiname:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5.2,530,0,0" VerticalAlignment="Top" Width="75"/>
 
 
