@@ -183,6 +183,7 @@ namespace ProfiRechner
                 CatR_hohl.Rechteck_hohl_CreateSketch();
                 CatR_hohl.Rechteck_hohl_DrawSketch(RechteckHohlBreite, RechteckHohlHoehe, RechteckHohlWandstaerke);
                 CatR_hohl.Rechteck_hohl_Extrusion(RechteckHohlLaenge);
+                CatR_hohl.SaveRechteck_hohl_Part(tbx_Rechteck_DateinameCATPart.Text, tbx_Rechteck_DateinameSTEP.Text, Convert.ToBoolean(ChB_ExportCATPart_Rechteck.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Rechteck.IsChecked));
             }
         }
 
@@ -263,6 +264,7 @@ namespace ProfiRechner
                 CatKr.Kreis_CreateSketch();
                 CatKr.Kreis_DrawSketch(KreisDurchmesser);
                 CatKr.KreisExtrusion(KreisLaenge);
+                CatKr.SaveKreis_Part(tbx_Kreis_DateinameCATPart.Text, tbx_Kreis_DateinameSTEP.Text, Convert.ToBoolean(ChB_ExportCATPart_Kreis.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Kreis.IsChecked));
             }
         }
 
@@ -343,6 +345,7 @@ namespace ProfiRechner
                 CatKr_hohl.Kreis_hohl_CreateSketch();
                 CatKr_hohl.Kreis_hohl_DrawSketch(KreisHohlDurchmesser, KreisHohlWandstaerke);
                 CatKr_hohl.Kreis_hohl_Extrusion(KreisHohlLaenge);
+                CatKr_hohl.SaveKreis_hohl_Part(tbx_Kreis_DateinameCATPart.Text, tbx_Kreis_DateinameSTEP.Text, Convert.ToBoolean(ChB_ExportCATPart_Kreis.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Kreis.IsChecked));
             }
         }
 
@@ -433,6 +436,7 @@ namespace ProfiRechner
                 CatIPE.SonderIPE_CreateSketch();
                 CatIPE.SonderIPE_DrawSketch(SonderIPEBreite, SonderIPEHoehe, SonderIPEFlanschbreite, SonderIPEStegbreite);
                 CatIPE.SonderIPE_Extrusion(SonderIPELaenge);
+                CatIPE.SaveIPEPart(tbx_Sonderprofil_DateinameCATPart.Text, tbx_Sonderprofil_DateinameSTEP.Text, Convert.ToBoolean(ChB_ExportCATPart_Sonderprofil.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Sonderprofil.IsChecked));
             }
         }
 
@@ -531,6 +535,7 @@ namespace ProfiRechner
                 CatT.SonderT_CreateSketch();
                 CatT.SonderT_DrawSketch(SonderTBreite, SonderTHoehe, SonderTFlanschbreite, SonderTStegbreite);
                 CatT.SonderT_Extrusion(SonderTLaenge, SonderTFlanschbreite, SonderTStegbreite);
+                CatT.SaveTPart(tbx_Sonderprofil_DateinameCATPart.Text, tbx_Sonderprofil_DateinameSTEP.Text, Convert.ToBoolean(ChB_ExportCATPart_Sonderprofil.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Sonderprofil.IsChecked));
             }
         }
 
@@ -629,6 +634,7 @@ namespace ProfiRechner
                 CatU.SonderU_CreateSketch();
                 CatU.SonderU_DrawSketch(SonderUBreite, SonderUHoehe, SonderUFlanschbreite, SonderUStegbreite);
                 CatU.SonderU_Extrusion(SonderULaenge, SonderUFlanschbreite);
+                CatU.SaveUPart(tbx_Sonderprofil_DateinameCATPart.Text, tbx_Sonderprofil_DateinameSTEP.Text, Convert.ToBoolean(ChB_ExportCATPart_Sonderprofil.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Sonderprofil.IsChecked));
             }
             
         }
@@ -2325,7 +2331,7 @@ namespace ProfiRechner
                                                                         }
                                                                         if (Zeichenlaenge_pr.Length <= 4)
                                                                         {
-                                                                            U_Profil_Berechnung(); // Aufruf der Berechnung
+                                                                            T_Profil_Berechnung(); // Aufruf der Berechnung
                                                                         }
                                                                     }
                                                                     else
