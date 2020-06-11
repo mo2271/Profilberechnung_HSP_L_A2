@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo_ProfiRechner.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Interop.INFITF">
       <HintPath>C:\Program Files\Dassault Systemes\B28\win_b64\code\bin\Interop.INFITF.dll</HintPath>
@@ -149,6 +152,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Logo_ProfiRechner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Logo_ProfiRechner.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
