@@ -1572,11 +1572,7 @@ namespace ProfiRechner
                             {
                                 if (Double.TryParse(tbx_Input_SonderStegbreite.Text, out double sb))        //Kontrolle auf Buchstaben der Stegbreite
                                 {
-<<<<<<< HEAD
                                     if (Double.TryParse(tbx_Input_IPELaenge.Text, out double l))     //Kontrolle auf Buchstaben der Länge
-=======
-                                    if (Double.TryParse(tbx_Input_SonderFlanschbreite.Text, out double b))     //Kontrolle auf Buchstaben der Flanschbreite
->>>>>>> parent of 3e4a181... Update MainWindow.xaml.cs
                                     {
                                         double Breite;
                                         double Hoehe;
@@ -1646,15 +1642,9 @@ namespace ProfiRechner
                                                             );
                                                             if (result == MessageBoxResult.OK)
                                                             {
-<<<<<<< HEAD
                                                                 tbx_Input_IPELaenge.Text = "";
 
                                                                 tbx_Input_IPELaenge.Focus();
-=======
-                                                                tbx_Input_SonderBreite.Text = "";
-
-                                                                tbx_Input_SonderBreite.Focus();
->>>>>>> parent of 3e4a181... Update MainWindow.xaml.cs
                                                             }
                                                         }
                                                         if (Zeichenlaenge_l.Length <= 4)
@@ -1782,15 +1772,9 @@ namespace ProfiRechner
                                         );
                                         if (result == MessageBoxResult.OK)
                                         {
-<<<<<<< HEAD
                                             tbx_Input_IPELaenge.Text = "";
 
                                             tbx_Input_IPELaenge.Focus();
-=======
-                                            tbx_Input_SonderFlanschbreite.Text = "";
-
-                                            tbx_Input_SonderFlanschbreite.Focus();
->>>>>>> parent of 3e4a181... Update MainWindow.xaml.cs
                                         }
                                     }
                                 }
@@ -1914,20 +1898,9 @@ namespace ProfiRechner
 
                         if (Double.TryParse(tbx_Input_SonderHoehe.Text, out double h))     //Kontrolle auf Buchstaben der Höhe
                         {
-<<<<<<< HEAD
                             //Konvertierung erfolgreich
 
                             if (Double.TryParse(tbx_Input_IPELaenge.Text, out double l))        //Kontrolle auf Buchstaben der Länge
-=======
-                            tbx_Input_SonderPreisProMeter.Focus();
-                        }
-                    }
-                    if (tbx_Input_SonderPreisProMeter.Text != "" )
-                    {
-                       if (Double.TryParse(tbx_Input_SonderPreisProMeter.Text, out double P))
-                       {
-                            if (Double.TryParse(tbx_Input_SonderBreite.Text, out double b))        //Kontrolle auf Buchstaben der Breite
->>>>>>> parent of 3e4a181... Update MainWindow.xaml.cs
                             {
                                 //Konvertierung erfolgreich
 
@@ -1994,15 +1967,9 @@ namespace ProfiRechner
                                                             );
                                                             if (result == MessageBoxResult.OK)
                                                             {
-<<<<<<< HEAD
                                                                 tbx_Input_IPELaenge.Text = "";
 
                                                                 tbx_Input_IPELaenge.Focus();
-=======
-                                                                tbx_Input_SonderBreite.Text = "";
-
-                                                                tbx_Input_SonderBreite.Focus();
->>>>>>> parent of 3e4a181... Update MainWindow.xaml.cs
                                                             }
                                                         }
                                                         if (Zeichenlaenge_l.Length <= 4)
@@ -2153,15 +2120,9 @@ namespace ProfiRechner
                                 );
                                 if (result == MessageBoxResult.OK)
                                 {
-<<<<<<< HEAD
                                     tbx_Input_IPELaenge.Text = "";
 
                                     tbx_Input_IPELaenge.Focus();
-=======
-                                    tbx_Input_SonderBreite.Text = "";
-
-                                    tbx_Input_SonderBreite.Focus();
->>>>>>> parent of 3e4a181... Update MainWindow.xaml.cs
                                 }
                             }
                         }
@@ -2244,11 +2205,7 @@ namespace ProfiRechner
                     {
                         if (Double.TryParse(tbx_Input_SonderHoehe.Text, out double h))     //Kontrolle auf Buchstaben der Höhe
                         {
-<<<<<<< HEAD
                             if (Double.TryParse(tbx_Input_IPELaenge.Text, out double l))        //Kontrolle auf Buchstaben der Länge
-=======
-                            if (Double.TryParse(tbx_Input_SonderBreite.Text, out double b))        //Kontrolle auf Buchstaben der Breite
->>>>>>> parent of 3e4a181... Update MainWindow.xaml.cs
                             {
                                 if (Double.TryParse(tbx_Input_SonderStegbreite.Text, out double sb))       //Kontrolle auf Buchstaben der Stegbreite
                                 {
@@ -2311,15 +2268,9 @@ namespace ProfiRechner
                                                             );
                                                             if (result == MessageBoxResult.OK)
                                                             {
-<<<<<<< HEAD
                                                                 tbx_Input_IPELaenge.Text = "";
 
                                                                 tbx_Input_IPELaenge.Focus();
-=======
-                                                                tbx_Input_SonderBreite.Text = "";
-
-                                                                tbx_Input_SonderBreite.Focus();
->>>>>>> parent of 3e4a181... Update MainWindow.xaml.cs
                                                             }
                                                         }
                                                         if (Zeichenlaenge_l.Length <= 4)
@@ -2468,15 +2419,9 @@ namespace ProfiRechner
                                 );
                                 if (result == MessageBoxResult.OK)
                                 {
-<<<<<<< HEAD
                                     tbx_Input_IPELaenge.Text = "";
 
                                     tbx_Input_IPELaenge.Focus();
-=======
-                                    tbx_Input_SonderBreite.Text = "";
-
-                                    tbx_Input_SonderBreite.Focus();
->>>>>>> parent of 3e4a181... Update MainWindow.xaml.cs
                                 }
                             }
                         }
