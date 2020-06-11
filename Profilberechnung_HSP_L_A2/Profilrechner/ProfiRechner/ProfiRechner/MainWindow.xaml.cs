@@ -102,7 +102,15 @@ namespace ProfiRechner
                 CatR.Rechteck_CreateSketch();
                 CatR.Rechteck_DrawSketch(RechteckBreite, RechteckHoehe);
                 CatR.RechteckExtrusion(RechteckLaenge);
-                CatR.SaveRechteckPart(tbx_Rechteck_DateinameCATPart.Text, tbx_Rechteck_DateinameSTEP.Text, Convert.ToBoolean(ChB_ExportCATPart_Rechteck.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Rechteck.IsChecked));
+
+                // Ersetzen von Umlauten in den Dateinamen
+                string Rechteck_CATPart_Filename_Input = tbx_Rechteck_DateinameCATPart.Text;
+                string Rechteck_CATPart_Filename = Rechteck_CATPart_Filename_Input.Replace("ä", "ae").Replace("ö", "oe").Replace("ü", "ue").Replace("Ä", "Ae").Replace("Ö", "Oe").Replace("Ü", "Ue");
+
+                string Rechteck_STEP_Filename_Input = tbx_Rechteck_DateinameSTEP.Text;
+                string Rechteck_STEP_Filename = Rechteck_STEP_Filename_Input.Replace("ä", "ae").Replace("ö", "oe").Replace("ü", "ue").Replace("Ä", "Ae").Replace("Ö", "Oe").Replace("Ü", "Ue");
+
+                CatR.SaveRechteckPart(Rechteck_CATPart_Filename, Rechteck_STEP_Filename, Convert.ToBoolean(ChB_ExportCATPart_Rechteck.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Rechteck.IsChecked));
             }
         }
 
@@ -183,7 +191,15 @@ namespace ProfiRechner
                 CatR_hohl.Rechteck_hohl_CreateSketch();
                 CatR_hohl.Rechteck_hohl_DrawSketch(RechteckHohlBreite, RechteckHohlHoehe, RechteckHohlWandstaerke);
                 CatR_hohl.Rechteck_hohl_Extrusion(RechteckHohlLaenge);
-                CatR_hohl.SaveRechteck_hohl_Part(tbx_Rechteck_DateinameCATPart.Text, tbx_Rechteck_DateinameSTEP.Text, Convert.ToBoolean(ChB_ExportCATPart_Rechteck.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Rechteck.IsChecked));
+
+                // Ersetzen von Umlauten in den Dateinamen
+                string Rechteck_hohl_CATPart_Filename_Input = tbx_Rechteck_DateinameCATPart.Text;
+                string Rechteck_hohl_CATPart_Filename = Rechteck_hohl_CATPart_Filename_Input.Replace("ä", "ae").Replace("ö", "oe").Replace("ü", "ue").Replace("Ä", "Ae").Replace("Ö", "Oe").Replace("Ü", "Ue");
+
+                string Rechteck_hohl_STEP_Filename_Input = tbx_Rechteck_DateinameSTEP.Text;
+                string Rechteck_hohl_STEP_Filename = Rechteck_hohl_STEP_Filename_Input.Replace("ä", "ae").Replace("ö", "oe").Replace("ü", "ue").Replace("Ä", "Ae").Replace("Ö", "Oe").Replace("Ü", "Ue");
+
+                CatR_hohl.SaveRechteck_hohl_Part(Rechteck_hohl_CATPart_Filename, Rechteck_hohl_STEP_Filename, Convert.ToBoolean(ChB_ExportCATPart_Rechteck.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Rechteck.IsChecked));
             }
         }
 
@@ -264,7 +280,15 @@ namespace ProfiRechner
                 CatKr.Kreis_CreateSketch();
                 CatKr.Kreis_DrawSketch(KreisDurchmesser);
                 CatKr.KreisExtrusion(KreisLaenge);
-                CatKr.SaveKreis_Part(tbx_Kreis_DateinameCATPart.Text, tbx_Kreis_DateinameSTEP.Text, Convert.ToBoolean(ChB_ExportCATPart_Kreis.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Kreis.IsChecked));
+
+                // Ersetzen von Umlauten in den Dateinamen
+                string Kreis_CATPart_Filename_Input = tbx_Kreis_DateinameCATPart.Text;
+                string Kreis_CATPart_Filename = Kreis_CATPart_Filename_Input.Replace("ä", "ae").Replace("ö", "oe").Replace("ü", "ue").Replace("Ä", "Ae").Replace("Ö", "Oe").Replace("Ü", "Ue");
+
+                string Kreis_STEP_Filename_Input = tbx_Kreis_DateinameSTEP.Text;
+                string Kreis_STEP_Filename = Kreis_STEP_Filename_Input.Replace("ä", "ae").Replace("ö", "oe").Replace("ü", "ue").Replace("Ä", "Ae").Replace("Ö", "Oe").Replace("Ü", "Ue");
+
+                CatKr.SaveKreis_Part(Kreis_CATPart_Filename, Kreis_STEP_Filename, Convert.ToBoolean(ChB_ExportCATPart_Kreis.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Kreis.IsChecked));
             }
         }
 
@@ -345,7 +369,15 @@ namespace ProfiRechner
                 CatKr_hohl.Kreis_hohl_CreateSketch();
                 CatKr_hohl.Kreis_hohl_DrawSketch(KreisHohlDurchmesser, KreisHohlWandstaerke);
                 CatKr_hohl.Kreis_hohl_Extrusion(KreisHohlLaenge);
-                CatKr_hohl.SaveKreis_hohl_Part(tbx_Kreis_DateinameCATPart.Text, tbx_Kreis_DateinameSTEP.Text, Convert.ToBoolean(ChB_ExportCATPart_Kreis.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Kreis.IsChecked));
+
+                // Ersetzen von Umlauten in den Dateinamen
+                string Kreis_hohl_CATPart_Filename_Input = tbx_Kreis_DateinameCATPart.Text;
+                string Kreis_hohl_CATPart_Filename = Kreis_hohl_CATPart_Filename_Input.Replace("ä", "ae").Replace("ö", "oe").Replace("ü", "ue").Replace("Ä", "Ae").Replace("Ö", "Oe").Replace("Ü", "Ue");
+
+                string Kreis_hohl_STEP_Filename_Input = tbx_Kreis_DateinameSTEP.Text;
+                string Kreis_hohl_STEP_Filename = Kreis_hohl_STEP_Filename_Input.Replace("ä", "ae").Replace("ö", "oe").Replace("ü", "ue").Replace("Ä", "Ae").Replace("Ö", "Oe").Replace("Ü", "Ue");
+
+                CatKr_hohl.SaveKreis_hohl_Part(Kreis_hohl_CATPart_Filename, Kreis_hohl_STEP_Filename, Convert.ToBoolean(ChB_ExportCATPart_Kreis.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Kreis.IsChecked));
             }
         }
 
@@ -436,7 +468,15 @@ namespace ProfiRechner
                 CatIPE.SonderIPE_CreateSketch();
                 CatIPE.SonderIPE_DrawSketch(SonderIPEBreite, SonderIPEHoehe, SonderIPEFlanschbreite, SonderIPEStegbreite);
                 CatIPE.SonderIPE_Extrusion(SonderIPELaenge);
-                CatIPE.SaveIPEPart(tbx_Sonderprofil_DateinameCATPart.Text, tbx_Sonderprofil_DateinameSTEP.Text, Convert.ToBoolean(ChB_ExportCATPart_Sonderprofil.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Sonderprofil.IsChecked));
+
+                // Ersetzen von Umlauten in den Dateinamen
+                string IPE_CATPart_Filename_Input = tbx_Sonderprofil_DateinameCATPart.Text;
+                string IPE_CATPart_Filename = IPE_CATPart_Filename_Input.Replace("ä", "ae").Replace("ö", "oe").Replace("ü", "ue").Replace("Ä", "Ae").Replace("Ö", "Oe").Replace("Ü", "Ue");
+
+                string IPE_STEP_Filename_Input = tbx_Sonderprofil_DateinameSTEP.Text;
+                string IPE_STEP_Filename = IPE_STEP_Filename_Input.Replace("ä", "ae").Replace("ö", "oe").Replace("ü", "ue").Replace("Ä", "Ae").Replace("Ö", "Oe").Replace("Ü", "Ue");
+
+                CatIPE.SaveIPEPart(IPE_CATPart_Filename, IPE_STEP_Filename, Convert.ToBoolean(ChB_ExportCATPart_Sonderprofil.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Sonderprofil.IsChecked));
             }
         }
 
@@ -535,7 +575,15 @@ namespace ProfiRechner
                 CatT.SonderT_CreateSketch();
                 CatT.SonderT_DrawSketch(SonderTBreite, SonderTHoehe, SonderTFlanschbreite, SonderTStegbreite);
                 CatT.SonderT_Extrusion(SonderTLaenge, SonderTFlanschbreite, SonderTStegbreite);
-                CatT.SaveTPart(tbx_Sonderprofil_DateinameCATPart.Text, tbx_Sonderprofil_DateinameSTEP.Text, Convert.ToBoolean(ChB_ExportCATPart_Sonderprofil.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Sonderprofil.IsChecked));
+
+                // Ersetzen von Umlauten in den Dateinamen
+                string T_CATPart_Filename_Input = tbx_Sonderprofil_DateinameCATPart.Text;
+                string T_CATPart_Filename = T_CATPart_Filename_Input.Replace("ä", "ae").Replace("ö", "oe").Replace("ü", "ue").Replace("Ä", "Ae").Replace("Ö", "Oe").Replace("Ü", "Ue");
+
+                string T_STEP_Filename_Input = tbx_Sonderprofil_DateinameSTEP.Text;
+                string T_STEP_Filename = T_STEP_Filename_Input.Replace("ä", "ae").Replace("ö", "oe").Replace("ü", "ue").Replace("Ä", "Ae").Replace("Ö", "Oe").Replace("Ü", "Ue");
+
+                CatT.SaveTPart(T_CATPart_Filename, T_STEP_Filename, Convert.ToBoolean(ChB_ExportCATPart_Sonderprofil.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Sonderprofil.IsChecked));
             }
         }
 
@@ -634,7 +682,15 @@ namespace ProfiRechner
                 CatU.SonderU_CreateSketch();
                 CatU.SonderU_DrawSketch(SonderUBreite, SonderUHoehe, SonderUFlanschbreite, SonderUStegbreite);
                 CatU.SonderU_Extrusion(SonderULaenge, SonderUFlanschbreite);
-                CatU.SaveUPart(tbx_Sonderprofil_DateinameCATPart.Text, tbx_Sonderprofil_DateinameSTEP.Text, Convert.ToBoolean(ChB_ExportCATPart_Sonderprofil.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Sonderprofil.IsChecked));
+
+                // Ersetzen von Umlauten in den Dateinamen
+                string U_CATPart_Filename_Input = tbx_Sonderprofil_DateinameCATPart.Text;
+                string U_CATPart_Filename = U_CATPart_Filename_Input.Replace("ä", "ae").Replace("ö", "oe").Replace("ü", "ue").Replace("Ä", "Ae").Replace("Ö", "Oe").Replace("Ü", "Ue");
+
+                string U_STEP_Filename_Input = tbx_Sonderprofil_DateinameSTEP.Text;
+                string U_STEP_Filename = U_STEP_Filename_Input.Replace("ä", "ae").Replace("ö", "oe").Replace("ü", "ue").Replace("Ä", "Ae").Replace("Ö", "Oe").Replace("Ü", "Ue");
+
+                CatU.SaveUPart(U_CATPart_Filename, U_STEP_Filename, Convert.ToBoolean(ChB_ExportCATPart_Sonderprofil.IsChecked), Convert.ToBoolean(ChB_ExportSTEP_Sonderprofil.IsChecked));
             }
             
         }
