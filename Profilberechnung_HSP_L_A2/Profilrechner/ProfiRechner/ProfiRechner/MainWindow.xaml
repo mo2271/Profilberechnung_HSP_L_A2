@@ -129,7 +129,6 @@
                     <Label x:Name="lbl_RechteckCATPart_Dateiname" Content="Dateiname:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5.2,380,0,0" VerticalAlignment="Top" Width="75"/>
                     <TextBox x:Name="tbx_Rechteck_DateinameSTEP" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,480,0,0" TextWrapping="Wrap" Text="Rechteck-Traeger" VerticalAlignment="Top" Width="150"/>
                     <Label x:Name="lbl_RechteckSTEP_Dateiname" Content="Dateiname:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5.2,480,0,0" VerticalAlignment="Top" Width="75"/>
-                    <CheckBox x:Name="ChB_Bestellnummer_Rechteck" Content="Bestellnummer erzeugen" Grid.Column="2" HorizontalAlignment="Left" Margin="60.2,496,0,0" VerticalAlignment="Top" Height="25" Width="207"/>
 
 
                 </Grid>
@@ -157,7 +156,7 @@
                     <Label x:Name="lbl_Kreis_Schwerpunkt" Content="Schwerpunkt:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Kreis_FTM_X" Content="FTM um die X-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Kreis_FTM_Y" Content="FTM um die Y-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Kreis_Preis" Content="Preis:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Kreis_Preis" Content="Preis pro lfd. Meter [€/m]:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Kreis_Fläche_Ergebnis" Content="Ergebnis 1:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Label x:Name="lbl_Kreis_Volumen_Ergebnis" Content="Ergebnis 2:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Label x:Name="lbl_Kreis_Masse_Ergebnis" Content="Ergebnis 3:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
@@ -221,7 +220,6 @@
                     </CheckBox>
                     <TextBox x:Name="tbx_Kreis_DateinameSTEP" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,480,0,0" TextWrapping="Wrap" Text="Kreis-Profil" VerticalAlignment="Top" Width="150"/>
                     <Label x:Name="lbl_KreisSTEP_Dateiname" Content="Dateiname:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5.2,480,0,0" VerticalAlignment="Top" Width="75"/>
-                    <CheckBox x:Name="ChB_Bestellnummer_Kreis" Content="Bestellnummer erzeugen" Grid.Column="2" HorizontalAlignment="Left" Margin="60.2,496,0,0" VerticalAlignment="Top" Height="25" Width="207"/>
 
 
 
@@ -244,7 +242,7 @@
                     <Label x:Name="lbl_Sonder_Schwerpunkt" Content="Schwerpunkt:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Sonder_FTM_X" Content="FTM um die X-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Sonder_FTM_Y" Content="FTM um die Y-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Sonder_Preis" Content="Preis:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Sonder_Preis" Content="Preis pro lfd. Meter:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Sonder_Fläche_Ergebnis" Content="Ergebnis 1:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Label x:Name="lbl_Sonder_Volumen_Ergebnis" Content="Ergebnis 2:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Label x:Name="lbl_Sonder_Masse_Ergebnis" Content="Ergebnis 3:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
@@ -252,12 +250,12 @@
                     <Label x:Name="lbl_Sonder_FTM_X_Ergebnis" Content="Ergebnis 5:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,270,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Label x:Name="lbl_Sonder_FTM_Y_Ergebnis" Content="Ergebnis 6:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,300,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Label x:Name="lbl_Sonder_Preis_Ergebnis" Content="Ergebnis 7:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,330,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
-                    <ComboBox x:Name="CoB_Sonder_Auswahl_Einheit" Grid.Column="1" HorizontalAlignment="Left" Margin="30,80,0,0" VerticalAlignment="Top" Width="120">
+                    <ComboBox x:Name="CoB_Sonder_Auswahl_Einheit" Grid.Column="1" HorizontalAlignment="Left" Margin="30.2,80,0,0" VerticalAlignment="Top" Width="120">
                         <ComboBoxItem x:Name="Sonder_Einheit_mm" Content="mm"/>
                         <ComboBoxItem x:Name="Sonder_Einheit_cm" Content="cm"/>
                         <ComboBoxItem x:Name="Sonder_Einheit_m" Content="m"/>
                     </ComboBox>
-                    <Label x:Name="lbl_Sonder_Hinweis_Einheiten" Content="Bitte wählen Sie eine Einheit aus:" Margin="153,76,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="200"/>
+                    <Label x:Name="lbl_Sonder_Hinweis_Einheiten" Content="Bitte wählen Sie eine Einheit aus:" Margin="190,80,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="200"/>
                     <Image x:Name="img_IPE_Profil" Margin="10,155,115,155" Source="IPE-Profil.png" Visibility="Hidden"/>
                     <Label x:Name="lbl_Input_IPEBreite" Content="Breite:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,160,0,0" VerticalAlignment="Top" Width="90"/>
                     <Label x:Name="lbl_Input_IPEHoehe" Content="Höhe:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5,200,0,0" VerticalAlignment="Top" Width="90"/>
@@ -268,7 +266,7 @@
                     <TextBox x:Name="tbx_Input_SonderHoehe" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_SonderHoehe_TextChanged"/>
                     <TextBox x:Name="tbx_Input_SonderStegbreite" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,240,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_SonderStegbreite_TextChanged"/>
                     <TextBox x:Name="tbx_Input_SonderFlanschbreite" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_SonderFlanschbreite_TextChanged"/>
-                    <TextBox x:Name="tbx_Input_SonderLaenge" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+                    <TextBox x:Name="tbx_Input_IPELaenge" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
                     <Label x:Name="lbl_IPEGrafik_Breite" Content="b" HorizontalAlignment="Left" Height="28" Margin="84,418,0,0" VerticalAlignment="Top" Width="69" Visibility="Hidden"/>
                     <Label x:Name="lbl_IPEGrafik_Hoehe" Content="h" HorizontalAlignment="Left" Height="26" Margin="165,274,0,0" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
                         <Label.RenderTransform>
@@ -376,7 +374,6 @@
                     </CheckBox>
                     <TextBox x:Name="tbx_Sonderprofil_DateinameSTEP" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,530,0,0" TextWrapping="Wrap" Text="Sonderprofil-Traeger" VerticalAlignment="Top" Width="150"/>
                     <Label x:Name="lbl_SonderprofilSTEP_Dateiname" Content="Dateiname:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5.2,530,0,0" VerticalAlignment="Top" Width="75"/>
-                    <CheckBox x:Name="ChB_Bestellnummer_Sonder" Content="Bestellnummer erzeugen" Grid.Column="2" HorizontalAlignment="Left" Margin="60.2,496,0,0" VerticalAlignment="Top" Height="25" Width="207"/>
 
 
                 </Grid>
@@ -388,7 +385,6 @@
 
 
         </TabControl>
-        <Image x:Name="ProfiRechner_Logo" HorizontalAlignment="Left" Height="135" Margin="10,10,0,0" VerticalAlignment="Top" Width="145" Source="Logo_ProfiRechner.png" Stretch="Fill"/>
 
     </Grid>
 </Window>
