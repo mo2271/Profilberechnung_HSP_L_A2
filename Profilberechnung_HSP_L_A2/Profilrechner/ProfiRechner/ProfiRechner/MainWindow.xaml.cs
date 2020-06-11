@@ -392,7 +392,7 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_SonderBreite.Text, out double SonderIPEBreite);
             Double.TryParse(tbx_Input_SonderFlanschbreite.Text, out double SonderIPEFlanschbreite);
             Double.TryParse(tbx_Input_SonderStegbreite.Text, out double SonderIPEStegbreite);
-            Double.TryParse(tbx_Input_IPELaenge.Text, out double SonderIPELaenge);
+            Double.TryParse(tbx_Input_SonderLaenge.Text, out double SonderIPELaenge);
             String SonderEinheit = Convert.ToString(CoB_Sonder_Auswahl_Einheit.SelectionBoxItem);
             Double SonderWSDichte = CoB_Sonder_WS.Text.Equals("Stahl") ? 7850 : 2700;
             Double.TryParse(tbx_Input_SonderPreisProMeter.Text, out double SonderIPEPreisProMeter);
@@ -491,7 +491,7 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_SonderBreite.Text, out double SonderTBreite);
             Double.TryParse(tbx_Input_SonderFlanschbreite.Text, out double SonderTFlanschbreite);
             Double.TryParse(tbx_Input_SonderStegbreite.Text, out double SonderTStegbreite);
-            Double.TryParse(tbx_Input_IPELaenge.Text, out double SonderTLaenge);
+            Double.TryParse(tbx_Input_SonderLaenge.Text, out double SonderTLaenge);
             String SonderEinheit = Convert.ToString(CoB_Sonder_Auswahl_Einheit.SelectionBoxItem);
             Double SonderWSDichte = CoB_Sonder_WS.Text.Equals("Stahl") ? 7850 : 2700;
             Double.TryParse(tbx_Input_SonderPreisProMeter.Text, out double SonderTPreisProMeter);
@@ -598,7 +598,7 @@ namespace ProfiRechner
             Double.TryParse(tbx_Input_SonderBreite.Text, out double SonderUBreite);
             Double.TryParse(tbx_Input_SonderFlanschbreite.Text, out double SonderUFlanschbreite);
             Double.TryParse(tbx_Input_SonderStegbreite.Text, out double SonderUStegbreite);
-            Double.TryParse(tbx_Input_IPELaenge.Text, out double SonderULaenge);
+            Double.TryParse(tbx_Input_SonderLaenge.Text, out double SonderULaenge);
             String SonderEinheit = Convert.ToString(CoB_Sonder_Auswahl_Einheit.SelectionBoxItem);
             Double SonderWSDichte = CoB_Sonder_WS.Text.Equals("Stahl") ? 7850 : 2700;
             Double.TryParse(tbx_Input_SonderPreisProMeter.Text, out double SonderUPreisProMeter);
@@ -1628,7 +1628,7 @@ namespace ProfiRechner
                             {
                                 if (Double.TryParse(tbx_Input_SonderStegbreite.Text, out double sb))        //Kontrolle auf Buchstaben der Stegbreite
                                 {
-                                    if (Double.TryParse(tbx_Input_IPELaenge.Text, out double l))     //Kontrolle auf Buchstaben der Länge
+                                    if (Double.TryParse(tbx_Input_SonderLaenge.Text, out double l))     //Kontrolle auf Buchstaben der Länge
                                     {
                                         double Breite;
                                         double Hoehe;
@@ -1698,9 +1698,9 @@ namespace ProfiRechner
                                                             );
                                                             if (result == MessageBoxResult.OK)
                                                             {
-                                                                tbx_Input_IPELaenge.Text = "";
+                                                                tbx_Input_SonderLaenge.Text = "";
 
-                                                                tbx_Input_IPELaenge.Focus();
+                                                                tbx_Input_SonderLaenge.Focus();
                                                             }
                                                         }
                                                         if (Zeichenlaenge_l.Length <= 4)
@@ -1828,9 +1828,9 @@ namespace ProfiRechner
                                         );
                                         if (result == MessageBoxResult.OK)
                                         {
-                                            tbx_Input_IPELaenge.Text = "";
+                                            tbx_Input_SonderLaenge.Text = "";
 
-                                            tbx_Input_IPELaenge.Focus();
+                                            tbx_Input_SonderLaenge.Focus();
                                         }
                                     }
                                 }
@@ -1956,7 +1956,7 @@ namespace ProfiRechner
                         {
                             //Konvertierung erfolgreich
 
-                            if (Double.TryParse(tbx_Input_IPELaenge.Text, out double l))        //Kontrolle auf Buchstaben der Länge
+                            if (Double.TryParse(tbx_Input_SonderLaenge.Text, out double l))        //Kontrolle auf Buchstaben der Länge
                             {
                                 //Konvertierung erfolgreich
 
@@ -2023,9 +2023,9 @@ namespace ProfiRechner
                                                             );
                                                             if (result == MessageBoxResult.OK)
                                                             {
-                                                                tbx_Input_IPELaenge.Text = "";
+                                                                tbx_Input_SonderLaenge.Text = "";
 
-                                                                tbx_Input_IPELaenge.Focus();
+                                                                tbx_Input_SonderLaenge.Focus();
                                                             }
                                                         }
                                                         if (Zeichenlaenge_l.Length <= 4)
@@ -2176,9 +2176,9 @@ namespace ProfiRechner
                                 );
                                 if (result == MessageBoxResult.OK)
                                 {
-                                    tbx_Input_IPELaenge.Text = "";
+                                    tbx_Input_SonderLaenge.Text = "";
 
-                                    tbx_Input_IPELaenge.Focus();
+                                    tbx_Input_SonderLaenge.Focus();
                                 }
                             }
                         }
@@ -2261,7 +2261,7 @@ namespace ProfiRechner
                     {
                         if (Double.TryParse(tbx_Input_SonderHoehe.Text, out double h))     //Kontrolle auf Buchstaben der Höhe
                         {
-                            if (Double.TryParse(tbx_Input_IPELaenge.Text, out double l))        //Kontrolle auf Buchstaben der Länge
+                            if (Double.TryParse(tbx_Input_SonderLaenge.Text, out double l))        //Kontrolle auf Buchstaben der Länge
                             {
                                 if (Double.TryParse(tbx_Input_SonderStegbreite.Text, out double sb))       //Kontrolle auf Buchstaben der Stegbreite
                                 {
@@ -2324,9 +2324,9 @@ namespace ProfiRechner
                                                             );
                                                             if (result == MessageBoxResult.OK)
                                                             {
-                                                                tbx_Input_IPELaenge.Text = "";
+                                                                tbx_Input_SonderLaenge.Text = "";
 
-                                                                tbx_Input_IPELaenge.Focus();
+                                                                tbx_Input_SonderLaenge.Focus();
                                                             }
                                                         }
                                                         if (Zeichenlaenge_l.Length <= 4)
@@ -2475,9 +2475,9 @@ namespace ProfiRechner
                                 );
                                 if (result == MessageBoxResult.OK)
                                 {
-                                    tbx_Input_IPELaenge.Text = "";
+                                    tbx_Input_SonderLaenge.Text = "";
 
-                                    tbx_Input_IPELaenge.Focus();
+                                    tbx_Input_SonderLaenge.Focus();
                                 }
                             }
                         }
@@ -2599,12 +2599,36 @@ namespace ProfiRechner
         {
             Kontrolle_Rechteckprofil();
 
+            if (CoB_Rechteck_WS.SelectedItem==Rechteck_WS_Stahl)
+            {
+                if (ChB_Bestellnummer_Rechteck.IsChecked == true)
+                {
+                    MessageBox.Show("Bestellnummer: Flachstab EN 10058 - " + tbx_Input_RechteckBreite.Text + " x " + tbx_Input_RechteckHoehe.Text + " x " + tbx_Input_RechteckLaenge.Text);
+                }
+
+            }
+
+            if (CoB_Rechteck_WS.SelectedItem==Rechteck_WS_Aluminium)
+            {
+                if (ChB_Bestellnummer_Rechteck.IsChecked == true)
+                {
+                    MessageBox.Show("Bestellnummer: Flachstab - " + tbx_Input_RechteckBreite.Text + " x " + tbx_Input_RechteckHoehe.Text + " x " + tbx_Input_RechteckLaenge.Text);
+                }
+
+            }
+           
 
         }
 
         private void btn_StartRechteckprofil_hohl_Berechnung_Click(object sender, RoutedEventArgs e)
         {
             Kontrolle_Rechteckprofil_hohl();
+
+            if (ChB_Bestellnummer_Rechteck.IsChecked == true)
+            {
+                MessageBox.Show("Bestellnummer: Stahlrohr EN 10219 - " + tbx_Input_RechteckBreite.Text + " x " + tbx_Input_RechteckHoehe.Text + " x " + tbx_Input_Rechteck_hohl_Wall.Text + " x "  + tbx_Input_RechteckLaenge.Text);
+            }
+
 
         }
 
@@ -2764,11 +2788,37 @@ namespace ProfiRechner
         {
             Kontrolle_Kreisprofil();    //Kontrolle der Eingaben
 
+            if (CoB_Kreis_WS.SelectedItem==Kreis_WS_Stahl)
+            {
+                if (ChB_Bestellnummer_Kreis.IsChecked == true)
+                {
+                    MessageBox.Show("Bestellnummer: Rundstab DIN EN 10060 - " + tbx_Input_KreisDurchmesser.Text + " x " + tbx_Input_KreisLaenge.Text);
+                }
+
+            }
+
+            if (CoB_Kreis_WS.SelectedItem==Kreis_WS_Aluminium)
+            {
+                if (ChB_Bestellnummer_Kreis.IsChecked == true)
+                {
+                    MessageBox.Show("Bestellnummer: Rundstab - " + tbx_Input_KreisDurchmesser.Text + " x " + tbx_Input_KreisLaenge.Text);
+                }
+            }
+            
+
+
         }
 
         private void btn_StartKreisprofil_hohl_Berechnung_Click(object sender, RoutedEventArgs e)
         {
             Kontrolle_Kreisprofil_hohl();   // Kontrolle der Eingabe
+
+            if (ChB_Bestellnummer_Kreis.IsChecked == true)
+            {
+                MessageBox.Show("Bestellnummer: Rohrprofil Rund DIN EN 10220 - " + tbx_Input_KreisDurchmesser.Text + " x " + tbx_Input_Kreis_hohlWandstaerke.Text + " x " + tbx_Input_KreisLaenge.Text);
+            }
+
+
 
         }
 
@@ -2943,16 +2993,71 @@ namespace ProfiRechner
         {
             Kontrolle_I_Profil();
 
+            if (CoB_Sonder_WS.SelectedItem==Sonder_WS_Stahl)
+            {
+                if (ChB_Bestellnummer_Sonder.IsChecked == true)
+                {
+                    MessageBox.Show("Bestellnummer: I-Profil DIN 1025 - IPE " + tbx_Input_SonderBreite.Text + " x " + tbx_Input_SonderLaenge.Text);
+                }
+
+            }
+
+            if (CoB_Sonder_WS.SelectedItem==Sonder_WS_Aluminium)
+            {
+                if (ChB_Bestellnummer_Sonder.IsChecked == true)
+                {
+                    MessageBox.Show("Bestellnummer: I-Profil - IPE " + tbx_Input_SonderBreite.Text + " x " + tbx_Input_SonderLaenge.Text);
+                }
+            }
         }
 
         private void btn_StartU_Berechnung_Click(object sender, RoutedEventArgs e)
         {
             Kontrolle_U_Profil();
+
+            if (CoB_Sonder_WS.SelectedItem == Sonder_WS_Stahl)
+            {
+                if (ChB_Bestellnummer_Sonder.IsChecked == true)
+                {
+                    MessageBox.Show("Bestellnummer: U-Profil DIN 1026 - U" + tbx_Input_SonderHoehe.Text + " x " + tbx_Input_SonderLaenge.Text);
+                }
+
+            }
+
+            if (CoB_Sonder_WS.SelectedItem == Sonder_WS_Aluminium)
+            {
+                if (ChB_Bestellnummer_Sonder.IsChecked == true)
+                {
+                    MessageBox.Show("Bestellnummer: U-Profil - U" + tbx_Input_SonderHoehe.Text + " x " + tbx_Input_SonderLaenge.Text);
+                }
+            }
         }
 
         private void btn_StartT_Berechnung_Click(object sender, RoutedEventArgs e)
         {
             Kontrolle_T_Profil();
+
+            if (CoB_Sonder_WS.SelectedItem == Sonder_WS_Stahl)
+            {
+                if (ChB_Bestellnummer_Sonder.IsChecked == true)
+                {
+                    MessageBox.Show("Bestellnummer: T-Profil EN 10055 - T" + tbx_Input_SonderHoehe.Text + " x " + tbx_Input_SonderLaenge.Text);
+                }
+
+            }
+
+            if (CoB_Sonder_WS.SelectedItem == Sonder_WS_Aluminium)
+            {
+                if (ChB_Bestellnummer_Sonder.IsChecked == true)
+                {
+                    MessageBox.Show("Bestellnummer: T-Profil - T" + tbx_Input_SonderHoehe.Text + " x " + tbx_Input_SonderLaenge.Text);
+                }
+            }
+
+         
+
+
+
         }
 
         #region Checkboxen Profilwahl
@@ -3093,10 +3198,11 @@ namespace ProfiRechner
 
 
 
-        #endregion
 
         #endregion
 
-        
+        #endregion
+
+      
     }
 }
