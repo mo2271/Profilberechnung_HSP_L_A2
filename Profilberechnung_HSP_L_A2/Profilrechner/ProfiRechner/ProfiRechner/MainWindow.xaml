@@ -99,9 +99,37 @@
                         <ComboBoxItem x:Name="Rechteck_WS_Stahl" Content="Stahl"/>
                         <ComboBoxItem x:Name="Rechteck_WS_Aluminium" Content="Aluminium"/>
                     </ComboBox>
-                   
+
                     <Label x:Name="lbl_RechteckPreisProMeter" Content="Preis pro lfd. Meter in [€/m]:" Margin="153,102,0,0" VerticalAlignment="Top" Grid.ColumnSpan="1" HorizontalAlignment="Left" Width="200"/>
                     <TextBox x:Name="tbx_Input_RechteckPreisProMeter" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="30,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+
+                    <CheckBox x:Name="ChB_ExportCATPart_Rechteck" Content="Als .CATPart exportieren" Grid.Column="1" Margin="90,350,0,0" RenderTransformOrigin="0.5,0.5" Height="16" VerticalAlignment="Top" Width="160" HorizontalAlignment="Left">
+
+                        <CheckBox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </CheckBox.RenderTransform>
+                    </CheckBox>
+                    <CheckBox x:Name="ChB_ExportSTEP_Rechteck" Content="Als .STEP exportieren" Grid.Column="1" Margin="90,450,0,0" RenderTransformOrigin="0.5,0.5" Height="16" VerticalAlignment="Top" Width="160" HorizontalAlignment="Left">
+
+                        <CheckBox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </CheckBox.RenderTransform>
+                    </CheckBox>
+                    <TextBox x:Name="tbx_Rechteck_DateinameCATPart" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,380,0,0" TextWrapping="Wrap" Text="Rechteck-Traeger" VerticalAlignment="Top" Width="150"/>
+                    <Label x:Name="lbl_RechteckCATPart_Dateiname" Content="Dateiname:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5.2,380,0,0" VerticalAlignment="Top" Width="75"/>
+                    <TextBox x:Name="tbx_Rechteck_DateinameSTEP" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,480,0,0" TextWrapping="Wrap" Text="Rechteck-Traeger" VerticalAlignment="Top" Width="150"/>
+                    <Label x:Name="lbl_RechteckSTEP_Dateiname" Content="Dateiname:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5.2,480,0,0" VerticalAlignment="Top" Width="75"/>
+                    <CheckBox x:Name="ChB_Bestellnummer_Rechteck" Content="Bestellnummer erzeugen" Grid.Column="2" HorizontalAlignment="Left" Margin="60.2,496,0,0" VerticalAlignment="Top" Height="25" Width="207"/>
 
 
                 </Grid>
@@ -167,6 +195,33 @@
                     </ComboBox>
                     <Label x:Name="lbl_KreisPreisProMeter" Content="Preis pro lfd. Meter in [€/m]:" Margin="153,102,0,0" VerticalAlignment="Top" Grid.ColumnSpan="1" HorizontalAlignment="Left" Width="200"/>
                     <TextBox x:Name="tbx_Input_KreisPreisProMeter" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="30,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+                    <CheckBox x:Name="ChB_ExportCATPart_Kreis" Content="Als .CATPart exportieren" Grid.Column="1" Margin="90,350,0,0" RenderTransformOrigin="0.5,0.5" Height="16" VerticalAlignment="Top" Width="160" HorizontalAlignment="Left">
+
+                        <CheckBox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </CheckBox.RenderTransform>
+                    </CheckBox>
+                    <TextBox x:Name="tbx_Kreis_DateinameCATPart" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,380,0,0" TextWrapping="Wrap" Text="Kreis-Profil" VerticalAlignment="Top" Width="150"/>
+                    <Label x:Name="lbl_KreisCATPart_Dateiname" Content="Dateiname:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5.2,380,0,0" VerticalAlignment="Top" Width="75"/>
+                    <CheckBox x:Name="ChB_ExportSTEP_Kreis" Content="Als .STEP exportieren" Grid.Column="1" Margin="90,450,0,0" RenderTransformOrigin="0.5,0.5" Height="16" VerticalAlignment="Top" Width="160" HorizontalAlignment="Left">
+
+                        <CheckBox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </CheckBox.RenderTransform>
+                    </CheckBox>
+                    <TextBox x:Name="tbx_Kreis_DateinameSTEP" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,480,0,0" TextWrapping="Wrap" Text="Kreis-Profil" VerticalAlignment="Top" Width="150"/>
+                    <Label x:Name="lbl_KreisSTEP_Dateiname" Content="Dateiname:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5.2,480,0,0" VerticalAlignment="Top" Width="75"/>
+                    <CheckBox x:Name="ChB_Bestellnummer_Kreis" Content="Bestellnummer erzeugen" Grid.Column="2" HorizontalAlignment="Left" Margin="60.2,496,0,0" VerticalAlignment="Top" Height="25" Width="207"/>
 
 
 
@@ -213,7 +268,7 @@
                     <TextBox x:Name="tbx_Input_SonderHoehe" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_SonderHoehe_TextChanged"/>
                     <TextBox x:Name="tbx_Input_SonderStegbreite" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,240,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_SonderStegbreite_TextChanged"/>
                     <TextBox x:Name="tbx_Input_SonderFlanschbreite" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_SonderFlanschbreite_TextChanged"/>
-                    <TextBox x:Name="tbx_Input_IPELaenge" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+                    <TextBox x:Name="tbx_Input_SonderLaenge" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
                     <Label x:Name="lbl_IPEGrafik_Breite" Content="b" HorizontalAlignment="Left" Height="28" Margin="84,418,0,0" VerticalAlignment="Top" Width="69" Visibility="Hidden"/>
                     <Label x:Name="lbl_IPEGrafik_Hoehe" Content="h" HorizontalAlignment="Left" Height="26" Margin="165,274,0,0" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
                         <Label.RenderTransform>
@@ -295,10 +350,38 @@
                     <Label x:Name="lbl_U_CMaß" Content="c" HorizontalAlignment="Left" Margin="204,378,0,0" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
                     <Label x:Name="lbl_SonderPreisProMeter" Content="Preis pro lfd. Meter in [€/m]:" Margin="153,102,0,0" VerticalAlignment="Top" Grid.ColumnSpan="1" HorizontalAlignment="Left" Width="200"/>
                     <TextBox x:Name="tbx_Input_SonderPreisProMeter" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="30,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+                    <CheckBox x:Name="ChB_ExportCATPart_Sonderprofil" Content="Als .CATPart exportieren" Grid.Column="1" Margin="90,400,0,0" RenderTransformOrigin="0.5,0.5" Height="16" VerticalAlignment="Top" Width="160" HorizontalAlignment="Left">
+
+                        <CheckBox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </CheckBox.RenderTransform>
+                    </CheckBox>
+                    <TextBox x:Name="tbx_Sonderprofil_DateinameCATPart" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,430,0,0" TextWrapping="Wrap" Text="Sonderprofil-Traeger" VerticalAlignment="Top" Width="150"/>
+                    <Label x:Name="lbl_SonderCATPart_Dateiname" Content="Dateiname:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5.2,430,0,0" VerticalAlignment="Top" Width="75"/>
+                    <CheckBox x:Name="ChB_ExportSTEP_Sonderprofil" Content="Als .STEP exportieren" Grid.Column="1" Margin="90,500,0,0" RenderTransformOrigin="0.5,0.5" Height="16" VerticalAlignment="Top" Width="160" HorizontalAlignment="Left">
+
+                        <CheckBox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </CheckBox.RenderTransform>
+                    </CheckBox>
+                    <TextBox x:Name="tbx_Sonderprofil_DateinameSTEP" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,530,0,0" TextWrapping="Wrap" Text="Sonderprofil-Traeger" VerticalAlignment="Top" Width="150"/>
+                    <Label x:Name="lbl_SonderprofilSTEP_Dateiname" Content="Dateiname:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5.2,530,0,0" VerticalAlignment="Top" Width="75"/>
+                    <CheckBox x:Name="ChB_Bestellnummer_Sonder" Content="Bestellnummer erzeugen" Grid.Column="2" HorizontalAlignment="Left" Margin="60.2,496,0,0" VerticalAlignment="Top" Height="25" Width="207"/>
 
 
                 </Grid>
             </TabItem>
+
 
 
 
