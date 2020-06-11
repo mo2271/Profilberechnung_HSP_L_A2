@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProfiRechner"
         mc:Ignorable="d"
-        Title="Profil-Profi" Height="700" Width="1250" MinWidth="1250" MinHeight="700" ResizeMode="NoResize">
+        Title="Profil-Profi" Height="700" Width="1250" MinWidth="1250" MinHeight="700" ResizeMode="NoResize" Icon="Logo_ProfiRechner.png">
     <Grid>
         <ListBox x:Name="lbox_Profilauswahl" Margin="10,150,1088.2,10">
             <ListBoxItem x:Name="lb_item_Rechteckprofil" Content="Rechteckprofile" Background="Gray" MouseDoubleClick="lb_item_Rechteckprofil_MouseDoubleClick" MouseEnter="lb_item_Rechteckprofil_MouseEnter" MouseLeave="lb_item_Rechteckprofil_MouseLeave" ToolTip="Doppelklicken, um Profil auszuwählen und die Berechnung zu starten."/>
@@ -129,6 +129,7 @@
                     <Label x:Name="lbl_RechteckCATPart_Dateiname" Content="Dateiname:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5.2,380,0,0" VerticalAlignment="Top" Width="75"/>
                     <TextBox x:Name="tbx_Rechteck_DateinameSTEP" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,480,0,0" TextWrapping="Wrap" Text="Rechteck-Traeger" VerticalAlignment="Top" Width="150"/>
                     <Label x:Name="lbl_RechteckSTEP_Dateiname" Content="Dateiname:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5.2,480,0,0" VerticalAlignment="Top" Width="75"/>
+                    <CheckBox x:Name="ChB_Bestellnummer_Rechteck" Content="Bestellnummer erzeugen" Grid.Column="2" HorizontalAlignment="Left" Margin="60.2,496,0,0" VerticalAlignment="Top" Height="25" Width="207"/>
 
 
                 </Grid>
@@ -220,6 +221,7 @@
                     </CheckBox>
                     <TextBox x:Name="tbx_Kreis_DateinameSTEP" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,480,0,0" TextWrapping="Wrap" Text="Kreis-Profil" VerticalAlignment="Top" Width="150"/>
                     <Label x:Name="lbl_KreisSTEP_Dateiname" Content="Dateiname:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5.2,480,0,0" VerticalAlignment="Top" Width="75"/>
+                    <CheckBox x:Name="ChB_Bestellnummer_Kreis" Content="Bestellnummer erzeugen" Grid.Column="2" HorizontalAlignment="Left" Margin="60.2,496,0,0" VerticalAlignment="Top" Height="25" Width="207"/>
 
 
 
@@ -266,7 +268,7 @@
                     <TextBox x:Name="tbx_Input_SonderHoehe" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_SonderHoehe_TextChanged"/>
                     <TextBox x:Name="tbx_Input_SonderStegbreite" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,240,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_SonderStegbreite_TextChanged"/>
                     <TextBox x:Name="tbx_Input_SonderFlanschbreite" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TextChanged="tbx_Input_SonderFlanschbreite_TextChanged"/>
-                    <TextBox x:Name="tbx_Input_IPELaenge" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+                    <TextBox x:Name="tbx_Input_SonderLaenge" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="100,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
                     <Label x:Name="lbl_IPEGrafik_Breite" Content="b" HorizontalAlignment="Left" Height="28" Margin="84,418,0,0" VerticalAlignment="Top" Width="69" Visibility="Hidden"/>
                     <Label x:Name="lbl_IPEGrafik_Hoehe" Content="h" HorizontalAlignment="Left" Height="26" Margin="165,274,0,0" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
                         <Label.RenderTransform>
@@ -374,6 +376,7 @@
                     </CheckBox>
                     <TextBox x:Name="tbx_Sonderprofil_DateinameSTEP" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="80,530,0,0" TextWrapping="Wrap" Text="Sonderprofil-Traeger" VerticalAlignment="Top" Width="150"/>
                     <Label x:Name="lbl_SonderprofilSTEP_Dateiname" Content="Dateiname:" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="5.2,530,0,0" VerticalAlignment="Top" Width="75"/>
+                    <CheckBox x:Name="ChB_Bestellnummer_Sonder" Content="Bestellnummer erzeugen" Grid.Column="2" HorizontalAlignment="Left" Margin="60.2,496,0,0" VerticalAlignment="Top" Height="25" Width="207"/>
 
 
                 </Grid>
@@ -385,6 +388,7 @@
 
 
         </TabControl>
+        <Image x:Name="ProfiRechner_Logo" HorizontalAlignment="Left" Height="135" Margin="10,10,0,0" VerticalAlignment="Top" Width="145" Source="Logo_ProfiRechner.png" Stretch="Fill"/>
 
     </Grid>
 </Window>
