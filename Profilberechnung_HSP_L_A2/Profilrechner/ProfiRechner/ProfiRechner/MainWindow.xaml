@@ -157,7 +157,7 @@
                     <Label x:Name="lbl_Kreis_Schwerpunkt" Content="Schwerpunkt:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Kreis_FTM_X" Content="FTM um die X-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Kreis_FTM_Y" Content="FTM um die Y-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Kreis_Preis" Content="Preis pro lfd. Meter [€/m]:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Kreis_Preis" Content="Preis:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Kreis_Fläche_Ergebnis" Content="Ergebnis 1:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Label x:Name="lbl_Kreis_Volumen_Ergebnis" Content="Ergebnis 2:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Label x:Name="lbl_Kreis_Masse_Ergebnis" Content="Ergebnis 3:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
@@ -244,7 +244,7 @@
                     <Label x:Name="lbl_Sonder_Schwerpunkt" Content="Schwerpunkt:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Sonder_FTM_X" Content="FTM um die X-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Sonder_FTM_Y" Content="FTM um die Y-Achse:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Sonder_Preis" Content="Preis pro lfd. Meter:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_Sonder_Preis" Content="Preis:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_Sonder_Fläche_Ergebnis" Content="Ergebnis 1:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Label x:Name="lbl_Sonder_Volumen_Ergebnis" Content="Ergebnis 2:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                     <Label x:Name="lbl_Sonder_Masse_Ergebnis" Content="Ergebnis 3:" Grid.Column="2" HorizontalAlignment="Left" Margin="200,210,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
